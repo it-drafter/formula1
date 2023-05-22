@@ -13,7 +13,7 @@ import Teams1 from "../img/Teams1.png";
 
 export default function NavBar() {
     return (
-        <div>
+        <div className="NavContainer">
             <Router>
                 <nav className="NavBar">
 
@@ -40,7 +40,6 @@ export default function NavBar() {
                         <Route path="/drivers" element={<Drivers />} />
                         <Route path="/teams" element={<Teams />} />
                         <Route path="/races" element={<Races />} />
-
                     </Routes>
                 </nav>
             </Router>
