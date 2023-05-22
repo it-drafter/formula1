@@ -11,13 +11,9 @@ import Teams1 from '../img/Teams1.png';
 
 export default function NavBar() {
   return (
-    <div>
+    <div className='NavContainer'>
       <Router>
         <nav className='NavBar'>
-          <Link to='/'>
-            <img src={F1logo} alt='Formula 1' className='homeimg' />
-          </Link>
-
           <Link to='/drivers'>
             Drivers
             <img src={Kaciga} className='kaciga' />
@@ -26,6 +22,11 @@ export default function NavBar() {
           <Link to='/teams'>
             Teams
             <img src={Teams1} className='teams1' />
+          </Link>
+
+          <Link to='/races'>
+            Races
+            <img src={Races2} className='races2' />
           </Link>
 
           <Link to='/races'>

@@ -1,9 +1,16 @@
-.NavBar {
+.NavContainer {
   display: flex;
+  flex-direction: column;
+}
+
+.NavBar {
   min-width: 100%;
   max-height: 90px;
   text-align: center;
+  flex: 0 0 auto;
+  margin: 0px 10px 100px 10px;
 }
+
 a {
   text-decoration: none;
   color: red;
@@ -20,10 +27,12 @@ a {
   width: 200px;
   height: 80px;
 }
+
 .teams1 {
   width: 200px;
   height: 80px;
 }
+
 .races2 {
   width: 200px;
   height: 80px;
