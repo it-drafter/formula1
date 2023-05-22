@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Drivers = () => {
+const Home = () => {
   return (
     <>
-      <h1>Drivers component</h1>
+      <h1>Home component</h1>
     </>
   );
 };
 
-export default Drivers;
+export default Home;
