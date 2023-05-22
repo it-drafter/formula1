@@ -11,7 +11,7 @@ import axios from 'axios';
 import RaceTableRow from './RaceTableRow';
 
 
-const Races = () => {
+const RaceResults = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [races, setRaces] = useState([]);
@@ -80,4 +80,4 @@ const Races = () => {
     );
 };
 
-export default Races;
+export default RaceResults;
