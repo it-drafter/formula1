@@ -11,7 +11,7 @@ import Teams1 from "../img/Teams1.png";
 
 
 
-export default function NavBar() {
+export default function Navigation() {
     return (
         <div className="NavContainer">
             <Router>
