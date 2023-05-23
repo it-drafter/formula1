@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 const TeamsTableRow = (props) => {
   const navigate = useNavigate();
 
-  const handleClickConstructor = (constructorId) => {
-    console.log("Konstruktor dugme", constructorId);
-    const linkTo = `/teams${constructorId}`;
+  const handleClickConstructor = (teamId) => {
+    console.log("Konstruktor dugme", teamId);
+    const linkTo = `/teams${teamId}`;
     navigate(linkTo);
 
 
