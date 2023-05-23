@@ -1,0 +1,152 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+
+.NavContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  
+}
+
+.NavBar {
+  min-width: 100%;
+  // max-height: 90px;
+  text-align: center;
+  // flex: 0 0 auto;
+  background-color: rgb(90, 21, 21);
+  // padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  
+
+  .nav-link-home {
+    display: flex;
+    align-items: center;
+    // width: 35%;
+    margin-right: 20%;
+    margin-left: 2%;
+  }.nav-link-home:hover{
+    color:rgb(40, 113, 248);
+  background-color: rgb(255, 136, 0);
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: auto;
+    font-family: 'formula1-display-regular-regular', sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .nav-link:hover,.nav-link:focus{
+    color:rgb(40, 113, 248);
+    background-color: rgb(255, 136, 0);
+  }
+
+  a {
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+    // width: 200px;
+    //height: 80px;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+  }
+  
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    
+  }
+
+  h1 {
+    margin-top: 30px;
+  }
+}
+
+
+a {
+  text-decoration: none;
+  color: rgb(245, 9, 9);
+  width: 200px;
+  //height: 80px;
+  
+}
+
+.homeimg {
+  width: 200px;
+  height: 80px;
+  // float: left;
+}
+
+.kaciga {
+  width: 200px;
+  height: 80px;
+}
+
+.teams1 {
+  width: 200px;
+  height: 80px;
+}
+
+.races2 {
+  width: 200px;
+  height: 80px;
+  mix-blend-mode: multiply;
+}

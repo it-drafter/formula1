@@ -2,16 +2,27 @@ import React from 'react';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 
-const RaceTableRow = (props) => {
+const QualifyingTableRow = (props) => {
+
+    function qSort() {
+        const arr = [];
+        arr.push(props.qualifier.Q1);
+        arr.push(props.qualifier.Q2);
+        arr.push(props.qualifier.Q3);
+        arr.sort();
+        return arr[0];
+    }
+
     return (
         <TableRow>
-            <TableCell>{props.race.round}</TableCell>
-            <TableCell>{props.race.raceName}</TableCell>
-            <TableCell>{props.race.Circuit.circuitName}</TableCell>
-            <TableCell>{props.race.date}</TableCell>
-            <TableCell>{props.race.Results[0].Driver.familyName}</TableCell>
+            <TableCell>{props.qualifier.position}</TableCell>
+            <TableCell>
+                {props.qualifier.Driver.givenName + ' ' + props.qualifier.Driver.familyName}
+            </TableCell>
+            <TableCell>{props.qualifier.Constructor.name}</TableCell>
+            <TableCell>{qSort() || 'NC'}</TableCell>
         </TableRow>
     );
 };
 
-export default RaceTableRow;
+export default QualifyingTableRow;
