@@ -61,15 +61,15 @@ const Teams = () => {
       <Table>
         <TableHead>
           <TableRow className='table-header'>
-            <TableCell>Position</TableCell>
-            <TableCell>Points</TableCell>
-            <TableCell>Wins</TableCell>
+            <TableCell>Team</TableCell>
+            <TableCell>Url</TableCell>
+            <TableCell>Country</TableCell>
             <TableCell>Constructor</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {teams.map((team, index) => (
-            <TeamsTableRow  teams={team} />
+          {teams.map((teams, index) => (
+            <TeamsTableRow  teams={teams} />
           ))}
         </TableBody>
       </Table>
