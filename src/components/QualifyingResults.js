@@ -21,7 +21,7 @@ const QualifyingResults = () => {
     }, []);
 
     const getQualifying = async () => {
-        const url = 'http://ergast.com/api/f1/2013/results/1.json';
+        const url = 'http://ergast.com/api/f1/2023/3/qualifying.json';
         setIsLoading(true);
         try {
             const response = await axios.get(url);
@@ -30,7 +30,7 @@ const QualifyingResults = () => {
             //     throw new Error('Something went wrong!');
             //   }
             const data =
-                response.data.MRData.RaceTable.Races.QualifyingResults;
+                response.data.MRData.RaceTable.Races[0].QualifyingResults;
             console.log(data);
             setQualifying(data);
             setIsLoading(false);

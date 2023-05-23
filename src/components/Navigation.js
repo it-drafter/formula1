@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom';
 import Drivers from './Drivers';
-import Races from './RaceResults';
+import Races from './QualifyingResults';
 import Teams from './Teams';
 import Home from './Home';
 import F1logo from '../img/F1-logo.png';

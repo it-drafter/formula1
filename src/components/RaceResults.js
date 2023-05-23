@@ -24,7 +24,7 @@ const RaceResults = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(url);
-      console.log('response', response);
+      // console.log('response', response);
       //   if (response.request.status !== 200) {
       //     throw new Error('Something went wrong!');
       //   }

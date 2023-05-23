@@ -5,11 +5,11 @@ import TableCell from '@mui/material/TableCell';
 const QualifyingTableRow = (props) => {
     return (
         <TableRow>
-            <TableCell>{props.race.round}</TableCell>
-            <TableCell>{props.race.raceName}</TableCell>
-            <TableCell>{props.race.Circuit.circuitName}</TableCell>
-            <TableCell>{props.race.date}</TableCell>
-            <TableCell>{props.race.Results[0].Driver.familyName}</TableCell>
+            <TableCell>{props.qualifier.position}</TableCell>
+            <TableCell>{props.qualifier.Driver.givenName + ' ' + props.qualifier.Driver.familyName}</TableCell>
+            <TableCell>{props.qualifier.Constructor.name}</TableCell>
+            <TableCell>
+                {props.qualifier.Q3}</TableCell>
         </TableRow>
     );
 };
