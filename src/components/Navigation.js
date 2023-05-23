@@ -9,15 +9,11 @@ import Kaciga from '../img/Kaciga.png';
 import Races2 from '../img/Races2.png';
 import Teams1 from '../img/Teams1.png';
 
-export default function NavBar() {
-  return (
-    <div className='NavContainer'>
-      <Router>
-        <nav className='NavBar'>
-          <Link to='/drivers'>
-            Drivers
-            <img src={Kaciga} className='kaciga' />
-          </Link>
+export default function Navigation() {
+    return (
+        <div className="NavContainer">
+            <Router>
+                <nav className="NavBar">
 
           <Link to='/teams'>
             Teams
