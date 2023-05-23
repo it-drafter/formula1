@@ -9,7 +9,7 @@ return (
     <TableCell>{props.teams.position}</TableCell>
     <TableCell>{props.teams.points}</TableCell>
     <TableCell>{props.teams.wins}</TableCell>
-    <TableCell>{props.teams.constructor}</TableCell>
+    <TableCell>{props.teams.Constructor.name}</TableCell>
   </TableRow>
 )
 
