@@ -1,11 +1,10 @@
 .NavContainer {
-    display: flex;
-    flex-direction: column;
-    
-    
+  display: flex;
+  flex-direction: column;
 }
 
 .NavBar {
+<<<<<<< HEAD
     min-width: 100%;
     max-height: 90px;
     text-align: center;
@@ -28,20 +27,47 @@ a {
     width: 200px;
     height: 80px;
     
+=======
+  min-width: 100%;
+  max-height: 90px;
+  text-align: center;
+  flex: 0 0 auto;
+  h1 {
+    margin-top: 30px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: red;
+  width: 200px;
+  height: 80px;
+}
+
+.homeimg {
+  width: 200px;
+  height: 80px;
+>>>>>>> c52393d0fd1e16ba5297f4216a5709efa3b56b42
 }
 
 .kaciga {
-    width: 200px;
-    height: 80px;
+  width: 200px;
+  height: 80px;
 }
 
 .teams1 {
-    width: 200px;
-    height: 80px;
+  width: 200px;
+  height: 80px;
 }
 
 .races2 {
+<<<<<<< HEAD
     width: 200px;
     height: 80px;
     
 }
+=======
+  width: 200px;
+  height: 80px;
+}
+>>>>>>> c52393d0fd1e16ba5297f4216a5709efa3b56b42
