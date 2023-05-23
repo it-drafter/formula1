@@ -1,9 +1,9 @@
 .NavContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
 }
 
 .NavBar {
@@ -13,40 +13,38 @@
     // flex: 0 0 auto;
     background-color: rgb(90, 21, 21);
     // padding: 10px;
-    display:flex;
+    display: flex;
     justify-content: space-evenly;
-    .nav-link-home{
+
+    .nav-link-home {
         display: flex;
         align-items: center;
-        width: 35%;
-        
+        // width: 35%;
+        margin-right: 30%;
+
     }
-    .nav-link{
+
+    .nav-link {
         display: flex;
         align-items: center;
         justify-content: center;
         justify-items: center;
-      
-    }a {
+
+    }
+
+    a {
         text-decoration: none;
         color: rgb(245, 9, 9);
         width: 200px;
-        //height: 80px;
-      
-     
+        //height: 80px; 
     }
-    
-    ul{
-        list-style-type: none;
-        
-    }
-    
-   
-    
 
-    h1{
+    ul {
+        list-style-type: none;
+    }
+
+    h1 {
         margin-top: 30px;
-        
     }
 }
 
@@ -54,35 +52,27 @@ a {
     text-decoration: none;
     color: rgb(245, 9, 9);
     width: 200px;
-    //height: 80px;
-  
- 
+    //height: 80px; 
 }
 
 .homeimg {
     width: 200px;
     height: 80px;
-    float:left;
-  
-    
-    
-    
+    float: left;
 }
 
 .kaciga {
-  width: 200px;
-  height: 80px;
+    width: 200px;
+    height: 80px;
 }
 
 .teams1 {
-  width: 200px;
-  height: 80px;
+    width: 200px;
+    height: 80px;
 }
 
 .races2 {
     width: 200px;
     height: 80px;
     mix-blend-mode: multiply;
-    
-   
 }
