@@ -4,10 +4,12 @@ import Drivers from './Drivers';
 import Races from './Races';
 import Teams from './Teams';
 import Home from './Home';
-import F1logo from '../img/F1-logo.png';
+import f1logo3 from '../img/f1logo3.png';
 import Kaciga from '../img/Kaciga.png';
 import Races2 from '../img/Races2.png';
 import Teams1 from '../img/Teams1.png';
+import DriverDetails from './DriverDetails';
+import TeamDetails from './TeamDetails';
 
 export default function Navigation() {
     return (
@@ -16,7 +18,7 @@ export default function Navigation() {
                 <nav className="NavBar">
 
                     <Link to='/'>
-                        <img src={F1logo} className='homeimg' />
+                        <img src={f1logo3} className='homeimg' />
                     </Link>
 
 
