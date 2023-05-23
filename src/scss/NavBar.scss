@@ -8,7 +8,8 @@
     max-height: 90px;
     text-align: center;
     flex: 0 0 auto;
-    background-color: rgb(238, 74, 69);
+    background-color: rgb(90, 21, 21);
+   
     h1{
         margin-top: 30px;
     }
@@ -16,7 +17,7 @@
 
 a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 0, 0);
     width: 200px;
     height: 80px;
     
@@ -24,7 +25,9 @@ a {
 
 .homeimg {
     width: 200px;
-    height: 80px; 
+    height: 80px;
+   
+    
     
 }
 
@@ -41,5 +44,5 @@ a {
 .races2 {
     width: 200px;
     height: 80px;
-    
+   
 }

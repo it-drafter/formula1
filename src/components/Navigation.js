@@ -4,9 +4,9 @@ import Drivers from './Drivers';
 import Races from './Races';
 import Teams from './Teams';
 import Home from './Home';
-import f1logo3 from '../img/f1logo3.png';
+import F1logo from '../img/F1-logo.png';
 import Kaciga from '../img/Kaciga.png';
-import Races2 from '../img/Races2.png';
+import races4 from '../img/Races4.jpg';
 import Teams1 from '../img/Teams1.png';
 import DriverDetails from './DriverDetails';
 import TeamDetails from './TeamDetails';
@@ -18,7 +18,7 @@ export default function Navigation() {
                 <nav className="NavBar">
 
                     <Link to='/'>
-                        <img src={f1logo3} className='homeimg' />
+                        <img src={F1logo} className='homeimg' />
                     </Link>
 
 
@@ -35,7 +35,7 @@ export default function Navigation() {
 
                     <Link to='/races'>
                         Races
-                        <img src={Races2} className='races2' />
+                        <img src={races4} className='races2' />
                     </Link>
 
                     </nav>
@@ -44,7 +44,7 @@ export default function Navigation() {
                         <Route path='/' element={<Home />} />
 
                         <Route path='/drivers' element={<Drivers />} />
-                        <Route path='/drivers/details:driverId' element={<DriverDetails />} />
+                        <Route path='/drivers/details/:driverId' element={<DriverDetails />} />
 
                         <Route path='/teams' element={<Teams />} />
                         <Route path='/teams/details:teamId' element={<TeamDetails />} />
