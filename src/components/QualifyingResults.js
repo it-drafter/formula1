@@ -10,7 +10,6 @@ import {
 import axios from 'axios';
 import QualifyingTableRow from './QualifyingTableRow';
 
-
 const QualifyingResults = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -21,21 +20,14 @@ const QualifyingResults = () => {
     }, []);
 
     const getQualifying = async () => {
-        const url = 'http://ergast.com/api/f1/2023/3/qualifying.json';
+        const url = 'http://ergast.com/api/f1/2013/1/qualifying.json';
         setIsLoading(true);
         try {
             const response = await axios.get(url);
-            //   console.log('response', response);
-            //   if (response.request.status !== 200) {
-            //     throw new Error('Something went wrong!');
-            //   }
-            const data =
-                response.data.MRData.RaceTable.Races[0].QualifyingResults;
-            console.log(data);
+            const data = response.data.MRData.RaceTable.Races[0].QualifyingResults;
             setQualifying(data);
             setIsLoading(false);
         } catch (err) {
-            //   console.log(err);
             setError(err);
         }
     };
