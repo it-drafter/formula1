@@ -23,7 +23,7 @@ export default function Navigation() {
 
 
                     <Link to='/drivers'>
-                        Races
+                        Drivers
                         <img src={Kaciga} className='kaciga' />
                     </Link>
 
@@ -38,6 +38,8 @@ export default function Navigation() {
                         <img src={Races2} className='races2' />
                     </Link>
 
+                    </nav>
+
                     <Routes>
                         <Route path='/' element={<Home />} />
 
@@ -50,7 +52,7 @@ export default function Navigation() {
                         <Route path='/races' element={<Races />} />
                         
                     </Routes>
-                </nav>
+                
             </Router>
         </div>
     );
