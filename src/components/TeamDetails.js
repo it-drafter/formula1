@@ -22,6 +22,9 @@ const TeamDetails = () => {
         getTeamDetails();
     }, []);
 
+    const showTeamDetails = () => {
+        console.log("constructior onClick")
+    }
 
     const getTeamDetails = async () => {
         const urlDetails = `https://ergast.com/api/f1/2013/constructors/${teamsId}/constructorStandings.json`
@@ -49,7 +52,7 @@ const TeamDetails = () => {
             <p>Position{teamDetails.position} </p>
             <p>Points{teamDetails.points}</p>
             <p>Wins{teamDetails.wins}</p>
-            <p>Constructor{teamDetails.constructor}</p>
+            <p onClick="showTeamDetails">Constructor{teamDetails.constructor}</p>
         </div>
             <Table>
                 <TableHead>
