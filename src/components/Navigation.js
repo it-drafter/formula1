@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom';
 import Drivers from './Drivers';
-import Races from './Races';
+import Races from './RaceResults';
 import Teams from './Teams';
 import Home from './Home';
 import F1logo from '../img/F1-logo.png';
@@ -38,21 +38,21 @@ export default function Navigation() {
                         <img src={races4} className='races2' />
                     </Link>
 
-                    </nav>
+                </nav>
 
-                    <Routes>
-                        <Route path='/' element={<Home />} />
+                <Routes>
+                    <Route path='/' element={<Home />} />
 
-                        <Route path='/drivers' element={<Drivers />} />
-                        <Route path='/drivers/details/:driverId' element={<DriverDetails />} />
+                    <Route path='/drivers' element={<Drivers />} />
+                    <Route path='/drivers/details/:driverId' element={<DriverDetails />} />
 
-                        <Route path='/teams' element={<Teams />} />
-                        <Route path='/teams/details:teamId' element={<TeamDetails />} />
+                    <Route path='/teams' element={<Teams />} />
+                    <Route path='/teams/details:teamId' element={<TeamDetails />} />
 
-                        <Route path='/races' element={<Races />} />
-                        
-                    </Routes>
-                
+                    <Route path='/races' element={<Races />} />
+
+                </Routes>
+
             </Router>
         </div>
     );

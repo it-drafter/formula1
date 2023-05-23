@@ -11,7 +11,7 @@ import axios from 'axios';
 import QualifyingTableRow from './QualifyingTableRow';
 
 
-const RaceQualifyingResults = () => {
+const QualifyingResults = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [qualifying, setQualifying] = useState([]);
@@ -79,4 +79,4 @@ const RaceQualifyingResults = () => {
     );
 };
 
-export default RaceQualifyingResults;
+export default QualifyingResults;
