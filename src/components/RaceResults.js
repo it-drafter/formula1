@@ -8,20 +8,20 @@ import {
     TableCell,
 } from '@mui/material';
 import axios from 'axios';
-import RaceTableRow from './RaceTableRow';
+import ResultsTableRow from './ResultsTableRow';
 
 
 const RaceResults = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [races, setRaces] = useState([]);
+    const [results, setResults] = useState([]);
 
     useEffect(() => {
-        getRaces();
+        getResults();
     }, []);
 
-    const getRaces = async () => {
-        const url = 'http://ergast.com/api/f1/2013/results/1.json';
+    const getResults = async () => {
+        const url = 'http://ergast.com/api/f1/2013/1/results.json';
         setIsLoading(true);
         try {
             const response = await axios.get(url);
@@ -30,9 +30,9 @@ const RaceResults = () => {
             //     throw new Error('Something went wrong!');
             //   }
             const data =
-                response.data.MRData.RaceTable.Races;
+                response.data.MRData.RaceTable.Races.Results;
             console.log(data);
-            setRaces(data);
+            setResults(data);
             setIsLoading(false);
         } catch (err) {
             //   console.log(err);
@@ -59,20 +59,20 @@ const RaceResults = () => {
 
     return (
         <>
-            <h1>Races component</h1>
+            <h1>Results component</h1>
             <Table>
                 <TableHead>
                     <TableRow className='table-header'>
-                        <TableCell>Round</TableCell>
-                        <TableCell>Grand Prix</TableCell>
-                        <TableCell>Circuit</TableCell>
-                        <TableCell>Date</TableCell>
-                        <TableCell>Winner</TableCell>
+                        <TableCell>Pos</TableCell>
+                        <TableCell>Driver</TableCell>
+                        <TableCell>Team</TableCell>
+                        <TableCell>Result</TableCell>
+                        <TableCell>Points</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {races.map((race, index) => (
-                        <RaceTableRow key={race.Circuit.circuitId} race={race} />
+                    {results.map((result, index) => (
+                        <RaceTableRow key={race.position} race={race} />
                     ))}
                 </TableBody>
             </Table>
