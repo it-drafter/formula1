@@ -62,7 +62,7 @@ const Drivers = () => {
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Position</TableCell>
-            <TableCell>Family name</TableCell>
+            <TableCell>Driver name</TableCell>
             <TableCell>Team</TableCell>
             <TableCell>Points</TableCell>
           </TableRow>
@@ -71,7 +71,7 @@ const Drivers = () => {
           {drivers.map(driver => (
             <TableRow key={driver.Driver.driverId}>
               <TableCell>{driver.position}</TableCell>
-              <TableCell>{driver.Driver.familyName}</TableCell>
+              <TableCell>{driver.Driver.givenName + " " + driver.Driver.familyName}</TableCell>
               <TableCell>{driver.Constructors[0].name}</TableCell>
               <TableCell>{driver.points}</TableCell>
             </TableRow>
