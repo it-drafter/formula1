@@ -24,16 +24,10 @@ const RaceResults = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(url);
-      // console.log('response', response);
-      //   if (response.request.status !== 200) {
-      //     throw new Error('Something went wrong!');
-      //   }
       const data = response.data.MRData.RaceTable.Races[0].Results;
-      //   console.log('Time', data[0].Time.time);
       setResults(data);
       setIsLoading(false);
     } catch (err) {
-      //   console.log(err);
       setError(err);
     }
   };
