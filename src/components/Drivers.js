@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import DriversTableRow from './DriversTableRow';
 import { RiseLoader } from 'react-spinners';
-import { useNavigate } from 'react-router-dom';
 import {
   Table,
   TableHead,
@@ -14,8 +14,6 @@ const Drivers = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [drivers, setDrivers] = useState([]);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     getDrivers();
@@ -45,11 +43,7 @@ const Drivers = () => {
     return <p>Error: {error.message}</p>;
   }
 
-  const handleClickDetails = (driverId) => {
-    console.log(driverId);
-    const linkTo = `/drivers/details/${driverId}`;
-    navigate(linkTo);
-  };
+
 
   if (isLoading) {
     return (
@@ -78,16 +72,7 @@ const Drivers = () => {
         </TableHead>
         <TableBody>
           {drivers.map((driver) => (
-            <TableRow key={driver.Driver.driverId}>
-              <TableCell>{driver.position}</TableCell>
-              <TableCell
-                onClick={() => handleClickDetails(driver.Driver.driverId)}
-              >
-                {driver.Driver.givenName + ' ' + driver.Driver.familyName}
-              </TableCell>
-              <TableCell>{driver.Constructors[0].name}</TableCell>
-              <TableCell>{driver.points}</TableCell>
-            </TableRow>
+            <DriversTableRow key={driver.Driver.driverId} driver={driver} />
           ))}
         </TableBody>
       </Table>

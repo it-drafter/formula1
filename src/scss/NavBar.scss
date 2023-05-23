@@ -1,32 +1,70 @@
 .NavContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  
+  
 }
 
 .NavBar {
     min-width: 100%;
-    max-height: 90px;
+    // max-height: 90px;
     text-align: center;
-    flex: 0 0 auto;
+    // flex: 0 0 auto;
     background-color: rgb(90, 21, 21);
+    // padding: 10px;
+    display:flex;
+    justify-content: space-evenly;
+    .nav-link-home{
+        display: flex;
+        align-items: center;
+        width: 35%;
+        
+    }
+    .nav-link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+      
+    }a {
+        text-decoration: none;
+        color: rgb(245, 9, 9);
+        width: 200px;
+        //height: 80px;
+      
+     
+    }
+    
+    ul{
+        list-style-type: none;
+        
+    }
+    
    
+    
+
     h1{
         margin-top: 30px;
+        
     }
 }
 
 a {
     text-decoration: none;
-    color: rgb(255, 0, 0);
+    color: rgb(245, 9, 9);
     width: 200px;
-    height: 80px;
-    
+    //height: 80px;
+  
+ 
 }
 
 .homeimg {
     width: 200px;
     height: 80px;
-   
+    float:left;
+  
+    
     
     
 }
@@ -44,5 +82,7 @@ a {
 .races2 {
     width: 200px;
     height: 80px;
+    mix-blend-mode: multiply;
+    
    
 }

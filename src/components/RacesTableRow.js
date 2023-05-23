@@ -2,7 +2,7 @@ import React from 'react';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 
-const RaceTableRow = (props) => {
+const RacesTableRow = (props) => {
     return (
         <TableRow>
             <TableCell>{props.race.round}</TableCell>
@@ -14,4 +14,4 @@ const RaceTableRow = (props) => {
     );
 };
 
-export default RaceTableRow;
+export default RacesTableRow;

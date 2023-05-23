@@ -8,19 +8,19 @@ import {
     TableCell,
 } from '@mui/material';
 import axios from 'axios';
-import RaceTableRow from './RaceTableRow';
+import QualifyingTableRow from './QualifyingTableRow';
 
 
-const Races = () => {
+const QualifyingResults = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [races, setRaces] = useState([]);
+    const [qualifying, setQualifying] = useState([]);
 
     useEffect(() => {
-        getRaces();
+        getQualifying();
     }, []);
 
-    const getRaces = async () => {
+    const getQualifying = async () => {
         const url = 'http://ergast.com/api/f1/2013/results/1.json';
         setIsLoading(true);
         try {
@@ -30,9 +30,9 @@ const Races = () => {
             //     throw new Error('Something went wrong!');
             //   }
             const data =
-                response.data.MRData.RaceTable.Races;
+                response.data.MRData.RaceTable.Races.QualifyingResults;
             console.log(data);
-            setRaces(data);
+            setQualifying(data);
             setIsLoading(false);
         } catch (err) {
             //   console.log(err);
@@ -59,20 +59,19 @@ const Races = () => {
 
     return (
         <>
-            <h1>Races component</h1>
+            <h1>Qualifying component</h1>
             <Table>
                 <TableHead>
                     <TableRow className='table-header'>
-                        <TableCell>Round</TableCell>
-                        <TableCell>Grand Prix</TableCell>
-                        <TableCell>Circuit</TableCell>
-                        <TableCell>Date</TableCell>
-                        <TableCell>Winner</TableCell>
+                        <TableCell>Pos</TableCell>
+                        <TableCell>Driver</TableCell>
+                        <TableCell>Team</TableCell>
+                        <TableCell>Best Time</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {races.map((race, index) => (
-                        <RaceTableRow key={race.Circuit.circuitId} race={race} />
+                    {qualifying.map((qualifier, index) => (
+                        <QualifyingTableRow key={qualifier.position} qualifier={qualifier} />
                     ))}
                 </TableBody>
             </Table>
@@ -80,4 +79,4 @@ const Races = () => {
     );
 };
 
-export default Races;
+export default QualifyingResults;

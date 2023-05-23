@@ -8,7 +8,7 @@ import {
   TableCell,
 } from '@mui/material';
 import axios from 'axios';
-import RaceTableRow from './RaceTableRow';
+import RacesTableRow from './RacesTableRow';
 
 
 const Races = () => {
@@ -72,7 +72,7 @@ const Races = () => {
         </TableHead>
         <TableBody>
           {races.map((race, index) => (
-            <RaceTableRow key={race.Circuit.circuitId} race={race} />
+            <RacesTableRow key={race.Circuit.circuitId} race={race} />
           ))}
         </TableBody>
       </Table>
