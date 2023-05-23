@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import DriversTableRow from './DriversTableRow';
 import { RiseLoader } from 'react-spinners';
 import {
   Table,
@@ -42,6 +43,8 @@ const Drivers = () => {
     return <p>Error: {error.message}</p>;
   }
 
+
+
   if (isLoading) {
     return (
       <RiseLoader
@@ -68,14 +71,8 @@ const Drivers = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {drivers.map(driver => (
-            <TableRow key={driver.Driver.driverId}>
-              <TableCell>{driver.position}</TableCell>
-              <TableCell>{driver.Driver.givenName + " " + driver.Driver.familyName}</TableCell>
-              <TableCell>{driver.Constructors[0].name}</TableCell>
-              <TableCell>{driver.points}</TableCell>
-            </TableRow>
-
+          {drivers.map((driver) => (
+            <DriversTableRow key={driver.Driver.driverId} driver={driver} />
           ))}
         </TableBody>
       </Table>
@@ -84,45 +81,3 @@ const Drivers = () => {
 };
 
 export default Drivers;
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-// import CircleLoader from "react-spinners";
-// import Posts from "./components/Posts";
-
-// const App = (props) => {
-
-//     const [posts, setPosts] = useState([]);
-//     const [loading, setLoading] = useState(true);
-
-//     useEffect(() => {
-//        getPosts();
-//     }, [])
-
-//     const getPosts = async () => {
-//         const url= "https://jsonplaceholder.typicode.com/posts";
-
-//         const response = await axios.get(url);
-//         setPosts(response.data);
-//         setLoading(false);
-//     }
-
-//     return(
-//         <div>
-//             <Posts posts={posts}/>
-//         </div>
-//     );
-// }
-
-// export default App;
