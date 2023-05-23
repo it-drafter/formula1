@@ -16,15 +16,14 @@ const TeamDetails = () => {
     const [teamResults, setTeamResults] = useState([]);
     const [isLoading, setIsLoading] = useState([]);
 
+    const params = useParams();
+
     const teamsId = params.teamsId;
 
     useEffect(() => {
         getTeamDetails();
     }, []);
 
-    const showTeamDetails = () => {
-        console.log("constructior onClick")
-    }
 
     const getTeamDetails = async () => {
         const urlDetails = `https://ergast.com/api/f1/2013/constructors/${teamsId}/constructorStandings.json`
@@ -33,7 +32,7 @@ const TeamDetails = () => {
         const responseResults = await axios.get(urlResults);
 
         setTeamDetails(
-            responseDetails.data.MRData.StandingsTable.StandingList[0]
+            responseDetails.data.MRData.StandingsTable.StandingList[0].ConstructorStandings[0]
         );
         setTeamResults(
             responseResults.data.MRData.RaceTable.Races[0]
@@ -49,10 +48,10 @@ const TeamDetails = () => {
     return (
         <> <div>
             <h1>Team Details</h1>
-            <p>Position{teamDetails.position} </p>
-            <p>Points{teamDetails.points}</p>
-            <p>Wins{teamDetails.wins}</p>
-            <p onClick="showTeamDetails">Constructor{teamDetails.constructor}</p>
+      
+            <p>Name{teamDetails.Constructor.name}</p>
+            <p>Url{teamDetails.Constructor.url}</p>
+            <p>Nationality{teamDetails.Constructor.nationality}</p>
         </div>
             <Table>
                 <TableHead>

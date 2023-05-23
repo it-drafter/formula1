@@ -9,19 +9,19 @@ const TeamsTableRow = (props) => {
 
   const handleClickConstructor = (teamId) => {
     console.log("Konstruktor dugme", teamId);
-    const linkTo = `/teams${teamId}`;
-    navigate(linkTo);
+    const LinkTo = `/teams${teamId}`;
+    navigate(LinkTo);
 
 
   }
 
   return (
     <TableRow>
-      <TableCell>{props.teams.position}</TableCell>
-      <TableCell>{props.teams.points}</TableCell>
-      <TableCell>{props.teams.wins}</TableCell>
+      <TableCell>{props.teams.Constructor.name}</TableCell>
+      <TableCell>{props.teams.Constructor.url}</TableCell>
+      <TableCell>{props.teams.Constructor.nationality}</TableCell>
       <TableCell
-        onClick={() => handleClickConstructor(props.teams.Constructor.position)}>{props.teams.Constructor.name}</TableCell>
+        onClick={() => handleClickConstructor(props.teams.Constructor.name)}>{props.teams.Constructor.name}</TableCell>
     </TableRow>
   )
 
