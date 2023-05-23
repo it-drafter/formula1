@@ -15,29 +15,41 @@ export default function Navigation() {
             <Router>
                 <nav className="NavBar">
 
-          <Link to='/teams'>
-            Teams
-            <img src={Teams1} className='teams1' />
-          </Link>
+                    <Link to='/'>
+                        <img src={F1logo} className='homeimg' />
+                    </Link>
 
-          <Link to='/races'>
-            Races
-            <img src={Races2} className='races2' />
-          </Link>
 
-          <Link to='/races'>
-            Races
-            <img src={Races2} className='races2' />
-          </Link>
+                    <Link to='/drivers'>
+                        Races
+                        <img src={Kaciga} className='kaciga' />
+                    </Link>
 
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/drivers' element={<Drivers />} />
-            <Route path='/teams' element={<Teams />} />
-            <Route path='/races' element={<Races />} />
-          </Routes>
-        </nav>
-      </Router>
-    </div>
-  );
+                    <Link to='/teams'>
+                        Teams
+                        <img src={Teams1} className='teams1' />
+                    </Link>
+
+
+                    <Link to='/races'>
+                        Races
+                        <img src={Races2} className='races2' />
+                    </Link>
+
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+
+                        <Route path='/drivers' element={<Drivers />} />
+                        <Route path='/drivers/details:driverId' element={<DriverDetails />} />
+
+                        <Route path='/teams' element={<Teams />} />
+                        <Route path='/teams/details:teamId' element={<TeamDetails />} />
+
+                        <Route path='/races' element={<Races />} />
+                        
+                    </Routes>
+                </nav>
+            </Router>
+        </div>
+    );
 }
