@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RiseLoader } from 'react-spinners';
+import { useNavigate } from 'react-router-dom';
 import {
   Table,
   TableHead,
@@ -13,6 +14,8 @@ const Drivers = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [drivers, setDrivers] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getDrivers();
@@ -42,6 +45,12 @@ const Drivers = () => {
     return <p>Error: {error.message}</p>;
   }
 
+  const handleClickDetails = (driverId) => {
+    console.log(driverId);
+    const linkTo = `/drivers/details/${driverId}`;
+    navigate(linkTo);
+  };
+
   if (isLoading) {
     return (
       <RiseLoader
@@ -68,14 +77,17 @@ const Drivers = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {drivers.map(driver => (
+          {drivers.map((driver) => (
             <TableRow key={driver.Driver.driverId}>
               <TableCell>{driver.position}</TableCell>
-              <TableCell>{driver.Driver.givenName + " " + driver.Driver.familyName}</TableCell>
+              <TableCell
+                onClick={() => handleClickDetails(driver.Driver.driverId)}
+              >
+                {driver.Driver.givenName + ' ' + driver.Driver.familyName}
+              </TableCell>
               <TableCell>{driver.Constructors[0].name}</TableCell>
               <TableCell>{driver.points}</TableCell>
             </TableRow>
-
           ))}
         </TableBody>
       </Table>
@@ -84,45 +96,3 @@ const Drivers = () => {
 };
 
 export default Drivers;
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-// import CircleLoader from "react-spinners";
-// import Posts from "./components/Posts";
-
-// const App = (props) => {
-
-//     const [posts, setPosts] = useState([]);
-//     const [loading, setLoading] = useState(true);
-
-//     useEffect(() => {
-//        getPosts();
-//     }, [])
-
-//     const getPosts = async () => {
-//         const url= "https://jsonplaceholder.typicode.com/posts";
-
-//         const response = await axios.get(url);
-//         setPosts(response.data);
-//         setLoading(false);
-//     }
-
-//     return(
-//         <div>
-//             <Posts posts={posts}/>
-//         </div>
-//     );
-// }
-
-// export default App;
