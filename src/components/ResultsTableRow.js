@@ -3,7 +3,6 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 
 const ResultsTableRow = (props) => {
-  // console.log('Props', props.result.status);
 
   return (
     <TableRow>

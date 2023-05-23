@@ -61,11 +61,11 @@ const Drivers = () => {
   return (
     <>
       <h1>Drivers component</h1>
-      <Table>
+      <Table className="tableContainer">
         <TableHead>
           <TableRow className='table-header'>
-            <TableCell>Position</TableCell>
-            <TableCell>Driver name</TableCell>
+            <TableCell></TableCell>
+            <TableCell align="left">Driver name</TableCell>
             <TableCell>Team</TableCell>
             <TableCell>Points</TableCell>
           </TableRow>
