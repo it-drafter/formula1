@@ -9,7 +9,8 @@ import {
   TableCell,
 } from '@mui/material';
 import axios from 'axios';
-// import QualifyingResults from './QualifyingResults';
+import QualifyingResults from './QualifyingResults';
+import RaceResults from './RaceResults';
 
 const GrandPrixDetails = () => {
   const [error, setError] = useState(null);
@@ -91,6 +92,8 @@ const GrandPrixDetails = () => {
           </TableRow>
         </TableBody>
       </Table>
+      <QualifyingResults round={round} />
+      <RaceResults round={round} />
     </>
   );
 };
