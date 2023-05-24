@@ -47,18 +47,24 @@ const TeamDetails = (props) => {
     return <RiseLoader />;
   }
 
- 
+
   return (
     <>
       {' '}
-      <div>
-        <h1>Team Details</h1>
-
-        <p>Name: {teamDetails.Constructor.name}</p>
+      <div className='team-details'>
+        <div>
+          <img src='/teams/aston_martin.webp' />
+        </div>
+       
+<div>
+   <h1>Team Details</h1>
+      <p className='name-details'>Name: {teamDetails.Constructor.name}</p>
         <p>Nationality: {teamDetails.Constructor.nationality}</p>
         <p>Positon: {teamDetails.position}</p>
         <p>Points: {teamDetails.points}</p>
         <p>History: <a href={teamDetails.Constructor.url} target='_blank'>↗</a></p>
+</div>
+    
       </div>
       <Table>
         <TableHead>
@@ -74,21 +80,15 @@ const TeamDetails = (props) => {
           {teamResults.map((teamResult) => {
             return (
 
-                  <TableRow key={teamResult.round}>
+              <TableRow key={teamResult.round}>
                 <TableCell>{teamResult.round}</TableCell>
                 <TableCell>{teamResult.raceName}</TableCell>
                 <TableCell
-                className={"position_" + teamResult.Results[0].position  }>
-      
+                  className={"position_" + teamResult.Results[0].position}>
                   {teamResult.Results[0].position}</TableCell>
-                <TableCell 
-                
-                
-                className={"position_" + teamResult.Results[1].position  } >
-                 
-                  
+                <TableCell
+                  className={"position_" + teamResult.Results[1].position} >
                   {teamResult.Results[1].position}</TableCell>
-             
                 <TableCell >
                   {Number(teamResult.Results[0].points) +
                     Number(teamResult.Results[1].points)}

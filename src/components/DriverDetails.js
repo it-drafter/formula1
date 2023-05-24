@@ -78,7 +78,7 @@ const DriverDetails = (props) => {
   // console.log(driverDetailsRaces);
 
   return (
-    <>
+    <><div className="driverDetails">
       <div>
         <h2>Driver details</h2>
         <p>
@@ -121,7 +121,7 @@ const DriverDetails = (props) => {
           ))}
         </TableBody>
       </Table>
-    </>
+      </div></>
   );
 };
 

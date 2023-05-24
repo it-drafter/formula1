@@ -63,7 +63,7 @@ const RaceResults = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {results.map((result, index) => (
+          {results.map((result) => (
             <ResultsTableRow key={result.position} result={result} />
           ))}
         </TableBody>
