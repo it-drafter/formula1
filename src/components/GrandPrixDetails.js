@@ -8,8 +8,9 @@ import {
     TableCell,
 } from '@mui/material';
 import axios from 'axios';
+import QualifyingResults from "./QualifyingResults";
 
-const GrandPrixDetails = () => {
+const GrandPrixDetails = (props) => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [grandPrix, setGrandPrix] = useState([]);
@@ -18,8 +19,10 @@ const GrandPrixDetails = () => {
         getGrandPrix();
     }, []);
 
-    const getGrandPrix = async () => {
-        const url = 'http://ergast.com/api/f1/2013/results/1.json';
+    console.log("komentar" , props)    
+
+    const getGrandPrix = async (props) => {
+        const url = 'http://ergast.com/api/f1/2013/results/${props.race.round}.json';
         setIsLoading(true);
         try {
             const response = await axios.get(url);
@@ -58,23 +61,24 @@ const GrandPrixDetails = () => {
                         <TableCell>-Slika staze-</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>{grandPrix[0].raceName}</TableCell>
+                        <TableCell></TableCell>
+                        <TableCell>{props.race.raceName}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>Country:</TableCell>
-                        <TableCell>{grandPrix[0].Circuit.Location.country}</TableCell>
+                        <TableCell>{props.race.Circuit.Location.country}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>Location:</TableCell>
-                        <TableCell>{grandPrix[0].Circuit.Location.locality}</TableCell>
+                        <TableCell>{props.race.Circuit.Location.locality}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>Date:</TableCell>
-                        <TableCell>{grandPrix[0].date}</TableCell>
+                        <TableCell>{props.race.date}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>Full Report:</TableCell>
-                        <TableCell>{grandPrix[0].url}</TableCell>
+                        <TableCell>{props.race.url}</TableCell>
                     </TableRow>
                 </TableBody>
             </Table>

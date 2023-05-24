@@ -11,10 +11,12 @@ const RacesTableRow = (props) => {
         navigate(LinkTo);
     };
 
+    // console.log("komentar u zagradi" , props.race.round)
+
     return (
         <TableRow>
             <TableCell>{props.race.round}</TableCell>
-            <TableCell onClick={() => handleClickGrandPrix(props.race.round)}>
+            <TableCell onClick={() => handleClickGrandPrix(props.race.round)} race={props.race}>
                 {props.race.raceName}
             </TableCell>
             <TableCell>{props.race.Circuit.circuitName}</TableCell>
