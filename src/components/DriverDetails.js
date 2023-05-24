@@ -9,12 +9,21 @@ import {
   TableRow,
   TableCell,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-const DriverDetails = () => {
+
+const DriverDetails = (props) => {
   const [driverDetails, setDriverDetails] = useState([]);
   const [driverDetailsRaces, setDriverDetailsRaces] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
+  const navigate = useNavigate()
+
+   const handleRouteToGrandPrix= (race) => {
+    console.log("komentar");
+    const linkTo=`/races/details/${race}`;
+    navigate(linkTo);
+  }
 
   // console.log('DriverDetails', params.driverId);
   const driverId = params.driverId;
@@ -67,7 +76,10 @@ const DriverDetails = () => {
           {driverDetailsRaces.map((DetailRace) => (
             <TableRow key={DetailRace.round}>
               <TableCell>{DetailRace.round}</TableCell>
-              <TableCell>{DetailRace.raceName}</TableCell>
+              <TableCell 
+              onClick={()=> handleRouteToGrandPrix(DetailRace.round)}> 
+              {DetailRace.raceName}
+              </TableCell>
               <TableCell>
                 {DetailRace.Results[0].Constructor.constructorId}
               </TableCell>

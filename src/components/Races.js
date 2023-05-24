@@ -15,6 +15,8 @@ const Races = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [races, setRaces] = useState([]);
 
+  console.log('races: ', races);
+
   useEffect(() => {
     getRaces();
   }, []);
@@ -49,6 +51,11 @@ const Races = () => {
     );
   }
 
+<<<<<<< HEAD
+=======
+  // console.log("Moj komentar: ", data);
+
+>>>>>>> 81b1c4b9c0336fd6ad87bf2dbd33b231cee7b652
   return (
     <>
       <h1>Races component</h1>

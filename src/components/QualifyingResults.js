@@ -1,74 +1,77 @@
 import React, { useState, useEffect } from 'react';
 import { RiseLoader } from 'react-spinners';
 import {
-    Table,
-    TableHead,
-    TableBody,
-    TableRow,
-    TableCell,
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
 } from '@mui/material';
 import axios from 'axios';
 import QualifyingTableRow from './QualifyingTableRow';
 
-const QualifyingResults = () => {
-    const [error, setError] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [qualifying, setQualifying] = useState([]);
+const QualifyingResults = (props) => {
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [qualifying, setQualifying] = useState([]);
 
-    useEffect(() => {
-        getQualifying();
-    }, []);
+  useEffect(() => {
+    getQualifying();
+  }, []);
 
-    const getQualifying = async () => {
-        const url = 'http://ergast.com/api/f1/2013/1/qualifying.json';
-        setIsLoading(true);
-        try {
-            const response = await axios.get(url);
-            const data = response.data.MRData.RaceTable.Races[0].QualifyingResults;
-            setQualifying(data);
-            setIsLoading(false);
-        } catch (err) {
-            setError(err);
-        }
-    };
-
-    if (error) {
-        return <p>Error: {error.message}</p>;
+  const getQualifying = async () => {
+    const url = `http://ergast.com/api/f1/2013/${props.round}/qualifying.json`;
+    setIsLoading(true);
+    try {
+      const response = await axios.get(url);
+      const data = response.data.MRData.RaceTable.Races[0].QualifyingResults;
+      setQualifying(data);
+      setIsLoading(false);
+    } catch (err) {
+      setError(err);
     }
+  };
 
-    if (isLoading) {
-        return (
-            <RiseLoader
-                style={{
-                    height: '50vh',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}
-            />
-        );
-    }
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
 
+  if (isLoading) {
     return (
-        <>
-            <h1>Qualifying component</h1>
-            <Table>
-                <TableHead>
-                    <TableRow className='table-header'>
-                        <TableCell>Pos</TableCell>
-                        <TableCell>Driver</TableCell>
-                        <TableCell>Team</TableCell>
-                        <TableCell>Best Time</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {qualifying.map((qualifier, index) => (
-                        <QualifyingTableRow key={qualifier.position} qualifier={qualifier} />
-                    ))}
-                </TableBody>
-            </Table>
-        </>
+      <RiseLoader
+        style={{
+          height: '50vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      />
     );
+  }
+
+  return (
+    <>
+      <h1>Qualifying component</h1>
+      <Table>
+        <TableHead>
+          <TableRow className='table-header'>
+            <TableCell>Pos</TableCell>
+            <TableCell>Driver</TableCell>
+            <TableCell>Team</TableCell>
+            <TableCell>Best Time</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {qualifying.map((qualifier, index) => (
+            <QualifyingTableRow
+              key={qualifier.position}
+              qualifier={qualifier}
+            />
+          ))}
+        </TableBody>
+      </Table>
+    </>
+  );
 };
 
 export default QualifyingResults;
