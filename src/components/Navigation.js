@@ -4,7 +4,7 @@ import Drivers from './Drivers';
 import Races from './Races';
 import Teams from './Teams';
 import Home from './Home';
-import F1logo from '../img/F1-logo.png';
+import F1logo from '../img/f1-logo-big.png';
 import Kaciga from '../img/Kaciga.png';
 import Races3 from '../img/Races3.jpg';
 import Teams1 from '../img/Teams1.png';
