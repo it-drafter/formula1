@@ -65,7 +65,8 @@ export default function Navigation() {
 
           <Route path='/teams' element={<Teams />} />
           <Route path='/teams/details/:teamId' element={<TeamDetails />} />
-        {/* za teams ubaciti rutu do staza */}
+          <Route path='/teams/details/:raceDetails' element={<GrandPrixDetails /> } /> 
+          {/* ne radi ^^  */}
 
           <Route path='/races' element={<Races />} />
           <Route path='/races/details/:round' element={<GrandPrixDetails />} />

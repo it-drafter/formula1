@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
 import {
@@ -9,6 +9,7 @@ import {
   TableRow,
   TableCell,
 } from '@mui/material';
+
 
 const TeamDetails = (props) => {
   const [teamDetails, setTeamDetails] = useState({});
@@ -20,9 +21,20 @@ const TeamDetails = (props) => {
 
   const teamId = params.teamId;
 
+  const navigate = useNavigate;
+  
+  const handleDrivers= (raceDetails) => {
+   console.log("klik na race");
+     const linkTo = `/races/details/${raceDetails}`;
+     navigate(linkTo);
+  }
+  
+
   useEffect(() => {
     getTeamDetails();
   }, []);
+
+  
 
   const getTeamDetails = async () => {
     const urlDetails = `http://ergast.com/api/f1/2013/constructors/${teamId}/constructorStandings.json`;
@@ -75,8 +87,9 @@ const TeamDetails = (props) => {
             return (
 
                   <TableRow key={teamResult.round}>
+                  
                 <TableCell>{teamResult.round}</TableCell>
-                <TableCell>{teamResult.raceName}</TableCell>
+                <TableCell onClick={() => handleDrivers(teamResult.round)}>{teamResult.raceName}</TableCell>
                 <TableCell
                 className={"position_" + teamResult.Results[0].position  }>
       
@@ -96,7 +109,7 @@ const TeamDetails = (props) => {
               </TableRow>
             );
           })}
-        </TableBody>
+        </TableBody>     
       </Table>
     </>
   );

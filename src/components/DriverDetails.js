@@ -43,6 +43,7 @@ const DriverDetails = (props) => {
   useEffect(() => {
     getDriverDetails();
   }, []);
+ 
 
   const getDriverDetails = async () => {
     // console.log('DriverDetails', params.driverId);
@@ -60,8 +61,10 @@ const DriverDetails = (props) => {
         .DriverStandings[0]
     );
     setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
-    setFlags (responseFlags.data);
-    console.log("flags", flags);
+
+    setFlags(responseFlags);
+    
+
     setIsLoading(false);
   };
 
