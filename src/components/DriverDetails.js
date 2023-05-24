@@ -102,7 +102,10 @@ const DriverDetails = (props) => {
                 {DetailRace.Results[0].Constructor.constructorId}
               </TableCell>
               <TableCell>{DetailRace.Results[0].grid}</TableCell>
-              <TableCell>{DetailRace.Results[0].position}</TableCell>
+              <TableCell className={"position_" + DetailRace.Results[0].position}>
+                {DetailRace.Results[0].position}
+             
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
