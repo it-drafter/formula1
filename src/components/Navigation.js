@@ -61,6 +61,7 @@ export default function Navigation() {
             path='/drivers/details/:driverId'
             element={<DriverDetails />}
           />
+          <Route path='/drivers/details/:race' element={<GrandPrixDetails />} />
 
           <Route path='/teams' element={<Teams />} />
           <Route path='/teams/details/:teamId' element={<TeamDetails />} />
