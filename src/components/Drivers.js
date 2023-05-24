@@ -64,7 +64,8 @@ const Drivers = () => {
       <Table className="tableContainer">
         <TableHead>
           <TableRow className='table-header'>
-            <TableCell></TableCell>
+          <TableCell></TableCell>
+            <TableCell>Position</TableCell>
             <TableCell align="left">Driver name</TableCell>
             <TableCell>Team</TableCell>
             <TableCell>Points</TableCell>
