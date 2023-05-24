@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { RiseLoader } from 'react-spinners';
 import {
     Table,
-    TableHead,
     TableBody,
     TableRow,
     TableCell,
