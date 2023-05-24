@@ -13,6 +13,7 @@ import {
 const TeamDetails = (props) => {
   const [teamDetails, setTeamDetails] = useState({});
   const [teamResults, setTeamResults] = useState([]);
+  // const [teamResultIndex, setTeamResultIndex] = useState(0);
   const [isLoading, setIsLoading] = useState([]);
 
   const params = useParams();
@@ -29,17 +30,13 @@ const TeamDetails = (props) => {
     const responseDetails = await axios.get(urlDetails);
     const responseResults = await axios.get(urlResults);
 
-    console.log(
-      'test:',
-      responseDetails.data.MRData.StandingsTable.StandingsLists[0]
-        .ConstructorStandings[0]
-    );
+    console.log('test:', responseResults.data.MRData.RaceTable);
 
     setTeamDetails(
       responseDetails.data.MRData.StandingsTable.StandingsLists[0]
-        .ConstructorStandings
+        .ConstructorStandings[0]
     );
-    setTeamResults(responseResults.data.MRData.RaceTable.Races[0]);
+    setTeamResults(responseResults.data.MRData.RaceTable.Races);
 
     setIsLoading(false);
   };
@@ -52,26 +49,37 @@ const TeamDetails = (props) => {
       <div>
         <h1>Team Details</h1>
 
-        <p>Name{teamDetails.Constructor.name}</p>
-        <p>Url{teamDetails.Constructor.url}</p>
-        <p>Nationality{teamDetails.Constructor.nationality}</p>
+        <p>Name: {teamDetails.Constructor.name}</p>
+        <p>Nationality: {teamDetails.Constructor.nationality}</p>
+        <p>Positon: {teamDetails.position}</p>
+        <p>Points: {teamDetails.points}</p>
+        <p>Url: {teamDetails.Constructor.url}</p>
       </div>
       <Table>
         <TableHead>
           <TableRow className='table-header'>
-            <TableCell>Position</TableCell>
+            <TableCell>Round</TableCell>
+            <TableCell>Race Name</TableCell>
+            <TableCell>{teamResults[0].Results[0].Driver.familyName}</TableCell>
+            <TableCell>{teamResults[0].Results[1].Driver.familyName}</TableCell>
             <TableCell>Points</TableCell>
-            <TableCell>Wins</TableCell>
-            <TableCell>Constructor</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {teamResults.map((teamResults) => (
-            <TableRow key={teamResults.position}>
-              <TableCell>{teamResults}</TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-          ))}
+          {teamResults.map((teamResult) => {
+            return (
+              <TableRow key={teamResult.round}>
+                <TableCell>{teamResult.round}</TableCell>
+                <TableCell>{teamResult.raceName}</TableCell>
+                <TableCell>{teamResult.Results[0].position}</TableCell>
+                <TableCell>{teamResult.Results[1].position}</TableCell>
+                <TableCell>
+                  {Number(teamResult.Results[0].points) +
+                    Number(teamResult.Results[1].points)}
+                </TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </>

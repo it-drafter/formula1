@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RiseLoader } from 'react-spinners';
-import axios from "axios";
+import axios from 'axios';
 import {
   Table,
   TableHead,
@@ -10,26 +10,24 @@ import {
 } from '@mui/material';
 import TeamsTableRow from './TeamsTableRow';
 
-
 const Teams = () => {
-
   const [error, setError] = useState(null);
   const [teams, setTeams] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
 
   useEffect(() => {
     getTeams();
-
-  },[])
-
+  }, []);
 
   const getTeams = async () => {
-    const url = "http://ergast.com/api/f1/2013/constructorStandings.json"
+    const url = 'http://ergast.com/api/f1/2013/constructorStandings.json';
     setIsLoading(true);
 
     try {
       const response = await axios.get(url);
-      const data = response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
+      const data =
+        response.data.MRData.StandingsTable.StandingsLists[0]
+          .ConstructorStandings;
       console.log(data);
       setTeams(data);
       setIsLoading(false);
@@ -54,26 +52,24 @@ const Teams = () => {
     );
   }
 
-
   return (
     <>
       <h1>Teams component</h1>
       <Table>
         <TableHead>
           <TableRow className='table-header'>
-            <TableCell>Team</TableCell>
-            <TableCell>Url</TableCell>
-            <TableCell>Country</TableCell>
-            <TableCell>Constructor</TableCell>
+            <TableCell>Position</TableCell>
+            <TableCell>Team Name</TableCell>
+            <TableCell>Details</TableCell>
+            <TableCell>Points</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {teams.map((teams, index) => (
-            <TeamsTableRow  teams={teams} />
+          {teams.map((team) => (
+            <TeamsTableRow key={team.position} team={team} />
           ))}
         </TableBody>
       </Table>
-
     </>
   );
 };
