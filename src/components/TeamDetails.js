@@ -52,13 +52,19 @@ const TeamDetails = (props) => {
     <>
       {' '}
       <div className='team-details'>
-        <h1>Team Details</h1>
-
-        <p className='name-details'>Name: {teamDetails.Constructor.name}</p>
+        <div>
+          <img src='/teams/aston_martin.webp' />
+        </div>
+       
+<div>
+   <h1>Team Details</h1>
+      <p className='name-details'>Name: {teamDetails.Constructor.name}</p>
         <p>Nationality: {teamDetails.Constructor.nationality}</p>
         <p>Positon: {teamDetails.position}</p>
         <p>Points: {teamDetails.points}</p>
         <p>History: <a href={teamDetails.Constructor.url} target='_blank'>↗</a></p>
+</div>
+    
       </div>
       <Table>
         <TableHead>
