@@ -40,9 +40,14 @@ const TeamDetails = (props) => {
 
     setIsLoading(false);
   };
+
+
+
   if (isLoading) {
     return <RiseLoader />;
   }
+
+
   return (
     <>
       {' '}
@@ -68,12 +73,23 @@ const TeamDetails = (props) => {
         <TableBody>
           {teamResults.map((teamResult) => {
             return (
+
               <TableRow key={teamResult.round}>
                 <TableCell>{teamResult.round}</TableCell>
                 <TableCell>{teamResult.raceName}</TableCell>
-                <TableCell>{teamResult.Results[0].position}</TableCell>
-                <TableCell>{teamResult.Results[1].position}</TableCell>
-                <TableCell>
+                <TableCell
+                  className={"position_" + teamResult.Results[0].position}>
+
+                  {teamResult.Results[0].position}</TableCell>
+                <TableCell
+
+
+                  className={"position_" + teamResult.Results[1].position} >
+
+
+                  {teamResult.Results[1].position}</TableCell>
+
+                <TableCell >
                   {Number(teamResult.Results[0].points) +
                     Number(teamResult.Results[1].points)}
                 </TableCell>
