@@ -56,7 +56,7 @@ const Teams = () => {
     <>
       <h1>Teams component</h1>
       <Table>
-        <TableHead>
+        <TableHead className='table-header'>
           <TableRow>
             <TableCell>Position</TableCell>
             <TableCell>Team Name</TableCell>
