@@ -37,6 +37,7 @@
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
     "react-bootstrap": "^2.7.2",
+    "react-flagkit": "^2.0.4",
     "react-router-dom": "^6.11.2",
     "react-spinners": "^0.13.8"
   }
