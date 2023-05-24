@@ -12,53 +12,60 @@ import DriverDetails from './DriverDetails';
 import TeamDetails from './TeamDetails';
 
 export default function Navigation() {
-    return (
-        <div className="NavContainer">
-            <Router>
-                <nav className="NavBar">
+  return (
+    <div className='NavContainer'>
+      <Router>
+        <nav className='NavBar'>
+          <Link to='/' className='nav-link-home'>
+            <img src={F1logo} className='homeimg' />
+          </Link>
 
-                    <Link to='/' className='nav-link-home'>
+          <Link to='/drivers' className='nav-link'>
+            <ul>
+              {' '}
+              <li> Drivers</li>
+              <li>
+                <img src={Kaciga} className='kaciga' />{' '}
+              </li>
+            </ul>
+          </Link>
 
-                        <img src={F1logo} className='homeimg' />
-                    </Link>
+          <Link to='/teams' className='nav-link'>
+            <ul>
+              <li>Teams</li>
+              <li>
+                {' '}
+                <img src={Teams1} className='teams1' />
+              </li>
+            </ul>
+          </Link>
 
+          <Link to='/races' className='nav-link'>
+            <ul>
+              <li>Races</li>
+              <li>
+                {' '}
+                <img src={Races3} className='races2' />
+              </li>{' '}
+            </ul>
+          </Link>
+        </nav>
 
-                    <Link to='/drivers' className='nav-link'>
-                        <ul> <li> Drivers</li>
+        <Routes>
+          <Route path='/' element={<Home />} />
 
-                            <li><img src={Kaciga} className='kaciga' /> </li></ul>
-                    </Link>
+          <Route path='/drivers' element={<Drivers />} />
+          <Route
+            path='/drivers/details/:driverId'
+            element={<DriverDetails />}
+          />
 
+          <Route path='/teams' element={<Teams />} />
+          <Route path='/teams/details/:teamId' element={<TeamDetails />} />
 
-
-                    <Link to='/teams' className='nav-link' >
-                        <ul><li>
-                            Teams</li>
-                            <li> <img src={Teams1} className='teams1' /></li></ul>
-                    </Link>
-
-
-                    <Link to='/races' className='nav-link'><ul><li>
-                        Races</li>
-                        <li>  <img src={Races3} className='races2' /></li> </ul>
-                    </Link>
-
-                </nav>
-
-                <Routes>
-                    <Route path='/' element={<Home />} />
-
-                    <Route path='/drivers' element={<Drivers />} />
-                    <Route path='/drivers/details/:driverId' element={<DriverDetails />} />
-
-                    <Route path='/teams' element={<Teams />} />
-                    <Route path='/teams/details:teamId' element={<TeamDetails />} />
-
-                    <Route path='/races' element={<Races />} />
-
-                </Routes>
-
-            </Router>
-        </div>
-    );
+          <Route path='/races' element={<Races />} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
