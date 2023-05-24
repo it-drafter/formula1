@@ -24,8 +24,6 @@ const GrandPrixDetails = () => {
     getGrandPrix();
   }, []);
 
-  //   console.log('komentar', props);
-
   const getGrandPrix = async () => {
     const url = `http://ergast.com/api/f1/2013/results/1.json`;
     setIsLoading(true);
@@ -56,7 +54,6 @@ const GrandPrixDetails = () => {
     );
   }
 
-  console.log('grandPrix:', grandPrix);
   return (
     <>
       <h1>Grand Prix component</h1>
@@ -64,7 +61,7 @@ const GrandPrixDetails = () => {
         <TableBody>
           <TableRow>
             <TableCell>-Slika zastave-</TableCell>
-            <TableCell>-Slika staze-</TableCell>
+            <TableCell><img src={`/img/circuits/${grandPrix[round - 1].Circuit.circuitId}.webp`} /></TableCell>
           </TableRow>
           <TableRow>
             <TableCell></TableCell>
