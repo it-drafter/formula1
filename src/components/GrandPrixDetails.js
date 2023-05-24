@@ -18,10 +18,10 @@ const GrandPrixDetails = (props) => {
         getGrandPrix();
     }, []);
 
-    console.log("komentar" , props)    
+    console.log("Props:", props)
 
     const getGrandPrix = async (props) => {
-        const url = 'http://ergast.com/api/f1/2013/results/${props.race.round}.json';
+        const url = `http://ergast.com/api/f1/2013/results/${props.race.round}.json`;
         setIsLoading(true);
         try {
             const response = await axios.get(url);
