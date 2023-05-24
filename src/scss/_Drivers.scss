@@ -1,7 +1,7 @@
 table {
     max-width: 90vw;
     margin: 50px auto;
-    border: 2px solid brown;
+    border: 40px solid dodgerblue;
    
    
 
@@ -10,7 +10,7 @@ table {
             
             font-weight: bold;
             font-size: large;
-            background-color: red;
+           // background-color: grey;
             color: black;
            
    
@@ -19,15 +19,16 @@ table {
 
     tr {
     
-         &:nth-child(even) {
-             background-color: grey;
-         }
-
+        //  &:nth-child(even) {
+        //      background-color: grey;
+        //  }
+            
         &:hover {
             background-color: grey;
         }
     }
 }
+
 
 // .tableContainer {
 //     border: crimson!important;
