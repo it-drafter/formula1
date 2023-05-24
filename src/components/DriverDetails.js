@@ -16,6 +16,7 @@ const DriverDetails = (props) => {
   const [driverDetails, setDriverDetails] = useState([]);
   const [driverDetailsRaces, setDriverDetailsRaces] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [flags, setFlags] = useState({});
   const params = useParams();
   const navigate = useNavigate()
 
@@ -28,6 +29,17 @@ const DriverDetails = (props) => {
   // console.log('DriverDetails', params.driverId);
   const driverId = params.driverId;
 
+  // const getFlags = async () => {
+  //   const urlFlags = 'https://flagcdn.com/en/codes.json';
+  //   const responseFlags = await axios.get(urlFlags);
+  //   console.log("response", responseFlags);
+    
+  //   setFlags (responseFlags.data.data);
+  //   // console.log("ZASTAVICE", flags);
+  // }
+
+
+
   useEffect(() => {
     getDriverDetails();
   }, []);
@@ -37,13 +49,19 @@ const DriverDetails = (props) => {
     // const driverId = params.driverId;
     const urlDriver = `https://ergast.com/api/f1/2013/drivers/${driverId}/driverStandings.json`;
     const urlRaces = `http://ergast.com/api/f1/2013/drivers/${driverId}/results.json`;
+    const urlFlags = 'https://flagcdn.com/en/codes.json';
     const responseDriver = await axios.get(urlDriver);
     const responseRaces = await axios.get(urlRaces);
+    const responseFlags = await axios.get(urlFlags);
+    console.log("responseFlags", responseFlags.data);
+
     setDriverDetails(
       responseDriver.data.MRData.StandingsTable.StandingsLists[0]
         .DriverStandings[0]
     );
     setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
+    setFlags (responseFlags.data);
+    console.log("flags", flags);
     setIsLoading(false);
   };
 

@@ -11,7 +11,7 @@ import Teams1 from '../img/Teams1.png';
 import DriverDetails from './DriverDetails';
 import TeamDetails from './TeamDetails';
 import GrandPrixDetails from "./GrandPrixDetails";
-
+import Flag from 'react-flagkit';
 
 export default function Navigation() {
   return (
@@ -65,11 +65,15 @@ export default function Navigation() {
 
           <Route path='/teams' element={<Teams />} />
           <Route path='/teams/details/:teamId' element={<TeamDetails />} />
+        {/* za teams ubaciti rutu do staza */}
 
           <Route path='/races' element={<Races />} />
           <Route path='/races/details/:round' element={<GrandPrixDetails />} />
         </Routes>
       </Router>
+
+
+
     </div>
   );
 }
