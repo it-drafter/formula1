@@ -14,9 +14,7 @@ const TeamsTableRow = (props) => {
 
   return (
     <TableRow>
-      <TableCell>{props.teams.Constructor.name}</TableCell>
-      <TableCell>{props.teams.Constructor.url}</TableCell>
-      <TableCell>{props.teams.Constructor.nationality}</TableCell>
+      <TableCell>{props.teams.positionText}</TableCell>
       <TableCell
         onClick={() =>
           handleClickConstructor(props.teams.Constructor.constructorId)
@@ -24,6 +22,9 @@ const TeamsTableRow = (props) => {
       >
         {props.teams.Constructor.constructorId}
       </TableCell>
+      <TableCell>{props.teams.Constructor.url}</TableCell>
+      <TableCell>{props.teams.points}</TableCell>
+
     </TableRow>
   );
 };
