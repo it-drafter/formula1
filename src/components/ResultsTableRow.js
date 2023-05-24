@@ -16,7 +16,7 @@ const ResultsTableRow = (props) => {
             ? props.result.status
             : 'DNF'}
       </TableCell>
-      <TableCell>{props.result.points}</TableCell>
+      <TableCell className={'position_' + props.result.position}>{props.result.points}</TableCell>
     </TableRow>
   );
 };
