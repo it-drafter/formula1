@@ -9,15 +9,20 @@ import {
   TableCell,
 } from '@mui/material';
 import axios from 'axios';
+import Flag from 'react-flagkit';
+
 
 const Drivers = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [drivers, setDrivers] = useState([]);
+  
 
   useEffect(() => {
     getDrivers();
+    
   }, []);
+
 
   const getDrivers = async () => {
     const url = 'http://ergast.com/api/f1/2013/driverStandings.json';
@@ -30,7 +35,7 @@ const Drivers = () => {
       //   }
       const data =
         response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-      console.log(data);
+      //console.log(data);
       setDrivers(data);
       setIsLoading(false);
     } catch (err) {

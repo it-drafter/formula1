@@ -12,11 +12,11 @@ const TeamsTableRow = (props) => {
     navigate(LinkTo);
   };
 
-  const handleClickDetails = () => {
-    console.log("detalji", props.team.Constructor.url )
-   const site = props.team.Constructor.url
-   navigate(site);
-  }
+  // const handleClickDetails = () => {
+  //   console.log("detalji", props.team.Constructor.url )
+  //  const site = props.team.Constructor.url
+  //  navigate(site);
+ 
 
   return (
     <TableRow>
@@ -28,8 +28,8 @@ const TeamsTableRow = (props) => {
       >
         {props.team.Constructor.name}
       </TableCell>
-      <TableCell onClick={handleClickDetails}>
-       Details ↗</TableCell>
+      <TableCell > <a href={props.team.Constructor.url} target ="_blank" >Details ↗</a>
+       </TableCell>
       <TableCell>{props.team.points}</TableCell>
     </TableRow>
   );
