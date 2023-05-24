@@ -1,17 +1,23 @@
 
 
 
-.table-header {
-    background-color: rgba(169, 169, 169, 0.404);
-    color: aliceblue;
-    border-radius: 15px;
-    
-    
-    TableCell {
-        background-color: aquamarine;
-         font-size: 18px;
-        border-radius: 15px;
+.team-details {
+    border:7px solid dodgerblue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+     'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+     padding: 20px;
+     .name-details {
+        padding-top: 10px;
      }
+     p {
+        padding: 3px 0;
+        font-size: 18px;
+        font-weight: bold;
+     }
+    h1 {
+        border-bottom: 3px solid grey;
+        font-size: 22px;
+        padding-bottom: 10px;
+        color: rgb(89, 89, 89);
+    }
 }
-
-
