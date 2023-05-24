@@ -10,7 +10,6 @@ import {
   TableCell,
 } from '@mui/material';
 
-
 const TeamDetails = (props) => {
   const [teamDetails, setTeamDetails] = useState({});
   const [teamResults, setTeamResults] = useState([]);
@@ -22,19 +21,16 @@ const TeamDetails = (props) => {
   const teamId = params.teamId;
 
   const navigate = useNavigate;
-  
-  const handleDrivers= (raceDetails) => {
-   console.log("klik na race");
-     const linkTo = `/races/details/${raceDetails}`;
-     navigate(linkTo);
-  }
-  
+
+  const handleDrivers = (raceDetails) => {
+    console.log('klik na race');
+    const linkTo = `/races/details/${raceDetails}`;
+    navigate(linkTo);
+  };
 
   useEffect(() => {
     getTeamDetails();
   }, []);
-
-  
 
   const getTeamDetails = async () => {
     const urlDetails = `http://ergast.com/api/f1/2013/constructors/${teamId}/constructorStandings.json`;
@@ -53,12 +49,9 @@ const TeamDetails = (props) => {
     setIsLoading(false);
   };
 
-
-
   if (isLoading) {
     return <RiseLoader />;
   }
-
 
   return (
     <>
@@ -67,16 +60,20 @@ const TeamDetails = (props) => {
         <div>
           <img src='/teams/aston_martin.webp' />
         </div>
-       
-<div>
-   <h1>Team Details</h1>
-      <p className='name-details'>Name: {teamDetails.Constructor.name}</p>
-        <p>Nationality: {teamDetails.Constructor.nationality}</p>
-        <p>Positon: {teamDetails.position}</p>
-        <p>Points: {teamDetails.points}</p>
-        <p>History: <a href={teamDetails.Constructor.url} target='_blank'>↗</a></p>
-</div>
-    
+
+        <div>
+          <h1>Team Details</h1>
+          <p className='name-details'>Name: {teamDetails.Constructor.name}</p>
+          <p>Nationality: {teamDetails.Constructor.nationality}</p>
+          <p>Positon: {teamDetails.position}</p>
+          <p>Points: {teamDetails.points}</p>
+          <p>
+            History:{' '}
+            <a href={teamDetails.Constructor.url} target='_blank'>
+              ↗
+            </a>
+          </p>
+        </div>
       </div>
       <Table>
         <TableHead>
@@ -91,24 +88,29 @@ const TeamDetails = (props) => {
         <TableBody>
           {teamResults.map((teamResult) => {
             return (
-
               <TableRow key={teamResult.round}>
                 <TableCell>{teamResult.round}</TableCell>
-                <TableCell onClick={() => handleDrivers(teamResult.round)}>{teamResult.raceName}</TableCell>
+                <TableCell onClick={() => handleDrivers(teamResult.round)}>
+                  {teamResult.raceName}
+                </TableCell>
                 <TableCell
-                  className={"position_" + teamResult.Results[0].position}>
-                  {teamResult.Results[0].position}</TableCell>
+                  className={'position_' + teamResult.Results[0].position}
+                >
+                  {teamResult.Results[0].position}
+                </TableCell>
                 <TableCell
-                  className={"position_" + teamResult.Results[1].position} >
-                  {teamResult.Results[1].position}</TableCell>
-                <TableCell >
+                  className={'position_' + teamResult.Results[1].position}
+                >
+                  {teamResult.Results[1].position}
+                </TableCell>
+                <TableCell>
                   {Number(teamResult.Results[0].points) +
                     Number(teamResult.Results[1].points)}
                 </TableCell>
               </TableRow>
             );
           })}
-        </TableBody>     
+        </TableBody>
       </Table>
     </>
   );

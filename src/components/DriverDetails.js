@@ -41,7 +41,6 @@ const DriverDetails = (props) => {
   useEffect(() => {
     getDriverDetails();
   }, []);
- 
 
   const getDriverDetails = async () => {
     // console.log('DriverDetails', params.driverId);
@@ -60,14 +59,7 @@ const DriverDetails = (props) => {
         .DriverStandings[0]
     );
     setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
-<<<<<<< HEAD
-
-    setFlags(responseFlags);
-    
-
-=======
     setFlags(responseFlags.data);
->>>>>>> 636418c172406498287a258b1a59c7fb29e770be
     setIsLoading(false);
   };
 
@@ -86,50 +78,52 @@ const DriverDetails = (props) => {
   // console.log(driverDetailsRaces);
 
   return (
-    <><div className="driverDetails">
-      <div>
-        <h2>Driver details</h2>
-        <p>
-          Nationality: {driverDetails.Driver.nationality}
-          <Flag country={getFlagCode(driverDetails.Driver.nationality)} />
-        </p>
-        <p>Team: {driverDetails.Constructors[0].constructorId}</p>
-        <p>Date of Birth: {driverDetails.Driver.dateOfBirth}</p>
-        <p>Biography: {driverDetails.Driver.url}</p>
-      </div>
-      <Table>
-        <TableHead>
-          <TableRow className='table-header'>
-            <TableCell>Round</TableCell>
-            <TableCell>Grand Prix</TableCell>
-            <TableCell>Team</TableCell>
-            <TableCell>Grid</TableCell>
-            <TableCell>Race</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {driverDetailsRaces.map((DetailRace) => (
-            <TableRow key={DetailRace.round}>
-              <TableCell>{DetailRace.round}</TableCell>
-              <TableCell
-                onClick={() => handleRouteToGrandPrix(DetailRace.round)}
-              >
-                {DetailRace.raceName}
-              </TableCell>
-              <TableCell>
-                {DetailRace.Results[0].Constructor.constructorId}
-              </TableCell>
-              <TableCell>{DetailRace.Results[0].grid}</TableCell>
-              <TableCell
-                className={'position_' + DetailRace.Results[0].position}
-              >
-                {DetailRace.Results[0].position}
-              </TableCell>
+    <>
+      <div className='driverDetails'>
+        <div>
+          <h2>Driver details</h2>
+          <p>
+            Nationality: {driverDetails.Driver.nationality}
+            <Flag country={getFlagCode(driverDetails.Driver.nationality)} />
+          </p>
+          <p>Team: {driverDetails.Constructors[0].constructorId}</p>
+          <p>Date of Birth: {driverDetails.Driver.dateOfBirth}</p>
+          <p>Biography: {driverDetails.Driver.url}</p>
+        </div>
+        <Table>
+          <TableHead>
+            <TableRow className='table-header'>
+              <TableCell>Round</TableCell>
+              <TableCell>Grand Prix</TableCell>
+              <TableCell>Team</TableCell>
+              <TableCell>Grid</TableCell>
+              <TableCell>Race</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-      </div></>
+          </TableHead>
+          <TableBody>
+            {driverDetailsRaces.map((DetailRace) => (
+              <TableRow key={DetailRace.round}>
+                <TableCell>{DetailRace.round}</TableCell>
+                <TableCell
+                  onClick={() => handleRouteToGrandPrix(DetailRace.round)}
+                >
+                  {DetailRace.raceName}
+                </TableCell>
+                <TableCell>
+                  {DetailRace.Results[0].Constructor.constructorId}
+                </TableCell>
+                <TableCell>{DetailRace.Results[0].grid}</TableCell>
+                <TableCell
+                  className={'position_' + DetailRace.Results[0].position}
+                >
+                  {DetailRace.Results[0].position}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+    </>
   );
 };
 
