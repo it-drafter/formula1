@@ -12,7 +12,8 @@
   // max-height: 90px;
   text-align: center;
   // flex: 0 0 auto;
-  background-color: rgb(90, 21, 21);
+  background-color: #E10600;
+  //background-color: rgb(90, 21, 21);
   // padding: 10px;
   display: flex;
   justify-content: space-evenly;
@@ -25,8 +26,11 @@
     margin-right: 20%;
     margin-left: 2%;
   }.nav-link-home:hover{
-    color:rgb(40, 113, 248);
-  background-color: rgb(255, 136, 0);
+    color: white;
+    //rgb(40, 113, 248);
+    background-color: white;
+    //gray;
+  // background-color: rgb(255, 136, 0);
   }
 
   .nav-link {
@@ -41,13 +45,15 @@
   }
 
   .nav-link:hover,.nav-link:focus{
-    color:rgb(40, 113, 248);
-    background-color: rgb(255, 136, 0);
+    color: black;
+    background-color: white;
+    //background-color: rgb(255, 136, 0);
   }
 
   a {
     text-decoration: none;
-    color: rgb(255, 0, 0);
+    color: black;
+    //rgb(255, 0, 0);
     // width: 200px;
     //height: 80px;
     display: flex;

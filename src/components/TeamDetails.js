@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
 import {
@@ -19,6 +19,14 @@ const TeamDetails = (props) => {
   const params = useParams();
 
   const teamId = params.teamId;
+
+  const navigate = useNavigate;
+
+  const handleDrivers = (raceDetails) => {
+    console.log('klik na race');
+    const linkTo = `/races/details/${raceDetails}`;
+    navigate(linkTo);
+  };
 
   useEffect(() => {
     getTeamDetails();
@@ -41,24 +49,31 @@ const TeamDetails = (props) => {
     setIsLoading(false);
   };
 
-
-
   if (isLoading) {
     return <RiseLoader />;
   }
-
 
   return (
     <>
       {' '}
       <div className='team-details'>
-        <h1>Team Details</h1>
+        <div>
+          <img src='/teams/aston_martin.webp' />
+        </div>
 
-        <p className='name-details'>Name: {teamDetails.Constructor.name}</p>
-        <p>Nationality: {teamDetails.Constructor.nationality}</p>
-        <p>Positon: {teamDetails.position}</p>
-        <p>Points: {teamDetails.points}</p>
-        <p>History: <a href={teamDetails.Constructor.url} target='_blank'>↗</a></p>
+        <div>
+          <h1>Team Details</h1>
+          <p className='name-details'>Name: {teamDetails.Constructor.name}</p>
+          <p>Nationality: {teamDetails.Constructor.nationality}</p>
+          <p>Positon: {teamDetails.position}</p>
+          <p>Points: {teamDetails.points}</p>
+          <p>
+            History:{' '}
+            <a href={teamDetails.Constructor.url} target='_blank'>
+              ↗
+            </a>
+          </p>
+        </div>
       </div>
       <Table>
         <TableHead>
@@ -73,17 +88,22 @@ const TeamDetails = (props) => {
         <TableBody>
           {teamResults.map((teamResult) => {
             return (
-
               <TableRow key={teamResult.round}>
                 <TableCell>{teamResult.round}</TableCell>
-                <TableCell>{teamResult.raceName}</TableCell>
+                <TableCell onClick={() => handleDrivers(teamResult.round)}>
+                  {teamResult.raceName}
+                </TableCell>
                 <TableCell
-                  className={"position_" + teamResult.Results[0].position}>
-                  {teamResult.Results[0].position}</TableCell>
+                  className={'position_' + teamResult.Results[0].position}
+                >
+                  {teamResult.Results[0].position}
+                </TableCell>
                 <TableCell
-                  className={"position_" + teamResult.Results[1].position} >
-                  {teamResult.Results[1].position}</TableCell>
-                <TableCell >
+                  className={'position_' + teamResult.Results[1].position}
+                >
+                  {teamResult.Results[1].position}
+                </TableCell>
+                <TableCell>
                   {Number(teamResult.Results[0].points) +
                     Number(teamResult.Results[1].points)}
                 </TableCell>
