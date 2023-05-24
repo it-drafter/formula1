@@ -51,8 +51,6 @@ const Races = () => {
     );
   }
 
-  console.log("Moj komentar: ", data);
-
   return (
     <>
       <h1>Races component</h1>
