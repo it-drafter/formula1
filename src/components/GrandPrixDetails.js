@@ -84,8 +84,8 @@ const GrandPrixDetails = () => {
             <TableCell>{grandPrix[round - 1].date}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Full Report:</TableCell>
-            <TableCell>{grandPrix[round - 1].url}</TableCell>
+            <TableCell>Details:</TableCell>
+            <TableCell><a href={grandPrix[round - 1].url} target='_blank'>Wikipedia ↗</a></TableCell>
           </TableRow>
         </TableBody>
       </Table>

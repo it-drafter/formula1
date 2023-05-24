@@ -11,8 +11,6 @@ const RacesTableRow = (props) => {
     navigate(LinkTo);
   };
 
-  // console.log("komentar u zagradi" , props.race.round)
-
   return (
     <TableRow>
       <TableCell>{props.race.round}</TableCell>
