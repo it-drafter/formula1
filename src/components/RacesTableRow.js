@@ -11,7 +11,7 @@ const RacesTableRow = (props) => {
         navigate(LinkTo);
     };
 
-    // console.log("komentar u zagradi" , props.race.round)
+    console.log("komentar u zagradi" , props.race.raceName)
 
     return (
         <TableRow>
