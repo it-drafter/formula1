@@ -20,25 +20,21 @@ const DriversTableRow = (props) => {
     
     return (
         <TableRow>
+            
             <TableCell onClick={() => handleClickDetails(props.driver.Driver.driverId)}>
             
             <IconButton
             aria-label="expand row"
             size="small"
-            onClick={() => setOpen(!open)}
-          >
+            onClick={() => setOpen(!open)}>
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-
-            
           </IconButton>
-
-
             </TableCell>
-
+            <TableCell>{props.driver.position}</TableCell>
             <TableCell
                
             >
-                {props.driver.position + "." + " " + props.driver.Driver.givenName + " " + props.driver.Driver.familyName}
+                {props.driver.Driver.givenName + " " + props.driver.Driver.familyName}
             </TableCell>
             <TableCell>{props.driver.Constructors[0].name}</TableCell>
             <TableCell>{props.driver.points}</TableCell>

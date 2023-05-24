@@ -7,24 +7,23 @@ const TeamsTableRow = (props) => {
   const navigate = useNavigate();
 
   const handleClickConstructor = (teamId) => {
-    // console.log("Konstruktor dugme", teamId);
+    console.log('Konstruktor dugme', props.team.Constructor.name);
     const LinkTo = `/teams/details/${teamId}`;
     navigate(LinkTo);
   };
 
   return (
     <TableRow>
-      <TableCell>{props.teams.positionText}</TableCell>
+      <TableCell>{props.team.position}</TableCell>
       <TableCell
         onClick={() =>
-          handleClickConstructor(props.teams.Constructor.constructorId)
+          handleClickConstructor(props.team.Constructor.constructorId)
         }
       >
-        {props.teams.Constructor.constructorId}
+        {props.team.Constructor.name}
       </TableCell>
-      <TableCell>{props.teams.Constructor.url}</TableCell>
-      <TableCell>{props.teams.points}</TableCell>
-
+      <TableCell>{props.team.Constructor.url}</TableCell>
+      <TableCell>{props.team.points}</TableCell>
     </TableRow>
   );
 };
