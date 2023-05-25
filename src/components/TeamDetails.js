@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
@@ -9,8 +9,11 @@ import {
   TableRow,
   TableCell,
 } from '@mui/material';
+import GlobalContext from '../context/global-context';
 
 const TeamDetails = (props) => {
+  const globalCtx = useContext(GlobalContext);
+
   const [teamDetails, setTeamDetails] = useState({});
   const [teamResults, setTeamResults] = useState([]);
   // const [teamResultIndex, setTeamResultIndex] = useState(0);
@@ -20,7 +23,7 @@ const TeamDetails = (props) => {
 
   const teamId = params.teamId;
 
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const handleDrivers = (raceDetails) => {
     console.log('klik na race');
@@ -33,8 +36,8 @@ const TeamDetails = (props) => {
   }, []);
 
   const getTeamDetails = async () => {
-    const urlDetails = `http://ergast.com/api/f1/2013/constructors/${teamId}/constructorStandings.json`;
-    const urlResults = `http://ergast.com/api/f1/2013/constructors/${teamId}/results.json`;
+    const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
+    const urlResults = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/results.json`;
     const responseDetails = await axios.get(urlDetails);
     const responseResults = await axios.get(urlResults);
 
