@@ -100,7 +100,9 @@ const Teams = () => {
         <TableHead className='table-header'>
           <TableRow>
             <TableCell>Position</TableCell>
-            <TableCell>Team Name</TableCell>
+            <TableCell>
+           
+              Team Name</TableCell>
             <TableCell>Details</TableCell>
             <TableCell>Points</TableCell>
           </TableRow>

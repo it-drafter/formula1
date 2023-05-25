@@ -32,8 +32,8 @@ const DriversTableRow = (props) => {
         className="rucica"
       >
         <IconButton
-          aria-label='expand row'
-          size='small'
+          aria-label="expand row"
+          size="small"
           onClick={() => setOpen(!open)}
           className="rucica"
         >
@@ -43,7 +43,7 @@ const DriversTableRow = (props) => {
       <TableCell>{props.driver.position}</TableCell>
       <TableCell>
         {globalCtx.flagFn(props.driver.Driver.nationality)}
-        {props.driver.Driver.givenName + ' ' + props.driver.Driver.familyName}
+        {props.driver.Driver.givenName + " " + props.driver.Driver.familyName}
       </TableCell>
       <TableCell
       className="rucica"

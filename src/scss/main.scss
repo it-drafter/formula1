@@ -4,44 +4,25 @@
 @import '../scss/Drivers.scss';
 
 .position_1 {
-    background-color: yellow;
+    background-color: #FFFFBF;
 }
 
 .position_2 {
-    background-color: gray;
+    background-color: #DFDFDF;
 }
 
 .position_3 {
-    background-color: orange;
+    background-color: #FFDF9F;
 }
 
-.position_4 {
-    background-color: lightgreen;
-}
-
-.position_5 {
-    background-color: lightblue;
-}
-
-.position_6 {
-    background-color: aquamarine;
-}
-
-.position_7 {
-    background-color: coral;
-}
-
-.position_8 {
-    background-color: darkseagreen;
-
-}
-
-.position_9 {
-    background-color: darksalmon;
-}
-
+.position_4,
+.position_5,
+.position_6,
+.position_7,
+.position_8,
+.position_9,
 .position_10 {
-    background-color: saddlebrown;
+    background-color: #DFFFDF;
 }
 
 .position_11,
@@ -56,8 +37,12 @@
 .position_20,
 .position_21,
 .position_22 {
+<<<<<<< HEAD
     background-color: darkgray;
 }
 .rucica {
     cursor: pointer;
+=======
+    background-color: #CFCFFF;
+>>>>>>> c0c623a8b59f50f1c27cee31be42cd8eb9136868
 }

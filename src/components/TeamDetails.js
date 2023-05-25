@@ -3,15 +3,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
 import {
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
   Link,
   Breadcrumbs,
 } from '@mui/material';
 import GlobalContext from '../context/global-context';
+import TeamDetailsRaces from './TeamDetailsRaces';
 
 const TeamDetails = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -103,7 +99,9 @@ const TeamDetails = (props) => {
 
       <div className='team-details'>
         <div>
-          <img src='/teams/aston_martin.webp' />
+          <img src={`/img/teams/${teamDetails.Constructor.constructorId}.webp`}/>
+      
+          {globalCtx.flagFn(teamDetails.Constructor.nationality)}
         </div>
 
         <div>
@@ -117,49 +115,16 @@ const TeamDetails = (props) => {
           <p>Points: {teamDetails.points}</p>
           <p>
             History:{' '}
-            <a href={teamDetails.Constructor.url + "#History"} target='_blank'>
+            <a href={teamDetails.Constructor.url + '#History'} target='_blank'>
               ↗
             </a>
           </p>
         </div>
       </div>
-      <Table>
-        <TableHead>
-          <TableRow className='table-header'>
-            <TableCell>Round</TableCell>
-            <TableCell>Race Name</TableCell>
-            <TableCell>{teamResults[0].Results[0].Driver.familyName}</TableCell>
-            <TableCell>{teamResults[0].Results[1].Driver.familyName}</TableCell>
-            <TableCell>Points</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {teamResults.map((teamResult) => {
-            return (
-              <TableRow key={teamResult.round}>
-                <TableCell>{teamResult.round}</TableCell>
-                <TableCell onClick={() => handleDrivers(teamResult.round)}>
-                  {teamResult.raceName}
-                </TableCell>
-                <TableCell
-                  className={'position_' + teamResult.Results[0].position}
-                >
-                  {teamResult.Results[0].position}
-                </TableCell>
-                <TableCell
-                  className={'position_' + teamResult.Results[1].position}
-                >
-                  {teamResult.Results[1].position}
-                </TableCell>
-                <TableCell>
-                  {Number(teamResult.Results[0].points) +
-                    Number(teamResult.Results[1].points)}
-                </TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
+      <TeamDetailsRaces
+        teamResults={teamResults}
+        handleDrivers={handleDrivers}
+      />
     </>
   );
 };

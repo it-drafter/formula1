@@ -5,10 +5,7 @@ import TableCell from '@mui/material/TableCell';
 const QualifyingTableRow = (props) => {
 
     function qSort() {
-        const arr = [];
-        arr.push(props.qualifier.Q1);
-        arr.push(props.qualifier.Q2);
-        arr.push(props.qualifier.Q3);
+        const arr = [props.qualifier.Q1, props.qualifier.Q2, props.qualifier.Q3];
         arr.sort();
         return arr[0];
     }

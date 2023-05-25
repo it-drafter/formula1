@@ -5,18 +5,19 @@ body {
 table {
     max-width: 90vw;
     margin: 50px auto;
-    //border: 3px solid black;
+    //border: 5px solid lightgray;
     //rgb(113, 182, 228);
     background-color: white;
    
    
 
     .table-header {
+       
         th {
             
             font-weight: bold;
             font-size: large;
-           // background-color: grey;
+            background-color: #E10600;
             color: black;
            
    
@@ -32,6 +33,7 @@ table {
         &:hover {
             background-color: grey;
         }
+
     }
 }
 .driverDetails {

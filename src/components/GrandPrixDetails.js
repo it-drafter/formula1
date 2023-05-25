@@ -3,7 +3,6 @@ import { RiseLoader } from 'react-spinners';
 import { useParams } from 'react-router-dom';
 import {
   Table,
-  TableHead,
   TableBody,
   TableRow,
   TableCell,
@@ -112,8 +111,8 @@ const GrandPrixDetails = () => {
             <TableCell>-Slika zastave-</TableCell>
             <TableCell>
               <img
-                src={`/img/circuits/${grandPrix[round - 1].Circuit.circuitId
-                  }.webp`}
+                src={`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId
+                  }.png`}
               />
             </TableCell>
           </TableRow>
