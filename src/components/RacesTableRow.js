@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import { useNavigate } from 'react-router-dom';
-import GlobalContext from '../context/global-context';
+// import GlobalContext from '../context/global-context';
 
 const RacesTableRow = (props) => {
 
-  const globalCtx = useContext(GlobalContext);
+  // console.log('PROPS: ', props.race.Circuit.Location.country)
+
+  // const globalCtx = useContext(GlobalContext);
   const navigate = useNavigate();
 
   const handleClickGrandPrix = (round) => {
@@ -20,7 +22,7 @@ const RacesTableRow = (props) => {
       <TableCell
       className="rucica"
         onClick={() => handleClickGrandPrix(props.race.round)}>
-        {globalCtx.flagFn(props.race.Circuit.Location.country)}
+        {/* {globalCtx.flagFn(props.race.Circuit.Location.country + 'n')} */}
         <span> </span>
         {props.race.raceName}
       </TableCell>

@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
+import GlobalContext from '../context/global-context';
 
 const ResultsTableRow = (props) => {
-
+  const globalCtx = useContext(GlobalContext);
   return (
     <TableRow>
       <TableCell>{props.result.position}</TableCell>
-      <TableCell>{props.result.Driver.givenName + ' ' + props.result.Driver.familyName}</TableCell>
+      <TableCell>
+        {globalCtx.flagFn(props.result.Constructor.nationality)}
+        <span> </span>
+        {props.result.Driver.givenName + ' ' + props.result.Driver.familyName}
+      </TableCell>
       <TableCell>{props.result.Constructor.name}</TableCell>
       <TableCell>
         {props.result.status === 'Finished'

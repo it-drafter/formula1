@@ -32,7 +32,7 @@ const DriverDetailsRaces = (props) => {
                 {DetailRace.raceName}
               </TableCell>
               <TableCell>
-                {DetailRace.Results[0].Constructor.constructorId}
+                {DetailRace.Results[0].Constructor.name}
               </TableCell>
               <TableCell>{DetailRace.Results[0].grid}</TableCell>
               <TableCell
