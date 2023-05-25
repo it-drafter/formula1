@@ -30,6 +30,7 @@ const TeamsTableRow = (props) => {
         onClick={() =>
           handleClickConstructor(props.team.Constructor.constructorId)
         }
+        className="rucica"
       >
         {globalCtx.flagFn(props.team.Constructor.nationality)}
         <span></span>

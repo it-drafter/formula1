@@ -2,7 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
-
+import {
+  Link,
+  Breadcrumbs,
+} from '@mui/material';
 import GlobalContext from '../context/global-context';
 import TeamDetailsRaces from './TeamDetailsRaces';
 
@@ -30,6 +33,16 @@ const TeamDetails = (props) => {
     getTeamDetails();
   }, []);
 
+  function handleClick(event) {
+    event.preventDefault();
+    console.info('You clicked a breadcrumb. -- teamDetails');
+  }
+
+  const handleBCRoute = (path) => {
+    console.log("klikcic")
+    navigate(path)
+  }
+
   const getTeamDetails = async () => {
     const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
     const urlResults = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/results.json`;
@@ -53,7 +66,37 @@ const TeamDetails = (props) => {
 
   return (
     <>
-      {' '}
+      
+      <div role="presentation" onClick={handleClick}>
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link underline="hover" 
+        color="black"
+        onClick={()=>handleBCRoute("/")}
+        className="rucica" >
+          Home
+        </Link>
+        <Link
+          underline="hover"
+          color="black"
+          onClick={()=>handleBCRoute("/teams")}
+          className="rucica"
+        >
+          Teams
+        </Link>
+        <Link
+          underline="hover"
+          color="text.red"
+          onClick={()=>handleBCRoute(`/races/details/${raceDetails}`)}
+          aria-current="page"
+          className="rucica"
+        >
+          Team Details
+        </Link>
+      </Breadcrumbs>
+    </div>
+
+
+
       <div className='team-details'>
         <div>
 
@@ -64,6 +107,9 @@ const TeamDetails = (props) => {
         </div>
 
         <div>
+
+        
+
           <h1>Team Details</h1>
           <p className='name-details'>Name: {teamDetails.Constructor.name}</p>
           <p>Nationality: {teamDetails.Constructor.nationality}</p>
