@@ -69,33 +69,42 @@ const GrandPrixDetails = () => {
     );
   }
 
+  async function checkPosterExists(url) {
+    try {
+      const response = await axios.head(url);
+      return response.status === 200;
+    } catch (error) {
+      return false;
+    }
+  }
+
   return (
     <>
 
       <div role="presentation" onClick={handleClick}>
         <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover" 
-          className="rucica"
-          color="black"
-          onClick={()=> handleBCRoute("/")} >
-            
+          <Link underline="hover"
+            className="rucica"
+            color="black"
+            onClick={() => handleBCRoute("/")} >
+
             Home
           </Link>
           <Link
             underline="hover"
             className="rucica"
             color="black"
-            onClick={()=> handleBCRoute(`/races`)}
+            onClick={() => handleBCRoute(`/races`)}
           >
             Race
           </Link>
           <Link
-          className="rucica"
+            className="rucica"
             underline="hover"
             color="text.red"
             aria-current="page"
-            onClick={()=> handleBCRoute("/")}
-            
+            onClick={() => handleBCRoute("/")}
+
           >
             Race Details
           </Link>
@@ -111,8 +120,11 @@ const GrandPrixDetails = () => {
             <TableCell>-Slika zastave-</TableCell>
             <TableCell>
               <img
-                src={`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId
-                  }.png`}
+                // src={`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId
+                //   }.jpg`}
+                src={checkPosterExists(`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId}.jpg`)
+                  ? `/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId}.jpg`
+                  : `/img/grand_prix/poster.jpg`}
               />
             </TableCell>
           </TableRow>

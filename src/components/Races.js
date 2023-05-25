@@ -22,12 +22,9 @@ const Races = () => {
   const [races, setRaces] = useState([]);
   const navigate = useNavigate();
 
-  console.log('races: ', races);
-
   useEffect(() => {
     getRaces();
   }, []);
-
 
   function handleClick(event) {
     event.preventDefault();
@@ -35,11 +32,9 @@ const Races = () => {
   }
   const handleBCRoute = () => {
     console.log("klikj")
-    const linkTo= "/"
+    const linkTo = "/"
     navigate(linkTo)
   }
-
-
 
   const getRaces = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
@@ -73,31 +68,25 @@ const Races = () => {
 
   return (
     <>
-      
 
       <div role="presentation" onClick={handleClick}>
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover"
-        className="rucica"
-         color="black" 
-         onClick={handleBCRoute}>
-          Home
-        </Link>
-        <Link
-          underline="hover"
-          color="text.red"
-          className="rucica"
-        >
-          Races
-        </Link>
-        
-      </Breadcrumbs>
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link underline="hover"
+            className="rucica"
+            color="black"
+            onClick={handleBCRoute}>
+            Home
+          </Link>
+          <Link
+            underline="hover"
+            color="text.red"
+            className="rucica"
+          >
+            Races
+          </Link>
+
+        </Breadcrumbs>
       </div>
-
-
-
-
-
 
       <Table>
         <TableHead>
