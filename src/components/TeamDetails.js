@@ -72,7 +72,7 @@ const TeamDetails = (props) => {
           <p>Points: {teamDetails.points}</p>
           <p>
             History:{' '}
-            <a href={teamDetails.Constructor.url} target='_blank'>
+            <a href={teamDetails.Constructor.url + "#History"} target='_blank'>
               ↗
             </a>
           </p>
