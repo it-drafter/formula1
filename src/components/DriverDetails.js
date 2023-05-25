@@ -2,14 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
-import {
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-} from '@mui/material';
 import GlobalContext from '../context/global-context';
+import DriverDetailsRaces from './DriverDetailsRaces';
 
 const DriverDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -104,39 +98,12 @@ const DriverDetails = () => {
           <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
           <p>Biography: {driverDetails?.Driver.url}</p>
         </div>
-        <Table>
-          <TableHead>
-            <TableRow className='table-header'>
-              <TableCell>Round</TableCell>
-              <TableCell>Grand Prix</TableCell>
-              <TableCell>Team</TableCell>
-              <TableCell>Grid</TableCell>
-              <TableCell>Race</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {driverDetailsRaces.map((DetailRace) => (
-              <TableRow key={DetailRace.round}>
-                <TableCell>{DetailRace.round}</TableCell>
-                <TableCell
-                  onClick={() => handleRouteToGrandPrix(DetailRace.round)}
-                >
-                  {DetailRace.raceName}
-                </TableCell>
-                <TableCell>
-                  {DetailRace.Results[0].Constructor.constructorId}
-                </TableCell>
-                <TableCell>{DetailRace.Results[0].grid}</TableCell>
-                <TableCell
-                  className={'position_' + DetailRace.Results[0].position}
-                >
-                  {DetailRace.Results[0].position}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
       </div>
+
+      <DriverDetailsRaces
+        driverDetailsRaces={driverDetailsRaces}
+        handleRouteToGrandPrix={handleRouteToGrandPrix}
+      />
     </>
   );
 };
