@@ -36,6 +36,7 @@
     "@mui/material": "^5.13.1",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
+    "moment": "^2.29.4",
     "react-bootstrap": "^2.7.2",
     "react-flagkit": "^2.0.4",
     "react-router-dom": "^6.11.2",

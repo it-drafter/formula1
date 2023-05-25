@@ -11,7 +11,7 @@ import Teams1 from '../img/Teams1.png';
 import DriverDetails from './DriverDetails';
 import TeamDetails from './TeamDetails';
 import GrandPrixDetails from "./GrandPrixDetails";
-import Flag from 'react-flagkit';
+
 
 export default function Navigation() {
   return (
@@ -36,7 +36,7 @@ export default function Navigation() {
             <ul>
               <li>Teams</li>
               <li>
-                {' '}
+               
                 <img src={Teams1} className='teams1' />
               </li>
             </ul>
@@ -46,9 +46,9 @@ export default function Navigation() {
             <ul>
               <li>Races</li>
               <li>
-                {' '}
+                
                 <img src={Races3} className='races2' />
-              </li>{' '}
+              </li>
             </ul>
           </Link>
         </nav>
