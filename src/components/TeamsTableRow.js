@@ -33,7 +33,7 @@ const TeamsTableRow = (props) => {
         className="rucica"
       >
         {globalCtx.flagFn(props.team.Constructor.nationality)}
-        <span></span>
+        <span>  </span>
         {props.team.Constructor.name}
       </TableCell>
       <TableCell > <a href={props.team.Constructor.url} target="_blank" >Details ↗</a>

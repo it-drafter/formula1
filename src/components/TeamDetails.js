@@ -100,9 +100,10 @@ const TeamDetails = (props) => {
       <div className='team-details'>
         <div>
 
-          <img src={`/img/teams/${teamDetails.Constructor.constructorId}.webp`} alt='Constructor'
+          <img src={`/img/teams/${teamDetails.Constructor.constructorId}.webp`}
+          style={{width: "400px", paddingRight: "30px"}} alt='Constructor'
            />
-          {globalCtx.flagFn(teamDetails.Constructor.nationality)}
+        
        
         </div>
 
@@ -110,8 +111,11 @@ const TeamDetails = (props) => {
 
         
 
-          <h1>Team Details</h1>
-          <p className='name-details'>Name: {teamDetails.Constructor.name}</p>
+          
+          <p className='name-details'>
+          {globalCtx.flagFn(teamDetails.Constructor.nationality)}
+           <span>  </span>
+             {teamDetails.Constructor.name}</p>
           <p>Nationality: {teamDetails.Constructor.nationality}</p>
           <p>Positon: {teamDetails.position}</p>
           <p>Points: {teamDetails.points}</p>

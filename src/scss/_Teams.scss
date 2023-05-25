@@ -3,26 +3,19 @@
 
 .team-details {
     display: flex;
-    border:7px solid dodgerblue;
+    border:7px solid #E10600;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
      'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
      padding: 20px;
      border-radius: 10px;
-     img {
-        width: 180px;
-     }
+
      .name-details {
-        padding-top: 10px;
+        padding-top: 40px;
      }
      p {
         padding: 3px 0;
         font-size: 18px;
         font-weight: bold;
      }
-    h1 {
-        border-bottom: 3px solid grey;
-        font-size: 22px;
-        padding-bottom: 10px;
-        color: rgb(89, 89, 89);
-    }
+ 
 }
