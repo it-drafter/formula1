@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { RiseLoader } from 'react-spinners';
 import { useParams } from 'react-router-dom';
-import fs from 'fs';
 import {
   Table,
   TableBody,
@@ -75,28 +74,28 @@ const GrandPrixDetails = () => {
 
       <div role="presentation" onClick={handleClick}>
         <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover" 
-          className="rucica"
-          color="black"
-          onClick={()=> handleBCRoute("/")} >
-            
+          <Link underline="hover"
+            className="rucica"
+            color="black"
+            onClick={() => handleBCRoute("/")} >
+
             Home
           </Link>
           <Link
             underline="hover"
             className="rucica"
             color="black"
-            onClick={()=> handleBCRoute(`/races`)}
+            onClick={() => handleBCRoute(`/races`)}
           >
             Race
           </Link>
           <Link
-          className="rucica"
+            className="rucica"
             underline="hover"
             color="text.red"
             aria-current="page"
-            onClick={()=> handleBCRoute("/")}
-            
+            onClick={() => handleBCRoute("/")}
+
           >
             Race Details
           </Link>
