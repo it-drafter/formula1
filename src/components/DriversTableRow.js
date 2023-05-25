@@ -10,13 +10,18 @@ import GlobalContext from '../context/global-context';
 const DriversTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
-
   const navigate = useNavigate();
+
   const handleClickDetails = (driverId) => {
     console.log(driverId);
     const linkTo = `/drivers/details/${driverId}`;
     navigate(linkTo);
   };
+  const handleTeamDetails = (teamId) => {
+    console.log("on click event")
+    const linkTo = `/drivers/details/${teamId}`;
+    navigate(linkTo);
+  }
 
   // console.log('Props', props.driver.Driver.nationality);
 
@@ -38,7 +43,7 @@ const DriversTableRow = (props) => {
         {globalCtx.flagFn(props.driver.Driver.nationality)}
         {props.driver.Driver.givenName + ' ' + props.driver.Driver.familyName}
       </TableCell>
-      <TableCell>{props.driver.Constructors[0].name}</TableCell>
+      <TableCell onClick={() => handleTeamDetails(props.driver.Driver.driverId)}>{props.driver.Constructors[0].name}</TableCell>
       <TableCell>{props.driver.points}</TableCell>
     </TableRow>
   );
