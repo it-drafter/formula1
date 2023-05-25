@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { RiseLoader } from 'react-spinners';
 import { useParams } from 'react-router-dom';
 import {
@@ -11,8 +11,10 @@ import {
 import axios from 'axios';
 import QualifyingResults from './QualifyingResults';
 import RaceResults from './RaceResults';
+import GlobalContext from '../context/global-context';
 
 const GrandPrixDetails = () => {
+  const globalCtx = useContext(GlobalContext);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [grandPrix, setGrandPrix] = useState([]);
@@ -25,7 +27,7 @@ const GrandPrixDetails = () => {
   }, []);
 
   const getGrandPrix = async () => {
-    const url = `http://ergast.com/api/f1/2013/results/1.json`;
+    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
     setIsLoading(true);
     try {
       const response = await axios.get(url);
@@ -61,7 +63,13 @@ const GrandPrixDetails = () => {
         <TableBody>
           <TableRow>
             <TableCell>-Slika zastave-</TableCell>
-            <TableCell><img src={`/img/circuits/${grandPrix[round - 1].Circuit.circuitId}.webp`} /></TableCell>
+            <TableCell>
+              <img
+                src={`/img/circuits/${
+                  grandPrix[round - 1].Circuit.circuitId
+                }.webp`}
+              />
+            </TableCell>
           </TableRow>
           <TableRow>
             <TableCell></TableCell>
@@ -84,8 +92,12 @@ const GrandPrixDetails = () => {
             <TableCell>{grandPrix[round - 1].date}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Full Report:</TableCell>
-            <TableCell>{grandPrix[round - 1].url}</TableCell>
+            <TableCell>Details:</TableCell>
+            <TableCell>
+              <a href={grandPrix[round - 1].url} target='_blank'>
+                Wikipedia ↗
+              </a>
+            </TableCell>
           </TableRow>
         </TableBody>
       </Table>

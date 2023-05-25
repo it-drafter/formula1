@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
 import {
@@ -9,13 +9,15 @@ import {
   TableRow,
   TableCell,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import Flag from 'react-flagkit';
+import GlobalContext from '../context/global-context';
 
-const DriverDetails = (props) => {
+const DriverDetails = () => {
+  const globalCtx = useContext(GlobalContext);
+  console.log('Chosen year: ', globalCtx.chosenYear);
+
   const [driverDetails, setDriverDetails] = useState([]);
   const [driverDetailsRaces, setDriverDetailsRaces] = useState([]);
-  const [flags, setFlags] = useState([]);
+  // const [flags, setFlags] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   const navigate = useNavigate();
@@ -41,36 +43,47 @@ const DriverDetails = (props) => {
   useEffect(() => {
     getDriverDetails();
   }, []);
- 
 
   const getDriverDetails = async () => {
     // console.log('DriverDetails', params.driverId);
     // const driverId = params.driverId;
-    const urlDriver = `https://ergast.com/api/f1/2013/drivers/${driverId}/driverStandings.json`;
-    const urlRaces = `http://ergast.com/api/f1/2013/drivers/${driverId}/results.json`;
-    const urlFlags =
-      'https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json';
+    const urlDriver = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/driverStandings.json`;
+    const urlRaces = `http://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/results.json`;
+    // const urlFlags =
+    //   'https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json';
     const responseDriver = await axios.get(urlDriver);
     const responseRaces = await axios.get(urlRaces);
-    const responseFlags = await axios.get(urlFlags);
+    // const responseFlags = await axios.get(urlFlags);
     // console.log('responseFlags', responseFlags.data);
 
     setDriverDetails(
       responseDriver.data.MRData.StandingsTable.StandingsLists[0]
-        .DriverStandings[0]
+        ?.DriverStandings[0]
     );
     setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
-    setFlags(responseFlags.data);
+    // setFlags(responseFlags.data);
     setIsLoading(false);
   };
 
-  const getFlagCode = (nationality) => {
-    const country = flags.filter((flag) => flag.nationality === nationality);
-    // console.log('nationality:', nationality);
-    console.log('flags:', flags);
-    console.log('country:', country[0].alpha_2_code);
-    return country[0].alpha_2_code;
-  };
+  // const flagFunction = (nationality) => {
+  //   const country = flags.filter((flag) => flag.nationality === nationality);
+  //   // console.log('nationality:', nationality);
+  //   // console.log('flags:', flags);
+  //   // console.log('country:', country[0]?.alpha_2_code);
+  //   let flagCode = country[0]?.alpha_2_code;
+
+  //   if (!flagCode && nationality === 'British') {
+  //     flagCode = 'GB';
+  //   } else if (!flagCode && nationality === 'Dutch') {
+  //     flagCode = 'NL';
+  //   } else if (!flagCode) {
+  //     return <span></span>;
+  //   } else {
+  //     flagCode = country[0]?.alpha_2_code;
+  //   }
+
+  //   return <Flag size={20} country={flagCode} />;
+  // };
 
   if (isLoading) {
     return <RiseLoader />;
@@ -79,50 +92,52 @@ const DriverDetails = (props) => {
   // console.log(driverDetailsRaces);
 
   return (
-    <><div className="driverDetails">
-      <div>
-        <h2>Driver details</h2>
-        <p>
-          Nationality: {driverDetails.Driver.nationality}
-          <Flag country={getFlagCode(driverDetails.Driver.nationality)} />
-        </p>
-        <p>Team: {driverDetails.Constructors[0].constructorId}</p>
-        <p>Date of Birth: {driverDetails.Driver.dateOfBirth}</p>
-        <p>Biography: {driverDetails.Driver.url}</p>
-      </div>
-      <Table>
-        <TableHead>
-          <TableRow className='table-header'>
-            <TableCell>Round</TableCell>
-            <TableCell>Grand Prix</TableCell>
-            <TableCell>Team</TableCell>
-            <TableCell>Grid</TableCell>
-            <TableCell>Race</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {driverDetailsRaces.map((DetailRace) => (
-            <TableRow key={DetailRace.round}>
-              <TableCell>{DetailRace.round}</TableCell>
-              <TableCell
-                onClick={() => handleRouteToGrandPrix(DetailRace.round)}
-              >
-                {DetailRace.raceName}
-              </TableCell>
-              <TableCell>
-                {DetailRace.Results[0].Constructor.constructorId}
-              </TableCell>
-              <TableCell>{DetailRace.Results[0].grid}</TableCell>
-              <TableCell
-                className={'position_' + DetailRace.Results[0].position}
-              >
-                {DetailRace.Results[0].position}
-              </TableCell>
+    <>
+      <div className='driverDetails'>
+        <div>
+          <h2>Driver details</h2>
+          <p>
+            Nationality: {driverDetails?.Driver.nationality}
+            {globalCtx.flagFn(driverDetails?.Driver.nationality)}
+          </p>
+          <p>Team: {driverDetails?.Constructors[0].constructorId}</p>
+          <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
+          <p>Biography: {driverDetails?.Driver.url}</p>
+        </div>
+        <Table>
+          <TableHead>
+            <TableRow className='table-header'>
+              <TableCell>Round</TableCell>
+              <TableCell>Grand Prix</TableCell>
+              <TableCell>Team</TableCell>
+              <TableCell>Grid</TableCell>
+              <TableCell>Race</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-      </div></>
+          </TableHead>
+          <TableBody>
+            {driverDetailsRaces.map((DetailRace) => (
+              <TableRow key={DetailRace.round}>
+                <TableCell>{DetailRace.round}</TableCell>
+                <TableCell
+                  onClick={() => handleRouteToGrandPrix(DetailRace.round)}
+                >
+                  {DetailRace.raceName}
+                </TableCell>
+                <TableCell>
+                  {DetailRace.Results[0].Constructor.constructorId}
+                </TableCell>
+                <TableCell>{DetailRace.Results[0].grid}</TableCell>
+                <TableCell
+                  className={'position_' + DetailRace.Results[0].position}
+                >
+                  {DetailRace.Results[0].position}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+    </>
   );
 };
 

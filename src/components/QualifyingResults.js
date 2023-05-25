@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { RiseLoader } from 'react-spinners';
 import {
   Table,
@@ -9,8 +9,11 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import QualifyingTableRow from './QualifyingTableRow';
+import GlobalContext from '../context/global-context';
 
 const QualifyingResults = (props) => {
+  const globalCtx = useContext(GlobalContext);
+
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [qualifying, setQualifying] = useState([]);
@@ -20,7 +23,7 @@ const QualifyingResults = (props) => {
   }, []);
 
   const getQualifying = async () => {
-    const url = `http://ergast.com/api/f1/2013/${props.round}/qualifying.json`;
+    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
     setIsLoading(true);
     try {
       const response = await axios.get(url);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { RiseLoader } from 'react-spinners';
 import axios from 'axios';
 import {
@@ -9,8 +9,11 @@ import {
   TableCell,
 } from '@mui/material';
 import TeamsTableRow from './TeamsTableRow';
+import GlobalContext from '../context/global-context';
 
 const Teams = () => {
+  const globalCtx = useContext(GlobalContext);
+
   const [error, setError] = useState(null);
   const [teams, setTeams] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
@@ -20,7 +23,7 @@ const Teams = () => {
   }, []);
 
   const getTeams = async () => {
-    const url = 'http://ergast.com/api/f1/2013/constructorStandings.json';
+    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
     setIsLoading(true);
 
     try {

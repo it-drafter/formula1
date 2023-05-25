@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { RiseLoader } from 'react-spinners';
 import {
   Table,
@@ -9,8 +9,11 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import RacesTableRow from './RacesTableRow';
+import GlobalContext from '../context/global-context';
 
 const Races = () => {
+  const globalCtx = useContext(GlobalContext);
+
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [races, setRaces] = useState([]);
@@ -22,7 +25,7 @@ const Races = () => {
   }, []);
 
   const getRaces = async () => {
-    const url = 'http://ergast.com/api/f1/2013/results/1.json';
+    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
     setIsLoading(true);
     try {
       const response = await axios.get(url);
