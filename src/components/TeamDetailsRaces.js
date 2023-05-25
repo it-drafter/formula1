@@ -30,7 +30,9 @@ const TeamDetailsRaces = (props) => {
             return (
               <TableRow key={teamResult.round}>
                 <TableCell>{teamResult.round}</TableCell>
-                <TableCell onClick={() => handleDrivers(teamResult.round)}>
+                <TableCell
+                  onClick={() => props.handleDrivers(teamResult.round)}
+                >
                   {teamResult.raceName}
                 </TableCell>
                 <TableCell

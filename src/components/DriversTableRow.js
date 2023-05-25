@@ -31,8 +31,8 @@ const DriversTableRow = (props) => {
         onClick={() => handleClickDetails(props.driver.Driver.driverId)}
       >
         <IconButton
-          aria-label='expand row'
-          size='small'
+          aria-label="expand row"
+          size="small"
           onClick={() => setOpen(!open)}
         >
           {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
@@ -41,7 +41,7 @@ const DriversTableRow = (props) => {
       <TableCell>{props.driver.position}</TableCell>
       <TableCell>
         {globalCtx.flagFn(props.driver.Driver.nationality)}
-        {props.driver.Driver.givenName + ' ' + props.driver.Driver.familyName}
+        {props.driver.Driver.givenName + " " + props.driver.Driver.familyName}
       </TableCell>
       <TableCell onClick={() => handleTeamDetails(props.driver.Driver.driverId)}>{props.driver.Constructors[0].name}</TableCell>
       <TableCell>{props.driver.points}</TableCell>

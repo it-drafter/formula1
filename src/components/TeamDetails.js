@@ -74,7 +74,10 @@ const TeamDetails = (props) => {
           </p>
         </div>
       </div>
-      <TeamDetailsRaces teamResults={teamResults} />
+      <TeamDetailsRaces
+        teamResults={teamResults}
+        handleDrivers={handleDrivers}
+      />
     </>
   );
 };
