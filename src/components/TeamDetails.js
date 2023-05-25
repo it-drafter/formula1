@@ -92,12 +92,7 @@ const TeamDetails = (props) => {
           {teamResults.map((teamResult) => {
             return (
 
-<<<<<<< HEAD
-                  <TableRow key={teamResult.round}>
-                  
-=======
               <TableRow key={teamResult.round}>
->>>>>>> 636418c172406498287a258b1a59c7fb29e770be
                 <TableCell>{teamResult.round}</TableCell>
                 <TableCell onClick={() => handleDrivers(teamResult.round)}>{teamResult.raceName}</TableCell>
                 <TableCell

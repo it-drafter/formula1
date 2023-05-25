@@ -60,14 +60,7 @@ const DriverDetails = (props) => {
         .DriverStandings[0]
     );
     setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
-<<<<<<< HEAD
-
-    setFlags(responseFlags);
-    
-
-=======
     setFlags(responseFlags.data);
->>>>>>> 636418c172406498287a258b1a59c7fb29e770be
     setIsLoading(false);
   };
 
