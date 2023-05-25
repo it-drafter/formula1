@@ -149,6 +149,7 @@ const DriverDetails = () => {
       <DriverDetailsRaces
         driverDetailsRaces={driverDetailsRaces}
         handleRouteToGrandPrix={handleRouteToGrandPrix}
+        className="rucica"
       />
     </>
   );

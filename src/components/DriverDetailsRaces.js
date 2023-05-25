@@ -27,6 +27,7 @@ const DriverDetailsRaces = (props) => {
               <TableCell>{DetailRace.round}</TableCell>
               <TableCell
                 onClick={() => props.handleRouteToGrandPrix(DetailRace.round)}
+                className="rucica"
               >
                 {DetailRace.raceName}
               </TableCell>

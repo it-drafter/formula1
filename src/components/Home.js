@@ -15,7 +15,6 @@ const Home = () => {
     <>
      <div role="presentation" onClick={handleClick}>
       <Breadcrumbs aria-label="breadcrumb">
-       
         <Link
           underline="hover"
           color="text.red"
@@ -26,8 +25,6 @@ const Home = () => {
         </Link>
       </Breadcrumbs>
       </div>
-    
-      
     </>
   );
 };
