@@ -40,10 +40,5 @@
     "react-flagkit": "^2.0.4",
     "react-router-dom": "^6.11.2",
     "react-spinners": "^0.13.8"
-  },
-  "browser": {
-    "fs": false,
-    "os": false,
-    "path": false
   }
 }

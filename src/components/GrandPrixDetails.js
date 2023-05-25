@@ -69,6 +69,15 @@ const GrandPrixDetails = () => {
     );
   }
 
+  async function checkPosterExists(url) {
+    try {
+      const response = await axios.head(url);
+      return response.status === 200;
+    } catch (error) {
+      return false;
+    }
+  }
+
   return (
     <>
 
@@ -111,8 +120,11 @@ const GrandPrixDetails = () => {
             <TableCell>-Slika zastave-</TableCell>
             <TableCell>
               <img
-                src={`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId
-                  }.jpg`}
+                // src={`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId
+                //   }.jpg`}
+                src={checkPosterExists(`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId}.jpg`)
+                  ? `/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId}.jpg`
+                  : `/img/grand_prix/poster.jpg`}
               />
             </TableCell>
           </TableRow>
