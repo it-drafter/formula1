@@ -15,6 +15,7 @@ const RacesTableRow = (props) => {
     <TableRow>
       <TableCell>{props.race.round}</TableCell>
       <TableCell
+      className="rucica"
         onClick={() => handleClickGrandPrix(props.race.round)}>
         {props.race.raceName}
       </TableCell>

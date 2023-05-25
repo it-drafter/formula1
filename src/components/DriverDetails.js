@@ -8,6 +8,8 @@ import {
   TableBody,
   TableRow,
   TableCell,
+  Link,
+  Breadcrumbs,
 } from '@mui/material';
 import GlobalContext from '../context/global-context';
 
@@ -43,6 +45,17 @@ const DriverDetails = () => {
   useEffect(() => {
     getDriverDetails();
   }, []);
+
+
+  function handleClick(event) {
+    event.preventDefault();
+    console.info('You clicked a breadcrumb.');
+  }
+  const handleBCRoute=(path)=>{
+    console.log("klikkk")
+    navigate(path);
+
+  }
 
   const getDriverDetails = async () => {
     // console.log('DriverDetails', params.driverId);
@@ -95,6 +108,36 @@ const DriverDetails = () => {
     <>
       <div className='driverDetails'>
         <div>
+        <div role="presentation" onClick={handleClick}>
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link underline="hover" 
+        color="black"
+        onClick={()=> handleBCRoute("/")}
+        className="rucica"
+        >
+          Home
+        </Link>
+        <Link
+          underline="hover"
+          color="black"
+          onClick={()=> handleBCRoute("/drivers")}
+          className="rucica"
+        >
+          Drivers
+        </Link>
+        <Link
+          underline="hover"
+          color="text.red"
+          onClick={()=> handleBCRoute()}
+          className="rucica"
+          aria-current="page"
+        >
+          Driver Details
+        </Link>
+      </Breadcrumbs>
+    </div>
+
+    
           <h2>Driver details</h2>
           <p>
             Nationality: {driverDetails?.Driver.nationality}
@@ -104,6 +147,9 @@ const DriverDetails = () => {
           <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
           <p>Biography: {driverDetails?.Driver.url}</p>
         </div>
+
+
+        
         <Table>
           <TableHead>
             <TableRow className='table-header'>
@@ -120,6 +166,7 @@ const DriverDetails = () => {
                 <TableCell>{DetailRace.round}</TableCell>
                 <TableCell
                   onClick={() => handleRouteToGrandPrix(DetailRace.round)}
+                  className="rucica"
                 >
                   {DetailRace.raceName}
                 </TableCell>

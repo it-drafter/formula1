@@ -25,6 +25,7 @@ const TeamsTableRow = (props) => {
         onClick={() =>
           handleClickConstructor(props.team.Constructor.constructorId)
         }
+        className="rucica"
       >
         {props.team.Constructor.name}
       </TableCell>
