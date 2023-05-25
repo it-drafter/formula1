@@ -114,7 +114,7 @@ const TeamDetails = (props) => {
           <p>Positon: {teamDetails.position}</p>
           <p>Points: {teamDetails.points}</p>
           <p>
-            History:{' '}
+            History:
             <a href={teamDetails.Constructor.url + '#History'} target='_blank'>
               ↗
             </a>
