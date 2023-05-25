@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { RiseLoader } from 'react-spinners';
 import { useParams } from 'react-router-dom';
+import fs from 'fs';
 import {
   Table,
   TableHead,
@@ -66,7 +67,7 @@ const GrandPrixDetails = () => {
             <TableCell>
               <img
                 src={`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId
-                  }.png`}
+                  }.jpg`}
               />
             </TableCell>
           </TableRow>
