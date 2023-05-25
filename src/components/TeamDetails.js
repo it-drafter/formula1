@@ -56,6 +56,7 @@ const TeamDetails = (props) => {
       {' '}
       <div className='team-details'>
         <div>
+          <img src={`/img/teams/${teamDetails.Constructor.constructorId}.webp`}/>
       
           {globalCtx.flagFn(teamDetails.Constructor.nationality)}
         </div>
