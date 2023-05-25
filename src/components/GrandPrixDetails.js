@@ -4,21 +4,24 @@ import { useParams } from 'react-router-dom';
 import fs from 'fs';
 import {
   Table,
-  TableHead,
   TableBody,
   TableRow,
   TableCell,
+  Link,
+  Breadcrumbs
 } from '@mui/material';
 import axios from 'axios';
 import QualifyingResults from './QualifyingResults';
 import RaceResults from './RaceResults';
 import GlobalContext from '../context/global-context';
+import { useNavigate } from 'react-router-dom';
 
 const GrandPrixDetails = () => {
   const globalCtx = useContext(GlobalContext);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [grandPrix, setGrandPrix] = useState([]);
+  const navigate = useNavigate();
 
   const params = useParams();
   const round = params.round;
@@ -26,6 +29,16 @@ const GrandPrixDetails = () => {
   useEffect(() => {
     getGrandPrix();
   }, []);
+
+  function handleClick(event) {
+    event.preventDefault();
+    console.info('You clicked a breadcrumb. -- grand prix');
+  }
+  const handleBCRoute = (path) => {
+    console.log("klik")
+    navigate(path)
+
+  }
 
   const getGrandPrix = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
@@ -59,7 +72,40 @@ const GrandPrixDetails = () => {
 
   return (
     <>
-      <h1>Grand Prix component</h1>
+
+      <div role="presentation" onClick={handleClick}>
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link underline="hover" 
+          className="rucica"
+          color="black"
+          onClick={()=> handleBCRoute("/")} >
+            
+            Home
+          </Link>
+          <Link
+            underline="hover"
+            className="rucica"
+            color="black"
+            onClick={()=> handleBCRoute(`/races`)}
+          >
+            Race
+          </Link>
+          <Link
+          className="rucica"
+            underline="hover"
+            color="text.red"
+            aria-current="page"
+            onClick={()=> handleBCRoute("/")}
+            
+          >
+            Race Details
+          </Link>
+        </Breadcrumbs>
+      </div>
+
+
+
+
       <Table>
         <TableBody>
           <TableRow>

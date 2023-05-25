@@ -7,9 +7,12 @@ import {
   TableBody,
   TableRow,
   TableCell,
+  Breadcrumbs,
+  Link,
 } from '@mui/material';
 import axios from 'axios';
 import GlobalContext from '../context/global-context';
+import { useNavigate } from 'react-router-dom';
 
 const Drivers = () => {
   const globalCtx = useContext(GlobalContext);
@@ -17,10 +20,22 @@ const Drivers = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [drivers, setDrivers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getDrivers();
   }, []);
+
+  function handleClick(event) {
+    event.preventDefault();
+    console.info('You clicked a breadcrumb.-- Drivers');
+  }
+  const handleBCRoute= () => {
+    console.log("klik")
+    const linkTo=`/`;
+    navigate(linkTo);
+  }
+
 
   const getDrivers = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
@@ -61,7 +76,27 @@ const Drivers = () => {
 
   return (
     <>
-      <h1>Drivers component</h1>
+      
+
+      <div role="presentation" onClick={handleClick}>
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link underline="hover" color="black" onClick={handleBCRoute} className="rucica">
+          Home
+        </Link>
+        <Link
+          underline="hover"
+          color="text.red"
+          className="rucica"
+          
+        >
+          Drivers
+        </Link>
+        
+      </Breadcrumbs>
+    </div>
+
+
+
       <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>

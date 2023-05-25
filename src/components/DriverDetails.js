@@ -3,13 +3,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
 import {
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
+  Link,
+  Breadcrumbs,
 } from '@mui/material';
+
 import GlobalContext from '../context/global-context';
+import DriverDetailsRaces from './DriverDetailsRaces';
 
 const DriverDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -43,6 +42,17 @@ const DriverDetails = () => {
   useEffect(() => {
     getDriverDetails();
   }, []);
+
+
+  function handleClick(event) {
+    event.preventDefault();
+    console.info('You clicked a breadcrumb.');
+  }
+  const handleBCRoute=(path)=>{
+    console.log("klikkk")
+    navigate(path);
+
+  }
 
   const getDriverDetails = async () => {
     // console.log('DriverDetails', params.driverId);
@@ -95,6 +105,36 @@ const DriverDetails = () => {
     <>
       <div className='driverDetails'>
         <div>
+        <div role="presentation" onClick={handleClick}>
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link underline="hover" 
+        color="black"
+        onClick={()=> handleBCRoute("/")}
+        className="rucica"
+        >
+          Home
+        </Link>
+        <Link
+          underline="hover"
+          color="black"
+          onClick={()=> handleBCRoute("/drivers")}
+          className="rucica"
+        >
+          Drivers
+        </Link>
+        <Link
+          underline="hover"
+          color="text.red"
+          onClick={()=> handleBCRoute()}
+          className="rucica"
+          aria-current="page"
+        >
+          Driver Details
+        </Link>
+      </Breadcrumbs>
+    </div>
+
+    
           <h2>Driver details</h2>
           <p>
             Nationality: {driverDetails?.Driver.nationality}
@@ -104,39 +144,13 @@ const DriverDetails = () => {
           <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
           <p>Biography: {driverDetails?.Driver.url}</p>
         </div>
-        <Table>
-          <TableHead>
-            <TableRow className='table-header'>
-              <TableCell>Round</TableCell>
-              <TableCell>Grand Prix</TableCell>
-              <TableCell>Team</TableCell>
-              <TableCell>Grid</TableCell>
-              <TableCell>Race</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {driverDetailsRaces.map((DetailRace) => (
-              <TableRow key={DetailRace.round}>
-                <TableCell>{DetailRace.round}</TableCell>
-                <TableCell
-                  onClick={() => handleRouteToGrandPrix(DetailRace.round)}
-                >
-                  {DetailRace.raceName}
-                </TableCell>
-                <TableCell>
-                  {DetailRace.Results[0].Constructor.constructorId}
-                </TableCell>
-                <TableCell>{DetailRace.Results[0].grid}</TableCell>
-                <TableCell
-                  className={'position_' + DetailRace.Results[0].position}
-                >
-                  {DetailRace.Results[0].position}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
       </div>
+
+      <DriverDetailsRaces
+        driverDetailsRaces={driverDetailsRaces}
+        handleRouteToGrandPrix={handleRouteToGrandPrix}
+        className="rucica"
+      />
     </>
   );
 };
