@@ -149,9 +149,17 @@ const GrandPrixDetails = () => {
             <TableCell>{grandPrix[round - 1].date}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Details:</TableCell>
+            <TableCell>Grand Prix details:</TableCell>
             <TableCell>
               <a href={grandPrix[round - 1].url} target='_blank'>
+                Wikipedia ↗
+              </a>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Circuit details:</TableCell>
+            <TableCell>
+              <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
                 Wikipedia ↗
               </a>
             </TableCell>
