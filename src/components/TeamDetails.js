@@ -103,17 +103,17 @@ const TeamDetails = (props) => {
         <div>
           <img
             src={`/img/teams/${teamDetails.Constructor.constructorId}.png`}
-            style={{ width: '400px', paddingRight: '30px' }}
+            style={{ width: '350px', paddingRight: '30px' }}
             alt='Constructor'
           />
         </div>
 
         <div>
-          <p className='name-details'>
+          <h2 className='name-details'>
             {globalCtx.flagFn(teamDetails.Constructor.nationality)}
             <span> </span>
             {teamDetails.Constructor.name}
-          </p>
+          </h2>
           <p>Nationality: {teamDetails.Constructor.nationality}</p>
           <p>Positon: {teamDetails.position}</p>
           <p>Points: {teamDetails.points}</p>
