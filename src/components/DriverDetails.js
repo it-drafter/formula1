@@ -100,51 +100,62 @@ const DriverDetails = () => {
     );
   }
 
-  // console.log(driverDetailsRaces);
+  console.log("DRIVERS", driverDetails.Driver.driverId);
 
   return (
     <>
-      <div className='driverDetails'>
-        <div>
-          <div role='presentation' onClick={handleClick}>
-            <Breadcrumbs aria-label='breadcrumb'>
-              <Link
-                underline='hover'
-                color='black'
-                onClick={() => handleBCRoute('/')}
-                className='rucica'
-              >
-                Home
-              </Link>
-              <Link
-                underline='hover'
-                color='black'
-                onClick={() => handleBCRoute('/drivers')}
-                className='rucica'
-              >
-                Drivers
-              </Link>
-              <Link
-                underline='hover'
-                color='text.red'
-                onClick={() => handleBCRoute()}
-                className='rucica'
-                aria-current='page'
-              >
-                Driver Details
-              </Link>
-            </Breadcrumbs>
-          </div>
 
-          <h2>Driver details</h2>
+
+      <div role='presentation' onClick={handleClick}>
+        <Breadcrumbs aria-label='breadcrumb'>
+          <Link
+            underline='hover'
+            color='black'
+            onClick={() => handleBCRoute('/')}
+            className='rucica'
+          >
+            Home
+          </Link>
+          <Link
+            underline='hover'
+            color='black'
+            onClick={() => handleBCRoute('/drivers')}
+            className='rucica'
+          >
+            Drivers
+          </Link>
+          <Link
+            underline='hover'
+            color='text.red'
+            onClick={() => handleBCRoute()}
+            className='rucica'
+            aria-current='page'
+          >
+            Driver Details
+          </Link>
+        </Breadcrumbs>
+      </div>
+      <div className='team-details'>
+        <div>
+          <img src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+          style={{ width: '200px', paddingRight: '30px'}}
+          alt='Driver'
+          />
+        </div>                                  
+        <div>
           <p>
             Nationality: {driverDetails?.Driver.nationality}
-            {globalCtx.flagFn(driverDetails?.Driver.nationality)}
+            <span></span>
+          
           </p>
           <p>Team: {driverDetails?.Constructors[0].constructorId}</p>
           <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
-          <p>Biography: {driverDetails?.Driver.url}</p>
+          <p>Biography:
+            <a href={driverDetails?.Driver.url} target='_blank'>↗</a></p>
         </div>
+
+
+
       </div>
 
       <DriverDetailsRaces

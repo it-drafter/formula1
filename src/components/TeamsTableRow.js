@@ -69,7 +69,7 @@ const TeamsTableRow = (props) => {
           <span> </span>
           {props.team.Constructor.name}
         </TableCell>
-        <TableCell>
+        <TableCell className='details-btn'>
           <a href={props.team.Constructor.url} target='_blank'>
             Details ↗
           </a>
