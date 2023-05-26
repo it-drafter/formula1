@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Navigation from './components/Navigation';
 import axios from 'axios';
 import Flag from 'react-flagkit';
 import GlobalContext from './context/global-context';
-import YearContext from './context/global-context';
-
 
 const App = () => {
+  // const globalCtx = useContext(GlobalContext);
+
+  // console.log('IVAN: ', globalCtx.setYearFn());
+
   const [flags, setFlags] = useState([]);
-  const [year, setYear] = useState([]);
+  const [year, setYear] = useState(new Date().getFullYear());
 
   useEffect(() => {
     getFlags();
-    setYear('2013');
+    // setYear(globalCtx.setYearFn() ?? new Date().getFullYear());
   }, []);
-
-  
-
 
   const getFlags = async () => {
     // console.log('DriverDetails', params.driverId);
@@ -30,8 +29,14 @@ const App = () => {
   };
 
   const flagFunction = (nationality) => {
-    const country = flags.filter((flag) => flag.nationality === nationality);
-    // console.log('nationality:', nationality);
+    const country = flags.filter(
+      (flag) =>
+        flag.nationality.includes(nationality) ||
+        flag.en_short_name.includes(nationality) ||
+        flag.alpha_3_code.includes(nationality) ||
+        flag.alpha_2_code.includes(nationality)
+    );
+    console.log('nationality:', nationality);
     // console.log('flags:', flags);
     // console.log('country:', country[0]?.alpha_2_code);
     let flagCode = country[0]?.alpha_2_code;
@@ -54,6 +59,7 @@ const App = () => {
       value={{
         chosenYear: year,
         flagFn: flagFunction,
+        setYearFn: setYear,
       }}
     >
       <Navigation />

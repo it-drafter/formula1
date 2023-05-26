@@ -1,40 +1,35 @@
-import moment from "moment/moment";
-import React, {  useContext,  } from "react";
-import YearContext from "../context/global-context";
-
+import moment from 'moment/moment';
+import React, { useContext } from 'react';
+import GlobalContext from '../context/global-context';
 
 export default function YearSelect() {
-    const startYear = 1950;
-    const allYear = moment().year()
-    const {handleselectedYear} = useContext(YearContext);
+  const globalCtx = useContext(GlobalContext);
 
-    const years = [];
+  const startYear = 1950;
+  const allYear = moment().year();
+  // const { handleselectedYear } = useContext(GlobalContext);
+
+  const years = [];
   for (let year = startYear; year <= allYear; year++) {
     years.push(year);
-  };
+  }
 
   const handleClick = (year) => {
-    handleselectedYear(year)
-    console.log("Selected year:" ,year)
-  }
-   
-   
-  
+    globalCtx.setYearFn(year);
+    console.log('YearSelect component:', year);
+  };
 
-    
-    return(
-        <div>
-            <h1>Year list:</h1>
-           
-            <ul>
-                {years.map((year) => (
+  return (
+    <div>
+      <h1>Year list:</h1>
 
-                <li key={year} 
-                onClick={() => handleClick(year)}
-                >{year}</li>
-                ))}
-            </ul>
-            
-        </div>
-    )
+      <ul>
+        {years.map((year) => (
+          <li key={year} onClick={() => handleClick(year)}>
+            {year}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }

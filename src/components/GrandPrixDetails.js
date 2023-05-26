@@ -33,10 +33,10 @@ const GrandPrixDetails = () => {
     event.preventDefault();
     console.info('You clicked a breadcrumb. -- grand prix');
   }
+
   const handleBCRoute = (path) => {
     console.log("klik")
     navigate(path)
-
   }
 
   const getGrandPrix = async () => {
@@ -69,14 +69,9 @@ const GrandPrixDetails = () => {
     );
   }
 
-  async function checkPosterExists(url) {
-    try {
-      const response = await axios.head(url);
-      return response.status === 200;
-    } catch (error) {
-      return false;
-    }
-  }
+  const lat = grandPrix[round - 1].Circuit.Location.lat;
+  const long = grandPrix[round - 1].Circuit.Location.long;
+  const googleMap = "https://maps.google.com/maps?q=" + lat + "," + long + "&hl=en&z=14&output=embed";
 
   return (
     <>
@@ -111,20 +106,18 @@ const GrandPrixDetails = () => {
         </Breadcrumbs>
       </div>
 
-
-
-
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell>-Slika zastave-</TableCell>
+            <TableCell>{globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)}</TableCell>
             <TableCell>
               <img
-                // src={`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId
-                //   }.jpg`}
-                src={checkPosterExists(`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId}.jpg`)
-                  ? `/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId}.jpg`
-                  : `/img/grand_prix/poster.jpg`}
+                src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
+                  }.jpeg`}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null; // prevents looping
+                  currentTarget.src = `/img/grand_prix/poster.png`;
+                }}
               />
             </TableCell>
           </TableRow>
@@ -149,11 +142,25 @@ const GrandPrixDetails = () => {
             <TableCell>{grandPrix[round - 1].date}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Details:</TableCell>
+            <TableCell>Grand Prix details:</TableCell>
             <TableCell>
               <a href={grandPrix[round - 1].url} target='_blank'>
                 Wikipedia ↗
               </a>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Circuit details:</TableCell>
+            <TableCell>
+              <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
+                Wikipedia ↗
+              </a>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell></TableCell>
+            <TableCell>
+              <iframe src={googleMap}></iframe>
             </TableCell>
           </TableRow>
         </TableBody>

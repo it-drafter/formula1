@@ -4,17 +4,12 @@ import TableCell from '@mui/material/TableCell';
 import IconButton from '@mui/material/IconButton';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { useNavigate } from 'react-router-dom';
-import GlobalContext from '../context/global-context';
-
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
+//import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
+import GlobalContext from '../context/global-context';
+import DriverDetailsCollapsable from './DriverDetailsCollapsable';
 
 const DriversTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -33,6 +28,7 @@ const DriversTableRow = (props) => {
   };
 
   // console.log('Props', props.driver.Driver.nationality);
+  console.log('Props111', props);
 
   return (
     <>
@@ -51,10 +47,13 @@ const DriversTableRow = (props) => {
         </TableCell>
         <TableCell
           onClick={() => handleClickDetails(props.driver.Driver.driverId)}
-          className='rucica'
-        >
+          className='rucica'>
+            <div className="flagName">
           {globalCtx.flagFn(props.driver.Driver.nationality)}
+          <span> </span>
+          <span> </span>
           {props.driver.Driver.givenName + ' ' + props.driver.Driver.familyName}
+          </div>
         </TableCell>
         <TableCell
           className='rucica'
@@ -66,30 +65,19 @@ const DriversTableRow = (props) => {
       </TableRow>
 
       <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={5}>
           <Collapse in={open} timeout='auto' unmountOnExit>
-            <Box sx={{ margin: 1 }}>
-              <Typography variant='h6' gutterBottom component='div'>
-                Details
-              </Typography>
-              <Table size='small' aria-label='purchases'>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Header 1</TableCell>
-                    <TableCell>Header 2</TableCell>
-                    <TableCell>Header 3</TableCell>
-                    <TableCell>Header 4</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  <TableRow>
-                    <TableCell>Data 1</TableCell>
-                    <TableCell>Data 2</TableCell>
-                    <TableCell>Data 3</TableCell>
-                    <TableCell>Data 4</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
+            <Box sx={{ margin: 0 }}>
+              {/* <Typography variant='h6' gutterBottom component='div'>
+                {globalCtx.flagFn(props.driver.Driver.nationality)}
+                <span> </span>
+                {props.driver.Driver.givenName +
+                  ' ' +
+                  props.driver.Driver.familyName}
+              </Typography> */}
+              <DriverDetailsCollapsable
+                driverId={props.driver.Driver.driverId}
+              />
             </Box>
           </Collapse>
         </TableCell>

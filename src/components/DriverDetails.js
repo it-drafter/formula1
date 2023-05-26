@@ -2,10 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
-import {
-  Link,
-  Breadcrumbs,
-} from '@mui/material';
+import { Link, Breadcrumbs } from '@mui/material';
 
 import GlobalContext from '../context/global-context';
 import DriverDetailsRaces from './DriverDetailsRaces';
@@ -43,16 +40,14 @@ const DriverDetails = () => {
     getDriverDetails();
   }, []);
 
-
   function handleClick(event) {
     event.preventDefault();
     console.info('You clicked a breadcrumb.');
   }
-  const handleBCRoute=(path)=>{
-    console.log("klikkk")
+  const handleBCRoute = (path) => {
+    console.log('klikkk');
     navigate(path);
-
-  }
+  };
 
   const getDriverDetails = async () => {
     // console.log('DriverDetails', params.driverId);
@@ -96,60 +91,80 @@ const DriverDetails = () => {
   // };
 
   if (isLoading) {
-    return <RiseLoader />;
+    return (
+      <RiseLoader
+        style={{
+          marginTop: '100px',
+        }}
+      />
+    );
   }
 
-  // console.log(driverDetailsRaces);
+  console.log("DRIVERS", driverDetails.Driver.driverId);
 
   return (
     <>
-      <div className='driverDetails'>
-        <div>
-        <div role="presentation" onClick={handleClick}>
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" 
-        color="black"
-        onClick={()=> handleBCRoute("/")}
-        className="rucica"
-        >
-          Home
-        </Link>
-        <Link
-          underline="hover"
-          color="black"
-          onClick={()=> handleBCRoute("/drivers")}
-          className="rucica"
-        >
-          Drivers
-        </Link>
-        <Link
-          underline="hover"
-          color="text.red"
-          onClick={()=> handleBCRoute()}
-          className="rucica"
-          aria-current="page"
-        >
-          Driver Details
-        </Link>
-      </Breadcrumbs>
-    </div>
 
-    
-          <h2>Driver details</h2>
+
+      <div role='presentation' onClick={handleClick}>
+        <Breadcrumbs aria-label='breadcrumb'>
+          <Link
+            underline='hover'
+            color='black'
+            onClick={() => handleBCRoute('/')}
+            className='rucica'
+          >
+            Home
+          </Link>
+          <Link
+            underline='hover'
+            color='black'
+            onClick={() => handleBCRoute('/drivers')}
+            className='rucica'
+          >
+            Drivers
+          </Link>
+          <Link
+            underline='hover'
+            color='text.red'
+            onClick={() => handleBCRoute()}
+            className='rucica'
+            aria-current='page'
+          >
+            Driver Details
+          </Link>
+        </Breadcrumbs>
+      </div>
+      <div className='team-details'>
+        <div>
+          <img src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+          style={{ width: '200px', paddingRight: '30px'}}
+          alt='Driver'
+          />
+        </div>                                  
+        <div>
+        <h2>{globalCtx.flagFn(driverDetails?.Driver.nationality)}
+                <span> </span>
+                {driverDetails.Driver.givenName + ' ' + driverDetails.Driver.familyName}</h2>
           <p>
             Nationality: {driverDetails?.Driver.nationality}
-            {globalCtx.flagFn(driverDetails?.Driver.nationality)}
+            <span></span>
+          
           </p>
           <p>Team: {driverDetails?.Constructors[0].constructorId}</p>
           <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
-          <p>Biography: {driverDetails?.Driver.url}</p>
+          <p>Biography:
+            <a href={driverDetails?.Driver.url} target='_blank'>↗</a></p>
         </div>
+
+
+
       </div>
 
       <DriverDetailsRaces
         driverDetailsRaces={driverDetailsRaces}
         handleRouteToGrandPrix={handleRouteToGrandPrix}
-        className="rucica"
+        className='rucica'
       />
     </>
   );
