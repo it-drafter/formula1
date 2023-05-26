@@ -14,7 +14,7 @@ const QualifyingTableRow = (props) => {
     return (
         <TableRow>
             <TableCell>{props.qualifier.position}</TableCell>
-            <TableCell>
+            <TableCell className="rucica">
                 {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
                 <span> </span>
                 {props.qualifier.Driver.givenName + ' ' + props.qualifier.Driver.familyName}

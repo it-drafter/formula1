@@ -1,5 +1,6 @@
 @import "../scss/_cssreset.scss";
 @import '../scss/_Navigation.scss';
+@import "../scss/BreadCrumb.scss";
 @import '../scss/_Teams.scss';
 @import '../scss/Drivers.scss';
 
@@ -44,10 +45,8 @@
 .rucica {
     cursor: pointer;
 }
-   
-
-
-
-
-
-
+.BCDiv{
+    display: flex;
+    margin: 10px;
+    
+}

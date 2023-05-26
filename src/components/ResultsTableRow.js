@@ -8,7 +8,7 @@ const ResultsTableRow = (props) => {
   return (
     <TableRow>
       <TableCell>{props.result.position}</TableCell>
-      <TableCell>
+      <TableCell className="rucica">
         {globalCtx.flagFn(props.result.Constructor.nationality)}
         <span> </span>
         {props.result.Driver.givenName + ' ' + props.result.Driver.familyName}
@@ -27,3 +27,4 @@ const ResultsTableRow = (props) => {
 };
 
 export default ResultsTableRow;
+

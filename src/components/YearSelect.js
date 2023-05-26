@@ -1,6 +1,7 @@
 import moment from 'moment/moment';
 import React, { useContext } from 'react';
 import GlobalContext from '../context/global-context';
+import { Select, MenuItem,  } from '@mui/material';
 
 export default function YearSelect() {
   const globalCtx = useContext(GlobalContext);
@@ -23,13 +24,13 @@ export default function YearSelect() {
     <div>
       <h1>Year list:</h1>
 
-      <ul>
+      <Select >
         {years.map((year) => (
-          <li key={year} onClick={() => handleClick(year)}>
+          <MenuItem key={year} onClick={() => handleClick(year)}>
             {year}
-          </li>
+          </MenuItem>
         ))}
-      </ul>
+      </Select>
     </div>
   );
 }
