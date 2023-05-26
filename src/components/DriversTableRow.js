@@ -66,6 +66,7 @@ const DriversTableRow = (props) => {
             <Box sx={{ margin: 0 }}>
               <Typography variant='h6' gutterBottom component='div'>
                 {globalCtx.flagFn(props.driver.Driver.nationality)}
+                <span> </span>
                 {props.driver.Driver.givenName +
                   ' ' +
                   props.driver.Driver.familyName}
