@@ -6,7 +6,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
-import Typography from '@mui/material/Typography';
+//import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import GlobalContext from '../context/global-context';
 import DriverDetailsCollapsable from './DriverDetailsCollapsable';
@@ -28,6 +28,7 @@ const DriversTableRow = (props) => {
   };
 
   // console.log('Props', props.driver.Driver.nationality);
+  console.log('Props111', props);
 
   return (
     <>
@@ -64,13 +65,13 @@ const DriversTableRow = (props) => {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={5}>
           <Collapse in={open} timeout='auto' unmountOnExit>
             <Box sx={{ margin: 0 }}>
-              <Typography variant='h6' gutterBottom component='div'>
+              {/* <Typography variant='h6' gutterBottom component='div'>
                 {globalCtx.flagFn(props.driver.Driver.nationality)}
                 <span> </span>
                 {props.driver.Driver.givenName +
                   ' ' +
                   props.driver.Driver.familyName}
-              </Typography>
+              </Typography> */}
               <DriverDetailsCollapsable
                 driverId={props.driver.Driver.driverId}
               />
