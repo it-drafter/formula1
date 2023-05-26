@@ -100,7 +100,7 @@ const DriverDetails = () => {
     );
   }
 
-  // console.log(driverDetailsRaces);
+  console.log("DRIVERS", driverDetails.Driver.driverId);
 
   return (
     <>
@@ -137,8 +137,8 @@ const DriverDetails = () => {
       </div>
       <div className='team-details'>
         <div>
-          <img src={`/img/drivers/${driverDetails.Driver.familyName}.webp`}
-          style={{ width: '300px', paddingRight: '30px'}}
+          <img src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+          style={{ width: '200px', paddingRight: '30px'}}
           alt='Driver'
           />
         </div>
