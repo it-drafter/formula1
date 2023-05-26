@@ -39,16 +39,22 @@ const DriverDetailsCollapsable = (props) => {
       />
     );
   }
-
+  console.log("moj props", props);
   return (
     <>
       <Table
+       border="50px solid red"
         size='small'
         aria-label='purchases'
-        sx={{ margin: 0, marginBottom: 5 }}
+        sx={{ margin: 0, marginBottom: 5}}
       >
         <TableHead>
           <TableRow>
+            <TableCell>
+              <h2>{globalCtx.flagFn(driverDetails?.Driver.nationality)}
+                <span> </span>
+                {driverDetails.Driver.givenName + ' ' + driverDetails.Driver.familyName}</h2>
+            </TableCell>
             <TableCell>Nationality</TableCell>
             <TableCell>Team</TableCell>
             <TableCell>Date of Birth</TableCell>
@@ -58,11 +64,14 @@ const DriverDetailsCollapsable = (props) => {
         <TableBody>
           <TableRow>
             <TableCell>
-              {driverDetails?.Driver.nationality}
-              {globalCtx.flagFn(driverDetails?.Driver.nationality)}
+              <img src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+                style={{ width: '120px', paddingRight: '30px' }}
+                alt='Driver' /></TableCell>
+            <TableCell>
+              {driverDetails.Driver.nationality}
             </TableCell>
             <TableCell>
-              {driverDetails?.Constructors[0].constructorId}
+              {driverDetails?.Constructors[0].name}
             </TableCell>
             <TableCell>{driverDetails?.Driver.dateOfBirth}</TableCell>
             <TableCell>{driverDetails?.Driver.url}</TableCell>
