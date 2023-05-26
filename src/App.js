@@ -29,8 +29,14 @@ const App = () => {
   };
 
   const flagFunction = (nationality) => {
-    const country = flags.filter((flag) => flag.nationality === nationality);
-    // console.log('nationality:', nationality);
+    const country = flags.filter(
+      (flag) =>
+        flag.nationality.includes(nationality) ||
+        flag.en_short_name.includes(nationality) ||
+        flag.alpha_3_code.includes(nationality) ||
+        flag.alpha_2_code.includes(nationality)
+    );
+    console.log('nationality:', nationality);
     // console.log('flags:', flags);
     // console.log('country:', country[0]?.alpha_2_code);
     let flagCode = country[0]?.alpha_2_code;
