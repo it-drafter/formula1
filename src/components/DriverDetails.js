@@ -141,7 +141,7 @@ const DriverDetails = () => {
           style={{ width: '200px', paddingRight: '30px'}}
           alt='Driver'
           />
-        </div>
+        </div>                                  
         <div>
           <p>
             Nationality: {driverDetails?.Driver.nationality}

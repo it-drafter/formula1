@@ -20,7 +20,7 @@ const RacesTableRow = (props) => {
     <TableRow>
       <TableCell>{props.race.round}</TableCell>
       <TableCell
-      className="rucica"
+        className="rucica"
         onClick={() => handleClickGrandPrix(props.race.round)}>
         {/* {globalCtx.flagFn(props.race.Circuit.Location.country + 'n')} */}
         <span> </span>
@@ -28,7 +28,7 @@ const RacesTableRow = (props) => {
       </TableCell>
       <TableCell>{props.race.Circuit.circuitName}</TableCell>
       <TableCell>{props.race.date}</TableCell>
-      <TableCell>{props.race.Results[0].Driver.familyName}</TableCell>
+      <TableCell>{props.race.Results[0].Driver.givenName + ' ' + props.race.Results[0].Driver.familyName}</TableCell>
     </TableRow>
   );
 };
