@@ -24,3 +24,14 @@
      }
  
 }
+.details-btn {
+   a {
+      border-radius: 4px;
+      background-color:  #FFDF9F;
+padding: 3px 12px;
+color: rgb(46, 46, 46);
+   }
+   a:hover {
+      background-color: #DFFFDF;
+   }
+}
