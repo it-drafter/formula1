@@ -2,10 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
-import {
-  Link,
-  Breadcrumbs,
-} from '@mui/material';
+import { Link, Breadcrumbs } from '@mui/material';
 
 import GlobalContext from '../context/global-context';
 import DriverDetailsRaces from './DriverDetailsRaces';
@@ -43,16 +40,14 @@ const DriverDetails = () => {
     getDriverDetails();
   }, []);
 
-
   function handleClick(event) {
     event.preventDefault();
     console.info('You clicked a breadcrumb.');
   }
-  const handleBCRoute=(path)=>{
-    console.log("klikkk")
+  const handleBCRoute = (path) => {
+    console.log('klikkk');
     navigate(path);
-
-  }
+  };
 
   const getDriverDetails = async () => {
     // console.log('DriverDetails', params.driverId);
@@ -96,7 +91,13 @@ const DriverDetails = () => {
   // };
 
   if (isLoading) {
-    return <RiseLoader />;
+    return (
+      <RiseLoader
+        style={{
+          marginTop: '100px',
+        }}
+      />
+    );
   }
 
   // console.log(driverDetailsRaces);
@@ -105,36 +106,36 @@ const DriverDetails = () => {
     <>
       <div className='driverDetails'>
         <div>
-        <div role="presentation" onClick={handleClick}>
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" 
-        color="black"
-        onClick={()=> handleBCRoute("/")}
-        className="rucica"
-        >
-          Home
-        </Link>
-        <Link
-          underline="hover"
-          color="black"
-          onClick={()=> handleBCRoute("/drivers")}
-          className="rucica"
-        >
-          Drivers
-        </Link>
-        <Link
-          underline="hover"
-          color="text.red"
-          onClick={()=> handleBCRoute()}
-          className="rucica"
-          aria-current="page"
-        >
-          Driver Details
-        </Link>
-      </Breadcrumbs>
-    </div>
+          <div role='presentation' onClick={handleClick}>
+            <Breadcrumbs aria-label='breadcrumb'>
+              <Link
+                underline='hover'
+                color='black'
+                onClick={() => handleBCRoute('/')}
+                className='rucica'
+              >
+                Home
+              </Link>
+              <Link
+                underline='hover'
+                color='black'
+                onClick={() => handleBCRoute('/drivers')}
+                className='rucica'
+              >
+                Drivers
+              </Link>
+              <Link
+                underline='hover'
+                color='text.red'
+                onClick={() => handleBCRoute()}
+                className='rucica'
+                aria-current='page'
+              >
+                Driver Details
+              </Link>
+            </Breadcrumbs>
+          </div>
 
-    
           <h2>Driver details</h2>
           <p>
             Nationality: {driverDetails?.Driver.nationality}
@@ -149,7 +150,7 @@ const DriverDetails = () => {
       <DriverDetailsRaces
         driverDetailsRaces={driverDetailsRaces}
         handleRouteToGrandPrix={handleRouteToGrandPrix}
-        className="rucica"
+        className='rucica'
       />
     </>
   );

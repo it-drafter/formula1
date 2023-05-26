@@ -1,8 +1,8 @@
 import React from 'react';
 
-const YearContext = React.createContext({
+const GlobalContext = React.createContext({
   chosenYear: '',
   flagFn: () => {},
 });
 
-export default YearContext;
+export default GlobalContext;

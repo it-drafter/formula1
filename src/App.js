@@ -3,8 +3,6 @@ import Navigation from './components/Navigation';
 import axios from 'axios';
 import Flag from 'react-flagkit';
 import GlobalContext from './context/global-context';
-import YearContext from './context/global-context';
-
 
 const App = () => {
   const [flags, setFlags] = useState([]);
@@ -14,9 +12,6 @@ const App = () => {
     getFlags();
     setYear('2013');
   }, []);
-
-  
-
 
   const getFlags = async () => {
     // console.log('DriverDetails', params.driverId);
