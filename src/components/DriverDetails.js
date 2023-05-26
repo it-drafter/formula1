@@ -141,7 +141,7 @@ const DriverDetails = () => {
           style={{ width: '200px', paddingRight: '30px'}}
           alt='Driver'
           />
-        </div>
+        </div>                                  
         <div>
           <h2>  {globalCtx.flagFn(driverDetails?.Driver.nationality)}
           <span> </span>
