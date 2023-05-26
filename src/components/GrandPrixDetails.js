@@ -69,14 +69,14 @@ const GrandPrixDetails = () => {
     );
   }
 
-  async function checkPosterExists(url) {
-    try {
-      const response = await axios.head(url);
-      return response.status === 200;
-    } catch (error) {
-      return false;
-    }
-  }
+  // async function checkPosterExists(url) {
+  //   try {
+  //     const response = await axios.head(url);
+  //     return response.status === 200;
+  //   } catch (error) {
+  //     return false;
+  //   }
+  // }
 
   return (
     <>
@@ -120,11 +120,11 @@ const GrandPrixDetails = () => {
             <TableCell>-Slika zastave-</TableCell>
             <TableCell>
               <img
-                // src={`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId
-                //   }.jpg`}
-                src={checkPosterExists(`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId}.jpg`)
-                  ? `/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId}.jpg`
-                  : `/img/grand_prix/poster.jpg`}
+                src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
+                  }.jpeg` || `/img/grand_prix/poster.png`}
+              // src={checkPosterExists(`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId}.jpg`)
+              //   ? `/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId}.jpg`
+              //   : `/img/grand_prix/poster.jpg`}
               />
             </TableCell>
           </TableRow>
@@ -149,9 +149,17 @@ const GrandPrixDetails = () => {
             <TableCell>{grandPrix[round - 1].date}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Details:</TableCell>
+            <TableCell>Grand Prix details:</TableCell>
             <TableCell>
               <a href={grandPrix[round - 1].url} target='_blank'>
+                Wikipedia ↗
+              </a>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Circuit details:</TableCell>
+            <TableCell>
+              <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
                 Wikipedia ↗
               </a>
             </TableCell>
