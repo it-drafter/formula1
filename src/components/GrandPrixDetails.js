@@ -69,6 +69,10 @@ const GrandPrixDetails = () => {
     );
   }
 
+  const lat = grandPrix[round - 1].Circuit.Location.lat;
+  const long = grandPrix[round - 1].Circuit.Location.long;
+  const googleMap = "https://maps.google.com/maps?q=" + lat + "," + long + "&hl=en&z=14&output=embed";
+
   return (
     <>
 
@@ -105,16 +109,16 @@ const GrandPrixDetails = () => {
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell>-Slika zastave-</TableCell>
+            <TableCell>{globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)}</TableCell>
             <TableCell>
-              {<img
+              <img
                 src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
                   }.jpeg`}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null; // prevents looping
+                  currentTarget.src = `/img/grand_prix/poster.png`;
+                }}
               />
-                ||
-                <img
-                  src={`/img/grand_prix/poster.png`}
-                />}
             </TableCell>
           </TableRow>
           <TableRow>
@@ -151,6 +155,12 @@ const GrandPrixDetails = () => {
               <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
                 Wikipedia ↗
               </a>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell></TableCell>
+            <TableCell>
+              <iframe src={googleMap}></iframe>
             </TableCell>
           </TableRow>
         </TableBody>
