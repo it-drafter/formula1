@@ -33,10 +33,10 @@ const GrandPrixDetails = () => {
     event.preventDefault();
     console.info('You clicked a breadcrumb. -- grand prix');
   }
+
   const handleBCRoute = (path) => {
     console.log("klik")
     navigate(path)
-
   }
 
   const getGrandPrix = async () => {
@@ -68,15 +68,6 @@ const GrandPrixDetails = () => {
       />
     );
   }
-
-  // async function checkPosterExists(url) {
-  //   try {
-  //     const response = await axios.head(url);
-  //     return response.status === 200;
-  //   } catch (error) {
-  //     return false;
-  //   }
-  // }
 
   return (
     <>
@@ -111,21 +102,19 @@ const GrandPrixDetails = () => {
         </Breadcrumbs>
       </div>
 
-
-
-
       <Table>
         <TableBody>
           <TableRow>
             <TableCell>-Slika zastave-</TableCell>
             <TableCell>
-              <img
+              {<img
                 src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
-                  }.jpeg` || `/img/grand_prix/poster.png`}
-              // src={checkPosterExists(`/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId}.jpg`)
-              //   ? `/img/grand_prix/2013/${grandPrix[round - 1].Circuit.circuitId}.jpg`
-              //   : `/img/grand_prix/poster.jpg`}
+                  }.jpeg`}
               />
+                ||
+                <img
+                  src={`/img/grand_prix/poster.png`}
+                />}
             </TableCell>
           </TableRow>
           <TableRow>
