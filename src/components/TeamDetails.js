@@ -102,7 +102,7 @@ const TeamDetails = (props) => {
       <div className='team-details'>
         <div>
           <img
-            src={`/img/teams/${teamDetails.Constructor.constructorId}.webp`}
+            src={`/img/teams/${teamDetails.Constructor.constructorId}.png`}
             style={{ width: '400px', paddingRight: '30px' }}
             alt='Constructor'
           />
