@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Navigation from './components/Navigation';
 import axios from 'axios';
 import Flag from 'react-flagkit';
 import GlobalContext from './context/global-context';
 
 const App = () => {
+  // const globalCtx = useContext(GlobalContext);
+
+  // console.log('IVAN: ', globalCtx.setYearFn());
+
   const [flags, setFlags] = useState([]);
-  const [year, setYear] = useState([]);
+  const [year, setYear] = useState(new Date().getFullYear());
 
   useEffect(() => {
     getFlags();
-    setYear('2013');
+    // setYear(globalCtx.setYearFn() ?? new Date().getFullYear());
   }, []);
 
   const getFlags = async () => {
@@ -49,6 +53,7 @@ const App = () => {
       value={{
         chosenYear: year,
         flagFn: flagFunction,
+        setYearFn: setYear,
       }}
     >
       <Navigation />
