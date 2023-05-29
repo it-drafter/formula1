@@ -4,6 +4,7 @@ import React from 'react';
 // import YearSelect from './YearSelect';
 import Drivers from './Drivers';
 import BreadCrumbs from './BreadCrumbs';
+import Footer from './Footer';
 // import { useContext } from 'react';
 // import GlobalContext from '../context/global-context';
 
@@ -34,6 +35,7 @@ const Home = () => {
 
       {/* <div>SELECTED YEAR</div> */}
       {/* </div> */}
+      <Footer />
     </>
   );
 };
