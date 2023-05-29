@@ -22,7 +22,7 @@ const DriverDetails = () => {
 
   const handleRouteToGrandPrix = (race) => {
     console.log('komentar');
-    const linkTo = `/races/details/${race}`;
+    const linkTo = `/racesdetails/${race}`;
     navigate(linkTo);
   };
 

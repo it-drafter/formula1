@@ -81,8 +81,8 @@ Nemanjini komentari 29.05.2023:
 - Dodati aktivnu klasu za linkove (koristite NavLink)
 - Posto ste usitnili komponente, mozete kreirati foldere i komponente grupisati (UI, Driver, Races, Teams)
 - Obrisati NavBar.js, jer se nekoristi
-- Rute za detalje vam mogu biti skracena verzija. Umesto '/drivers/details/:driverId' mozete staviti '/driverDetails/:driverId'
-- Neke rute vam se dupliraju. A pored glavne rute, treba da imate 6 ruta ukupno (3 gde prikazujete timove, vozace i trke i 3 gde prikazujete detelje istih)
+- Rute za detalje vam mogu biti skracena verzija. Umesto '/drivers/details/:driverId' mozete staviti '/driverDetails/:driverId' ---odradjeno
+- Neke rute vam se dupliraju. A pored glavne rute, treba da imate 6 ruta ukupno (3 gde prikazujete timove, vozace i trke i 3 gde prikazujete detelje istih) --- odradjeno
 - U metodi getDrivers, setIsLoading(true) je visak, jer je pocetno stanje state vec true. Jos se negde ovo javlja
 - Ukoliko imate loader i imate try/catch block najbolje je da se i u catch stavi setIsLoading(false), da ukoliko dodje do greske da se ukloni Loader
 - Napravite zasebnu komponentu za RiseLoader

@@ -23,7 +23,7 @@ const TeamDetails = (props) => {
 
   const handleDrivers = (raceDetails) => {
     console.log('klik na race');
-    const linkTo = `/races/details/${raceDetails}`;
+    const linkTo = `/racesdetails/${raceDetails}`;
     navigate(linkTo);
   };
 

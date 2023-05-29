@@ -17,7 +17,7 @@ const TeamsTableRow = (props) => {
   const navigate = useNavigate();
 
   const handleClickConstructor = (teamId) => {
-    const LinkTo = `/teams/details/${teamId}`;
+    const LinkTo = `/teamsdetails/${teamId}`;
     navigate(LinkTo);
   };
 

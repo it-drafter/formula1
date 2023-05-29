@@ -11,7 +11,7 @@ const RacesTableRow = (props) => {
   const navigate = useNavigate();
 
   const handleClickGrandPrix = (round) => {
-    const LinkTo = `/races/details/${round}`;
+    const LinkTo = `/racesdetails/${round}`;
     navigate(LinkTo);
   };
   
