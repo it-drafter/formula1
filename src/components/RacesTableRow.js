@@ -19,7 +19,7 @@ const RacesTableRow = (props) => {
     <TableRow>
       <TableCell>{props.race.round}</TableCell>
       <TableCell
-        className='rucica'
+        className='mouseHandle'
         onClick={() => handleClickGrandPrix(props.race.round)}
       >
         {globalCtx.flagFn(props.race.Circuit.Location.country)}

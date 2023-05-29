@@ -71,35 +71,7 @@ const TeamDetails = (props) => {
   return (
     <>
       <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
-      {/* <div role='presentation' onClick={handleClick}>
-        <Breadcrumbs aria-label='breadcrumb'>
-          <Link
-            underline='hover'
-            color='black'
-            onClick={() => handleBCRoute('/')}
-            className='rucica'
-          >
-            Home
-          </Link>
-          <Link
-            underline='hover'
-            color='black'
-            onClick={() => handleBCRoute('/teams')}
-            className='rucica'
-          >
-            Teams
-          </Link>
-          <Link
-            underline='hover'
-            color='text.red'
-            onClick={() => handleBCRoute(`/races/details/${raceDetails}`)}
-            aria-current='page'
-            className='rucica'
-          >
-            Team Details
-          </Link>
-        </Breadcrumbs>
-      </div> */}
+      
 
       <div className='team-details'>
         <div>

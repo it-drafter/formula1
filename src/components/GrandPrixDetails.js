@@ -82,41 +82,62 @@ const GrandPrixDetails = () => {
   return (
     <>
       <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
-      {/* <div role="presentation" onClick={handleClick}>
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover"
-            className="rucica"
-            color="black"
-            onClick={() => handleBCRoute("/")} >
-
-            Home
-          </Link>
-          <Link
-            underline="hover"
-            className="rucica"
-            color="black"
-            onClick={() => handleBCRoute(`/races`)}
-          >
-            Race
-          </Link>
-          <Link
-            className="rucica"
-            underline="hover"
-            color="text.red"
-            aria-current="page"
-            onClick={() => handleBCRoute("/")}
-
-          >
-            Race Details
-          </Link>
-        </Breadcrumbs>
-      </div> */}
+      
 
       <Table className='tableContainer bg-transparent'>
         <TableBody>
           <TableRow>
             <TableCell>
               {/* {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)} */}
+              <TableRow>
+                <TableCell align='center' colSpan={2}>
+                  {globalCtx.flagFn(
+                    grandPrix[round - 1]?.Circuit.Location.country
+                  )}
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell align='center' colSpan={2}>
+                  {grandPrix[round - 1].raceName}
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Country:</TableCell>
+                <TableCell>
+                  {grandPrix[round - 1].Circuit.Location.country}
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Location:</TableCell>
+                <TableCell>
+                  {grandPrix[round - 1].Circuit.Location.locality}
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Date:</TableCell>
+                <TableCell>{grandPrix[round - 1].date}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Grand Prix details:</TableCell>
+                <TableCell>
+                  <a href={grandPrix[round - 1].url} target='_blank'>
+                    Wikipedia ↗
+                  </a>
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Circuit details:</TableCell>
+                <TableCell>
+                  <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
+                    Wikipedia ↗
+                  </a>
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell align='center' colSpan={2}>
+                  <iframe src={googleMap}></iframe>
+                </TableCell>
+              </TableRow>
             </TableCell>
             <TableCell>
               <img
