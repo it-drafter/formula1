@@ -7,6 +7,8 @@ import { Link, Breadcrumbs } from '@mui/material';
 import GlobalContext from '../context/global-context';
 import DriverDetailsRaces from './DriverDetailsRaces';
 
+import BreadCrumbs from './BreadCrumbs';
+
 const DriverDetails = () => {
   const globalCtx = useContext(GlobalContext);
   console.log('Chosen year: ', globalCtx.chosenYear);
@@ -40,14 +42,14 @@ const DriverDetails = () => {
     getDriverDetails();
   }, []);
 
-  function handleClick(event) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb.');
-  }
-  const handleBCRoute = (path) => {
-    console.log('klikkk');
-    navigate(path);
-  };
+  // function handleClick(event) {
+  //   event.preventDefault();
+  //   console.info('You clicked a breadcrumb.');
+  // }
+  // const handleBCRoute = (path) => {
+  //   console.log('klikkk');
+  //   navigate(path);
+  // };
 
   const getDriverDetails = async () => {
     // console.log('DriverDetails', params.driverId);
@@ -100,13 +102,13 @@ const DriverDetails = () => {
     );
   }
 
-  console.log("DRIVERS", driverDetails.Driver.driverId);
+  console.log('DRIVERS', driverDetails.Driver.driverId);
 
   return (
     <>
+      <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
 
-
-      <div role='presentation' onClick={handleClick}>
+      {/* <div role='presentation' onClick={handleClick}>
         <Breadcrumbs aria-label='breadcrumb'>
           <Link
             underline='hover'
@@ -134,33 +136,42 @@ const DriverDetails = () => {
             Driver Details
           </Link>
         </Breadcrumbs>
-      </div>
+      </div> */}
+
       <div className='team-details'>
         <div>
-          <img src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
-          style={{ width: '200px', paddingRight: '30px'}}
-          alt='Driver'
+          <img
+            src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+            // style={{ width: '200px', paddingRight: '30px' }}
+            style={{ maxHeight: '100px', paddingRight: '30px' }}
+            alt='Driver'
           />
-        </div>                                  
+        </div>
         <div>
-        <h2>{globalCtx.flagFn(driverDetails?.Driver.nationality)}
-                <span> </span>
-                {driverDetails.Driver.givenName + ' ' + driverDetails.Driver.familyName}</h2>
+          <h2>
+            {globalCtx.flagFn(driverDetails?.Driver.nationality)}
+            <span> </span>
+            {driverDetails.Driver.givenName +
+              ' ' +
+              driverDetails.Driver.familyName}
+          </h2>
           <p>
             Nationality: {driverDetails?.Driver.nationality}
             <span></span>
-          
           </p>
           <p>Team: {driverDetails?.Constructors[0].constructorId}</p>
           <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
-          <p>Biography:
-            <a href={driverDetails?.Driver.url} target='_blank'>↗</a></p>
+          <p>
+            Biography:
+            <a href={driverDetails?.Driver.url} target='_blank'>
+              ↗
+            </a>
+          </p>
         </div>
-
-
-
       </div>
-
+      <div>
+        <span>Season {globalCtx.chosenYear}</span>
+      </div>
       <DriverDetailsRaces
         driverDetailsRaces={driverDetailsRaces}
         handleRouteToGrandPrix={handleRouteToGrandPrix}

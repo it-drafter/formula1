@@ -32,6 +32,8 @@ const RacesTableRow = (props) => {
         {props.race.Circuit.circuitName}</TableCell>
       <TableCell>{props.race.date}</TableCell>
       <TableCell>
+        {globalCtx.flagFn(props.race.Results[0].Driver.nationality)}
+        <span> </span>
         {props.race.Results[0].Driver.givenName +
           ' ' +
           props.race.Results[0].Driver.familyName}

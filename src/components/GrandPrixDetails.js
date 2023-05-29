@@ -6,8 +6,8 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Link,
-  Breadcrumbs
+  // Link,
+  // Breadcrumbs,
 } from '@mui/material';
 import axios from 'axios';
 import QualifyingResults from './QualifyingResults';
@@ -15,14 +15,15 @@ import SprintQualifyingResults from './SprintQualifyingResults';
 import RaceResults from './RaceResults';
 import SprintResults from './SprintResults';
 import GlobalContext from '../context/global-context';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import BreadCrumbs from './BreadCrumbs';
 
 const GrandPrixDetails = () => {
   const globalCtx = useContext(GlobalContext);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [grandPrix, setGrandPrix] = useState([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const params = useParams();
   const round = params.round;
@@ -31,15 +32,15 @@ const GrandPrixDetails = () => {
     getGrandPrix();
   }, []);
 
-  function handleClick(event) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb. -- grand prix');
-  }
+  // function handleClick(event) {
+  //   event.preventDefault();
+  //   console.info('You clicked a breadcrumb. -- grand prix');
+  // }
 
-  const handleBCRoute = (path) => {
-    console.log("klik")
-    navigate(path)
-  }
+  // const handleBCRoute = (path) => {
+  //   console.log('klik');
+  //   navigate(path);
+  // };
 
   const getGrandPrix = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
@@ -73,12 +74,17 @@ const GrandPrixDetails = () => {
 
   const lat = grandPrix[round - 1].Circuit.Location.lat;
   const long = grandPrix[round - 1].Circuit.Location.long;
-  const googleMap = "https://maps.google.com/maps?q=" + lat + "," + long + "&hl=en&z=14&output=embed";
+  const googleMap =
+    'https://maps.google.com/maps?q=' +
+    lat +
+    ',' +
+    long +
+    '&hl=en&z=14&output=embed';
 
   return (
     <>
-
-      <div role="presentation" onClick={handleClick}>
+      <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
+      {/* <div role="presentation" onClick={handleClick}>
         <Breadcrumbs aria-label="breadcrumb">
           <Link underline="hover"
             className="rucica"
@@ -106,12 +112,13 @@ const GrandPrixDetails = () => {
             Race Details
           </Link>
         </Breadcrumbs>
-      </div>
+      </div> */}
 
-      <Table>
+      <Table className='tableContainer bg-transparent'>
         <TableBody>
           <TableRow>
             <TableCell>
+<<<<<<< HEAD
               <TableRow>
                 <TableCell align="center" colSpan={2}>{globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)}</TableCell>
               </TableRow>
@@ -155,18 +162,70 @@ const GrandPrixDetails = () => {
                   <iframe src={googleMap}></iframe>
                 </TableCell>
               </TableRow>
+=======
+              {/* {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)} */}
+>>>>>>> b58308f3f061f78b8e8fee44f29d0da627053bf5
             </TableCell>
             <TableCell>
               <img
-                src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
-                  }.jpeg`}
+                style={{ maxHeight: '300px' }}
+                src={`/img/grand_prix/${globalCtx.chosenYear}/${
+                  grandPrix[round - 1].Circuit.circuitId
+                }.jpeg`}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null; // prevents looping
-                  currentTarget.src = `/img/grand_prix/poster.png`;
+                  currentTarget.src = `/img/neutral.svg`;
                 }}
               />
             </TableCell>
           </TableRow>
+<<<<<<< HEAD
+=======
+          <TableRow>
+            <TableCell></TableCell>
+            <TableCell>{grandPrix[round - 1].raceName}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Country:</TableCell>
+            <TableCell>
+              {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)}{' '}
+              <span> </span>
+              {grandPrix[round - 1].Circuit.Location.country}
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Location:</TableCell>
+            <TableCell>
+              {grandPrix[round - 1].Circuit.Location.locality}
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Date:</TableCell>
+            <TableCell>{grandPrix[round - 1].date}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Grand Prix details:</TableCell>
+            <TableCell>
+              <a href={grandPrix[round - 1].url} target='_blank'>
+                Wikipedia ↗
+              </a>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Circuit details:</TableCell>
+            <TableCell>
+              <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
+                Wikipedia ↗
+              </a>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell></TableCell>
+            <TableCell>
+              <iframe src={googleMap}></iframe>
+            </TableCell>
+          </TableRow>
+>>>>>>> b58308f3f061f78b8e8fee44f29d0da627053bf5
         </TableBody>
       </Table>
       <SprintQualifyingResults round={round} />

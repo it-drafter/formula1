@@ -11,6 +11,9 @@ import Teams1 from '../img/Teams1.png';
 import DriverDetails from './DriverDetails';
 import TeamDetails from './TeamDetails';
 import GrandPrixDetails from './GrandPrixDetails';
+import SearchResultsDrivers from './search/SearchResultsDrivers';
+import SearchResultsTeams from './search/SearchResultsTeams';
+import SearchResultsRaces from './search/SearchResultsRaces';
 
 export default function Navigation() {
   return (
@@ -70,6 +73,10 @@ export default function Navigation() {
 
           <Route path='/races' element={<Races />} />
           <Route path='/races/details/:round' element={<GrandPrixDetails />} />
+
+          <Route path='/drivers/search' element={<SearchResultsDrivers />} />
+          <Route path='/teams/search' element={<SearchResultsTeams />} />
+          <Route path='/races/search' element={<SearchResultsRaces />} />
         </Routes>
       </Router>
     </div>
