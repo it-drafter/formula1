@@ -16,9 +16,12 @@ const ResultsTableRow = (props) => {
         </div>
       </TableCell>
       <TableCell>
+      <div className="flagName">
         {globalCtx.flagFn(props.result.Constructor.nationality)}
         <span> </span>
-        {props.result.Constructor.name}</TableCell>
+        {props.result.Constructor.name}
+        </div>
+        </TableCell>
       <TableCell>
         {props.result.status === 'Finished'
           ? props.result.Time.time
