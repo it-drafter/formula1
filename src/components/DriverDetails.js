@@ -108,7 +108,7 @@ const DriverDetails = () => {
     <>
       <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
 
-
+      <div className='table-const-race'>
 
       <div className='team-details'>
         <div>
@@ -145,6 +145,7 @@ const DriverDetails = () => {
         </div>
       </div>
       <div>
+           <div>
         <span>Season {globalCtx.chosenYear}</span>
       </div>
       <DriverDetailsRaces
@@ -152,6 +153,11 @@ const DriverDetails = () => {
         handleRouteToGrandPrix={handleRouteToGrandPrix}
         className='mouseHandle'
       />
+      </div>
+      </div>
+
+
+   
     </>
   );
 };

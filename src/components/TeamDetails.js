@@ -72,6 +72,8 @@ const TeamDetails = (props) => {
     <>
       <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
       
+<div className='table-const-race'>
+
 
       <div className='team-details'>
         <div>
@@ -104,12 +106,17 @@ const TeamDetails = (props) => {
         </div>
       </div>
       <div>
+        <div>
         <span>Season {globalCtx.chosenYear}</span>
       </div>
       <TeamDetailsRaces
         teamResults={teamResults}
         handleDrivers={handleDrivers}
       />
+      </div>
+      
+
+</div>
     </>
   );
 };
