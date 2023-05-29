@@ -37,6 +37,7 @@ U detaljima timova i vozaca portreti su ogromni. Smanjiti slike.
 -- smanjene
 
 U detaljima timova i vozaca promeniti dizajn da komponente budu jedna pored druge.
+--promenjeno
 
 Napravi collapsable table u Races (kao za Drivers i Teams)
 
