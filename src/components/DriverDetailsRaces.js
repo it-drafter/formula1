@@ -34,6 +34,7 @@ const DriverDetailsRaces = (props) => {
               >
                 <div className="flagName">
                   {globalCtx.flagFn(props.driverDetailsRaces[index].Circuit.Location.country)}
+                  <span> </span>
                   {DetailRace.raceName}
                 </div>
               </TableCell>
