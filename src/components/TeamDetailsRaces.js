@@ -32,7 +32,7 @@ const TeamDetailsRaces = (props) => {
                 <TableCell>{teamResult.round}</TableCell>
                 <TableCell
                   onClick={() => props.handleDrivers(teamResult.round)}
-                  className='rucica'
+                  className='mouseHandle'
                 >
                   {teamResult.raceName}
                 </TableCell>

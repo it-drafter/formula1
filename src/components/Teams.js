@@ -82,26 +82,7 @@ const Teams = () => {
           linkTo={`/teams/search`}
         />
       </div>
-      {/* <div role='presentation' onClick={handleClick}>
-        <Breadcrumbs aria-label='breadcrumb'>
-          <Link
-            underline='hover'
-            color='black'
-            onClick={() => handleBCRoute('/')}
-            className='rucica'
-          >
-            Home
-          </Link>
-          <Link
-            underline='hover'
-            color='text.red'
-            onClick={() => handleBCRoute('/teams')}
-            className='rucica'
-          >
-            Teams
-          </Link>
-        </Breadcrumbs>
-      </div> */}
+      
       <YearSelect />
 
       <Table className='tableContainer bg-transparent'>

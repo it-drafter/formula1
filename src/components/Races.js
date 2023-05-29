@@ -79,24 +79,7 @@ const Races = () => {
           linkTo={`/races/search`}
         />
       </div>
-      {/* <div role="presentation" onClick={handleClick}>
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover"
-            className="rucica"
-            color="black"
-            onClick={handleBCRoute}>
-            Home
-          </Link>
-          <Link
-            underline="hover"
-            color="text.red"
-            className="rucica"
-          >
-            Races
-          </Link>
-
-        </Breadcrumbs>
-      </div> */}
+    
       <YearSelect />
 
       <Table className='tableContainer bg-transparent'>

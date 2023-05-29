@@ -33,7 +33,7 @@ export default function YearSelect() {
     <>
       <div>
         <span
-          className='text-danger fw-bold rucica'
+          className='text-danger fw-bold mouseHandle'
           onClick={() => setOpen(!open)}
         >
           Season {globalCtx.chosenYear}

@@ -82,35 +82,7 @@ const GrandPrixDetails = () => {
   return (
     <>
       <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
-      {/* <div role="presentation" onClick={handleClick}>
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover"
-            className="rucica"
-            color="black"
-            onClick={() => handleBCRoute("/")} >
-
-            Home
-          </Link>
-          <Link
-            underline="hover"
-            className="rucica"
-            color="black"
-            onClick={() => handleBCRoute(`/races`)}
-          >
-            Race
-          </Link>
-          <Link
-            className="rucica"
-            underline="hover"
-            color="text.red"
-            aria-current="page"
-            onClick={() => handleBCRoute("/")}
-
-          >
-            Race Details
-          </Link>
-        </Breadcrumbs>
-      </div> */}
+      
 
       <Table className='tableContainer bg-transparent'>
         <TableBody>
