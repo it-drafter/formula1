@@ -43,6 +43,7 @@ U detaljima timova i vozaca promeniti dizajn da komponente budu jedna pored drug
 
 Napravi collapsable table u Races (kao za Drivers i Teams)
 
+--- Ivan T. radi ovo trenutno:
 Kada za neku godinu nema podataka - napraviti interfejs da kaze da nema podataka.
 (npr. sezone kada nisu bile kvalifikacije:
 Error: Cannot read properties of undefined (reading 'SprintResults')
