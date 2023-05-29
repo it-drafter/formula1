@@ -101,13 +101,16 @@ const DriverDetails = () => {
     <>
       <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
 
-     
+
 
       <div className='team-details'>
         <div>
           <img
             src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
-            // style={{ width: '200px', paddingRight: '30px' }}
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; // prevents looping
+              currentTarget.src = `/img/drivers/unknownDriver.png`;
+            }}
             style={{ maxHeight: '100px', paddingRight: '30px' }}
             alt='Driver'
           />

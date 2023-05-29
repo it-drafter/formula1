@@ -37,10 +37,16 @@ table {
 
     }
 }
-// .flagName {
-//     text-align: right;
-   
-// }
+ .flagName {
+     display: flex;
+     align-items: center;
+     margin: 10px;
+ }
+
+ 
+//  .flag-icon {
+//     margin-right: 5px;
+//    }
 .driverDetails {
     display:flex
     

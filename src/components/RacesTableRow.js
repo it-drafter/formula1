@@ -3,7 +3,6 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import { useNavigate } from 'react-router-dom';
 import GlobalContext from '../context/global-context';
-import BasicModal from './CircuitPopup';
 
 const RacesTableRow = (props) => {
   // console.log('PROPS: ', props.race.Circuit.Location.country)
@@ -29,7 +28,7 @@ const RacesTableRow = (props) => {
         {props.race.raceName}
       </TableCell>
       <TableCell>
-        <BasicModal />
+        {/* <BasicModal /> */}
         {props.race.Circuit.circuitName}</TableCell>
       <TableCell>{props.race.date}</TableCell>
       <TableCell>

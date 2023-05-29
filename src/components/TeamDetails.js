@@ -69,7 +69,10 @@ const TeamDetails = (props) => {
         <div>
           <img
             src={`/img/teams/${teamDetails.Constructor.constructorId}.png`}
-            // style={{ width: '350px', paddingRight: '30px' }}
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; 
+              currentTarget.src = `/img/teams/unknownConstructor.png`;
+            }}
             style={{ maxHeight: '100px', paddingRight: '30px' }}
             alt='Constructor'
           />
