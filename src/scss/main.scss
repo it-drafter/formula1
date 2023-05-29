@@ -53,12 +53,18 @@ body {
     background-image: url("http://localhost:8080/img/background.png");
     background-color: white;
     //background-color: #cccccc;
+
+//     table {
+//         border-radius: 200px;
+//  }
 }
+ 
 
 .flagName {
     display: flex;
     align-items: center;
     margin: 10px;
+    margin-left: 0;
     span {
         padding: 0 4px;
     }
