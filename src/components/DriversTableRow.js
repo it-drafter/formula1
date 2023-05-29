@@ -16,14 +16,16 @@ const DriversTableRow = (props) => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
+  console.log("props", props)
+
   const handleClickDetails = (driverId) => {
     console.log(driverId);
-    const linkTo = `/drivers/details/${driverId}`;
+    const linkTo = `/driversdetails/${driverId}`;
     navigate(linkTo);
   };
   const handleTeamDetails = (teamId) => {
     console.log('on click event');
-    const linkTo = `/drivers/details/${teamId}`;
+    const linkTo = `/teamsdetails/${teamId}`;
     navigate(linkTo);
   };
 
@@ -60,7 +62,7 @@ const DriversTableRow = (props) => {
         </TableCell>
         <TableCell
           className='mouseHandle'
-          onClick={() => handleTeamDetails(props.driver.Driver.driverId)}
+          onClick={() => handleTeamDetails(props.driver.Constructors[0].constructorId)}
         >
           {props.driver.Constructors[0].name}
         </TableCell>

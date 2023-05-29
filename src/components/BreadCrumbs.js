@@ -14,10 +14,7 @@ const BreadCrumbs = (props) => {
 
   //   console.log(arrPath);
 
-  //   function handleClick(event) {
-  // event.preventDefault();
-  //     console.info('You clicked a breadcrumb. -- Home');
-  //   }
+ 
 
   console.log('BC Props: ', props.levels);
 

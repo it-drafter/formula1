@@ -30,15 +30,7 @@ const GrandPrixDetails = () => {
     getGrandPrix();
   }, []);
 
-  // function handleClick(event) {
-  //   event.preventDefault();
-  //   console.info('You clicked a breadcrumb. -- grand prix');
-  // }
-
-  // const handleBCRoute = (path) => {
-  //   console.log('klik');
-  //   navigate(path);
-  // };
+  
 
   const getGrandPrix = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
