@@ -21,7 +21,11 @@ const QualifyingTableRow = (props) => {
           ' ' +
           props.qualifier.Driver.familyName}
       </TableCell>
-      <TableCell>{props.qualifier.Constructor.name}</TableCell>
+      <TableCell>
+        {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
+        <span> </span>
+        {props.qualifier.Constructor.name}
+      </TableCell>
       <TableCell>{qSort() || 'NC'}</TableCell>
     </TableRow>
   );

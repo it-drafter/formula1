@@ -76,3 +76,22 @@ Stilizovati wikipedia link na svim search stranicama
 
 Ubaciti zastavice u SVE stranice sa rezultatima pretrage
 
+Nemanjini komentari 29.05.2023:
+- Obrisati fajlove Ivan-test.txt i test.txt
+- Dodati aktivnu klasu za linkove (koristite NavLink)
+- Posto ste usitnili komponente, mozete kreirati foldere i komponente grupisati (UI, Driver, Races, Teams)
+- Obrisati NavBar.js, jer se nekoristi
+- Rute za detalje vam mogu biti skracena verzija. Umesto '/drivers/details/:driverId' mozete staviti '/driverDetails/:driverId'
+- Neke rute vam se dupliraju. A pored glavne rute, treba da imate 6 ruta ukupno (3 gde prikazujete timove, vozace i trke i 3 gde prikazujete detelje istih)
+- U metodi getDrivers, setIsLoading(true) je visak, jer je pocetno stanje state vec true. Jos se negde ovo javlja
+- Ukoliko imate loader i imate try/catch block najbolje je da se i u catch stavi setIsLoading(false), da ukoliko dodje do greske da se ukloni Loader
+- Napravite zasebnu komponentu za RiseLoader
+- Metoda handleClick u komponentama nicemu ne sluzi. Moze se obrisati
+- Link ka wikipedia, ne treba da se vidi ceo link, vec da bude ceo link i da u novom tabu ide na tu adresu
+- Kada imate Breadcrumbs, poslednji link je onaj gde se trenutno nalazite i samim tim ne treba da bude Link jer nece nigde ici, vec samo labela
+- Teams.js / TeamDetails.js: Pocetno stanje za tate isLoading ne moze biti prazan niz
+- Izbegavati da se sam kod pise na srpskom (primer css sklasa rucica)
+- Deluje mi da su vam komponente RaceQualifyingResults i RaceTableRow visak
+- Primetio da vam key nije jedinstven podatak
+- Posto u vecini komponenti imate Breadcrumbs, najbolje bi bilo da to bude zasebana komponenta, kojoj cete prosledjivati niz objekata, koji ce u sebi da ima tekst koji ce se prikazati i link na koji ce da ide (ukoliko treba da ide negde). I onda cete u toj novoj komponenti proci sa metodom map kroz props i iscrtacete dinamicki Breadcrumbs
+- Kada se zavrsi sa zadatkom obrisati sav zakomentarisn kod kao i sve console logove
