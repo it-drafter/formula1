@@ -118,12 +118,17 @@ const GrandPrixDetails = () => {
         <TableBody>
           <TableRow>
             <TableCell>
-<<<<<<< HEAD
               <TableRow>
-                <TableCell align="center" colSpan={2}>{globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)}</TableCell>
+                <TableCell align='center' colSpan={2}>
+                  {globalCtx.flagFn(
+                    grandPrix[round - 1]?.Circuit.Location.country
+                  )}
+                </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell align="center" colSpan={2}>{grandPrix[round - 1].raceName}</TableCell>
+                <TableCell align='center' colSpan={2}>
+                  {grandPrix[round - 1].raceName}
+                </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Country:</TableCell>
@@ -158,13 +163,10 @@ const GrandPrixDetails = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell align="center" colSpan={2}>
+                <TableCell align='center' colSpan={2}>
                   <iframe src={googleMap}></iframe>
                 </TableCell>
               </TableRow>
-=======
-              {/* {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)} */}
->>>>>>> b58308f3f061f78b8e8fee44f29d0da627053bf5
             </TableCell>
             <TableCell>
               <img
@@ -179,53 +181,6 @@ const GrandPrixDetails = () => {
               />
             </TableCell>
           </TableRow>
-<<<<<<< HEAD
-=======
-          <TableRow>
-            <TableCell></TableCell>
-            <TableCell>{grandPrix[round - 1].raceName}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Country:</TableCell>
-            <TableCell>
-              {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)}{' '}
-              <span> </span>
-              {grandPrix[round - 1].Circuit.Location.country}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Location:</TableCell>
-            <TableCell>
-              {grandPrix[round - 1].Circuit.Location.locality}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Date:</TableCell>
-            <TableCell>{grandPrix[round - 1].date}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Grand Prix details:</TableCell>
-            <TableCell>
-              <a href={grandPrix[round - 1].url} target='_blank'>
-                Wikipedia ↗
-              </a>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Circuit details:</TableCell>
-            <TableCell>
-              <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
-                Wikipedia ↗
-              </a>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell></TableCell>
-            <TableCell>
-              <iframe src={googleMap}></iframe>
-            </TableCell>
-          </TableRow>
->>>>>>> b58308f3f061f78b8e8fee44f29d0da627053bf5
         </TableBody>
       </Table>
       <SprintQualifyingResults round={round} />
