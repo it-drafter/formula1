@@ -35,10 +35,6 @@ const Drivers = (props) => {
     getDrivers();
   }, [globalCtx.chosenYear]);
 
-  // function handleClick(event) {
-  //   event.preventDefault();
-  //   console.info('You clicked a breadcrumb.-- Drivers');
-  // }
   // const handleBCRoute = () => {
   //   console.log('klik');
   //   const linkTo = `/`;

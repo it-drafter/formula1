@@ -23,7 +23,7 @@ const TeamDetails = (props) => {
 
   const handleDrivers = (raceDetails) => {
     console.log('klik na race');
-    const linkTo = `/races/details/${raceDetails}`;
+    const linkTo = `/racesdetails/${raceDetails}`;
     navigate(linkTo);
   };
 
@@ -31,15 +31,7 @@ const TeamDetails = (props) => {
     getTeamDetails();
   }, []);
 
-  // function handleClick(event) {
-  //   event.preventDefault();
-  //   console.info('You clicked a breadcrumb. -- teamDetails');
-  // }
 
-  // const handleBCRoute = (path) => {
-  //   console.log('klikcic');
-  //   navigate(path);
-  // };
 
   const getTeamDetails = async () => {
     const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
@@ -72,6 +64,8 @@ const TeamDetails = (props) => {
     <>
       <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
       
+<div className='table-const-race'>
+
 
       <div className='team-details'>
         <div>
@@ -106,12 +100,17 @@ const TeamDetails = (props) => {
         </div>
       </div>
       <div>
+        <div>
         <span>Season {globalCtx.chosenYear}</span>
       </div>
       <TeamDetailsRaces
         teamResults={teamResults}
         handleDrivers={handleDrivers}
       />
+      </div>
+      
+
+</div>
     </>
   );
 };
