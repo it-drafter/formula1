@@ -8,27 +8,27 @@ import {
   TableCell,
 } from '@mui/material';
 import axios from 'axios';
-import ResultsTableRow from './ResultsTableRow';
+import SprintQualifyingTableRow from './SprintQualifyingTableRow';
 import GlobalContext from '../context/global-context';
 
-const RaceResults = (props) => {
+const SprintQualifyingResults = (props) => {
   const globalCtx = useContext(GlobalContext);
 
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [results, setResults] = useState([]);
+  const [sprintQualifying, setSprintQualifying] = useState([]);
 
   useEffect(() => {
-    getResults();
+    getSprintQualifying();
   }, []);
 
-  const getResults = async () => {
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/results.json`;
+  const getSprintQualifying = async () => {
+    const url = `/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
     setIsLoading(true);
     try {
       const response = await axios.get(url);
-      const data = response.data.MRData.RaceTable.Races[0].Results;
-      setResults(data);
+      const data = response.data.MRData.RaceTable.Races[0].QualifyingResults;
+      setSprintQualifying(data);
       setIsLoading(false);
     } catch (err) {
       setError(err);
@@ -54,20 +54,22 @@ const RaceResults = (props) => {
 
   return (
     <>
-      <h1>Results component</h1>
-      <Table className='tableContainer bg-transparent'>
+      <h1>Sprint Qualifying component</h1>
+      <Table>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Pos</TableCell>
             <TableCell>Driver</TableCell>
             <TableCell>Team</TableCell>
-            <TableCell>Result</TableCell>
-            <TableCell>Points</TableCell>
+            <TableCell>Best Time</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {results.map((result) => (
-            <ResultsTableRow key={result.position} result={result} />
+          {sprintQualifying.map((qualifier, index) => (
+            <SprintQualifyingTableRow
+              key={qualifier.position}
+              qualifier={qualifier}
+            />
           ))}
         </TableBody>
       </Table>
@@ -75,4 +77,4 @@ const RaceResults = (props) => {
   );
 };
 
-export default RaceResults;
+export default SprintQualifyingResults;

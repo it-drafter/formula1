@@ -3,7 +3,7 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import GlobalContext from '../context/global-context';
 
-const ResultsTableRow = (props) => {
+const SprintResultsTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   return (
     <TableRow>
@@ -13,19 +13,20 @@ const ResultsTableRow = (props) => {
         <span> </span>
         {props.result.Driver.givenName + ' ' + props.result.Driver.familyName}
       </TableCell>
-      <TableCell>{props.result.Constructor.name}</TableCell>
+      <TableCell>
+        {globalCtx.flagFn(props.result.Constructor.nationality)}
+        <span> </span>
+        {props.result.Constructor.name}</TableCell>
       <TableCell>
         {props.result.status === 'Finished'
           ? props.result.Time.time
           : props.result.status[0] === '+'
-          ? props.result.status
-          : 'DNF'}
+            ? props.result.status
+            : 'DNF'}
       </TableCell>
-      <TableCell className={'position_' + props.result.position}>
-        {props.result.points}
-      </TableCell>
+      <TableCell className={'position_' + props.result.position}>{props.result.points}</TableCell>
     </TableRow>
   );
 };
 
-export default ResultsTableRow;
+export default SprintResultsTableRow;

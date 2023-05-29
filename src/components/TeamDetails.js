@@ -5,6 +5,7 @@ import { RiseLoader } from 'react-spinners';
 import { Link, Breadcrumbs } from '@mui/material';
 import GlobalContext from '../context/global-context';
 import TeamDetailsRaces from './TeamDetailsRaces';
+import BreadCrumbs from './BreadCrumbs';
 
 const TeamDetails = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -30,15 +31,15 @@ const TeamDetails = (props) => {
     getTeamDetails();
   }, []);
 
-  function handleClick(event) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb. -- teamDetails');
-  }
+  // function handleClick(event) {
+  //   event.preventDefault();
+  //   console.info('You clicked a breadcrumb. -- teamDetails');
+  // }
 
-  const handleBCRoute = (path) => {
-    console.log('klikcic');
-    navigate(path);
-  };
+  // const handleBCRoute = (path) => {
+  //   console.log('klikcic');
+  //   navigate(path);
+  // };
 
   const getTeamDetails = async () => {
     const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
@@ -69,7 +70,8 @@ const TeamDetails = (props) => {
 
   return (
     <>
-      <div role='presentation' onClick={handleClick}>
+      <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
+      {/* <div role='presentation' onClick={handleClick}>
         <Breadcrumbs aria-label='breadcrumb'>
           <Link
             underline='hover'
@@ -97,18 +99,14 @@ const TeamDetails = (props) => {
             Team Details
           </Link>
         </Breadcrumbs>
-      </div>
+      </div> */}
 
       <div className='team-details'>
         <div>
           <img
             src={`/img/teams/${teamDetails.Constructor.constructorId}.png`}
-            onError={({ currentTarget }) => {
-              currentTarget.onerror = null; // prevents looping
-              currentTarget.src = `/img/teams/unknownConstructor.png`;
-            }}
-
-            style={{ width: '350px', paddingRight: '30px' }}
+            // style={{ width: '350px', paddingRight: '30px' }}
+            style={{ maxHeight: '100px', paddingRight: '30px' }}
             alt='Constructor'
           />
         </div>
@@ -129,6 +127,9 @@ const TeamDetails = (props) => {
             </a>
           </p>
         </div>
+      </div>
+      <div>
+        <span>Season {globalCtx.chosenYear}</span>
       </div>
       <TeamDetailsRaces
         teamResults={teamResults}

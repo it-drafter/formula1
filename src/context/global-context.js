@@ -4,6 +4,8 @@ const GlobalContext = React.createContext({
   chosenYear: '',
   flagFn: () => {},
   setYearFn: () => {},
+  searchStringValue: '',
+  setSearchStringFn: () => {},
 });
 
 export default GlobalContext;

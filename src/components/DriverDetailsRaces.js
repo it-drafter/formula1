@@ -11,7 +11,7 @@ const DriverDetailsRaces = (props) => {
   return (
     <>
       <h1>DriverDetailsRaces</h1>
-      <Table>
+      <Table className='tableContainer bg-transparent'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Round</TableCell>
@@ -27,13 +27,11 @@ const DriverDetailsRaces = (props) => {
               <TableCell>{DetailRace.round}</TableCell>
               <TableCell
                 onClick={() => props.handleRouteToGrandPrix(DetailRace.round)}
-                className="rucica"
+                className='rucica'
               >
                 {DetailRace.raceName}
               </TableCell>
-              <TableCell>
-                {DetailRace.Results[0].Constructor.name}
-              </TableCell>
+              <TableCell>{DetailRace.Results[0].Constructor.name}</TableCell>
               <TableCell>{DetailRace.Results[0].grid}</TableCell>
               <TableCell
                 className={'position_' + DetailRace.Results[0].position}

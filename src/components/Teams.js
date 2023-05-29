@@ -7,12 +7,15 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Link,
-  Breadcrumbs,
+  // Link,
+  // Breadcrumbs,
 } from '@mui/material';
 import TeamsTableRow from './TeamsTableRow';
 import GlobalContext from '../context/global-context';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import BreadCrumbs from './BreadCrumbs';
+import YearSelect from './YearSelect';
+import SearchBox from './search/SearchBox';
 
 const Teams = () => {
   const globalCtx = useContext(GlobalContext);
@@ -20,21 +23,21 @@ const Teams = () => {
   const [error, setError] = useState(null);
   const [teams, setTeams] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     getTeams();
-  }, []);
+  }, [globalCtx.chosenYear]);
 
-  function handleClick(event) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb. -- Teams');
-  }
+  // function handleClick(event) {
+  //   event.preventDefault();
+  //   console.info('You clicked a breadcrumb. -- Teams');
+  // }
 
-  const handleBCRoute = (path) => {
-    console.log('klikkkklol');
-    navigate(path);
-  };
+  // const handleBCRoute = (path) => {
+  //   console.log('klikkkklol');
+  //   navigate(path);
+  // };
 
   const getTeams = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
@@ -71,7 +74,15 @@ const Teams = () => {
 
   return (
     <>
-      <div role='presentation' onClick={handleClick}>
+      <div className='px-5 w-100 d-flex justify-content-between'>
+        <BreadCrumbs levels={[['Teams']]} />
+        <SearchBox
+          // home={props.home}
+          placeholder={'Search Teams'}
+          linkTo={`/teams/search`}
+        />
+      </div>
+      {/* <div role='presentation' onClick={handleClick}>
         <Breadcrumbs aria-label='breadcrumb'>
           <Link
             underline='hover'
@@ -90,9 +101,10 @@ const Teams = () => {
             Teams
           </Link>
         </Breadcrumbs>
-      </div>
+      </div> */}
+      <YearSelect />
 
-      <Table>
+      <Table className='tableContainer bg-transparent'>
         <TableHead className='table-header'>
           <TableRow>
             <TableCell></TableCell>

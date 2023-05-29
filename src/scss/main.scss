@@ -43,9 +43,14 @@
 }
 .rucica {
     cursor: pointer;
+    font-weight: bold!important;
 }
    
-
+body {
+    // background-image: url("/img/background.png");
+    background-image: url("http://localhost:8080/img/background.png");
+    background-color: #cccccc;
+   }
 
 
 
