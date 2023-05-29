@@ -8,27 +8,27 @@ import {
   TableCell,
 } from '@mui/material';
 import axios from 'axios';
-import ResultsTableRow from './ResultsTableRow';
+import SprintResultsTableRow from './SprintResultsTableRow';
 import GlobalContext from '../context/global-context';
 
-const RaceResults = (props) => {
+const SprintResults = (props) => {
   const globalCtx = useContext(GlobalContext);
 
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [results, setResults] = useState([]);
+  const [sprintResults, setSprintResults] = useState([]);
 
   useEffect(() => {
-    getResults();
+    getSprintResults();
   }, []);
 
-  const getResults = async () => {
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/results.json`;
+  const getSprintResults = async () => {
+    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/sprint.json`;
     setIsLoading(true);
     try {
       const response = await axios.get(url);
-      const data = response.data.MRData.RaceTable.Races[0].Results;
-      setResults(data);
+      const data = response.data.MRData.RaceTable.Races[0].SprintResults;
+      setSprintResults(data);
       setIsLoading(false);
     } catch (err) {
       setError(err);
@@ -54,13 +54,8 @@ const RaceResults = (props) => {
 
   return (
     <>
-<<<<<<< HEAD
-      <h1>Race results component</h1>
+      <h1>Sprint results component</h1>
       <Table>
-=======
-      <h1>Results component</h1>
-      <Table className='tableContainer bg-transparent'>
->>>>>>> b58308f3f061f78b8e8fee44f29d0da627053bf5
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Pos</TableCell>
@@ -71,8 +66,8 @@ const RaceResults = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {results.map((result) => (
-            <ResultsTableRow key={result.position} result={result} />
+          {sprintResults.map((result) => (
+            <SprintResultsTableRow key={result.position} result={result} />
           ))}
         </TableBody>
       </Table>
@@ -80,4 +75,4 @@ const RaceResults = (props) => {
   );
 };
 
-export default RaceResults;
+export default SprintResults;
