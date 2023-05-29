@@ -138,18 +138,24 @@ const DriverDetails = () => {
       <div className='team-details'>
         <div>
           <img src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
-          style={{ width: '200px', paddingRight: '30px'}}
-          alt='Driver'
+
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; // prevents looping
+              currentTarget.src = `/img/drivers/unknownDriver.png`;
+            }}
+
+            style={{ width: '200px', paddingRight: '30px' }}
+            alt='Driver'
           />
-        </div>                                  
+        </div>
         <div>
-        <h2>{globalCtx.flagFn(driverDetails?.Driver.nationality)}
-                <span> </span>
-                {driverDetails.Driver.givenName + ' ' + driverDetails.Driver.familyName}</h2>
+          <h2>{globalCtx.flagFn(driverDetails?.Driver.nationality)}
+            <span> </span>
+            {driverDetails.Driver.givenName + ' ' + driverDetails.Driver.familyName}</h2>
           <p>
             Nationality: {driverDetails?.Driver.nationality}
             <span></span>
-          
+
           </p>
           <p>Team: {driverDetails?.Constructors[0].constructorId}</p>
           <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>

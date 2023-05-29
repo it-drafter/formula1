@@ -103,6 +103,11 @@ const TeamDetails = (props) => {
         <div>
           <img
             src={`/img/teams/${teamDetails.Constructor.constructorId}.png`}
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; // prevents looping
+              currentTarget.src = `/img/teams/unknownConstructor.png`;
+            }}
+
             style={{ width: '350px', paddingRight: '30px' }}
             alt='Constructor'
           />
