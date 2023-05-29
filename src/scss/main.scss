@@ -51,21 +51,13 @@
 body {
     // background-image: url("/img/background.png");
     background-image: url("http://localhost:8080/img/background.png");
-    background-color: #cccccc;
+    background-color: white;
+    //background-color: #cccccc;
 }
-
-
-//    .flag-icon {
-//     margin-right: 5px;
-//    }
 
 .flagName {
     display: flex;
     align-items: center;
-
-    // justify-content: space-between;
-    // max-width: 150px;
-   
     margin: 10px;
     span {
         padding: 0 4px;
