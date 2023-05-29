@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Table,
   TableHead,
@@ -6,11 +6,27 @@ import {
   TableRow,
   TableCell,
 } from '@mui/material';
+import GlobalContext from '../context/global-context';
 
 const DriverDetailsRaces = (props) => {
+  const globalCtx = useContext(GlobalContext);
+  console.log("eeee", props.driverDetailsRaces[0].Circuit.Location.country)
+
+  const classFunction = (position, points) => {
+    if (position === "1") {
+      return 'gold';
+    } else if (position === "2") {
+      return 'silver';
+    } else if (position === "3") {
+      return 'bronze';
+    } else if (points > '0') {
+      return 'green';
+    } else
+      return 'gray';
+  };
   return (
     <>
-   
+
       <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
@@ -22,19 +38,25 @@ const DriverDetailsRaces = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.driverDetailsRaces.map((DetailRace) => (
+          {props.driverDetailsRaces.map((DetailRace, index) => (
             <TableRow key={DetailRace.round}>
               <TableCell>{DetailRace.round}</TableCell>
               <TableCell
                 onClick={() => props.handleRouteToGrandPrix(DetailRace.round)}
                 className='mouseHandle'
               >
-                {DetailRace.raceName}
+                <div className="flagName">
+                  {globalCtx.flagFn(props.driverDetailsRaces[index].Circuit.Location.country)}
+                  <span> </span>
+                  {DetailRace.raceName}
+                </div>
               </TableCell>
               <TableCell>{DetailRace.Results[0].Constructor.name}</TableCell>
               <TableCell>{DetailRace.Results[0].grid}</TableCell>
               <TableCell
-                className={'position_' + DetailRace.Results[0].position}
+                className={classFunction(DetailRace.Results[0].position, DetailRace.Results[0].points)}
+                //{classFunction(props.result.position, props.result.points)}
+                //{'position_' + DetailRace.Results[0].position}
               >
                 {DetailRace.Results[0].position}
               </TableCell>

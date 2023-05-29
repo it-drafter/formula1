@@ -14,9 +14,7 @@ const BreadCrumbs = (props) => {
 
   //   console.log(arrPath);
 
- 
-
-  console.log('BC Props: ', props.levels);
+  // console.log('BC Props: ', props.levels);
 
   const handleBCRoute = (destination) => {
     console.log('klik');

@@ -44,7 +44,8 @@ const SearchResultsDriversTableRow = (props) => {
             {props.team.nationality}
           </div>
         </TableCell>
-        <TableCell>{props.team.url}</TableCell>
+        <TableCell>
+          <a href={props.team.url} target='_blank' >↗</a></TableCell>
       </TableRow>
 
       {/* <TableRow>

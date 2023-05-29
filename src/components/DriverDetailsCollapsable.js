@@ -47,8 +47,7 @@ const DriverDetailsCollapsable = (props) => {
         size='small'
         aria-label='purchases'
         sx={{ margin: 0, marginBottom: 5 }}
-        className='tableContainer'
-      >
+        className='tableContainer'>
         <TableHead>
           <TableRow>
             <TableCell>
@@ -85,7 +84,8 @@ const DriverDetailsCollapsable = (props) => {
             <TableCell>{driverDetails.Driver.nationality}</TableCell>
             <TableCell>{driverDetails?.Constructors[0].name}</TableCell>
             <TableCell>{driverDetails?.Driver.dateOfBirth}</TableCell>
-            <TableCell>{driverDetails?.Driver.url}</TableCell>
+            <TableCell>
+              <a href={driverDetails?.Driver.url} target='_blank'>Wikipedia ↗</a></TableCell>
           </TableRow>
         </TableBody>
       </Table>

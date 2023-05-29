@@ -82,10 +82,7 @@ const GrandPrixDetails = () => {
             <TableCell>
               <TableRow>
                 <TableCell align='center' colSpan={2}>
-                  {globalCtx.flagFn(
-                    grandPrix[round - 1]?.Circuit.Location.country
-                  )}
-                
+                  {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country, 200)}
                 </TableCell>
               </TableRow>
               <TableRow>

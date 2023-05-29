@@ -44,7 +44,8 @@ const SearchResultsRacesTableRow = (props) => {
             {props.race.raceName}
           </div>
         </TableCell>
-        <TableCell>{props.race.url}</TableCell>
+        <TableCell>
+          <a href={props.race.url} target='_blank'>↗</a></TableCell>
         <TableCell>
           {props.race.Circuit.circuitName} ({props.race.Circuit.circuitId})
         </TableCell>
