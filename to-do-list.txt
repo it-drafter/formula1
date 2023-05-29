@@ -73,7 +73,7 @@ Centrirati zastavice
 
 Staviti tabele da budu jedna pored druge, a ne jedna ispod druge (gde god je to moguce)
 
-Stilizovati wikipedia link na svim search stranicama
+Stilizovati wikipedia link na svim search stranicama -- promenjeno
 
 Ubaciti zastavice u SVE stranice sa rezultatima pretrage
 
