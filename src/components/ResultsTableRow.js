@@ -6,7 +6,8 @@ import GlobalContext from '../context/global-context';
 const ResultsTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   return (
-    <TableRow className={'fastest_lap_' + props.result.FastestLap.rank}>
+    <TableRow>
+      {/* <TableRow className={'fastest_lap_' + props.result.FastestLap.rank}> */}
       <TableCell>{props.result.position}</TableCell>
       <TableCell>
         {globalCtx.flagFn(props.result.Driver.nationality)}
@@ -21,8 +22,8 @@ const ResultsTableRow = (props) => {
         {props.result.status === 'Finished'
           ? props.result.Time.time
           : props.result.status[0] === '+'
-          ? props.result.status
-          : 'DNF'}
+            ? props.result.status
+            : 'DNF'}
       </TableCell>
       <TableCell className={'position_' + props.result.position}>
         {props.result.points}
