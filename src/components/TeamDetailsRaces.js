@@ -20,7 +20,7 @@ const TeamDetailsRaces = (props) => {
               {props.teamResults[0].Results[0].Driver.familyName}
             </TableCell>
             <TableCell>
-              {props.teamResults[0].Results[1].Driver.familyName}
+              {props.teamResults[0].Results[1]?.Driver.familyName ?? 'Driver 2'}
             </TableCell>
             <TableCell>Points</TableCell>
           </TableRow>
@@ -37,18 +37,22 @@ const TeamDetailsRaces = (props) => {
                   {teamResult.raceName}
                 </TableCell>
                 <TableCell
-                  className={'position_' + teamResult.Results[0].position}
+                  className={
+                    'position_' + teamResult.Results[0].position ?? '0'
+                  }
                 >
                   {teamResult.Results[0].position}
                 </TableCell>
                 <TableCell
-                  className={'position_' + teamResult.Results[1].position}
+                  className={
+                    'position_' + teamResult.Results[1]?.position ?? '0'
+                  }
                 >
-                  {teamResult.Results[1].position}
+                  {teamResult.Results[1]?.position ?? '0'}
                 </TableCell>
                 <TableCell>
                   {Number(teamResult.Results[0].points) +
-                    Number(teamResult.Results[1].points)}
+                    Number(teamResult.Results[1]?.points ?? '0')}
                 </TableCell>
               </TableRow>
             );
