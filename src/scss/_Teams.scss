@@ -1,9 +1,19 @@
 
+.table-const-race {
+   margin-top:20px;
+   display: flex;
+   width: 90%;
+   justify-content: space-between;
+   align-items: start;
 
+}
 
 .team-details {
+   margin-top:15px;
     display: flex;
+    height: 250px;
     border:7px solid #E10600;
+    align-items: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
      'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
      padding: 20px;
@@ -35,3 +45,4 @@ color: rgb(46, 46, 46);
       background-color: #DFFFDF;
    }
 }
+

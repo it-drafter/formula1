@@ -12,6 +12,8 @@ import {
 import axios from 'axios';
 import QualifyingResults from './QualifyingResults';
 import RaceResults from './RaceResults';
+import SprintQualifyingResults from './SprintQualifyingResults';
+import SprintResults from './SprintResults';
 import GlobalContext from '../context/global-context';
 // import { useNavigate } from 'react-router-dom';
 import BreadCrumbs from './BreadCrumbs';
@@ -29,8 +31,6 @@ const GrandPrixDetails = () => {
   useEffect(() => {
     getGrandPrix();
   }, []);
-
-  
 
   const getGrandPrix = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
@@ -76,16 +76,16 @@ const GrandPrixDetails = () => {
       <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
 
 
-      <Table className='tableContainer bg-transparent'>
+      <Table className='tableContainer'>
         <TableBody>
           <TableRow>
             <TableCell>
-              {/* {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)} */}
               <TableRow>
                 <TableCell align='center' colSpan={2}>
                   {globalCtx.flagFn(
                     grandPrix[round - 1]?.Circuit.Location.country
                   )}
+                
                 </TableCell>
               </TableRow>
               <TableRow>
@@ -133,7 +133,7 @@ const GrandPrixDetails = () => {
             </TableCell>
             <TableCell>
               <img
-                style={{ maxHeight: '300px' }}
+                style={{ maxHeight: '600px' }}
                 src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
                   }.jpeg`}
                 onError={({ currentTarget }) => {
@@ -143,52 +143,10 @@ const GrandPrixDetails = () => {
               />
             </TableCell>
           </TableRow>
-          <TableRow>
-            <TableCell></TableCell>
-            <TableCell>{grandPrix[round - 1].raceName}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Country:</TableCell>
-            <TableCell>
-              {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)}{' '}
-              <span> </span>
-              {grandPrix[round - 1].Circuit.Location.country}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Location:</TableCell>
-            <TableCell>
-              {grandPrix[round - 1].Circuit.Location.locality}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Date:</TableCell>
-            <TableCell>{grandPrix[round - 1].date}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Grand Prix details:</TableCell>
-            <TableCell>
-              <a href={grandPrix[round - 1].url} target='_blank'>
-                Wikipedia ↗
-              </a>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Circuit details:</TableCell>
-            <TableCell>
-              <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
-                Wikipedia ↗
-              </a>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell></TableCell>
-            <TableCell>
-              <iframe src={googleMap}></iframe>
-            </TableCell>
-          </TableRow>
         </TableBody>
       </Table>
+      <SprintQualifyingResults round={round} />
+      <SprintResults round={round} />
       <QualifyingResults round={round} />
       <RaceResults round={round} />
     </>

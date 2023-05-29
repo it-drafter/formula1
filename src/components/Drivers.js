@@ -92,7 +92,7 @@ const Drivers = (props) => {
 
       <YearSelect />
 
-      <Table className='tableContainer bg-transparent'>
+      <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell></TableCell>
