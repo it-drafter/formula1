@@ -8,9 +8,25 @@ import {
 } from '@mui/material';
 
 const TeamDetailsRaces = (props) => {
+
+  const classFunction = (position, points) => {
+    if (position === "1") {
+      return 'gold';
+    } else if (position === "2") {
+      return 'silver';
+    } else if (position === "3") {
+      return 'bronze';
+    } else if (points > '0') {
+      return 'green';
+    } else
+      return 'gray';
+  };
+
+
+
   return (
     <>
-   
+
       <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
@@ -36,20 +52,15 @@ const TeamDetailsRaces = (props) => {
                 >
                   {teamResult.raceName}
                 </TableCell>
-                <TableCell
-                  className={
-                    'position_' + teamResult.Results[0].position ?? '0'
-                  }
-                >
+
+                <TableCell className={classFunction(teamResult.Results[0].position ?? '0')}>
                   {teamResult.Results[0].position}
                 </TableCell>
-                <TableCell
-                  className={
-                    'position_' + teamResult.Results[1]?.position ?? '0'
-                  }
-                >
+
+                <TableCell className={classFunction(teamResult.Results[1]?.position ?? '0')}>
                   {teamResult.Results[1]?.position ?? '0'}
                 </TableCell>
+
                 <TableCell>
                   {Number(teamResult.Results[0].points) +
                     Number(teamResult.Results[1]?.points ?? '0')}
