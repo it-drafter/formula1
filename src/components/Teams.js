@@ -7,12 +7,15 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Link,
-  Breadcrumbs,
+  // Link,
+  // Breadcrumbs,
 } from '@mui/material';
 import TeamsTableRow from './TeamsTableRow';
 import GlobalContext from '../context/global-context';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import BreadCrumbs from './BreadCrumbs';
+import YearSelect from './YearSelect';
+import SearchBox from './search/SearchBox';
 
 const Teams = () => {
   const globalCtx = useContext(GlobalContext);
@@ -20,21 +23,11 @@ const Teams = () => {
   const [error, setError] = useState(null);
   const [teams, setTeams] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     getTeams();
-  }, []);
-
-  function handleClick(event) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb. -- Teams');
-  }
-
-  const handleBCRoute = (path) => {
-    console.log('klikkkklol');
-    navigate(path);
-  };
+  }, [globalCtx.chosenYear]);
 
   const getTeams = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
@@ -53,7 +46,23 @@ const Teams = () => {
     }
   };
   if (error) {
-    return <p>Error: {error.message}</p>;
+    setError(null);
+    setIsLoading(false);
+    setTeams([]);
+    return (
+      <>
+        <div className='px-5 w-100 d-flex justify-content-between'>
+          <BreadCrumbs levels={[['Teams']]} />
+          <SearchBox
+            // home={props.home}
+            placeholder={'Search Teams'}
+            linkTo={`/teams/search`}
+          />
+        </div>
+        <YearSelect />
+        <p>Error: {error.message}</p>;
+      </>
+    );
   }
 
   if (isLoading) {
@@ -71,28 +80,18 @@ const Teams = () => {
 
   return (
     <>
-      <div role='presentation' onClick={handleClick}>
-        <Breadcrumbs aria-label='breadcrumb'>
-          <Link
-            underline='hover'
-            color='black'
-            onClick={() => handleBCRoute('/')}
-            className='rucica'
-          >
-            Home
-          </Link>
-          <Link
-            underline='hover'
-            color='text.red'
-            onClick={() => handleBCRoute('/teams')}
-            className='rucica'
-          >
-            Teams
-          </Link>
-        </Breadcrumbs>
+      <div className='px-5 w-100 d-flex justify-content-between'>
+        <BreadCrumbs levels={[['Teams']]} />
+        <SearchBox
+          // home={props.home}
+          placeholder={'Search Teams'}
+          linkTo={`/teams/search`}
+        />
       </div>
 
-      <Table>
+      <YearSelect />
+
+      <Table className='tableContainer'>
         <TableHead className='table-header'>
           <TableRow>
             <TableCell></TableCell>

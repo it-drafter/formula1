@@ -7,14 +7,17 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Breadcrumbs,
-  Link,
+  // Breadcrumbs,
+  // Link,
 } from '@mui/material';
 import axios from 'axios';
 import GlobalContext from '../context/global-context';
 import { useNavigate } from 'react-router-dom';
+import BreadCrumbs from './BreadCrumbs';
+import YearSelect from './YearSelect';
+import SearchBox from './search/SearchBox';
 
-const Drivers = () => {
+const Drivers = (props) => {
   const globalCtx = useContext(GlobalContext);
 
   const [error, setError] = useState(null);
@@ -22,20 +25,21 @@ const Drivers = () => {
   const [drivers, setDrivers] = useState([]);
   const navigate = useNavigate();
 
+  // const [reRender, setReRender] = useState(false);
+  // const handleReRender = () => {
+  //   console.log('rerender');
+  //   setReRender(!reRender);
+  // };
+
   useEffect(() => {
     getDrivers();
-  }, []);
+  }, [globalCtx.chosenYear]);
 
-  function handleClick(event) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb.-- Drivers');
-  }
-  const handleBCRoute= () => {
-    console.log("klik")
-    const linkTo=`/`;
-    navigate(linkTo);
-  }
-
+  // const handleBCRoute = () => {
+  //   console.log('klik');
+  //   const linkTo = `/`;
+  //   navigate(linkTo);
+  // };
 
   const getDrivers = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
@@ -76,28 +80,19 @@ const Drivers = () => {
 
   return (
     <>
+      <div className='px-5 w-100 d-flex justify-content-between'>
+        <BreadCrumbs levels={[['Drivers']]} home={props.home} />
+        <SearchBox
+          home={props.home}
+          placeholder={'Search Drivers'}
+          linkTo={`/drivers/search`}
+        />
+      </div>
       
 
-      <div role="presentation" onClick={handleClick}>
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" color="black" onClick={handleBCRoute} className="rucica">
-          Home
-        </Link>
-        <Link
-          underline="hover"
-          color="text.red"
-          className="rucica"
-          
-        >
-          Drivers
-        </Link>
-        
-      </Breadcrumbs>
-    </div>
+      <YearSelect />
 
-
-
-      <Table className="tableContainer">
+      <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell></TableCell>

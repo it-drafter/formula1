@@ -54,8 +54,8 @@ const RaceResults = (props) => {
 
   return (
     <>
-      <h1>Results component</h1>
-      <Table>
+      <h1>Race results component</h1>
+      <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Pos</TableCell>

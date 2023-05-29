@@ -46,6 +46,7 @@ const TeamDetailsCollapsable = (props) => {
         size='small'
         aria-label='purchases'
         sx={{ margin: 0, marginBottom: 5 }}
+        className='tableContainer'
       >
         <TableHead>
           <TableRow>
@@ -58,9 +59,11 @@ const TeamDetailsCollapsable = (props) => {
         <TableBody>
           <TableRow>
             <TableCell>
+              <div className="flagName">
               {globalCtx.flagFn(teamDetails.Constructor.nationality)}
               <span> </span>
               {teamDetails.Constructor.name}
+              </div>
             </TableCell>
             <TableCell>{teamDetails.Constructor.nationality}</TableCell>
             <TableCell>{teamDetails.position}</TableCell>

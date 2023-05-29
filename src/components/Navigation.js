@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Link, Routes, Route, NavLink } from 'react-router-dom';
 import Drivers from './Drivers';
 import Races from './Races';
 import Teams from './Teams';
@@ -11,8 +11,25 @@ import Teams1 from '../img/Teams1.png';
 import DriverDetails from './DriverDetails';
 import TeamDetails from './TeamDetails';
 import GrandPrixDetails from './GrandPrixDetails';
+import SearchResultsDrivers from './search/SearchResultsDrivers';
+import SearchResultsTeams from './search/SearchResultsTeams';
+import SearchResultsRaces from './search/SearchResultsRaces';
 
 export default function Navigation() {
+
+    // const [isActive, setIsActive] = useState(false);
+    // const ToggleClass = () => {
+    //     setIsActive(!isActive)
+    // }
+    // useEffect(() => {
+    //   return () => {
+    //     setIsActive(isActive)
+       
+    //   };
+    // }, []);
+      
+
+
   return (
     <div className='NavContainer'>
       <Router>
@@ -21,33 +38,33 @@ export default function Navigation() {
             <img src={F1logo} className='homeimg' />
           </Link>
 
-          <Link to='/drivers' className='nav-link'>
+          <NavLink to='/drivers' className="nav-link">
             <ul>
-              {' '}
+              
               <li> Drivers</li>
               <li>
-                <img src={Kaciga} className='kaciga' />{' '}
+                <img src={Kaciga} className='kaciga' />
               </li>
             </ul>
-          </Link>
+          </NavLink>
 
-          <Link to='/teams' className='nav-link'>
+          <NavLink to='/teams' className='nav-link'>
             <ul>
               <li>Teams</li>
               <li>
                 <img src={Teams1} className='teams1' />
               </li>
             </ul>
-          </Link>
+          </NavLink>
 
-          <Link to='/races' className='nav-link'>
+          <NavLink to='/races' className='nav-link'>
             <ul>
               <li>Races</li>
               <li>
                 <img src={Races3} className='races2' />
               </li>
             </ul>
-          </Link>
+          </NavLink>
         </nav>
 
         <Routes>
@@ -55,21 +72,21 @@ export default function Navigation() {
 
           <Route path='/drivers' element={<Drivers />} />
           <Route
-            path='/drivers/details/:driverId'
+            path='/driversdetails/:driverId'
             element={<DriverDetails />}
           />
-          <Route path='/drivers/details/:race' element={<GrandPrixDetails />} />
-          <Route path='/teams/details/:teamId' element={<TeamDetails />} />
+         
 
           <Route path='/teams' element={<Teams />} />
-          <Route path='/teams/details/:teamId' element={<TeamDetails />} />
-          <Route
-            path='/teams/details/:raceDetails'
-            element={<GrandPrixDetails />}
-          />
+          <Route path='/teamsdetails/:teamId' element={<TeamDetails />} />
+          
 
           <Route path='/races' element={<Races />} />
-          <Route path='/races/details/:round' element={<GrandPrixDetails />} />
+          <Route path='/racesdetails/:round' element={<GrandPrixDetails />} />
+
+          <Route path='/drivers/search' element={<SearchResultsDrivers />} />
+          <Route path='/teams/search' element={<SearchResultsTeams />} />
+          <Route path='/races/search' element={<SearchResultsRaces />} />
         </Routes>
       </Router>
     </div>

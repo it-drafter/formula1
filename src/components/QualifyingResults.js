@@ -54,8 +54,8 @@ const QualifyingResults = (props) => {
 
   return (
     <>
-      <h1>Qualifying component</h1>
-      <Table>
+      <h1>Race qualifying component</h1>
+      <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Pos</TableCell>

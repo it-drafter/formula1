@@ -1,0 +1,14 @@
+.breadCrumb{
+    link :active{
+    color:green;
+    background-color: gold;}
+}
+
+.breadCrumbA:hover {
+    font-size:large;
+    background-color:black;
+    color:red;
+    border: 10px solid black;
+    border-radius: 12px;
+    font-weight: bold;
+}

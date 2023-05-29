@@ -1,53 +1,98 @@
 @import "../scss/_cssreset.scss";
 @import '../scss/_Navigation.scss';
+@import "../scss/BreadCrumb.scss";
 @import '../scss/_Teams.scss';
 @import '../scss/Drivers.scss';
+@import "../scss/backToTop.scss";
 
-.position_1 {
+// .position_1 {
+//     background-color: #FFFFBF;
+// }
+
+// .position_2 {
+//     background-color: #DFDFDF;
+// }
+
+// .position_3 {
+//     background-color: #FFDF9F;
+// }
+
+// .position_4,
+// .position_5,
+// .position_6,
+// .position_7,
+// .position_8,
+// .position_9,
+// .position_10 {
+//     background-color: #DFFFDF;
+// }
+
+// .position_11,
+// .position_12,
+// .position_13,
+// .position_14,
+// .position_15,
+// .position_16,
+// .position_17,
+// .position_18,
+// .position_19,
+// .position_20,
+// .position_21,
+// .position_22 {
+
+
+//     background-color: darkgray;
+// }
+
+.gold {
     background-color: #FFFFBF;
 }
 
-.position_2 {
+.silver {
     background-color: #DFDFDF;
 }
 
-.position_3 {
+.bronze {
     background-color: #FFDF9F;
 }
 
-.position_4,
-.position_5,
-.position_6,
-.position_7,
-.position_8,
-.position_9,
-.position_10 {
+.green {
     background-color: #DFFFDF;
 }
 
-.position_11,
-.position_12,
-.position_13,
-.position_14,
-.position_15,
-.position_16,
-.position_17,
-.position_18,
-.position_19,
-.position_20,
-.position_21,
-.position_22 {
-
-
+.gray {
     background-color: darkgray;
 }
-.rucica {
-    cursor: pointer;
+
+.fastest_lap_1 {
+    background-color: #f3aff3;
 }
-   
+
+.mouseHandle {
+    cursor: pointer;
+    font-weight: bold !important;
+}
+
+body {
+    // background-image: url("/img/background.png");
+    background-image: url("http://localhost:8080/img/background.png");
+    background-color: white;
+    //background-color: #cccccc;
+
+    //     table {
+    //         border-radius: 200px;
+    //  }
+}
 
 
+.flagName {
+    display: flex;
+    align-items: center;
+    margin: 10px;
 
+    margin-left: 0;
 
-
-
+    span {
+        padding: 0 4px;
+    }
+}

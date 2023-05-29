@@ -17,7 +17,7 @@ const TeamsTableRow = (props) => {
   const navigate = useNavigate();
 
   const handleClickConstructor = (teamId) => {
-    const LinkTo = `/teams/details/${teamId}`;
+    const LinkTo = `/teamsdetails/${teamId}`;
     navigate(LinkTo);
   };
 
@@ -63,11 +63,13 @@ const TeamsTableRow = (props) => {
           onClick={() =>
             handleClickConstructor(props.team.Constructor.constructorId)
           }
-          className='rucica'
+          className='mouseHandle'
         >
+          <div className="flagName">
           {globalCtx.flagFn(props.team.Constructor.nationality)}
           <span> </span>
           {props.team.Constructor.name}
+          </div>
         </TableCell>
         <TableCell className='details-btn'>
           <a href={props.team.Constructor.url} target='_blank'>
@@ -81,11 +83,11 @@ const TeamsTableRow = (props) => {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout='auto' unmountOnExit>
             <Box sx={{ margin: 0 }}>
-              <Typography variant='h6' gutterBottom component='div'>
+              {/* <Typography variant='h6' gutterBottom component='div'>
                 {globalCtx.flagFn(props.team.Constructor.nationality)}
                 <span> </span>
                 {props.team.Constructor.name}
-              </Typography>
+              </Typography> */}
 
               <TeamDetailsCollapsable
                 teamId={props.team.Constructor.constructorId}

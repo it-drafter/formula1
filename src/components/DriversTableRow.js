@@ -16,19 +16,21 @@ const DriversTableRow = (props) => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
+  // console.log("props", props)
+
   const handleClickDetails = (driverId) => {
-    console.log(driverId);
-    const linkTo = `/drivers/details/${driverId}`;
+    // console.log(driverId);
+    const linkTo = `/driversdetails/${driverId}`;
     navigate(linkTo);
   };
   const handleTeamDetails = (teamId) => {
-    console.log('on click event');
-    const linkTo = `/drivers/details/${teamId}`;
+    // console.log('on click event');
+    const linkTo = `/teamsdetails/${teamId}`;
     navigate(linkTo);
   };
 
   // console.log('Props', props.driver.Driver.nationality);
-  console.log('Props111', props);
+  // console.log('Props111', props);
 
   return (
     <>
@@ -47,17 +49,22 @@ const DriversTableRow = (props) => {
         </TableCell>
         <TableCell
           onClick={() => handleClickDetails(props.driver.Driver.driverId)}
-          className='rucica'>
-            <div className="flagName">
-          {globalCtx.flagFn(props.driver.Driver.nationality)}
-          <span> </span>
-          <span> </span>
-          {props.driver.Driver.givenName + ' ' + props.driver.Driver.familyName}
+          className='mouseHandle'
+        >
+          <div className='flagName'>
+            {globalCtx.flagFn(props.driver.Driver.nationality)}
+            <span> </span>
+
+            {props.driver.Driver.givenName +
+              ' ' +
+              props.driver.Driver.familyName}
           </div>
         </TableCell>
         <TableCell
-          className='rucica'
-          onClick={() => handleTeamDetails(props.driver.Driver.driverId)}
+          className='mouseHandle'
+          onClick={() =>
+            handleTeamDetails(props.driver.Constructors[0].constructorId)
+          }
         >
           {props.driver.Constructors[0].name}
         </TableCell>

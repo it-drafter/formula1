@@ -5,6 +5,7 @@ import { RiseLoader } from 'react-spinners';
 import { Link, Breadcrumbs } from '@mui/material';
 import GlobalContext from '../context/global-context';
 import TeamDetailsRaces from './TeamDetailsRaces';
+import BreadCrumbs from './BreadCrumbs';
 
 const TeamDetails = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -22,7 +23,7 @@ const TeamDetails = (props) => {
 
   const handleDrivers = (raceDetails) => {
     console.log('klik na race');
-    const linkTo = `/races/details/${raceDetails}`;
+    const linkTo = `/racesdetails/${raceDetails}`;
     navigate(linkTo);
   };
 
@@ -30,15 +31,7 @@ const TeamDetails = (props) => {
     getTeamDetails();
   }, []);
 
-  function handleClick(event) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb. -- teamDetails');
-  }
 
-  const handleBCRoute = (path) => {
-    console.log('klikcic');
-    navigate(path);
-  };
 
   const getTeamDetails = async () => {
     const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
@@ -64,55 +57,37 @@ const TeamDetails = (props) => {
           marginTop: '100px',
         }}
       />
-    );
-  }
+      );
+    }
+    
+    return (
+      <>
+      <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
+      <span>Season {globalCtx.chosenYear}</span>
+      
+<div className='table-const-race'>
 
-  return (
-    <>
-      <div role='presentation' onClick={handleClick}>
-        <Breadcrumbs aria-label='breadcrumb'>
-          <Link
-            underline='hover'
-            color='black'
-            onClick={() => handleBCRoute('/')}
-            className='rucica'
-          >
-            Home
-          </Link>
-          <Link
-            underline='hover'
-            color='black'
-            onClick={() => handleBCRoute('/teams')}
-            className='rucica'
-          >
-            Teams
-          </Link>
-          <Link
-            underline='hover'
-            color='text.red'
-            onClick={() => handleBCRoute(`/races/details/${raceDetails}`)}
-            aria-current='page'
-            className='rucica'
-          >
-            Team Details
-          </Link>
-        </Breadcrumbs>
-      </div>
 
       <div className='team-details'>
         <div>
           <img
             src={`/img/teams/${teamDetails.Constructor.constructorId}.png`}
-            style={{ width: '350px', paddingRight: '30px' }}
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; 
+              currentTarget.src = `/img/teams/unknownConstructor.png`;
+            }}
+            style={{ maxHeight: '100px', paddingRight: '30px' }}
             alt='Constructor'
           />
         </div>
 
         <div>
           <h2 className='name-details'>
+            <div className="flagName">
             {globalCtx.flagFn(teamDetails.Constructor.nationality)}
             <span> </span>
             {teamDetails.Constructor.name}
+            </div>
           </h2>
           <p>Nationality: {teamDetails.Constructor.nationality}</p>
           <p>Positon: {teamDetails.position}</p>
@@ -125,10 +100,16 @@ const TeamDetails = (props) => {
           </p>
         </div>
       </div>
+      <div>
+     
       <TeamDetailsRaces
         teamResults={teamResults}
         handleDrivers={handleDrivers}
       />
+      </div>
+      
+
+</div>
     </>
   );
 };

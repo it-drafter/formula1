@@ -7,6 +7,8 @@ import { Link, Breadcrumbs } from '@mui/material';
 import GlobalContext from '../context/global-context';
 import DriverDetailsRaces from './DriverDetailsRaces';
 
+import BreadCrumbs from './BreadCrumbs';
+
 const DriverDetails = () => {
   const globalCtx = useContext(GlobalContext);
   console.log('Chosen year: ', globalCtx.chosenYear);
@@ -20,7 +22,7 @@ const DriverDetails = () => {
 
   const handleRouteToGrandPrix = (race) => {
     console.log('komentar');
-    const linkTo = `/races/details/${race}`;
+    const linkTo = `/racesdetails/${race}`;
     navigate(linkTo);
   };
 
@@ -40,14 +42,7 @@ const DriverDetails = () => {
     getDriverDetails();
   }, []);
 
-  function handleClick(event) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb.');
-  }
-  const handleBCRoute = (path) => {
-    console.log('klikkk');
-    navigate(path);
-  };
+  
 
   const getDriverDetails = async () => {
     // console.log('DriverDetails', params.driverId);
@@ -100,72 +95,64 @@ const DriverDetails = () => {
     );
   }
 
-  console.log("DRIVERS", driverDetails.Driver.driverId);
+  console.log('DRIVERS', driverDetails.Driver.driverId);
 
   return (
     <>
+      <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
 
+      <span>Season {globalCtx.chosenYear}</span>
 
-      <div role='presentation' onClick={handleClick}>
-        <Breadcrumbs aria-label='breadcrumb'>
-          <Link
-            underline='hover'
-            color='black'
-            onClick={() => handleBCRoute('/')}
-            className='rucica'
-          >
-            Home
-          </Link>
-          <Link
-            underline='hover'
-            color='black'
-            onClick={() => handleBCRoute('/drivers')}
-            className='rucica'
-          >
-            Drivers
-          </Link>
-          <Link
-            underline='hover'
-            color='text.red'
-            onClick={() => handleBCRoute()}
-            className='rucica'
-            aria-current='page'
-          >
-            Driver Details
-          </Link>
-        </Breadcrumbs>
-      </div>
+      <div className='table-const-race'>
+
       <div className='team-details'>
         <div>
-          <img src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
-          style={{ width: '200px', paddingRight: '30px'}}
-          alt='Driver'
+          <img
+            src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; // prevents looping
+              currentTarget.src = `/img/drivers/unknownDriver.png`;
+            }}
+            style={{ maxHeight: '100px', paddingRight: '30px' }}
+            alt='Driver'
           />
-        </div>                                  
+        </div>
         <div>
-        <h2>{globalCtx.flagFn(driverDetails?.Driver.nationality)}
-                <span> </span>
-                {driverDetails.Driver.givenName + ' ' + driverDetails.Driver.familyName}</h2>
+          
+            <div className="flagName">
+            {globalCtx.flagFn(driverDetails?.Driver.nationality)}
+            <span> </span>
+            {driverDetails.Driver.givenName +
+              ' ' +
+              driverDetails.Driver.familyName}
+              </div>
+          
           <p>
             Nationality: {driverDetails?.Driver.nationality}
             <span></span>
-          
           </p>
           <p>Team: {driverDetails?.Constructors[0].constructorId}</p>
           <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
-          <p>Biography:
-            <a href={driverDetails?.Driver.url} target='_blank'>↗</a></p>
+          <p>
+            Biography:
+            <a href={driverDetails?.Driver.url} target='_blank'>
+              ↗
+            </a>
+          </p>
         </div>
-
-
-
       </div>
-
+      <div>
+      
       <DriverDetailsRaces
         driverDetailsRaces={driverDetailsRaces}
         handleRouteToGrandPrix={handleRouteToGrandPrix}
-        className='rucica'
+        className='mouseHandle'
       />
+      </div>
+      </div>
+
+
+   
     </>
   );
 };
