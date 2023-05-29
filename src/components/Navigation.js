@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Link, Routes, Route, NavLink } from 'react-router-dom';
 import Drivers from './Drivers';
 import Races from './Races';
 import Teams from './Teams';
@@ -16,6 +16,20 @@ import SearchResultsTeams from './search/SearchResultsTeams';
 import SearchResultsRaces from './search/SearchResultsRaces';
 
 export default function Navigation() {
+
+    // const [isActive, setIsActive] = useState(false);
+    // const ToggleClass = () => {
+    //     setIsActive(!isActive)
+    // }
+    // useEffect(() => {
+    //   return () => {
+    //     setIsActive(isActive)
+       
+    //   };
+    // }, []);
+      
+
+
   return (
     <div className='NavContainer'>
       <Router>
@@ -24,7 +38,7 @@ export default function Navigation() {
             <img src={F1logo} className='homeimg' />
           </Link>
 
-          <Link to='/drivers' className='nav-link'>
+          <NavLink to='/drivers' className="nav-link">
             <ul>
               
               <li> Drivers</li>
@@ -32,25 +46,25 @@ export default function Navigation() {
                 <img src={Kaciga} className='kaciga' />
               </li>
             </ul>
-          </Link>
+          </NavLink>
 
-          <Link to='/teams' className='nav-link'>
+          <NavLink to='/teams' className='nav-link'>
             <ul>
               <li>Teams</li>
               <li>
                 <img src={Teams1} className='teams1' />
               </li>
             </ul>
-          </Link>
+          </NavLink>
 
-          <Link to='/races' className='nav-link'>
+          <NavLink to='/races' className='nav-link'>
             <ul>
               <li>Races</li>
               <li>
                 <img src={Races3} className='races2' />
               </li>
             </ul>
-          </Link>
+          </NavLink>
         </nav>
 
         <Routes>
