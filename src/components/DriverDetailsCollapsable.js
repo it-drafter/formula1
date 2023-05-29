@@ -74,6 +74,10 @@ const DriverDetailsCollapsable = (props) => {
             <TableCell>
               <img
                 src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null; 
+                  currentTarget.src = `/img/drivers/unknownDriver.png`;
+                }}
                 style={{ width: '120px', paddingRight: '30px' }}
                 alt='Driver'
               />
