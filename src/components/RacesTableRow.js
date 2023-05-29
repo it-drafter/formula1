@@ -14,7 +14,6 @@ const RacesTableRow = (props) => {
     const LinkTo = `/racesdetails/${round}`;
     navigate(LinkTo);
   };
-  
 
   return (
     <TableRow>
@@ -30,7 +29,6 @@ const RacesTableRow = (props) => {
         </div>
       </TableCell>
       <TableCell>
-        {/* <BasicModal /> */}
         {props.race.Circuit.circuitName}</TableCell>
       <TableCell>{props.race.date}</TableCell>
       <TableCell>

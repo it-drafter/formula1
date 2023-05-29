@@ -54,7 +54,7 @@ const SprintQualifyingResults = (props) => {
 
   return (
     <>
-      <h1>Sprint Qualifying component</h1>
+      <h1>Sprint qualifying component</h1>
       <Table>
         <TableHead>
           <TableRow className='table-header'>

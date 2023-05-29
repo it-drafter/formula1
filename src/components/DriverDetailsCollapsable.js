@@ -47,7 +47,7 @@ const DriverDetailsCollapsable = (props) => {
         size='small'
         aria-label='purchases'
         sx={{ margin: 0, marginBottom: 5 }}
-        className='tableContainer bg-transparent'
+        className='tableContainer'
       >
         <TableHead>
           <TableRow>
@@ -74,6 +74,10 @@ const DriverDetailsCollapsable = (props) => {
             <TableCell>
               <img
                 src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null; 
+                  currentTarget.src = `/img/drivers/unknownDriver.png`;
+                }}
                 style={{ width: '120px', paddingRight: '30px' }}
                 alt='Driver'
               />
@@ -81,7 +85,8 @@ const DriverDetailsCollapsable = (props) => {
             <TableCell>{driverDetails.Driver.nationality}</TableCell>
             <TableCell>{driverDetails?.Constructors[0].name}</TableCell>
             <TableCell>{driverDetails?.Driver.dateOfBirth}</TableCell>
-            <TableCell>{driverDetails?.Driver.url}</TableCell>
+            <TableCell>
+              <a href={driverDetails?.Driver.url} target='_blank'>Wikipedia ↗</a></TableCell>
           </TableRow>
         </TableBody>
       </Table>

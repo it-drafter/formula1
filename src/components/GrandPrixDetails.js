@@ -12,6 +12,8 @@ import {
 import axios from 'axios';
 import QualifyingResults from './QualifyingResults';
 import RaceResults from './RaceResults';
+import SprintQualifyingResults from './SprintQualifyingResults';
+import SprintResults from './SprintResults';
 import GlobalContext from '../context/global-context';
 // import { useNavigate } from 'react-router-dom';
 import BreadCrumbs from './BreadCrumbs';
@@ -29,8 +31,6 @@ const GrandPrixDetails = () => {
   useEffect(() => {
     getGrandPrix();
   }, []);
-
-  
 
   const getGrandPrix = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
@@ -76,17 +76,16 @@ const GrandPrixDetails = () => {
       <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
 
 
-      <Table className='tableContainer bg-transparent'>
+      <Table className='tableContainer'>
         <TableBody>
           <TableRow>
             <TableCell>
               <TableRow>
                 <TableCell align='center' colSpan={2}>
-                <div className="flagName">
                   {globalCtx.flagFn(
                     grandPrix[round - 1]?.Circuit.Location.country
                   )}
-                  </div>
+                
                 </TableCell>
               </TableRow>
               <TableRow>
@@ -134,7 +133,7 @@ const GrandPrixDetails = () => {
             </TableCell>
             <TableCell>
               <img
-                style={{ maxHeight: '300px' }}
+                style={{ maxHeight: '600px' }}
                 src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
                   }.jpeg`}
                 onError={({ currentTarget }) => {
@@ -146,6 +145,8 @@ const GrandPrixDetails = () => {
           </TableRow>
         </TableBody>
       </Table>
+      <SprintQualifyingResults round={round} />
+      <SprintResults round={round} />
       <QualifyingResults round={round} />
       <RaceResults round={round} />
     </>

@@ -5,6 +5,7 @@ import GlobalContext from '../context/global-context';
 
 const ResultsTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
+
   return (
     <TableRow>
       <TableCell>{props.result.position}</TableCell>

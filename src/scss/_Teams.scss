@@ -1,13 +1,15 @@
 
 .table-const-race {
+   margin-top:20px;
    display: flex;
    width: 90%;
    justify-content: space-between;
-   align-items: center;
+   align-items: start;
 
 }
 
 .team-details {
+   margin-top:15px;
     display: flex;
     height: 250px;
     border:7px solid #E10600;
