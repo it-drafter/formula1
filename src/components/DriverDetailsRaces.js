@@ -10,8 +10,8 @@ import {
 const DriverDetailsRaces = (props) => {
   return (
     <>
-      <h1>DriverDetailsRaces</h1>
-      <Table className='tableContainer'>
+   
+      <Table className='tableContainer bg-transparent'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Round</TableCell>
