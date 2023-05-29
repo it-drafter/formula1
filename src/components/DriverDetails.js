@@ -42,14 +42,7 @@ const DriverDetails = () => {
     getDriverDetails();
   }, []);
 
-  // function handleClick(event) {
-  //   event.preventDefault();
-  //   console.info('You clicked a breadcrumb.');
-  // }
-  // const handleBCRoute = (path) => {
-  //   console.log('klikkk');
-  //   navigate(path);
-  // };
+  
 
   const getDriverDetails = async () => {
     // console.log('DriverDetails', params.driverId);

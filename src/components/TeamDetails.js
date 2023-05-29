@@ -31,15 +31,7 @@ const TeamDetails = (props) => {
     getTeamDetails();
   }, []);
 
-  // function handleClick(event) {
-  //   event.preventDefault();
-  //   console.info('You clicked a breadcrumb. -- teamDetails');
-  // }
 
-  // const handleBCRoute = (path) => {
-  //   console.log('klikcic');
-  //   navigate(path);
-  // };
 
   const getTeamDetails = async () => {
     const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;

@@ -15,6 +15,7 @@ const RacesTableRow = (props) => {
     const LinkTo = `/races/details/${round}`;
     navigate(LinkTo);
   };
+  
 
   return (
     <TableRow>

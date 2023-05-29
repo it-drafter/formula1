@@ -29,15 +29,7 @@ const Teams = () => {
     getTeams();
   }, [globalCtx.chosenYear]);
 
-  // function handleClick(event) {
-  //   event.preventDefault();
-  //   console.info('You clicked a breadcrumb. -- Teams');
-  // }
 
-  // const handleBCRoute = (path) => {
-  //   console.log('klikkkklol');
-  //   navigate(path);
-  // };
 
   const getTeams = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
