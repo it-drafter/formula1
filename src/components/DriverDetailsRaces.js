@@ -11,7 +11,7 @@ const DriverDetailsRaces = (props) => {
   return (
     <>
    
-      <Table className='tableContainer bg-transparent'>
+      <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Round</TableCell>

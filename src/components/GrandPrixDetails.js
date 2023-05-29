@@ -76,17 +76,16 @@ const GrandPrixDetails = () => {
       <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
 
 
-      <Table className='tableContainer bg-transparent'>
+      <Table className='tableContainer'>
         <TableBody>
           <TableRow>
             <TableCell>
               <TableRow>
                 <TableCell align='center' colSpan={2}>
-                <div className="flagName">
                   {globalCtx.flagFn(
                     grandPrix[round - 1]?.Circuit.Location.country
                   )}
-                  </div>
+                
                 </TableCell>
               </TableRow>
               <TableRow>

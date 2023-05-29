@@ -91,7 +91,7 @@ const Teams = () => {
 
       <YearSelect />
 
-      <Table className='tableContainer bg-transparent'>
+      <Table className='tableContainer'>
         <TableHead className='table-header'>
           <TableRow>
             <TableCell></TableCell>

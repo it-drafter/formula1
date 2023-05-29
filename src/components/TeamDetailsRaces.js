@@ -11,7 +11,7 @@ const TeamDetailsRaces = (props) => {
   return (
     <>
    
-      <Table className='tableContainer '>
+      <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Round</TableCell>
