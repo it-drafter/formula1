@@ -108,35 +108,7 @@ const DriverDetails = () => {
     <>
       <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
 
-      {/* <div role='presentation' onClick={handleClick}>
-        <Breadcrumbs aria-label='breadcrumb'>
-          <Link
-            underline='hover'
-            color='black'
-            onClick={() => handleBCRoute('/')}
-            className='rucica'
-          >
-            Home
-          </Link>
-          <Link
-            underline='hover'
-            color='black'
-            onClick={() => handleBCRoute('/drivers')}
-            className='rucica'
-          >
-            Drivers
-          </Link>
-          <Link
-            underline='hover'
-            color='text.red'
-            onClick={() => handleBCRoute()}
-            className='rucica'
-            aria-current='page'
-          >
-            Driver Details
-          </Link>
-        </Breadcrumbs>
-      </div> */}
+     
 
       <div className='team-details'>
         <div>
@@ -175,7 +147,7 @@ const DriverDetails = () => {
       <DriverDetailsRaces
         driverDetailsRaces={driverDetailsRaces}
         handleRouteToGrandPrix={handleRouteToGrandPrix}
-        className='rucica'
+        className='mouseHandle'
       />
     </>
   );

@@ -63,7 +63,7 @@ const TeamsTableRow = (props) => {
           onClick={() =>
             handleClickConstructor(props.team.Constructor.constructorId)
           }
-          className='rucica'
+          className='mouseHandle'
         >
           {globalCtx.flagFn(props.team.Constructor.nationality)}
           <span> </span>

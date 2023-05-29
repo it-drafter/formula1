@@ -47,7 +47,7 @@ const DriversTableRow = (props) => {
         </TableCell>
         <TableCell
           onClick={() => handleClickDetails(props.driver.Driver.driverId)}
-          className='rucica'
+          className='mouseHandle'
         >
           <div className='flagName'>
             {globalCtx.flagFn(props.driver.Driver.nationality)}
@@ -59,7 +59,7 @@ const DriversTableRow = (props) => {
           </div>
         </TableCell>
         <TableCell
-          className='rucica'
+          className='mouseHandle'
           onClick={() => handleTeamDetails(props.driver.Driver.driverId)}
         >
           {props.driver.Constructors[0].name}
