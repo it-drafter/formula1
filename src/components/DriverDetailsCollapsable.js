@@ -47,8 +47,7 @@ const DriverDetailsCollapsable = (props) => {
         size='small'
         aria-label='purchases'
         sx={{ margin: 0, marginBottom: 5 }}
-        className='tableContainer'
-      >
+        className='tableContainer'>
         <TableHead>
           <TableRow>
             <TableCell>
