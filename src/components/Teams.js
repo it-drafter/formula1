@@ -29,8 +29,6 @@ const Teams = () => {
     getTeams();
   }, [globalCtx.chosenYear]);
 
-
-
   const getTeams = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
     setIsLoading(true);
@@ -48,7 +46,23 @@ const Teams = () => {
     }
   };
   if (error) {
-    return <p>Error: {error.message}</p>;
+    setError(null);
+    setIsLoading(false);
+    setTeams([]);
+    return (
+      <>
+        <div className='px-5 w-100 d-flex justify-content-between'>
+          <BreadCrumbs levels={[['Teams']]} />
+          <SearchBox
+            // home={props.home}
+            placeholder={'Search Teams'}
+            linkTo={`/teams/search`}
+          />
+        </div>
+        <YearSelect />
+        <p>Error: {error.message}</p>;
+      </>
+    );
   }
 
   if (isLoading) {
@@ -74,10 +88,10 @@ const Teams = () => {
           linkTo={`/teams/search`}
         />
       </div>
-      
+
       <YearSelect />
 
-      <Table className='tableContainer bg-transparent'>
+      <Table className='tableContainer'>
         <TableHead className='table-header'>
           <TableRow>
             <TableCell></TableCell>

@@ -54,7 +54,7 @@ const DriversTableRow = (props) => {
           <div className='flagName'>
             {globalCtx.flagFn(props.driver.Driver.nationality)}
             <span> </span>
-            <span> </span>
+          
             {props.driver.Driver.givenName +
               ' ' +
               props.driver.Driver.familyName}

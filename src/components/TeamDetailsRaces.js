@@ -10,8 +10,8 @@ import {
 const TeamDetailsRaces = (props) => {
   return (
     <>
-      <h1>TeamDetailsRaces</h1>
-      <Table className='tableContainer bg-transparent'>
+   
+      <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Round</TableCell>

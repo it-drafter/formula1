@@ -42,28 +42,24 @@
 
     background-color: darkgray;
 }
+
 .mouseHandle {
     cursor: pointer;
-    font-weight: bold!important;
+    font-weight: bold !important;
 }
-   
+
 body {
     // background-image: url("/img/background.png");
     background-image: url("http://localhost:8080/img/background.png");
-    background-color: #cccccc;
-   }
+    background-color: white;
+    //background-color: #cccccc;
+}
 
-
-//    .flag-icon {
-//     margin-right: 5px;
-//    }
-
-   .flagName {
+.flagName {
     display: flex;
     align-items: center;
     margin: 10px;
+    span {
+        padding: 0 4px;
+    }
 }
-
-
-
-

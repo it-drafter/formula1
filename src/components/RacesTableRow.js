@@ -22,19 +22,23 @@ const RacesTableRow = (props) => {
         className='mouseHandle'
         onClick={() => handleClickGrandPrix(props.race.round)}
       >
+        <div className="flagName">
         {globalCtx.flagFn(props.race.Circuit.Location.country)}
         <span> </span>
         {props.race.raceName}
+        </div>
       </TableCell>
       <TableCell>
         {props.race.Circuit.circuitName}</TableCell>
       <TableCell>{props.race.date}</TableCell>
       <TableCell>
+      <div className="flagName">
         {globalCtx.flagFn(props.race.Results[0].Driver.nationality)}
         <span> </span>
         {props.race.Results[0].Driver.givenName +
           ' ' +
           props.race.Results[0].Driver.familyName}
+          </div>
       </TableCell>
     </TableRow>
   );

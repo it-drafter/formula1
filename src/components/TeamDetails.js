@@ -57,13 +57,16 @@ const TeamDetails = (props) => {
           marginTop: '100px',
         }}
       />
-    );
-  }
-
-  return (
-    <>
+      );
+    }
+    
+    return (
+      <>
       <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
+      <span>Season {globalCtx.chosenYear}</span>
       
+<div className='table-const-race'>
+
 
       <div className='team-details'>
         <div>
@@ -98,12 +101,15 @@ const TeamDetails = (props) => {
         </div>
       </div>
       <div>
-        <span>Season {globalCtx.chosenYear}</span>
-      </div>
+     
       <TeamDetailsRaces
         teamResults={teamResults}
         handleDrivers={handleDrivers}
       />
+      </div>
+      
+
+</div>
     </>
   );
 };
