@@ -3,10 +3,10 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import GlobalContext from '../context/global-context';
 
-const ResultsTableRow = (props) => {
+const SprintResultsTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   return (
-    <TableRow className={'fastest_lap_' + props.result.FastestLap.rank}>
+    <TableRow>
       <TableCell>{props.result.position}</TableCell>
       <TableCell>
         {globalCtx.flagFn(props.result.Driver.nationality)}
@@ -29,4 +29,4 @@ const ResultsTableRow = (props) => {
   );
 };
 
-export default ResultsTableRow;
+export default SprintResultsTableRow;

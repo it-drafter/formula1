@@ -3,7 +3,7 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import GlobalContext from '../context/global-context';
 
-const QualifyingTableRow = (props) => {
+const SprintQualifyingTableRow = (props) => {
     const globalCtx = useContext(GlobalContext);
     function qSort() {
         const arr = [props.qualifier.Q1, props.qualifier.Q2, props.qualifier.Q3];
@@ -28,4 +28,4 @@ const QualifyingTableRow = (props) => {
     );
 };
 
-export default QualifyingTableRow;
+export default SprintQualifyingTableRow;
