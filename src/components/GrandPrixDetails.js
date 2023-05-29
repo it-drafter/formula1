@@ -30,15 +30,7 @@ const GrandPrixDetails = () => {
     getGrandPrix();
   }, []);
 
-  // function handleClick(event) {
-  //   event.preventDefault();
-  //   console.info('You clicked a breadcrumb. -- grand prix');
-  // }
-
-  // const handleBCRoute = (path) => {
-  //   console.log('klik');
-  //   navigate(path);
-  // };
+  
 
   const getGrandPrix = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
@@ -88,7 +80,6 @@ const GrandPrixDetails = () => {
         <TableBody>
           <TableRow>
             <TableCell>
-              {/* {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)} */}
               <TableRow>
                 <TableCell align='center' colSpan={2}>
                   {globalCtx.flagFn(
@@ -149,50 +140,6 @@ const GrandPrixDetails = () => {
                   currentTarget.src = `/img/neutral.svg`;
                 }}
               />
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell></TableCell>
-            <TableCell>{grandPrix[round - 1].raceName}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Country:</TableCell>
-            <TableCell>
-              {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)}{' '}
-              <span> </span>
-              {grandPrix[round - 1].Circuit.Location.country}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Location:</TableCell>
-            <TableCell>
-              {grandPrix[round - 1].Circuit.Location.locality}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Date:</TableCell>
-            <TableCell>{grandPrix[round - 1].date}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Grand Prix details:</TableCell>
-            <TableCell>
-              <a href={grandPrix[round - 1].url} target='_blank'>
-                Wikipedia ↗
-              </a>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Circuit details:</TableCell>
-            <TableCell>
-              <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
-                Wikipedia ↗
-              </a>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell></TableCell>
-            <TableCell>
-              <iframe src={googleMap}></iframe>
             </TableCell>
           </TableRow>
         </TableBody>

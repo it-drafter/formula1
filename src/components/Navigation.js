@@ -26,10 +26,10 @@ export default function Navigation() {
 
           <Link to='/drivers' className='nav-link'>
             <ul>
-              {' '}
+              
               <li> Drivers</li>
               <li>
-                <img src={Kaciga} className='kaciga' />{' '}
+                <img src={Kaciga} className='kaciga' />
               </li>
             </ul>
           </Link>
@@ -58,21 +58,17 @@ export default function Navigation() {
 
           <Route path='/drivers' element={<Drivers />} />
           <Route
-            path='/drivers/details/:driverId'
+            path='/driversdetails/:driverId'
             element={<DriverDetails />}
           />
-          <Route path='/drivers/details/:race' element={<GrandPrixDetails />} />
-          <Route path='/teams/details/:teamId' element={<TeamDetails />} />
+         
 
           <Route path='/teams' element={<Teams />} />
-          <Route path='/teams/details/:teamId' element={<TeamDetails />} />
-          <Route
-            path='/teams/details/:raceDetails'
-            element={<GrandPrixDetails />}
-          />
+          <Route path='/teamsdetails/:teamId' element={<TeamDetails />} />
+          
 
           <Route path='/races' element={<Races />} />
-          <Route path='/races/details/:round' element={<GrandPrixDetails />} />
+          <Route path='/racesdetails/:round' element={<GrandPrixDetails />} />
 
           <Route path='/drivers/search' element={<SearchResultsDrivers />} />
           <Route path='/teams/search' element={<SearchResultsTeams />} />

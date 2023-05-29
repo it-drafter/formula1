@@ -17,7 +17,7 @@ const TeamsTableRow = (props) => {
   const navigate = useNavigate();
 
   const handleClickConstructor = (teamId) => {
-    const LinkTo = `/teams/details/${teamId}`;
+    const LinkTo = `/teamsdetails/${teamId}`;
     navigate(LinkTo);
   };
 
@@ -65,9 +65,11 @@ const TeamsTableRow = (props) => {
           }
           className='mouseHandle'
         >
+          <div className="flagName">
           {globalCtx.flagFn(props.team.Constructor.nationality)}
           <span> </span>
           {props.team.Constructor.name}
+          </div>
         </TableCell>
         <TableCell className='details-btn'>
           <a href={props.team.Constructor.url} target='_blank'>

@@ -21,11 +21,7 @@ const Home = () => {
   //   // return year;
   // };
 
-  // function handleClick(event) {
-  //   event.preventDefault();
-  // console.info('You clicked a breadcrumb. -- Home');
-  // }
-
+ 
   return (
     <>
       <BreadCrumbs />

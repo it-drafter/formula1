@@ -22,7 +22,7 @@ const DriverDetails = () => {
 
   const handleRouteToGrandPrix = (race) => {
     console.log('komentar');
-    const linkTo = `/races/details/${race}`;
+    const linkTo = `/racesdetails/${race}`;
     navigate(linkTo);
   };
 
@@ -42,14 +42,7 @@ const DriverDetails = () => {
     getDriverDetails();
   }, []);
 
-  // function handleClick(event) {
-  //   event.preventDefault();
-  //   console.info('You clicked a breadcrumb.');
-  // }
-  // const handleBCRoute = (path) => {
-  //   console.log('klikkk');
-  //   navigate(path);
-  // };
+  
 
   const getDriverDetails = async () => {
     // console.log('DriverDetails', params.driverId);
@@ -124,11 +117,13 @@ const DriverDetails = () => {
         </div>
         <div>
           <h2>
+            <div className="flagName">
             {globalCtx.flagFn(driverDetails?.Driver.nationality)}
             <span> </span>
             {driverDetails.Driver.givenName +
               ' ' +
               driverDetails.Driver.familyName}
+              </div>
           </h2>
           <p>
             Nationality: {driverDetails?.Driver.nationality}
