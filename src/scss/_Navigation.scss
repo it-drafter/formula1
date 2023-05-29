@@ -46,10 +46,19 @@
     padding-bottom: 5px;
   }
 
-  .nav-link:hover,.nav-link:focus{
+  .nav-link:hover{
     color: black;
     background-color: white;
     //background-color: rgb(255, 136, 0);
+  }
+  // .nav-link:focus{
+  //   color: black;
+  //   background-color: white;
+  //   //background-color: rgb(255, 136, 0);
+  // }
+  .active{
+    color: black;
+    background-color: white;
   }
 
   a {
