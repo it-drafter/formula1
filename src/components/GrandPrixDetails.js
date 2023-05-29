@@ -91,9 +91,11 @@ const GrandPrixDetails = () => {
               {/* {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)} */}
               <TableRow>
                 <TableCell align='center' colSpan={2}>
+                <div className="flagName">
                   {globalCtx.flagFn(
                     grandPrix[round - 1]?.Circuit.Location.country
                   )}
+                  </div>
                 </TableCell>
               </TableRow>
               <TableRow>
@@ -158,9 +160,11 @@ const GrandPrixDetails = () => {
           <TableRow>
             <TableCell>Country:</TableCell>
             <TableCell>
+            <div className="flagName">
               {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)}{' '}
               <span> </span>
               {grandPrix[round - 1].Circuit.Location.country}
+              </div>
             </TableCell>
           </TableRow>
           <TableRow>

@@ -24,9 +24,11 @@ const QualifyingTableRow = (props) => {
           </div>
       </TableCell>
       <TableCell>
+      <div className="flagName">
         {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
         <span> </span>
         {props.qualifier.Constructor.name}
+        </div>
       </TableCell>
       <TableCell>{qSort() || 'NC'}</TableCell>
     </TableRow>

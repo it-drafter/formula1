@@ -9,14 +9,19 @@ const SprintResultsTableRow = (props) => {
     <TableRow>
       <TableCell>{props.result.position}</TableCell>
       <TableCell>
+      <div className="flagName">
         {globalCtx.flagFn(props.result.Driver.nationality)}
         <span> </span>
         {props.result.Driver.givenName + ' ' + props.result.Driver.familyName}
+        </div>
       </TableCell>
       <TableCell>
+      <div className="flagName">
         {globalCtx.flagFn(props.result.Constructor.nationality)}
         <span> </span>
-        {props.result.Constructor.name}</TableCell>
+        {props.result.Constructor.name}
+        </div>
+        </TableCell>
       <TableCell>
         {props.result.status === 'Finished'
           ? props.result.Time.time

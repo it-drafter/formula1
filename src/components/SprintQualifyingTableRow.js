@@ -15,14 +15,20 @@ const SprintQualifyingTableRow = (props) => {
         <TableRow>
             <TableCell>{props.qualifier.position}</TableCell>
             <TableCell>
-                {globalCtx.flagFn(props.qualifier.Driver.nationality)}
-                <span> </span>
-                {props.qualifier.Driver.givenName + ' ' + props.qualifier.Driver.familyName}
+                <div className="flagName">
+                    {globalCtx.flagFn(props.qualifier.Driver.nationality)}
+                    <span> </span>
+                    {props.qualifier.Driver.givenName + ' ' + props.qualifier.Driver.familyName}
+                </div>
             </TableCell>
             <TableCell>
-                {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
-                <span> </span>
-                {props.qualifier.Constructor.name}</TableCell>
+                <div className="flagName">
+                    {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
+                    <span> </span>
+                    {props.qualifier.Constructor.name}
+                </div>
+            </TableCell>
+
             <TableCell>{qSort() || 'NC'}</TableCell>
         </TableRow>
     );
