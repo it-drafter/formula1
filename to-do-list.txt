@@ -1,0 +1,78 @@
+Dodatni taskovi od Nemanje:
+- Dodati odabir godine, da ne bude zakucano 2013 ---dodato
+- Dodati search opciju na sve komponente gde ima smisla da se pretrazuje ---dodato
+- Dodati breadcrumb na svaku komponentu ---dodato
+- Napraviti aplikacija da je responsive
+
+Home / Races:
+Ubaciti zastavice za svakog Winner-a
+-- ubaceno
+
+Azerbejdžan i UAE nemaju zastavu (ovo bi trebalo da je ubaceno)
+Monako ima a monačanin Leclerc nema.
+Haas je američki tim ali ima neku čudnu zastavu.
+Za UK nije Union Jack već nešto kao Blue Ensign s greškom.
+Na jednom mestu UK ima ukrajinsku zastavu.
+U svim tabelama s rezultatima pored vozača je stajala zastava tima. (ovo bi trebalo da je ispravljeno)
+
+Za farbanje Point ćelija moramo promeniti logiku u skladu sa:
+https://en.wikipedia.org/wiki/List_of_Formula_One_World_Championship_points_scoring_systems
+Ovo što sada imamo važi samo od 2010- i ne važi za sprintove.
+#FFFFBF	Gold
+#DFDFDF	Silver
+#FFDF9F	Bronze
+#DFFFDF	Green
+#CFCFFF	Blue
+#EFCFFF	Purple
+#FFCFCF	Red	
+#000000	Black
+#FFFFFF	White
+#F8F9FA	Blank
+
+U Collapsable tables ubaciti loading banner siluetu umesto spinner-a.
+
+U Collapsable tables podaci se ponavljaju.
+
+U detaljima timova i vozaca portreti su ogromni. Smanjiti slike.
+-- smanjene
+
+U detaljima timova i vozaca promeniti dizajn da komponente budu jedna pored druge.
+
+Napravi collapsable table u Races (kao za Drivers i Teams)
+
+Kada za neku godinu nema podataka - napraviti interfejs da kaze da nema podataka.
+(npr. sezone kada nisu bile kvalifikacije:
+Error: Cannot read properties of undefined (reading 'SprintResults')
+Error: Cannot read properties of undefined (reading 'QualifyingResults')
+)
+
+Modal za slicicu staze races / races details
+
+Default slike za Vozace i Timove
+
+Dodati search opciju na sve komponente gde ima smisla da se pretrazuje
+
+tooltip
+
+home dugme da nema hover efekat
+-- izbacen hover
+
+go to top dugme na dnu
+
+Na svakoj stranici dodaj YEAR iz konteksta da znamo u kojoj smo godini (npr: Season 2013).
+-- dodato
+
+footer na svakoj stranici
+
+importuj F1 font
+
+Smisliti dizajn pocetne stranice
+
+Centrirati zastavice
+
+Staviti tabele da budu jedna pored druge, a ne jedna ispod druge (gde god je to moguce)
+
+Stilizovati wikipedia link na svim search stranicama
+
+Ubaciti zastavice u SVE stranice sa rezultatima pretrage
+

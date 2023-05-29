@@ -5,7 +5,7 @@ body {
 table {
     max-width: 90vw;
     margin: 50px auto;
-    border: 50px solid lightgray;
+    border: 20px solid #E10600;
     //rgb(113, 182, 228);
     background-color: white;
    
@@ -17,7 +17,7 @@ table {
             
             font-weight: bold;
             font-size: large;
-            background-color: #E10600;
+            background-color: white;
             color: black;
            
    
@@ -29,13 +29,18 @@ table {
         //   &:nth-child(even) {
         //       background-color: rgb(214, 211, 208);
         //   }
-            
+
         &:hover {
             background-color: grey;
         }
+      
 
     }
 }
+// .flagName {
+//     text-align: right;
+   
+// }
 .driverDetails {
     display:flex
     

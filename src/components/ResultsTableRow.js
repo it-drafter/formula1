@@ -8,8 +8,8 @@ const ResultsTableRow = (props) => {
   return (
     <TableRow>
       <TableCell>{props.result.position}</TableCell>
-      <TableCell className="rucica">
-        {globalCtx.flagFn(props.result.Constructor.nationality)}
+      <TableCell>
+        {globalCtx.flagFn(props.result.Driver.nationality)}
         <span> </span>
         {props.result.Driver.givenName + ' ' + props.result.Driver.familyName}
       </TableCell>
@@ -18,13 +18,14 @@ const ResultsTableRow = (props) => {
         {props.result.status === 'Finished'
           ? props.result.Time.time
           : props.result.status[0] === '+'
-            ? props.result.status
-            : 'DNF'}
+          ? props.result.status
+          : 'DNF'}
       </TableCell>
-      <TableCell className={'position_' + props.result.position}>{props.result.points}</TableCell>
+      <TableCell className={'position_' + props.result.position}>
+        {props.result.points}
+      </TableCell>
     </TableRow>
   );
 };
 
 export default ResultsTableRow;
-

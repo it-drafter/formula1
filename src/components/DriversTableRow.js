@@ -28,7 +28,7 @@ const DriversTableRow = (props) => {
   };
 
   // console.log('Props', props.driver.Driver.nationality);
-  console.log('Props111', props);
+  // console.log('Props111', props);
 
   return (
     <>
@@ -49,8 +49,14 @@ const DriversTableRow = (props) => {
           onClick={() => handleClickDetails(props.driver.Driver.driverId)}
           className='rucica'
         >
-          {globalCtx.flagFn(props.driver.Driver.nationality)}
-          {props.driver.Driver.givenName + ' ' + props.driver.Driver.familyName}
+          <div className='flagName'>
+            {globalCtx.flagFn(props.driver.Driver.nationality)}
+            <span> </span>
+            <span> </span>
+            {props.driver.Driver.givenName +
+              ' ' +
+              props.driver.Driver.familyName}
+          </div>
         </TableCell>
         <TableCell
           className='rucica'
