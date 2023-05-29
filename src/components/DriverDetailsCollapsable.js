@@ -54,8 +54,10 @@ const DriverDetailsCollapsable = (props) => {
             <TableCell>
               <div className="flagName">
                 {globalCtx.flagFn(driverDetails?.Driver.nationality)}
+
+                <span> </span>
               
-                  {driverDetails.Driver.givenName +
+                  {' ' + driverDetails.Driver.givenName +
                     ' ' +
                     driverDetails.Driver.familyName}
                 
