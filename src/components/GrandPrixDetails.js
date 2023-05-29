@@ -76,7 +76,7 @@ const GrandPrixDetails = () => {
       <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
 
 
-      <Table className='tableContainer bg-transparent'>
+      <Table className='tableContainer'>
         <TableBody>
           <TableRow>
             <TableCell>
