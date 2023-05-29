@@ -11,9 +11,7 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import QualifyingResults from './QualifyingResults';
-import SprintQualifyingResults from './SprintQualifyingResults';
 import RaceResults from './RaceResults';
-import SprintResults from './SprintResults';
 import GlobalContext from '../context/global-context';
 // import { useNavigate } from 'react-router-dom';
 import BreadCrumbs from './BreadCrumbs';
@@ -90,7 +88,6 @@ const GrandPrixDetails = () => {
         <TableBody>
           <TableRow>
             <TableCell>
-              {/* {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country)} */}
               <TableRow>
                 <TableCell align='center' colSpan={2}>
                   {globalCtx.flagFn(
@@ -155,8 +152,6 @@ const GrandPrixDetails = () => {
           </TableRow>
         </TableBody>
       </Table>
-      <SprintQualifyingResults round={round} />
-      <SprintResults round={round} />
       <QualifyingResults round={round} />
       <RaceResults round={round} />
     </>

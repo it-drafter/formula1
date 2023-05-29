@@ -7,7 +7,6 @@ const ResultsTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   return (
     <TableRow>
-      {/* <TableRow className={'fastest_lap_' + props.result.FastestLap.rank}> */}
       <TableCell>{props.result.position}</TableCell>
       <TableCell>
         {globalCtx.flagFn(props.result.Driver.nationality)}
