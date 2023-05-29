@@ -80,9 +80,11 @@ const TeamDetails = (props) => {
 
         <div>
           <h2 className='name-details'>
+            <div className="flagName">
             {globalCtx.flagFn(teamDetails.Constructor.nationality)}
             <span> </span>
             {teamDetails.Constructor.name}
+            </div>
           </h2>
           <p>Nationality: {teamDetails.Constructor.nationality}</p>
           <p>Positon: {teamDetails.position}</p>
