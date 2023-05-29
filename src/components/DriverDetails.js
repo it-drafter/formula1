@@ -118,7 +118,7 @@ const DriverDetails = () => {
           />
         </div>
         <div>
-          <h2>
+          
             <div className="flagName">
             {globalCtx.flagFn(driverDetails?.Driver.nationality)}
             <span> </span>
@@ -126,7 +126,7 @@ const DriverDetails = () => {
               ' ' +
               driverDetails.Driver.familyName}
               </div>
-          </h2>
+          
           <p>
             Nationality: {driverDetails?.Driver.nationality}
             <span></span>

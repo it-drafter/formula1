@@ -42,6 +42,7 @@ U detaljima timova i vozaca promeniti dizajn da komponente budu jedna pored drug
 
 Napravi collapsable table u Races (kao za Drivers i Teams)
 
+--- Ivan T. radi ovo trenutno:
 Kada za neku godinu nema podataka - napraviti interfejs da kaze da nema podataka.
 (npr. sezone kada nisu bile kvalifikacije:
 Error: Cannot read properties of undefined (reading 'SprintResults')
@@ -74,14 +75,18 @@ Centrirati zastavice
 
 Staviti tabele da budu jedna pored druge, a ne jedna ispod druge (gde god je to moguce)
 
-Stilizovati wikipedia link na svim search stranicama
+Stilizovati wikipedia link na svim search stranicama -- promenjeno
 
 Ubaciti zastavice u SVE stranice sa rezultatima pretrage
 
 Nemanjini komentari 29.05.2023:
 - Obrisati fajlove Ivan-test.txt i test.txt
+
+- Dodati aktivnu klasu za linkove (koristite NavLink) ---odradjeno
+
 ---obrisano
 - Dodati aktivnu klasu za linkove (koristite NavLink)
+
 - Posto ste usitnili komponente, mozete kreirati foldere i komponente grupisati (UI, Driver, Races, Teams)
 - Obrisati NavBar.js, jer se nekoristi
 - Rute za detalje vam mogu biti skracena verzija. Umesto '/drivers/details/:driverId' mozete staviti '/driverDetails/:driverId'
@@ -94,8 +99,6 @@ Nemanjini komentari 29.05.2023:
 - Kada imate Breadcrumbs, poslednji link je onaj gde se trenutno nalazite i samim tim ne treba da bude Link jer nece nigde ici, vec samo labela
 - Teams.js / TeamDetails.js: Pocetno stanje za tate isLoading ne moze biti prazan niz
 - Izbegavati da se sam kod pise na srpskom (primer css sklasa rucica)
-- Deluje mi da su vam komponente RaceQualifyingResults i RaceTableRow visak
---- OBRISANO
 
 - Primetio da vam key nije jedinstven podatak
 - Posto u vecini komponenti imate Breadcrumbs, najbolje bi bilo da to bude zasebana komponenta, kojoj cete prosledjivati niz objekata, koji ce u sebi da ima tekst koji ce se prikazati i link na koji ce da ide (ukoliko treba da ide negde). I onda cete u toj novoj komponenti proci sa metodom map kroz props i iscrtacete dinamicki Breadcrumbs
@@ -103,3 +106,5 @@ Nemanjini komentari 29.05.2023:
 
 - Rešiti veličinu zastave (u GrandPrixDetails bi trebala veća)
 - za farbanje polja sa poenima u trci treba definisati funkciju ScoringSystem. Pozicije 1, 2, i 3 su u svakom scoring sistemu zlato, srebro i bronza a ostali su zeleni. Broj zelenih zavisi od scoring sistema. Sivi su oni koji nemaju poene.
+- Posto u vecini komponenti imate Breadcrumbs, najbolje bi bilo da to bude zasebana komponenta, kojoj cete prosledjivati niz objekata, koji ce u sebi da ima tekst koji ce se prikazati i link na koji ce da ide (ukoliko treba da ide negde). I onda cete u toj novoj komponenti proci sa metodom map kroz props i iscrtacete dinamicki Breadcrumbs ---uradjeno
+- Kada se zavrsi sa zadatkom obrisati sav zakomentarisn kod kao i sve console logove

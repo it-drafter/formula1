@@ -45,7 +45,8 @@ const SearchResultsDriversTableRow = (props) => {
           </div>
         </TableCell>
         <TableCell>{props.driver.dateOfBirth}</TableCell>
-        <TableCell>{props.driver.url}</TableCell>
+        <TableCell>
+          <a href={props.driver.url} target='_blank'>↗</a></TableCell>
       </TableRow>
       {/* 
       <TableRow>
