@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import axios from 'axios';
 import Flag from 'react-flagkit';
 import GlobalContext from './context/global-context';
+import moment from 'moment/moment';
 
 const App = () => {
   // const globalCtx = useContext(GlobalContext);
@@ -10,7 +11,8 @@ const App = () => {
   // console.log('IVAN: ', globalCtx.setYearFn());
 
   const [flags, setFlags] = useState([]);
-  const [year, setYear] = useState(new Date().getFullYear());
+  const [year, setYear] = useState(moment().year());
+  const [searchString, setSearchString] = useState('');
 
   useEffect(() => {
     getFlags();
@@ -36,17 +38,21 @@ const App = () => {
         flag.alpha_3_code.includes(nationality) ||
         flag.alpha_2_code.includes(nationality)
     );
-    console.log('nationality:', nationality);
+    // console.log('nationality:', nationality);
     // console.log('flags:', flags);
     // console.log('country:', country[0]?.alpha_2_code);
     let flagCode = country[0]?.alpha_2_code;
 
-    if (!flagCode && nationality === 'British') {
-      flagCode = 'GB';
-    } else if (!flagCode && nationality === 'Dutch') {
-      flagCode = 'NL';
+    if (!flagCode && nationality === 'Monegasque') {
+      flagCode = 'MN';
+    } else if (!flagCode && nationality === 'UAE') {
+      flagCode = 'AE';
+    } else if (nationality === 'Azerbaijan') {
+      return <img src='/img/flags/AZ.svg' />;
     } else if (!flagCode) {
-      return <span></span>;
+      return (
+        <img style={{ width: '21px', height: '15px' }} src='/img/neutral.svg' />
+      );
     } else {
       flagCode = country[0]?.alpha_2_code;
     }
@@ -60,6 +66,8 @@ const App = () => {
         chosenYear: year,
         flagFn: flagFunction,
         setYearFn: setYear,
+        setSearchStringFn: setSearchString,
+        searchStringValue: searchString,
       }}
     >
       <Navigation />

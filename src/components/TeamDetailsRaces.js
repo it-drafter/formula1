@@ -11,7 +11,7 @@ const TeamDetailsRaces = (props) => {
   return (
     <>
       <h1>TeamDetailsRaces</h1>
-      <Table>
+      <Table className='tableContainer bg-transparent'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Round</TableCell>
@@ -32,7 +32,7 @@ const TeamDetailsRaces = (props) => {
                 <TableCell>{teamResult.round}</TableCell>
                 <TableCell
                   onClick={() => props.handleDrivers(teamResult.round)}
-                  className="rucica"
+                  className='rucica'
                 >
                   {teamResult.raceName}
                 </TableCell>

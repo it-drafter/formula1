@@ -55,7 +55,7 @@ const QualifyingResults = (props) => {
   return (
     <>
       <h1>Qualifying component</h1>
-      <Table>
+      <Table className='tableContainer bg-transparent'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Pos</TableCell>
