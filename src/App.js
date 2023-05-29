@@ -30,7 +30,7 @@ const App = () => {
     setFlags(responseFlags.data);
   };
 
-  const flagFunction = (nationality) => {
+  const flagFunction = (nationality, flagSize = 20) => {
     const country = flags.filter(
       (flag) =>
         flag.nationality.includes(nationality) ||
@@ -57,7 +57,7 @@ const App = () => {
       flagCode = country[0]?.alpha_2_code;
     }
 
-    return <Flag size={20} country={flagCode} />;
+    return <Flag size={flagSize} country={flagCode} />;
   };
 
   return (

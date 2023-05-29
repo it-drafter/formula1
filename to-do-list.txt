@@ -39,7 +39,6 @@ U detaljima timova i vozaca portreti su ogromni. Smanjiti slike.
 -- smanjene
 
 U detaljima timova i vozaca promeniti dizajn da komponente budu jedna pored druge.
---promenjeno
 
 Napravi collapsable table u Races (kao za Drivers i Teams)
 
@@ -100,9 +99,12 @@ Nemanjini komentari 29.05.2023:
 - Kada imate Breadcrumbs, poslednji link je onaj gde se trenutno nalazite i samim tim ne treba da bude Link jer nece nigde ici, vec samo labela
 - Teams.js / TeamDetails.js: Pocetno stanje za tate isLoading ne moze biti prazan niz
 - Izbegavati da se sam kod pise na srpskom (primer css sklasa rucica)
-- Deluje mi da su vam komponente RaceQualifyingResults i RaceTableRow visak
---- OBRISANO
 
 - Primetio da vam key nije jedinstven podatak
+- Posto u vecini komponenti imate Breadcrumbs, najbolje bi bilo da to bude zasebana komponenta, kojoj cete prosledjivati niz objekata, koji ce u sebi da ima tekst koji ce se prikazati i link na koji ce da ide (ukoliko treba da ide negde). I onda cete u toj novoj komponenti proci sa metodom map kroz props i iscrtacete dinamicki Breadcrumbs
+- Kada se zavrsi sa zadatkom obrisati sav zakomentarisn kod kao i sve console logove
+
+- Rešiti veličinu zastave (u GrandPrixDetails bi trebala veća)
+- za farbanje polja sa poenima u trci treba definisati funkciju ScoringSystem. Pozicije 1, 2, i 3 su u svakom scoring sistemu zlato, srebro i bronza a ostali su zeleni. Broj zelenih zavisi od scoring sistema. Sivi su oni koji nemaju poene.
 - Posto u vecini komponenti imate Breadcrumbs, najbolje bi bilo da to bude zasebana komponenta, kojoj cete prosledjivati niz objekata, koji ce u sebi da ima tekst koji ce se prikazati i link na koji ce da ide (ukoliko treba da ide negde). I onda cete u toj novoj komponenti proci sa metodom map kroz props i iscrtacete dinamicki Breadcrumbs ---uradjeno
 - Kada se zavrsi sa zadatkom obrisati sav zakomentarisn kod kao i sve console logove
