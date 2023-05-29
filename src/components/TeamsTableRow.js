@@ -83,11 +83,11 @@ const TeamsTableRow = (props) => {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout='auto' unmountOnExit>
             <Box sx={{ margin: 0 }}>
-              <Typography variant='h6' gutterBottom component='div'>
+              {/* <Typography variant='h6' gutterBottom component='div'>
                 {globalCtx.flagFn(props.team.Constructor.nationality)}
                 <span> </span>
                 {props.team.Constructor.name}
-              </Typography>
+              </Typography> */}
 
               <TeamDetailsCollapsable
                 teamId={props.team.Constructor.constructorId}
