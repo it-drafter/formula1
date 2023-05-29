@@ -82,7 +82,7 @@ const GrandPrixDetails = () => {
   return (
     <>
       <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
-      
+
 
       <Table className='tableContainer bg-transparent'>
         <TableBody>
@@ -142,9 +142,8 @@ const GrandPrixDetails = () => {
             <TableCell>
               <img
                 style={{ maxHeight: '300px' }}
-                src={`/img/grand_prix/${globalCtx.chosenYear}/${
-                  grandPrix[round - 1].Circuit.circuitId
-                }.jpeg`}
+                src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
+                  }.jpeg`}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null; // prevents looping
                   currentTarget.src = `/img/neutral.svg`;

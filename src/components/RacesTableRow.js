@@ -26,7 +26,9 @@ const RacesTableRow = (props) => {
         <span> </span>
         {props.race.raceName}
       </TableCell>
-      <TableCell>{props.race.Circuit.circuitName}</TableCell>
+      <TableCell>
+        {/* <BasicModal /> */}
+        {props.race.Circuit.circuitName}</TableCell>
       <TableCell>{props.race.date}</TableCell>
       <TableCell>
         {globalCtx.flagFn(props.race.Results[0].Driver.nationality)}
