@@ -32,6 +32,7 @@ const QualifyingResults = (props) => {
       setQualifying(data);
       setIsLoading(false);
     } catch (err) {
+      setIsLoading(false);
       setError(err);
     }
   };

@@ -61,7 +61,7 @@ const TeamDetailsRaces = (props) => {
                 </TableCell>
 
                 <TableCell className={classFunction(teamResult.Results[0].position ?? '0',
-                  teamResult.Results[0].points)} >
+                  teamResult.Results[0].points)}>
                   {teamResult.Results[0].position}
                 </TableCell>
 

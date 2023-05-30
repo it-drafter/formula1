@@ -10,7 +10,7 @@ import GlobalContext from '../../context/global-context';
 
 const DriverDetailsRaces = (props) => {
   const globalCtx = useContext(GlobalContext);
- // console.log('eeee', props.driverDetailsRaces[0].Circuit.Location.country);
+  console.log('eeee', props.driverDetailsRaces[0].Circuit.Location.country);
 
   const classFunction = (position, points) => {
     if (position === '1') {
@@ -38,10 +38,10 @@ const DriverDetailsRaces = (props) => {
         <TableBody>
           {props.driverDetailsRaces.map((DetailRace, index) => (
             <TableRow key={DetailRace.round}>
-              <TableCell className='tableRow-cell'>{DetailRace.round}</TableCell>
+              <TableCell>{DetailRace.round}</TableCell>
               <TableCell
                 onClick={() => props.handleRouteToGrandPrix(DetailRace.round)}
-                className='mouseHandle tableRow-cell'
+                className='mouseHandle'
               >
                 <div className='flagName'>
                   {globalCtx.flagFn(
@@ -51,13 +51,7 @@ const DriverDetailsRaces = (props) => {
                   {DetailRace.raceName}
                 </div>
               </TableCell>
-              <TableCell>
-              <div className='flagName tableRow-cell'>
-              {globalCtx.flagFn(DetailRace.Results[0].Constructor.nationality)}
-              <span> </span>
-                {DetailRace.Results[0].Constructor.name}
-                </div>
-                </TableCell>
+              <TableCell>{DetailRace.Results[0].Constructor.name}</TableCell>
               <TableCell>{DetailRace.Results[0].grid}</TableCell>
               <TableCell
                 className={classFunction(

@@ -14,6 +14,7 @@ const App = () => {
   // const [year, setYear] = useState(moment().year());
   const [year, setYear] = '2013';
   const [searchString, setSearchString] = useState('');
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getFlags();
@@ -23,13 +24,23 @@ const App = () => {
   const getFlags = async () => {
     // console.log('DriverDetails', params.driverId);
     // const driverId = params.driverId;
-    const urlFlags =
-      'https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json';
-    const responseFlags = await axios.get(urlFlags);
-    // console.log('responseFlags', responseFlags.data);
+    try {
+      const urlFlags =
+        'https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json';
+      const responseFlags = await axios.get(urlFlags);
+      // console.log('responseFlags', responseFlags.data);
 
-    setFlags(responseFlags.data);
+      setFlags(responseFlags.data);
+    } catch (err) {
+      //   console.log(err);
+      setError(err);
+    }
   };
+
+  if (error) {
+    // return <p>Error: {error.message}</p>;
+    console.log('Flags error: ', error.message);
+  }
 
   const flagFunction = (nationality, flagSize = 20) => {
     const country = flags.filter(
