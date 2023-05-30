@@ -65,7 +65,7 @@ const SprintQualifyingResults = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {sprintQualifying.map((qualifier, index) => (
+          {sprintQualifying.map((qualifier) => (
             <SprintQualifyingTableRow
               key={qualifier.position}
               qualifier={qualifier}

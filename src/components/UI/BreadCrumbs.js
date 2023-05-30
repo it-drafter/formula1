@@ -2,6 +2,7 @@ import React from 'react';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { useNavigate } from 'react-router-dom';
+import { Typography } from '@mui/material';
 
 const BreadCrumbs = (props) => {
   if (props.home === true) {
@@ -58,23 +59,39 @@ const BreadCrumbs = (props) => {
       <Breadcrumbs aria-label='breadcrumb'>
         <Link
           underline='hover'
-          color='black'
+          color='text.red'
           onClick={() => navigate('/')}
           className='mouseHandle'
         >
           Home
         </Link>
-        {props.levels.map((level, index) => (
-          <Link
-            key={index}
-            underline='hover'
-            color={props.levels.length === index + 1 ? 'text.red' : 'black'}
-            onClick={() => handleBCRoute(level)}
-            className='mouseHandle'
-          >
-            {getCrumb(level)}
-          </Link>
-        ))}
+        {props.levels.map((level, index) => {
+          if (props.levels.length === index + 1) {
+            return (
+              <span
+                key={index}
+                className='text-dark fw-bold'
+                // underline='none'
+                // color='text.red'
+                // sx={{ fontStyle: 'bold' }}
+              >
+                {getCrumb(level)}
+              </span>
+            );
+          } else {
+            return (
+              <Link
+                key={index}
+                underline='hover'
+                color='text.red'
+                className='mouseHandle'
+                onClick={() => handleBCRoute(level)}
+              >
+                {getCrumb(level)}
+              </Link>
+            );
+          }
+        })}
 
         {/* <Link
           underline='hover'
