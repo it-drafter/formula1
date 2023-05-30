@@ -29,7 +29,7 @@ const SearchResultsTeams = () => {
   const getTeams = async (searchStringValue) => {
     console.log('hello from search results ', searchStringValue);
     const url = `https://ergast.com/api/f1/constructors.json?limit=1000`;
-    setIsLoading(true);
+    // setIsLoading(true);
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.ConstructorTable.Constructors;

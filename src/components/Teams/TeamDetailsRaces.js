@@ -41,27 +41,29 @@ const TeamDetailsRaces = (props) => {
             <TableCell>Points</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody >
           {props.teamResults.map((teamResult) => {
             return (
-              <TableRow key={teamResult.round}>
+              <TableRow key={teamResult.round} >
                 <TableCell>{teamResult.round}</TableCell>
                 <TableCell
                   onClick={() => props.handleDrivers(teamResult.round)}
-                  className='mouseHandle'
+                  className='mouseHandle tableRow-cell'
                 >
                   {teamResult.raceName}
                 </TableCell>
 
-                <TableCell className={classFunction(teamResult.Results[0].position ?? '0')}>
+                <TableCell className={classFunction(teamResult.Results[0].position ?? '0',
+                  teamResult.Results[0].points)} >
                   {teamResult.Results[0].position}
                 </TableCell>
 
-                <TableCell className={classFunction(teamResult.Results[1]?.position ?? '0')}>
+                <TableCell className={classFunction(teamResult.Results[1]?.position ?? '0',
+                  teamResult.Results[1]?.points ?? '0')} >
                   {teamResult.Results[1]?.position ?? '0'}
                 </TableCell>
 
-                <TableCell>
+                <TableCell className='tableRow-cell'>
                   {Number(teamResult.Results[0].points) +
                     Number(teamResult.Results[1]?.points ?? '0')}
                 </TableCell>

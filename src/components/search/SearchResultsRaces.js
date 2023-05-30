@@ -30,7 +30,7 @@ const SearchResultsRaces = () => {
     console.log('hello from search results ', searchStringValue);
     const url1 = `https://ergast.com/api/f1/results/1.json?limit=1000`;
     const url2 = `https://ergast.com/api/f1/results/1.json?limit=1000&offset=1000`;
-    setIsLoading(true);
+    // setIsLoading(true);
     try {
       const response1 = await axios.get(url1);
       const response2 = await axios.get(url2);
