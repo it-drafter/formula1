@@ -58,8 +58,8 @@ const DriverDetailsRaces = (props) => {
                   DetailRace.Results[0].position,
                   DetailRace.Results[0].points
                 )}
-                //{classFunction(props.result.position, props.result.points)}
-                //{'position_' + DetailRace.Results[0].position}
+              //{classFunction(props.result.position, props.result.points)}
+              //{'position_' + DetailRace.Results[0].position}
               >
                 {DetailRace.Results[0].position}
               </TableCell>
