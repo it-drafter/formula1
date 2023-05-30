@@ -18,8 +18,8 @@ const DriverDetailsCollapsable = (props) => {
   }, []);
 
   const getDriverDetails = async () => {
+    // const urlDriver = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${props.driverId}/driverStandings.json`;
     const urlDriver = `https://raw.githubusercontent.com/nkezic/f1/main/DriverDetails`;
-     `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${props.driverId}/driverStandings.json`;
     const responseDriver = await axios.get(urlDriver);
     setDriverDetails(
       responseDriver.data.MRData.StandingsTable.StandingsLists[0]

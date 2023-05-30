@@ -27,7 +27,7 @@ const DriverDetails = () => {
   };
 
   // console.log('DriverDetails', params.driverId);
-  const driverId = params.driverId;
+  // const driverId = params.driverId;
 
   // const getFlags = async () => {
   //   const urlFlags = 'https://flagcdn.com/en/codes.json';
@@ -51,6 +51,7 @@ const DriverDetails = () => {
     // `http://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/results.json`;
     // const urlFlags =
     //   'https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json';
+   
     const responseDriver = await axios.get(urlDriver);
     const responseRaces = await axios.get(urlRaces);
     // const responseFlags = await axios.get(urlFlags);
