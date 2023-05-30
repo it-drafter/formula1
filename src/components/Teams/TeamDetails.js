@@ -13,7 +13,7 @@ const TeamDetails = (props) => {
   const [teamDetails, setTeamDetails] = useState({});
   const [teamResults, setTeamResults] = useState([]);
   // const [teamResultIndex, setTeamResultIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const params = useParams();
 
