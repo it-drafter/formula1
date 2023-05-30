@@ -30,10 +30,9 @@ const Teams = () => {
   }, [globalCtx.chosenYear]);
 
   const getTeams = async () => {
-
-    const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllTeams`
+    const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllTeams`;
     //const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
-    setIsLoading(true);
+    // setIsLoading(true);
 
     try {
       const response = await axios.get(url);
