@@ -16,6 +16,7 @@ const DriverDetails = () => {
   const [driverDetails, setDriverDetails] = useState([]);
   const [driverDetailsRaces, setDriverDetailsRaces] = useState([]);
   // const [flags, setFlags] = useState([]);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   const navigate = useNavigate();
