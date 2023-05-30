@@ -43,7 +43,7 @@ const DriverDetailsRaces = (props) => {
               <TableCell>{DetailRace.round}</TableCell>
               <TableCell
                 onClick={() => props.handleRouteToGrandPrix(DetailRace.round)}
-                className='mouseHandle'
+                className='mouseHandle tableRow-cell'
               >
                 <div className='flagName'>
                   {globalCtx.flagFn(
