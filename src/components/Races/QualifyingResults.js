@@ -66,7 +66,7 @@ const QualifyingResults = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {qualifying.map((qualifier, index) => (
+          {qualifying.map((qualifier) => (
             <QualifyingTableRow
               key={qualifier.position}
               qualifier={qualifier}

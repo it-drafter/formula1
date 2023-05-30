@@ -82,7 +82,7 @@ const Races = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {races.map((race, index) => (
+          {races.map((race) => (
             <RacesTableRow key={race.Circuit.circuitId} race={race} />
           ))}
         </TableBody>

@@ -78,72 +78,68 @@ const GrandPrixDetails = () => {
       <Table className='tableContainer'>
         <TableBody>
           <TableRow>
-            <TableCell>
-              <TableRow>
-                <TableCell align='center' colSpan={2}>
-                  {globalCtx.flagFn(
-                    grandPrix[round - 1]?.Circuit.Location.country,
-                    200
-                  )}
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell align='center' colSpan={2}>
-                  {grandPrix[round - 1].raceName}
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Country:</TableCell>
-                <TableCell>
-                  {grandPrix[round - 1].Circuit.Location.country}
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Location:</TableCell>
-                <TableCell>
-                  {grandPrix[round - 1].Circuit.Location.locality}
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Date:</TableCell>
-                <TableCell>{grandPrix[round - 1].date}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Grand Prix details:</TableCell>
-                <TableCell>
-                  <a href={grandPrix[round - 1].url} target='_blank'>
-                    Wikipedia ↗
-                  </a>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Circuit details:</TableCell>
-                <TableCell>
-                  <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
-                    Wikipedia ↗
-                  </a>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell align='center' colSpan={2}>
-                  <iframe src={googleMap}></iframe>
-                </TableCell>
-              </TableRow>
+            <TableCell align='center' colSpan={2}>
+              {globalCtx.flagFn(
+                grandPrix[round - 1]?.Circuit.Location.country,
+                200
+              )}
             </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell align='center' colSpan={2}>
+              {grandPrix[round - 1].raceName}
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Country:</TableCell>
             <TableCell>
-              <img
-                style={{ maxHeight: '600px' }}
-                src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
-                  }.jpeg`}
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null; // prevents looping
-                  currentTarget.src = `/img/neutral.svg`;
-                }}
-              />
+              {grandPrix[round - 1].Circuit.Location.country}
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Location:</TableCell>
+            <TableCell>
+              {grandPrix[round - 1].Circuit.Location.locality}
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Date:</TableCell>
+            <TableCell>{grandPrix[round - 1].date}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Grand Prix details:</TableCell>
+            <TableCell>
+              <a href={grandPrix[round - 1].url} target='_blank'>
+                Wikipedia ↗
+              </a>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Circuit details:</TableCell>
+            <TableCell>
+              <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
+                Wikipedia ↗
+              </a>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell align='center' colSpan={2}>
+              <iframe src={googleMap}></iframe>
             </TableCell>
           </TableRow>
         </TableBody>
       </Table>
+      <div>
+        <img
+          // src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
+          //   }.jpeg`}
+          src={`/img/grand_prix/2013/albert_park.jpeg`}
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null; // prevents looping
+            currentTarget.src = `/img/neutral.svg`;
+          }}
+        />
+      </div>
       <SprintQualifyingResults round={round} />{' '}
       {/*  samo 2023. godine se pojavljuje za azerbejdzan  */}
       <SprintResults round={round} />{' '}
