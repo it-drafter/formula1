@@ -51,20 +51,29 @@ const DriverDetails = () => {
     // `http://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/results.json`;
     // const urlFlags =
     //   'https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json';
-   
-    const responseDriver = await axios.get(urlDriver);
-    const responseRaces = await axios.get(urlRaces);
-    // const responseFlags = await axios.get(urlFlags);
-    // console.log('responseFlags', responseFlags.data);
+    try {
+      const responseDriver = await axios.get(urlDriver);
+      const responseRaces = await axios.get(urlRaces);
+      // const responseFlags = await axios.get(urlFlags);
+      // console.log('responseFlags', responseFlags.data);
 
-    setDriverDetails(
-      responseDriver.data.MRData.StandingsTable.StandingsLists[0]
-        ?.DriverStandings[0]
-    );
-    setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
-    // setFlags(responseFlags.data);
-    setIsLoading(false);
+      setDriverDetails(
+        responseDriver.data.MRData.StandingsTable.StandingsLists[0]
+          ?.DriverStandings[0]
+      );
+      setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
+      // setFlags(responseFlags.data);
+      setIsLoading(false);
+    } catch (err) {
+      //   console.log(err);
+      setIsLoading(false);
+      setError(err);
+    }
   };
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
 
   // const flagFunction = (nationality) => {
   //   const country = flags.filter((flag) => flag.nationality === nationality);
@@ -130,7 +139,7 @@ const DriverDetails = () => {
               Nationality: {driverDetails?.Driver.nationality}
               <span></span>
             </p>
-            <p>Team: {driverDetails?.Constructors[0].constructorId}</p>
+            <p>Team: {driverDetails?.Constructors[0].name}</p>
             <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
             <p>
               Biography:

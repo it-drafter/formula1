@@ -58,6 +58,7 @@ const Drivers = (props) => {
       setIsLoading(false);
     } catch (err) {
       //   console.log(err);
+      setIsLoading(false);
       setError(err);
     }
   };
