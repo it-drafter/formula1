@@ -42,7 +42,8 @@ const Drivers = (props) => {
   // };
 
   const getDrivers = async () => {
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
+    // const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
+    const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
     // setIsLoading(true);
     try {
       const response = await axios.get(url);
