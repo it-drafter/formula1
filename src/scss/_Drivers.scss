@@ -1,8 +1,8 @@
-
 @font-face {
     font-family: formulaBold;
     src: url("../fonts/Formula1-Bold_web_0.ttf");
 }
+
 @font-face {
     font-family: formula;
     src: url("../fonts/Formula1-Regular_web_0.ttf");
@@ -22,15 +22,16 @@ table {
         th {
             font-weight: bold;
             font-size: large;
-            background-color: #E10600;
+            background-color: #9c9a9a;
             color: black;
             font-family: formulaBold;
-           
+
         }
     }
 
     tr {
         font-family: formula;
+
         &:hover {
             background-color: grey;
         }
@@ -44,8 +45,8 @@ table {
 .tableContainer {
     margin-top: 15px;
     //border:7px solid #E10600;
+  
 
-   
 
 
 }

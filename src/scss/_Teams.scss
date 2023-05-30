@@ -4,7 +4,7 @@
 }
 
 .table-const-race {
-   margin-top:20px;
+   margin-top: 20px;
    display: flex;
    width: 90%;
    justify-content: space-between;
@@ -13,43 +13,51 @@
 }
 
 .team-details {
-   margin-top:15px;
-    display: flex;
-    height: 250px;
-    background-color: #fff;
-    border:7px solid #E10600;
-    align-items: center;
-    font-family: formula;
-     padding: 20px;
-     border-radius: 10px;
-     h2 {
+   margin-top: 15px;
+   display: flex;
+   height: 250px;
+   background-color: #fff;
+   border: 7px solid #822522;
+   align-items: center;
+   font-family: formula;
+   padding: 20px;
+   border-radius: 10px;
+
+   h2 {
       font-size: 22px;
       font-weight: bold;
       padding-bottom: 12px;
-     }
+   }
 
-     .name-details {
-        padding-top: 40px;
-     }
-     p {
-        padding: 3px 0;
-        font-size: 18px;
-        font-weight: bold;
-     }
- 
+   .name-details {
+      padding-top: 40px;
+   }
+
+   p {
+      padding: 3px 0;
+      font-size: 18px;
+      font-weight: bold;
+   }
+
 }
+
 .details-btn {
    a {
       border-radius: 4px;
-      background-color:  #FFDF9F;
-padding: 3px 12px;
-color: rgb(46, 46, 46);
+      background-color: #FFDF9F;
+      padding: 3px 12px;
+      color: rgb(46, 46, 46);
    }
+
    a:hover {
       background-color: #DFFFDF;
    }
 }
-.tableRow-cell {
-   font-family: formula;
-}
 
+.tableRow-cell {
+   font-family: formula !important;
+  
+   font-size:14px !important;
+ 
+
+}
