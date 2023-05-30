@@ -23,8 +23,6 @@ const DriverDetailsRaces = (props) => {
       return 'green';
     } else return 'gray';
   };
-
-  //console.log("eeeee",props.driverDetailsRaces[index].Results[0].Constructor.nationality)
   return (
     <>
       <Table className='tableContainer'>
@@ -55,7 +53,8 @@ const DriverDetailsRaces = (props) => {
               </TableCell>
               <TableCell>
               <div className='flagName'>
-              {/* {globalCtx.flagFn(props.driverDetailsRaces[index].Results[0].Constructor.nationality)} */}
+              {globalCtx.flagFn(DetailRace.Results[0].Constructor.nationality)}
+              <span> </span>
                 {DetailRace.Results[0].Constructor.name}
                 </div>
                 </TableCell>

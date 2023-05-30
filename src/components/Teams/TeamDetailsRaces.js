@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Table,
   TableHead,
@@ -6,8 +6,10 @@ import {
   TableRow,
   TableCell,
 } from '@mui/material';
+import GlobalContext from '../../context/global-context';
 
 const TeamDetailsRaces = (props) => {
+  const globalCtx = useContext(GlobalContext);
 
   const classFunction = (position, points) => {
     if (position === "1") {
@@ -45,12 +47,17 @@ const TeamDetailsRaces = (props) => {
           {props.teamResults.map((teamResult) => {
             return (
               <TableRow key={teamResult.round} className='tableRow-cell'>
-                <TableCell>{teamResult.round}</TableCell>
+                <TableCell>
+                {teamResult.round}
+                </TableCell>
+                
                 <TableCell
                   onClick={() => props.handleDrivers(teamResult.round)}
-                  className='mouseHandle'
-                >
-                  {teamResult.raceName}
+                  className='mouseHandle'>
+                  <div className='flagName'>
+                  {globalCtx.flagFn(props.teamResults[0].Circuit.Location.country)}
+                  <span> </span>
+                  {teamResult.raceName}</div>
                 </TableCell>
 
                 <TableCell className={classFunction(teamResult.Results[0].position ?? '0',
