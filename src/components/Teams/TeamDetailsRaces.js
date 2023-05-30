@@ -44,7 +44,7 @@ const TeamDetailsRaces = (props) => {
           </TableRow>
         </TableHead>
         <TableBody >
-          {props.teamResults.map((teamResult) => {
+          {props.teamResults.map((teamResult, index) => {
             return (
               <TableRow key={teamResult.round}>
                 <TableCell className='tableRow-cell'>
@@ -55,7 +55,7 @@ const TeamDetailsRaces = (props) => {
                   onClick={() => props.handleDrivers(teamResult.round)}
                   className='mouseHandle tableRow-cell'>
                   <div className='flagName'>
-                  {globalCtx.flagFn(props.teamResults[0].Circuit.Location.country)}
+                  {globalCtx.flagFn(props.teamResults[index].Circuit.Location.country)}
                   <span> </span>
                   {teamResult.raceName}</div>
                 </TableCell>
