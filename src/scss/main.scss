@@ -1,9 +1,9 @@
-@import "../scss/_cssreset.scss";
+@import '../scss/_cssreset.scss';
 @import '../scss/_Navigation.scss';
-@import "../scss/BreadCrumb.scss";
+@import '../scss/BreadCrumb.scss';
 @import '../scss/_Teams.scss';
 @import '../scss/Drivers.scss';
-@import "../scss/backToTop.scss";
+@import '../scss/backToTop.scss';
 
 // .position_1 {
 //     background-color: #FFFFBF;
@@ -40,59 +40,60 @@
 // .position_21,
 // .position_22 {
 
-
 //     background-color: darkgray;
 // }
 
 .gold {
-    background-color: #FFFFBF;
+  background-color: #ffffbf;
 }
 
 .silver {
-    background-color: #DFDFDF;
+  background-color: #dfdfdf;
 }
 
 .bronze {
-    background-color: #FFDF9F;
+  background-color: #ffdf9f;
 }
 
 .green {
-    background-color: #DFFFDF;
+  background-color: #dfffdf;
 }
 
 .gray {
-    background-color: darkgray;
+  background-color: darkgray;
 }
 
 .fastest_lap_1 {
-    background-color: #f3aff3;
+  background-color: #f3aff3;
 }
 
 .mouseHandle {
-    cursor: pointer;
-    font-weight: bold !important;
+  cursor: pointer;
+  font-weight: bold !important;
+  &:hover {
+    color: red;
+  }
 }
 
 body {
-    // background-image: url("/img/background.png");
-    background-image: url("http://localhost:8080/img/background.png");
-    background-color: white;
-    //background-color: #cccccc;
+  // background-image: url("/img/background.png");
+  background-image: url('http://localhost:8080/img/background.png');
+  background-color: white;
+  //background-color: #cccccc;
 
-    //     table {
-    //         border-radius: 200px;
-    //  }
+  //     table {
+  //         border-radius: 200px;
+  //  }
 }
 
-
 .flagName {
-    display: flex;
-    align-items: center;
-    margin: 10px;
+  display: flex;
+  align-items: center;
+  margin: 10px;
 
-    margin-left: 0;
+  margin-left: 0;
 
-    span {
-        padding: 0 4px;
-    }
+  span {
+    padding: 0 4px;
+  }
 }
