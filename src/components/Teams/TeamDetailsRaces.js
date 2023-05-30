@@ -47,7 +47,7 @@ const TeamDetailsRaces = (props) => {
           {props.teamResults.map((teamResult) => {
             return (
               <TableRow key={teamResult.round}>
-                <TableCell>
+                <TableCell className='tableRow-cell'>
                 {teamResult.round}
                 </TableCell>
                 

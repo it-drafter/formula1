@@ -56,14 +56,14 @@ const TeamsTableRow = (props) => {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component='th' scope='row'>
+        <TableCell component='th' scope='row' className='tableRow-cell' >
           {props.team.position}
         </TableCell>
         <TableCell
           onClick={() =>
             handleClickConstructor(props.team.Constructor.constructorId)
           }
-          className='mouseHandle'
+          className='mouseHandle tableRow-cell'
         >
           <div className='flagName'>
             {globalCtx.flagFn(props.team.Constructor.nationality)}
@@ -76,7 +76,7 @@ const TeamsTableRow = (props) => {
             Details ↗
           </a>
         </TableCell>
-        <TableCell>{props.team.points}</TableCell>
+        <TableCell className='tableRow-cell'>{props.team.points}</TableCell>
       </TableRow>
 
       <TableRow>
