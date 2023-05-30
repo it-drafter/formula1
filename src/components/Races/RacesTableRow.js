@@ -3,7 +3,7 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import { useNavigate } from 'react-router-dom';
 import GlobalContext from '../../context/global-context';
-import CircuitPopup from '../components/CircuitPopup';
+import CircuitPopup from '../UI/CircuitPopup';
 
 const RacesTableRow = (props) => {
   // console.log('PROPS: ', props.race.Circuit.Location.country)
