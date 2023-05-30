@@ -11,11 +11,11 @@ import {
   // Breadcrumbs,
 } from '@mui/material';
 import TeamsTableRow from './TeamsTableRow';
-import GlobalContext from '../context/global-context';
+import GlobalContext from '../../context/global-context';
 // import { useNavigate } from 'react-router-dom';
-import BreadCrumbs from './BreadCrumbs';
-import YearSelect from './YearSelect';
-import SearchBox from './search/SearchBox';
+import BreadCrumbs from '../UI/BreadCrumbs';
+import YearSelect from '../UI/YearSelect';
+import SearchBox from '../UI/SearchBox';
 
 const Teams = () => {
   const globalCtx = useContext(GlobalContext);
@@ -84,7 +84,7 @@ const Teams = () => {
         <BreadCrumbs levels={[['Teams']]} />
         <SearchBox
           // home={props.home}
-          placeholder={'Search Teams'}
+          placeholder={'Search All Teams'}
           linkTo={`/teams/search`}
         />
       </div>

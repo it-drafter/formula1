@@ -1,6 +1,6 @@
 import moment from 'moment/moment';
 import React, { useState, useContext } from 'react';
-import GlobalContext from '../context/global-context';
+import GlobalContext from '../../context/global-context';
 import Button from 'react-bootstrap/Button';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';

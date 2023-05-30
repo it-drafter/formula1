@@ -11,10 +11,10 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import RacesTableRow from './RacesTableRow';
-import GlobalContext from '../context/global-context';
-import BreadCrumbs from './BreadCrumbs';
-import YearSelect from './YearSelect';
-import SearchBox from './search/SearchBox';
+import GlobalContext from '../../context/global-context';
+import BreadCrumbs from '../UI/BreadCrumbs';
+import YearSelect from '../UI/YearSelect';
+import SearchBox from '../UI/SearchBox';
 
 const Races = () => {
   const globalCtx = useContext(GlobalContext);
@@ -22,14 +22,10 @@ const Races = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [races, setRaces] = useState([]);
- 
 
   useEffect(() => {
     getRaces();
   }, [globalCtx.chosenYear]);
-
- 
- 
 
   const getRaces = async () => {
     const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
@@ -67,11 +63,11 @@ const Races = () => {
         <BreadCrumbs levels={[['Races']]} />
         <SearchBox
           // home={props.home}
-          placeholder={'Search Races'}
+          placeholder={'Search All Races'}
           linkTo={`/races/search`}
         />
       </div>
-    
+
       <YearSelect />
 
       <Table className='tableContainer'>

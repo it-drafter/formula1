@@ -6,7 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableHead from '@mui/material/TableHead';
-import GlobalContext from '../context/global-context';
+import GlobalContext from '../../context/global-context';
 
 const DriverDetailsCollapsable = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -47,19 +47,20 @@ const DriverDetailsCollapsable = (props) => {
         size='small'
         aria-label='purchases'
         sx={{ margin: 0, marginBottom: 5 }}
-        className='tableContainer'>
+        className='tableContainer'
+      >
         <TableHead>
           <TableRow>
             <TableCell>
-              <div className="flagName">
+              <div className='flagName'>
                 {globalCtx.flagFn(driverDetails?.Driver.nationality)}
 
                 <span> </span>
-              
-                  {' ' + driverDetails.Driver.givenName +
-                    ' ' +
-                    driverDetails.Driver.familyName}
-                
+
+                {' ' +
+                  driverDetails.Driver.givenName +
+                  ' ' +
+                  driverDetails.Driver.familyName}
               </div>
             </TableCell>
             <TableCell>Nationality</TableCell>
@@ -74,7 +75,7 @@ const DriverDetailsCollapsable = (props) => {
               <img
                 src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
                 onError={({ currentTarget }) => {
-                  currentTarget.onerror = null; 
+                  currentTarget.onerror = null;
                   currentTarget.src = `/img/drivers/unknownDriver.png`;
                 }}
                 style={{ width: '120px', paddingRight: '30px' }}
@@ -85,7 +86,10 @@ const DriverDetailsCollapsable = (props) => {
             <TableCell>{driverDetails?.Constructors[0].name}</TableCell>
             <TableCell>{driverDetails?.Driver.dateOfBirth}</TableCell>
             <TableCell>
-              <a href={driverDetails?.Driver.url} target='_blank'>Wikipedia ↗</a></TableCell>
+              <a href={driverDetails?.Driver.url} target='_blank'>
+                Wikipedia ↗
+              </a>
+            </TableCell>
           </TableRow>
         </TableBody>
       </Table>

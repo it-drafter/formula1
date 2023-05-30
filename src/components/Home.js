@@ -2,9 +2,9 @@ import React from 'react';
 // import Breadcrumbs from '@mui/material/Breadcrumbs';
 // import Link from '@mui/material/Link';
 // import YearSelect from './YearSelect';
-import Drivers from './Drivers';
-import BreadCrumbs from './BreadCrumbs';
-import Footer from './Footer';
+import Drivers from './Drivers/Drivers';
+import BreadCrumbs from './UI/BreadCrumbs';
+import Footer from './UI/Footer';
 // import { useContext } from 'react';
 // import GlobalContext from '../context/global-context';
 
@@ -22,11 +22,9 @@ const Home = () => {
   //   // return year;
   // };
 
- 
   return (
     <>
       <BreadCrumbs />
-     
 
       {/* <GlobalContext.Provider value={{ yearFn: handleSelectedYear }}> */}
       {/* <YearSelect onReRender={handleReRender} /> */}

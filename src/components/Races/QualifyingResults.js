@@ -8,27 +8,27 @@ import {
   TableCell,
 } from '@mui/material';
 import axios from 'axios';
-import SprintQualifyingTableRow from './SprintQualifyingTableRow';
-import GlobalContext from '../context/global-context';
+import QualifyingTableRow from './QualifyingTableRow';
+import GlobalContext from '../../context/global-context';
 
-const SprintQualifyingResults = (props) => {
+const QualifyingResults = (props) => {
   const globalCtx = useContext(GlobalContext);
 
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [sprintQualifying, setSprintQualifying] = useState([]);
+  const [qualifying, setQualifying] = useState([]);
 
   useEffect(() => {
-    getSprintQualifying();
+    getQualifying();
   }, []);
 
-  const getSprintQualifying = async () => {
-    const url = `/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
+  const getQualifying = async () => {
+    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
     setIsLoading(true);
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races[0].QualifyingResults;
-      setSprintQualifying(data);
+      setQualifying(data);
       setIsLoading(false);
     } catch (err) {
       setError(err);
@@ -54,8 +54,8 @@ const SprintQualifyingResults = (props) => {
 
   return (
     <>
-      <h1>Sprint qualifying component</h1>
-      <Table>
+      <h1>Race qualifying component</h1>
+      <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Pos</TableCell>
@@ -65,8 +65,8 @@ const SprintQualifyingResults = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {sprintQualifying.map((qualifier, index) => (
-            <SprintQualifyingTableRow
+          {qualifying.map((qualifier, index) => (
+            <QualifyingTableRow
               key={qualifier.position}
               qualifier={qualifier}
             />
@@ -77,4 +77,4 @@ const SprintQualifyingResults = (props) => {
   );
 };
 
-export default SprintQualifyingResults;
+export default QualifyingResults;

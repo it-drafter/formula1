@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Navigation from './components/Navigation';
+import Navigation from './components/UI/Navigation';
 import axios from 'axios';
 import Flag from 'react-flagkit';
 import GlobalContext from './context/global-context';

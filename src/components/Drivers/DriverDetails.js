@@ -4,10 +4,10 @@ import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
 import { Link, Breadcrumbs } from '@mui/material';
 
-import GlobalContext from '../context/global-context';
+import GlobalContext from '../../context/global-context';
 import DriverDetailsRaces from './DriverDetailsRaces';
 
-import BreadCrumbs from './BreadCrumbs';
+import BreadCrumbs from '../UI/BreadCrumbs';
 
 const DriverDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -41,8 +41,6 @@ const DriverDetails = () => {
   useEffect(() => {
     getDriverDetails();
   }, []);
-
-  
 
   const getDriverDetails = async () => {
     // console.log('DriverDetails', params.driverId);
@@ -104,55 +102,49 @@ const DriverDetails = () => {
       <span>Season {globalCtx.chosenYear}</span>
 
       <div className='table-const-race'>
+        <div className='team-details'>
+          <div>
+            <img
+              src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null; // prevents looping
+                currentTarget.src = `/img/drivers/unknownDriver.png`;
+              }}
+              style={{ maxHeight: '100px', paddingRight: '30px' }}
+              alt='Driver'
+            />
+          </div>
+          <div>
+            <div className='flagName'>
+              {globalCtx.flagFn(driverDetails?.Driver.nationality)}
+              <span> </span>
+              {driverDetails.Driver.givenName +
+                ' ' +
+                driverDetails.Driver.familyName}
+            </div>
 
-      <div className='team-details'>
+            <p>
+              Nationality: {driverDetails?.Driver.nationality}
+              <span></span>
+            </p>
+            <p>Team: {driverDetails?.Constructors[0].constructorId}</p>
+            <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
+            <p>
+              Biography:
+              <a href={driverDetails?.Driver.url} target='_blank'>
+                ↗
+              </a>
+            </p>
+          </div>
+        </div>
         <div>
-          <img
-            src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
-            onError={({ currentTarget }) => {
-              currentTarget.onerror = null; // prevents looping
-              currentTarget.src = `/img/drivers/unknownDriver.png`;
-            }}
-            style={{ maxHeight: '100px', paddingRight: '30px' }}
-            alt='Driver'
+          <DriverDetailsRaces
+            driverDetailsRaces={driverDetailsRaces}
+            handleRouteToGrandPrix={handleRouteToGrandPrix}
+            className='mouseHandle'
           />
         </div>
-        <div>
-          
-            <div className="flagName">
-            {globalCtx.flagFn(driverDetails?.Driver.nationality)}
-            <span> </span>
-            {driverDetails.Driver.givenName +
-              ' ' +
-              driverDetails.Driver.familyName}
-              </div>
-          
-          <p>
-            Nationality: {driverDetails?.Driver.nationality}
-            <span></span>
-          </p>
-          <p>Team: {driverDetails?.Constructors[0].constructorId}</p>
-          <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
-          <p>
-            Biography:
-            <a href={driverDetails?.Driver.url} target='_blank'>
-              ↗
-            </a>
-          </p>
-        </div>
       </div>
-      <div>
-      
-      <DriverDetailsRaces
-        driverDetailsRaces={driverDetailsRaces}
-        handleRouteToGrandPrix={handleRouteToGrandPrix}
-        className='mouseHandle'
-      />
-      </div>
-      </div>
-
-
-   
     </>
   );
 };

@@ -6,7 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableHead from '@mui/material/TableHead';
-import GlobalContext from '../context/global-context';
+import GlobalContext from '../../context/global-context';
 
 const TeamDetailsCollapsable = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -59,10 +59,10 @@ const TeamDetailsCollapsable = (props) => {
         <TableBody>
           <TableRow>
             <TableCell>
-              <div className="flagName">
-              {globalCtx.flagFn(teamDetails.Constructor.nationality)}
-              <span> </span>
-              {teamDetails.Constructor.name}
+              <div className='flagName'>
+                {globalCtx.flagFn(teamDetails.Constructor.nationality)}
+                <span> </span>
+                {teamDetails.Constructor.name}
               </div>
             </TableCell>
             <TableCell>{teamDetails.Constructor.nationality}</TableCell>

@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import SprintResultsTableRow from './SprintResultsTableRow';
-import GlobalContext from '../context/global-context';
+import GlobalContext from '../../context/global-context';
 
 const SprintResults = (props) => {
   const globalCtx = useContext(GlobalContext);

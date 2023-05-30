@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 //import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
-import GlobalContext from '../context/global-context';
+import GlobalContext from '../../context/global-context';
 import DriverDetailsCollapsable from './DriverDetailsCollapsable';
 
 const DriversTableRow = (props) => {

@@ -8,27 +8,27 @@ import {
   TableCell,
 } from '@mui/material';
 import axios from 'axios';
-import QualifyingTableRow from './QualifyingTableRow';
-import GlobalContext from '../context/global-context';
+import ResultsTableRow from './ResultsTableRow';
+import GlobalContext from '../../context/global-context';
 
-const QualifyingResults = (props) => {
+const RaceResults = (props) => {
   const globalCtx = useContext(GlobalContext);
 
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [qualifying, setQualifying] = useState([]);
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
-    getQualifying();
+    getResults();
   }, []);
 
-  const getQualifying = async () => {
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
+  const getResults = async () => {
+    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/results.json`;
     setIsLoading(true);
     try {
       const response = await axios.get(url);
-      const data = response.data.MRData.RaceTable.Races[0].QualifyingResults;
-      setQualifying(data);
+      const data = response.data.MRData.RaceTable.Races[0].Results;
+      setResults(data);
       setIsLoading(false);
     } catch (err) {
       setError(err);
@@ -54,22 +54,20 @@ const QualifyingResults = (props) => {
 
   return (
     <>
-      <h1>Race qualifying component</h1>
+      <h1>Race results component</h1>
       <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Pos</TableCell>
             <TableCell>Driver</TableCell>
             <TableCell>Team</TableCell>
-            <TableCell>Best Time</TableCell>
+            <TableCell>Result</TableCell>
+            <TableCell>Points</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {qualifying.map((qualifier, index) => (
-            <QualifyingTableRow
-              key={qualifier.position}
-              qualifier={qualifier}
-            />
+          {results.map((result) => (
+            <ResultsTableRow key={result.position} result={result} />
           ))}
         </TableBody>
       </Table>
@@ -77,4 +75,4 @@ const QualifyingResults = (props) => {
   );
 };
 
-export default QualifyingResults;
+export default RaceResults;

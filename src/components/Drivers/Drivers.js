@@ -11,11 +11,11 @@ import {
   // Link,
 } from '@mui/material';
 import axios from 'axios';
-import GlobalContext from '../context/global-context';
+import GlobalContext from '../../context/global-context';
 import { useNavigate } from 'react-router-dom';
-import BreadCrumbs from './BreadCrumbs';
-import YearSelect from './YearSelect';
-import SearchBox from './search/SearchBox';
+import BreadCrumbs from '../UI/BreadCrumbs';
+import YearSelect from '../UI/YearSelect';
+import SearchBox from '../UI/SearchBox';
 
 const Drivers = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -84,11 +84,10 @@ const Drivers = (props) => {
         <BreadCrumbs levels={[['Drivers']]} home={props.home} />
         <SearchBox
           home={props.home}
-          placeholder={'Search Drivers'}
+          placeholder={'Search All Drivers'}
           linkTo={`/drivers/search`}
         />
       </div>
-      
 
       <YearSelect />
 

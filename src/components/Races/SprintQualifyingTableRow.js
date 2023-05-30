@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
-import GlobalContext from '../context/global-context';
+import GlobalContext from '../../context/global-context';
 
-const QualifyingTableRow = (props) => {
+const SprintQualifyingTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   function qSort() {
     const arr = [props.qualifier.Q1, props.qualifier.Q2, props.qualifier.Q3];
@@ -15,7 +15,7 @@ const QualifyingTableRow = (props) => {
     <TableRow>
       <TableCell>{props.qualifier.position}</TableCell>
       <TableCell>
-        <div className="flagName">
+        <div className='flagName'>
           {globalCtx.flagFn(props.qualifier.Driver.nationality)}
           <span> </span>
           {props.qualifier.Driver.givenName +
@@ -24,15 +24,16 @@ const QualifyingTableRow = (props) => {
         </div>
       </TableCell>
       <TableCell>
-      <div className="flagName">
-        {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
-        <span> </span>
-        {props.qualifier.Constructor.name}
+        <div className='flagName'>
+          {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
+          <span> </span>
+          {props.qualifier.Constructor.name}
         </div>
       </TableCell>
+
       <TableCell>{qSort() || 'NC'}</TableCell>
     </TableRow>
   );
 };
 
-export default QualifyingTableRow;
+export default SprintQualifyingTableRow;

@@ -14,9 +14,9 @@ import QualifyingResults from './QualifyingResults';
 import RaceResults from './RaceResults';
 import SprintQualifyingResults from './SprintQualifyingResults';
 import SprintResults from './SprintResults';
-import GlobalContext from '../context/global-context';
+import GlobalContext from '../../context/global-context';
 // import { useNavigate } from 'react-router-dom';
-import BreadCrumbs from './BreadCrumbs';
+import BreadCrumbs from '../UI/BreadCrumbs';
 
 const GrandPrixDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -74,15 +74,16 @@ const GrandPrixDetails = () => {
   return (
     <>
       <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
-
-
       <Table className='tableContainer'>
         <TableBody>
           <TableRow>
             <TableCell>
               <TableRow>
                 <TableCell align='center' colSpan={2}>
-                  {globalCtx.flagFn(grandPrix[round - 1]?.Circuit.Location.country, 200)}
+                  {globalCtx.flagFn(
+                    grandPrix[round - 1]?.Circuit.Location.country,
+                    200
+                  )}
                 </TableCell>
               </TableRow>
               <TableRow>
@@ -131,8 +132,9 @@ const GrandPrixDetails = () => {
             <TableCell>
               <img
                 style={{ maxHeight: '600px' }}
-                src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
-                  }.jpeg`}
+                src={`/img/grand_prix/${globalCtx.chosenYear}/${
+                  grandPrix[round - 1].Circuit.circuitId
+                }.jpeg`}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null; // prevents looping
                   currentTarget.src = `/img/neutral.svg`;
@@ -142,10 +144,12 @@ const GrandPrixDetails = () => {
           </TableRow>
         </TableBody>
       </Table>
-      <SprintQualifyingResults round={round} />
-      <SprintResults round={round} />
-      <QualifyingResults round={round} />
-      <RaceResults round={round} />
+      <SprintQualifyingResults round={round} />{' '}
+      {/*  samo 2023. godine se pojavljuje za azerbejdzan  */}
+      <SprintResults round={round} />{' '}
+      {/*  postoji od 2021. do sada za: 2021:  - 10,14,19, a za 2022. 4,11,21, i za 2023. za azerbejdzan  */}
+      <QualifyingResults round={round} /> {/*  ovo moramo prikazati  */}
+      <RaceResults round={round} /> {/*  ovo ima za svaku sezonu  */}
     </>
   );
 };

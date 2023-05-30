@@ -9,8 +9,8 @@ import {
   TableRow,
   TableCell,
 } from '@mui/material';
-import SearchBox from './SearchBox';
-import BreadCrumbs from '../BreadCrumbs';
+import SearchBox from '../UI/SearchBox';
+import BreadCrumbs from '../UI/BreadCrumbs';
 import GlobalContext from '../../context/global-context';
 
 const SearchResultsDrivers = () => {

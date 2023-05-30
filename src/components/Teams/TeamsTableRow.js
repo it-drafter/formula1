@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
-import GlobalContext from '../context/global-context';
+import GlobalContext from '../../context/global-context';
 import TeamDetailsCollapsable from './TeamDetailsCollapsable';
 
 const TeamsTableRow = (props) => {
@@ -65,10 +65,10 @@ const TeamsTableRow = (props) => {
           }
           className='mouseHandle'
         >
-          <div className="flagName">
-          {globalCtx.flagFn(props.team.Constructor.nationality)}
-          <span> </span>
-          {props.team.Constructor.name}
+          <div className='flagName'>
+            {globalCtx.flagFn(props.team.Constructor.nationality)}
+            <span> </span>
+            {props.team.Constructor.name}
           </div>
         </TableCell>
         <TableCell className='details-btn'>
