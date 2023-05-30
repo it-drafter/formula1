@@ -32,8 +32,10 @@ const TeamDetails = (props) => {
   }, []);
 
   const getTeamDetails = async () => {
-    const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
-    const urlResults = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/results.json`;
+    // const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
+    // const urlResults = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/results.json`;
+    const urlDetails = `https://raw.githubusercontent.com/nkezic/f1/main/TeamDetails`;
+    const urlResults = `https://raw.githubusercontent.com/nkezic/f1/main/Results`
     const responseDetails = await axios.get(urlDetails);
     const responseResults = await axios.get(urlResults);
 

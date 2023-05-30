@@ -23,7 +23,8 @@ const SprintQualifyingResults = (props) => {
   }, []);
 
   const getSprintQualifying = async () => {
-    const url = `/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
+    // const url = `/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
+    const url = `https://raw.githubusercontent.com/nkezic/f1/main/Qualifiers`;
     setIsLoading(true);
     try {
       const response = await axios.get(url);

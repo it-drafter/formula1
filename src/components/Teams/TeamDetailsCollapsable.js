@@ -18,7 +18,8 @@ const TeamDetailsCollapsable = (props) => {
   }, []);
 
   const getTeamDetails = async () => {
-    const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${props.teamId}/constructorStandings.json`;
+    // const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${props.teamId}/constructorStandings.json`;
+    const urlDetails = `https://raw.githubusercontent.com/nkezic/f1/main/TeamDetails`
     const responseDetails = await axios.get(urlDetails);
     setTeamDetails(
       responseDetails.data.MRData.StandingsTable.StandingsLists[0]

@@ -27,7 +27,7 @@ const DriverDetails = () => {
   };
 
   // console.log('DriverDetails', params.driverId);
-  const driverId = params.driverId;
+  // const driverId = params.driverId;
 
   // const getFlags = async () => {
   //   const urlFlags = 'https://flagcdn.com/en/codes.json';
@@ -45,10 +45,12 @@ const DriverDetails = () => {
   const getDriverDetails = async () => {
     // console.log('DriverDetails', params.driverId);
     // const driverId = params.driverId;
-    const urlDriver = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/driverStandings.json`;
-    const urlRaces = `http://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/results.json`;
+    // const urlDriver = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/driverStandings.json`;
+    // const urlRaces = `http://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/results.json`;
     // const urlFlags =
     //   'https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json';
+    const urlDriver = `https://raw.githubusercontent.com/nkezic/f1/main/DriverDetails`;
+    const urlRaces= `https://raw.githubusercontent.com/nkezic/f1/main/DriverRaces`;
     const responseDriver = await axios.get(urlDriver);
     const responseRaces = await axios.get(urlRaces);
     // const responseFlags = await axios.get(urlFlags);
