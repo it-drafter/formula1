@@ -23,7 +23,8 @@ const RaceResults = (props) => {
   }, []);
 
   const getResults = async () => {
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/results.json`;
+    const url = `https://raw.githubusercontent.com/nkezic/f1/main/Results`;
+    // `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/results.json`;
     setIsLoading(true);
     try {
       const response = await axios.get(url);

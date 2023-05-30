@@ -23,7 +23,8 @@ const QualifyingResults = (props) => {
   }, []);
 
   const getQualifying = async () => {
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
+    const url = `https://raw.githubusercontent.com/nkezic/f1/main/Qualifiers`;
+    // `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
     setIsLoading(true);
     try {
       const response = await axios.get(url);
