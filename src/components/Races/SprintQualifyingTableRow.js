@@ -29,7 +29,7 @@ const SprintQualifyingTableRow = (props) => {
   return (
     <TableRow>
       <TableCell>{props.qualifier.position}</TableCell>
-      <TableCell onClick={()=> handleRouteDrivers(props.qualifier.Driver.driverId)}>
+      <TableCell onClick={()=> handleRouteDrivers(props.qualifier.Driver.driverId)} className="mouseHandle">
         <div className='flagName'>
           {globalCtx.flagFn(props.qualifier.Driver.nationality)}
           <span> </span>
@@ -38,7 +38,7 @@ const SprintQualifyingTableRow = (props) => {
             props.qualifier.Driver.familyName}
         </div>
       </TableCell>
-      <TableCell onClick={()=> handleRouteTeams(props.qualifier.Constructor.constructorId)}>
+      <TableCell onClick={()=> handleRouteTeams(props.qualifier.Constructor.constructorId)} className="mouseHandle">
         <div className='flagName'>
           {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
           <span> </span>
