@@ -55,20 +55,20 @@
   }
 
   .nav-link:hover{
-    color: black;
-    background-color: white;
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 238, 0, 0.678);
     //background-color: rgb(255, 136, 0);
   }
-  .nav-link:active{
-    color: black;
-    background-color: white;
-    //background-color: rgb(255, 136, 0);
-  }
+  // .nav-link:active{
+  //   color: black;
+  //   background-color: rgb(255, 0, 0);
+  //   //background-color: rgb(255, 136, 0);
+  // }
   .active{
-    color: black;
-    background-color: white;
+    color: rgb(255, 255, 255);
+    background-color:#228225;
   }
-  
+
   a {
     text-decoration: none;
     color: black;

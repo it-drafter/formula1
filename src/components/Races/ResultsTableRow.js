@@ -10,12 +10,12 @@ const ResultsTableRow = (props) => {
 
   const handleDriverClick= (driverId) => {
     console.log("klik na drivera od dole")
-    const linkTo = `/driversdetails/${driverId}`;
+    const linkTo = `/drivers/details/${driverId}`;
     navigate(linkTo);
   }
  const handleTeamClick= (teamId) => {
   console.log("klik od dole na tim")
-  const linkTo = `/teamsdetails/${teamId}`;
+  const linkTo = `/teams/details/${teamId}`;
   navigate(linkTo);
  }
 

@@ -14,12 +14,12 @@ const SprintQualifyingTableRow = (props) => {
   const navigate = useNavigate()
   const handleRouteDrivers= (driverId) => {
     console.log("driver click");
-    const linkTo=`/driversdetails/${driverId}`
+    const linkTo=`/drivers/details/${driverId}`
     navigate(linkTo);
   }
   const handleRouteTeams = (teamId) => {
     console.log("klik na team")
-    const linkTo= `/teamsdetails/${teamId}`;
+    const linkTo= `/teams/details/${teamId}`;
     navigate(linkTo);
   }
   console.log("props", props)

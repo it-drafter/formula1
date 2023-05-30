@@ -16,6 +16,7 @@ import { useNavigate } from 'react-router-dom';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import YearSelect from '../UI/YearSelect';
 import SearchBox from '../UI/SearchBox';
+import Footer from '../UI/Footer';
 
 const Drivers = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -109,6 +110,7 @@ const Drivers = (props) => {
           ))}
         </TableBody>
       </Table>
+      <Footer />
     </>
   );
 };

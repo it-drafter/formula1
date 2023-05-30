@@ -17,6 +17,7 @@ import SprintResults from './SprintResults';
 import GlobalContext from '../../context/global-context';
 // import { useNavigate } from 'react-router-dom';
 import BreadCrumbs from '../UI/BreadCrumbs';
+import Footer from "../UI/Footer";
 
 const GrandPrixDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -146,6 +147,7 @@ const GrandPrixDetails = () => {
       {/*  postoji od 2021. do sada za: 2021:  - 10,14,19, a za 2022. 4,11,21, i za 2023. za azerbejdzan  */}
       <QualifyingResults round={round} /> {/*  ovo moramo prikazati  */}
       <RaceResults round={round} /> {/*  ovo ima za svaku sezonu  */}
+      <Footer />
     </>
   );
 };

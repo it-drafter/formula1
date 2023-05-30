@@ -6,6 +6,7 @@ import { Link, Breadcrumbs } from '@mui/material';
 import GlobalContext from '../../context/global-context';
 import TeamDetailsRaces from './TeamDetailsRaces';
 import BreadCrumbs from '../UI/BreadCrumbs';
+import Footer from "../UI/Footer";
 
 const TeamDetails = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -23,7 +24,7 @@ const TeamDetails = (props) => {
 
   const handleDrivers = (raceDetails) => {
     console.log('klik na race');
-    const linkTo = `/racesdetails/${raceDetails}`;
+    const linkTo = `/races/details/${raceDetails}`;
     navigate(linkTo);
   };
 
@@ -113,6 +114,7 @@ const TeamDetails = (props) => {
           />
         </div>
       </div>
+      <Footer />
     </>
   );
 };

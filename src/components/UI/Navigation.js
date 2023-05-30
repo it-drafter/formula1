@@ -73,13 +73,13 @@ export default function Navigation() {
           <Route path='/' element={<Home />} />
 
           <Route path='/drivers' element={<Drivers />} />
-          <Route path='/driversdetails/:driverId' element={<DriverDetails />} />
+          <Route path='/drivers/details/:driverId' element={<DriverDetails />} />
 
           <Route path='/teams' element={<Teams />} />
-          <Route path='/teamsdetails/:teamId' element={<TeamDetails />} />
+          <Route path='/teams/details/:teamId' element={<TeamDetails />} />
 
           <Route path='/races' element={<Races />} />
-          <Route path='/racesdetails/:round' element={<GrandPrixDetails />} />
+          <Route path='/races/details/:round' element={<GrandPrixDetails />} />
 
           <Route path='/drivers/search' element={<SearchResultsDrivers />} />
           <Route path='/teams/search' element={<SearchResultsTeams />} />

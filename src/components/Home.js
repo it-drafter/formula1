@@ -33,7 +33,7 @@ const Home = () => {
 
       {/* <div>SELECTED YEAR</div> */}
       {/* </div> */}
-      <Footer />
+      
     </>
   );
 };

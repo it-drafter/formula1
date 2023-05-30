@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
 import { Link, Breadcrumbs } from '@mui/material';
-
+import Footer from '../UI/Footer';
 import GlobalContext from '../../context/global-context';
 import DriverDetailsRaces from './DriverDetailsRaces';
 
@@ -23,7 +23,7 @@ const DriverDetails = () => {
 
   const handleRouteToGrandPrix = (race) => {
     console.log('komentar');
-    const linkTo = `/racesdetails/${race}`;
+    const linkTo = `/races/details/${race}`;
     navigate(linkTo);
   };
 
@@ -157,7 +157,9 @@ const DriverDetails = () => {
             className='mouseHandle'
           />
         </div>
+       
       </div>
+      <Footer />
     </>
   );
 };

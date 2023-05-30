@@ -20,12 +20,12 @@ const DriversTableRow = (props) => {
 
   const handleClickDetails = (driverId) => {
     // console.log(driverId);
-    const linkTo = `/driversdetails/${driverId}`;
+    const linkTo = `/drivers/details/${driverId}`;
     navigate(linkTo);
   };
   const handleTeamDetails = (teamId) => {
     // console.log('on click event');
-    const linkTo = `/teamsdetails/${teamId}`;
+    const linkTo = `/teams/details/${teamId}`;
     navigate(linkTo);
   };
 

@@ -16,12 +16,12 @@ const QualifyingTableRow = (props) => {
   }
   const handleDriverClick= (driverId) => {
     console.log("klik na drivera")
-    const linkTo = `/driversdetails/${driverId}`
+    const linkTo = `/drivers/details/${driverId}`
     navigate(linkTo)
   }
   const handleTeamClick= (round) => {
     console.log("klik na tim")
-    const linkTo = `/teamsdetails/${round}`;
+    const linkTo = `/teams/details/${round}`;
     navigate(linkTo)
   }
 

@@ -13,7 +13,7 @@ const RacesTableRow = (props) => {
   const imageUrl = `/img/circuits/${props.race.Circuit.circuitId}.jpeg`;
 
   const handleClickGrandPrix = (round) => {
-    const LinkTo = `/racesdetails/${round}`;
+    const LinkTo = `/races/details/${round}`;
     navigate(LinkTo);
   };
 
