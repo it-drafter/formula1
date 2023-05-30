@@ -12,11 +12,12 @@
 }
 
 .NavBar {
+
   min-width: 100%;
   // max-height: 90px;
   text-align: center;
   // flex: 0 0 auto;
-  background-color: #E10600;
+  background-color: #822522;
   //background-color: rgb(90, 21, 21);
   // padding: 10px;
   display: flex;
@@ -46,6 +47,8 @@
     justify-items: center;
     margin: auto;
     font-family: formulaWide;
+    font-size: 24px;
+ 
     padding-top: 5px;
     padding-bottom: 5px;
   }

@@ -139,7 +139,7 @@ const DriverDetails = () => {
               Nationality: {driverDetails?.Driver.nationality}
               <span></span>
             </p>
-            <p>Team: {driverDetails?.Constructors[0].constructorId}</p>
+            <p>Team: {driverDetails?.Constructors[0].name}</p>
             <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
             <p>
               Biography:
