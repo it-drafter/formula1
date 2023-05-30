@@ -63,9 +63,9 @@ const TeamDetailsCollapsable = (props) => {
         <TableHead>
           <TableRow>
             <TableCell>Team Name</TableCell>
-            <TableCell>Country</TableCell>
-            <TableCell>Position</TableCell>
-            <TableCell>Points</TableCell>
+            <TableCell>Nationality</TableCell>
+            <TableCell>Wins</TableCell>
+            {/* <TableCell>Points</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -78,8 +78,8 @@ const TeamDetailsCollapsable = (props) => {
               </div>
             </TableCell>
             <TableCell>{teamDetails.Constructor.nationality}</TableCell>
-            <TableCell>{teamDetails.position}</TableCell>
-            <TableCell>{teamDetails.points}</TableCell>
+            <TableCell>{teamDetails.wins}</TableCell>
+            {/* <TableCell>{teamDetails.points}</TableCell> */}
           </TableRow>
         </TableBody>
       </Table>

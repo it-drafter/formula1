@@ -37,7 +37,8 @@ const SprintQualifyingResults = (props) => {
   };
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    // return <p>SprintQualifyingResults component Error: {error.message}</p>;
+    return false;
   }
 
   if (isLoading) {

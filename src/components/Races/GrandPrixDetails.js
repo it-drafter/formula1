@@ -17,7 +17,7 @@ import SprintResults from './SprintResults';
 import GlobalContext from '../../context/global-context';
 // import { useNavigate } from 'react-router-dom';
 import BreadCrumbs from '../UI/BreadCrumbs';
-import Footer from "../UI/Footer";
+import Footer from '../UI/Footer';
 
 const GrandPrixDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -49,7 +49,7 @@ const GrandPrixDetails = () => {
   };
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    return <p>GrandPrixDetails component Error: {error.message}</p>;
   }
 
   if (isLoading) {

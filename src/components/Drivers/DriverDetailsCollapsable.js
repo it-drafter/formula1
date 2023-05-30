@@ -76,7 +76,7 @@ const DriverDetailsCollapsable = (props) => {
               </div>
             </TableCell>
             <TableCell>Nationality</TableCell>
-            <TableCell>Team</TableCell>
+            <TableCell>Wins</TableCell>
             <TableCell>Date of Birth</TableCell>
             <TableCell>Biography</TableCell>
           </TableRow>
@@ -94,8 +94,8 @@ const DriverDetailsCollapsable = (props) => {
                 alt='Driver'
               />
             </TableCell>
-            <TableCell>{driverDetails.Driver.nationality}</TableCell>
-            <TableCell>{driverDetails?.Constructors[0].name}</TableCell>
+            <TableCell>{driverDetails?.Driver.nationality}</TableCell>
+            <TableCell>{driverDetails?.wins}</TableCell>
             <TableCell>{driverDetails?.Driver.dateOfBirth}</TableCell>
             <TableCell>
               <a href={driverDetails?.Driver.url} target='_blank'>

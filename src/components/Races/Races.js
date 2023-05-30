@@ -15,7 +15,7 @@ import GlobalContext from '../../context/global-context';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import YearSelect from '../UI/YearSelect';
 import SearchBox from '../UI/SearchBox';
-import Footer from "../UI/Footer";
+import Footer from '../UI/Footer';
 
 const Races = () => {
   const globalCtx = useContext(GlobalContext);
@@ -44,7 +44,7 @@ const Races = () => {
   };
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    return <p>Races component Error: {error.message}</p>;
   }
 
   if (isLoading) {

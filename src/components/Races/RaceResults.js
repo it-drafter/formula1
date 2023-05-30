@@ -38,7 +38,7 @@ const RaceResults = (props) => {
   };
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    return <p>RaceResults component Error: {error.message}</p>;
   }
 
   if (isLoading) {
