@@ -52,6 +52,7 @@ const SearchResultsDrivers = () => {
       setIsLoading(false);
     } catch (err) {
       //   console.log(err);
+      setIsLoading(false);
       setError(err);
     }
   };

@@ -44,12 +44,12 @@ const DriversTableRow = (props) => {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component='th' scope='row'>
+        <TableCell component='th' scope='row' className='tableRow-cell'>
           {props.driver.position}
         </TableCell>
         <TableCell
           onClick={() => handleClickDetails(props.driver.Driver.driverId)}
-          className='mouseHandle'
+          className='mouseHandle tableRow-cell'
         >
           <div className='flagName'>
             {globalCtx.flagFn(props.driver.Driver.nationality)}
@@ -61,7 +61,7 @@ const DriversTableRow = (props) => {
           </div>
         </TableCell>
         <TableCell
-          className='mouseHandle'
+          className='mouseHandle tableRow-cell'
           onClick={() =>
             handleTeamDetails(props.driver.Constructors.constructorId)
           }
@@ -73,7 +73,7 @@ const DriversTableRow = (props) => {
             {props.driver.Constructors[0].name}
           </div>
         </TableCell>
-        <TableCell>{props.driver.points}</TableCell>
+        <TableCell className='tableRow-cell'>{props.driver.points}</TableCell>
       </TableRow>
 
       <TableRow>

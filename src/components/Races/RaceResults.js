@@ -32,6 +32,7 @@ const RaceResults = (props) => {
       setResults(data);
       setIsLoading(false);
     } catch (err) {
+      setIsLoading(false);
       setError(err);
     }
   };

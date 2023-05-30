@@ -19,6 +19,7 @@ const DriverDetailsRaces = (props) => {
 //   const linkTo = `/team/details/${teamId}`
 //   navigate(linkTo);
 //  }
+  console.log('eeee', props.driverDetailsRaces[0].Circuit.Location.country);
 
   const classFunction = (position, points) => {
     if (position === '1') {
@@ -49,7 +50,7 @@ const DriverDetailsRaces = (props) => {
               <TableCell>{DetailRace.round}</TableCell>
               <TableCell
                 onClick={() => props.handleRouteToGrandPrix(DetailRace.round)}
-                className='mouseHandle tableRow-cell'
+                className='mouseHandle'
               >
                 <div className='flagName'>
                   {globalCtx.flagFn(
@@ -66,6 +67,7 @@ const DriverDetailsRaces = (props) => {
                 {DetailRace.Results[0].Constructor.name}
                 </div>
                 </TableCell>
+              {/* <TableCell>{DetailRace.Results[0].Constructor.name}</TableCell> */}
               <TableCell>{DetailRace.Results[0].grid}</TableCell>
               <TableCell
                 className={classFunction(

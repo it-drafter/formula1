@@ -31,6 +31,7 @@ const SprintResults = (props) => {
       setSprintResults(data);
       setIsLoading(false);
     } catch (err) {
+      setIsLoading(false);
       setError(err);
     }
   };

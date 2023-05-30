@@ -15,6 +15,7 @@ const TeamDetails = (props) => {
   const [teamResults, setTeamResults] = useState([]);
   // const [teamResultIndex, setTeamResultIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const params = useParams();
 
@@ -32,29 +33,34 @@ const TeamDetails = (props) => {
     getTeamDetails();
   }, []);
 
-
-
-
-
   const getTeamDetails = async () => {
-
     const urlDetails = `https://raw.githubusercontent.com/nkezic/f1/main/TeamDetails`;
     const urlResults = `https://raw.githubusercontent.com/nkezic/f1/main/TeamResults`;
     // const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
     // const urlResults = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/results.json`;
-    const responseDetails = await axios.get(urlDetails);
-    const responseResults = await axios.get(urlResults);
+    try {
+      const responseDetails = await axios.get(urlDetails);
+      const responseResults = await axios.get(urlResults);
 
-    console.log('test:', responseResults.data.MRData.RaceTable);
+      console.log('test:', responseResults.data.MRData.RaceTable);
 
-    setTeamDetails(
-      responseDetails.data.MRData.StandingsTable.StandingsLists[0]
-        .ConstructorStandings[0]
-    );
-    setTeamResults(responseResults.data.MRData.RaceTable.Races);
+      setTeamDetails(
+        responseDetails.data.MRData.StandingsTable.StandingsLists[0]
+          .ConstructorStandings[0]
+      );
+      setTeamResults(responseResults.data.MRData.RaceTable.Races);
 
-    setIsLoading(false);
+      setIsLoading(false);
+    } catch (err) {
+      //   console.log(err);
+      setIsLoading(false);
+      setError(err);
+    }
   };
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
 
   if (isLoading) {
     return (
