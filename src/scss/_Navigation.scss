@@ -1,3 +1,7 @@
+@font-face {
+  font-family: formulaWide;
+  src: url("../fonts/Formula1-Wide_web_0.ttf");
+}
 
 .NavContainer {
   display: flex;
@@ -41,7 +45,7 @@
     justify-content: center;
     justify-items: center;
     margin: auto;
-    font-family: 'formula1-display-regular-regular', sans-serif;
+    font-family: formulaWide;
     padding-top: 5px;
     padding-bottom: 5px;
   }
