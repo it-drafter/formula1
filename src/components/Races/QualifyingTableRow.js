@@ -14,18 +14,22 @@ const QualifyingTableRow = (props) => {
     arr.sort();
     return arr[0];
   }
-  // const handleDriverClick= (driverId) => {
-  //   console.log("klik na drivera")
-  //   const linkTo = `/driversdetails/${driverId}`
-  //   navigate(linkTo)
-  // }
-  // onClick={()=> handleDriverClick()}
+  const handleDriverClick= (driverId) => {
+    console.log("klik na drivera")
+    const linkTo = `/driversdetails/${driverId}`
+    navigate(linkTo)
+  }
+  const handleTeamClick= (round) => {
+    console.log("klik na tim")
+    const linkTo = `/teamsdetails/${round}`;
+    navigate(linkTo)
+  }
 
   return (
     <TableRow>
       <TableCell>{props.qualifier.position}</TableCell>
 
-      <TableCell>
+      <TableCell className='mouseHandle' onClick={()=> handleDriverClick(props.qualifier.Driver.driverId)}>
         <div className='flagName'>
           {globalCtx.flagFn(props.qualifier.Driver.nationality)}
           <span> </span>
@@ -34,7 +38,7 @@ const QualifyingTableRow = (props) => {
             props.qualifier.Driver.familyName}
         </div>
       </TableCell>
-      <TableCell>
+      <TableCell onClick={()=>handleTeamClick(props.qualifier.Constructor.constructorId)} className="mouseHandle">
         <div className='flagName'>
           {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
           <span> </span>

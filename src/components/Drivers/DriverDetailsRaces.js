@@ -10,7 +10,7 @@ import GlobalContext from '../../context/global-context';
 
 const DriverDetailsRaces = (props) => {
   const globalCtx = useContext(GlobalContext);
-  // console.log('eeee', props.driverDetailsRaces[0].Circuit.Location.country);
+  console.log('eeee', props.driverDetailsRaces[0].Circuit.Location.country);
 
   const classFunction = (position, points) => {
     if (position === '1') {
@@ -23,8 +23,6 @@ const DriverDetailsRaces = (props) => {
       return 'green';
     } else return 'gray';
   };
-
-  //console.log("eeeee",props.driverDetailsRaces[index].Results[0].Constructor.nationality)
   return (
     <>
       <Table className='tableContainer'>
@@ -53,14 +51,7 @@ const DriverDetailsRaces = (props) => {
                   {DetailRace.raceName}
                 </div>
               </TableCell>
-              <TableCell>
-                <div className='flagName'>
-                  {globalCtx.flagFn(
-                    DetailRace.Results[0].Constructor.nationality)}
-                  <span></span>
-                  {DetailRace.Results[0].Constructor.name}
-                </div>
-              </TableCell>
+              <TableCell>{DetailRace.Results[0].Constructor.name}</TableCell>
               <TableCell>{DetailRace.Results[0].grid}</TableCell>
               <TableCell
                 className={classFunction(
