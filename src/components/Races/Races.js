@@ -30,7 +30,7 @@ const Races = () => {
   const getRaces = async () => {
     // const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
     const url = `https://raw.githubusercontent.com/nkezic/f1/main/Results`;
-    setIsLoading(true);
+    // setIsLoading(true);
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races;

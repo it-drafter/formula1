@@ -1,3 +1,7 @@
+@font-face {
+   font-family: formula;
+   src: url("../fonts/Formula1-Regular_web_0.ttf");
+}
 
 .table-const-race {
    margin-top:20px;
@@ -15,8 +19,7 @@
     background-color: #fff;
     border:7px solid #E10600;
     align-items: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
-     'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: formula;
      padding: 20px;
      border-radius: 10px;
      h2 {
@@ -45,5 +48,8 @@ color: rgb(46, 46, 46);
    a:hover {
       background-color: #DFFFDF;
    }
+}
+.tableRow-cell {
+   font-family: formula;
 }
 

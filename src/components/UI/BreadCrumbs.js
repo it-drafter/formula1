@@ -34,7 +34,7 @@ const BreadCrumbs = (props) => {
             underline='hover'
             color='text.red'
             aria-current='page'
-            className='rucica'
+            className='mouseHandle'
           >
             Home
           </Link>
@@ -60,7 +60,7 @@ const BreadCrumbs = (props) => {
           underline='hover'
           color='black'
           onClick={() => navigate('/')}
-          className='rucica'
+          className='mouseHandle'
         >
           Home
         </Link>
@@ -70,7 +70,7 @@ const BreadCrumbs = (props) => {
             underline='hover'
             color={props.levels.length === index + 1 ? 'text.red' : 'black'}
             onClick={() => handleBCRoute(level)}
-            className='rucica'
+            className='mouseHandle'
           >
             {getCrumb(level)}
           </Link>
@@ -80,11 +80,11 @@ const BreadCrumbs = (props) => {
           underline='hover'
           color='black'
           onClick={handleBCRoute}
-          className='rucica'
+          className='mouseHandle'
         >
           Home
         </Link>
-        <Link underline='hover' color='text.red' className='rucica'>
+        <Link underline='hover' color='text.red' className='mouseHandle'>
           Drivers
         </Link> */}
       </Breadcrumbs>
