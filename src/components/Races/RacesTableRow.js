@@ -19,9 +19,9 @@ const RacesTableRow = (props) => {
 
   return (
     <TableRow>
-      <TableCell>{props.race.round}</TableCell>
+      <TableCell className='tableRow-cell'>{props.race.round}</TableCell>
       <TableCell
-        className='mouseHandle'
+        className='mouseHandle tableRow-cell'
         onClick={() => handleClickGrandPrix(props.race.round)}
       >
         <div className='flagName'>
@@ -30,12 +30,12 @@ const RacesTableRow = (props) => {
           {props.race.raceName}
         </div>
       </TableCell>
-      <TableCell>
+      <TableCell className='tableRow-cell'>
         {props.race.Circuit.circuitName}
         <CircuitPopup imageUrl={imageUrl} />
       </TableCell>
-      <TableCell>{props.race.date}</TableCell>
-      <TableCell>
+      <TableCell className='tableRow-cell'>{props.race.date}</TableCell>
+      <TableCell className='tableRow-cell'>
         <div className='flagName'>
           {globalCtx.flagFn(props.race.Results[0].Driver.nationality)}
           <span> </span>
