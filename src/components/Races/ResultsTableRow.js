@@ -19,7 +19,7 @@ const ResultsTableRow = (props) => {
   };
 
   return (
-    <TableRow>
+    <TableRow className={'fastest_lap_' + props.result.FastestLap?.rank ?? ""}>
       <TableCell>{props.result.position}</TableCell>
       <TableCell>
         <div className='flagName'>
