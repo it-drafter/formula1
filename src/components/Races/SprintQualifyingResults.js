@@ -24,7 +24,7 @@ const SprintQualifyingResults = (props) => {
 
   const getSprintQualifying = async () => {
     const url = `/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
-    setIsLoading(true);
+    // setIsLoading(true);
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races[0].QualifyingResults;
@@ -65,7 +65,7 @@ const SprintQualifyingResults = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {sprintQualifying.map((qualifier, index) => (
+          {sprintQualifying.map((qualifier) => (
             <SprintQualifyingTableRow
               key={qualifier.position}
               qualifier={qualifier}

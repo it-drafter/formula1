@@ -23,9 +23,15 @@ const RaceResults = (props) => {
   }, []);
 
   const getResults = async () => {
+<<<<<<< HEAD
     const url = `https://raw.githubusercontent.com/nkezic/f1/main/Results`;
     // `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/results.json`;
     setIsLoading(true);
+=======
+    // const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/results.json`;
+    const url = `https://raw.githubusercontent.com/nkezic/f1/main/Results`;
+    // setIsLoading(true);
+>>>>>>> 9552baacfbbc505f641bfaf6c2c50d5dedeadafd
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races[0].Results;

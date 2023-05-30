@@ -44,7 +44,7 @@ const TeamDetailsRaces = (props) => {
         <TableBody>
           {props.teamResults.map((teamResult) => {
             return (
-              <TableRow key={teamResult.round}>
+              <TableRow key={teamResult.round} className='tableRow-cell'>
                 <TableCell>{teamResult.round}</TableCell>
                 <TableCell
                   onClick={() => props.handleDrivers(teamResult.round)}
@@ -53,11 +53,13 @@ const TeamDetailsRaces = (props) => {
                   {teamResult.raceName}
                 </TableCell>
 
-                <TableCell className={classFunction(teamResult.Results[0].position ?? '0')}>
+                <TableCell className={classFunction(teamResult.Results[0].position ?? '0',
+                  teamResult.Results[0].points)}>
                   {teamResult.Results[0].position}
                 </TableCell>
 
-                <TableCell className={classFunction(teamResult.Results[1]?.position ?? '0')}>
+                <TableCell className={classFunction(teamResult.Results[1]?.position ?? '0',
+                  teamResult.Results[1]?.points ?? '0')}>
                   {teamResult.Results[1]?.position ?? '0'}
                 </TableCell>
 
