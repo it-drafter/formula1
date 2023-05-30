@@ -11,7 +11,8 @@ const App = () => {
   // console.log('IVAN: ', globalCtx.setYearFn());
 
   const [flags, setFlags] = useState([]);
-  const [year, setYear] = useState(moment().year());
+  // const [year, setYear] = useState(moment().year());
+  const [year, setYear] = '2013';
   const [searchString, setSearchString] = useState('');
 
   useEffect(() => {
