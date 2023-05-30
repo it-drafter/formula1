@@ -24,7 +24,12 @@ const SprintQualifyingResults = (props) => {
 
   const getSprintQualifying = async () => {
     // const url = `/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
+<<<<<<< HEAD
     // setIsLoading(true);
+=======
+    const url = `https://raw.githubusercontent.com/nkezic/f1/main/Qualifiers`;
+    setIsLoading(true);
+>>>>>>> d60fde04ccb154f99d35799b4bca25efc4229cdb
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races[0].QualifyingResults;

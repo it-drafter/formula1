@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import GlobalContext from '../../context/global-context';
+import { useNavigate } from 'react-router-dom';
 
 const SprintQualifyingTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -10,11 +11,25 @@ const SprintQualifyingTableRow = (props) => {
     arr.sort();
     return arr[0];
   }
+  const navigate = useNavigate()
+  const handleRouteDrivers= (driverId) => {
+    console.log("driver click");
+    const linkTo=`/driversdetails/${driverId}`
+    navigate(linkTo);
+  }
+  const handleRouteTeams = (teamId) => {
+    console.log("klik na team")
+    const linkTo= `/teamsdetails/${teamId}`;
+    navigate(linkTo);
+  }
+  console.log("props", props)
+
+
 
   return (
     <TableRow>
       <TableCell>{props.qualifier.position}</TableCell>
-      <TableCell>
+      <TableCell onClick={()=> handleRouteDrivers(props.qualifier.Driver.driverId)}>
         <div className='flagName'>
           {globalCtx.flagFn(props.qualifier.Driver.nationality)}
           <span> </span>
@@ -23,7 +38,7 @@ const SprintQualifyingTableRow = (props) => {
             props.qualifier.Driver.familyName}
         </div>
       </TableCell>
-      <TableCell>
+      <TableCell onClick={()=> handleRouteTeams(props.qualifier.Constructor.constructorId)}>
         <div className='flagName'>
           {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
           <span> </span>

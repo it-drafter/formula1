@@ -63,7 +63,7 @@ const DriversTableRow = (props) => {
         <TableCell
           className='mouseHandle'
           onClick={() =>
-            handleTeamDetails(props.driver.Constructors[0].constructorId)
+            handleTeamDetails(props.driver.Constructors.constructorId)
           }
         >
           <div className='flagName'>
