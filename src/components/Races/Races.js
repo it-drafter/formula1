@@ -76,6 +76,7 @@ const Races = () => {
       <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
+            <TableCell></TableCell>
             <TableCell>Round</TableCell>
             <TableCell>Grand Prix</TableCell>
             <TableCell>Circuit</TableCell>
