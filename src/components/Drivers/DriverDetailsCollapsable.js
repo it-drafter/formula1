@@ -12,6 +12,7 @@ const DriverDetailsCollapsable = (props) => {
   const globalCtx = useContext(GlobalContext);
   const [driverDetails, setDriverDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getDriverDetails();
@@ -20,13 +21,23 @@ const DriverDetailsCollapsable = (props) => {
   const getDriverDetails = async () => {
     // const urlDriver = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${props.driverId}/driverStandings.json`;
     const urlDriver = `https://raw.githubusercontent.com/nkezic/f1/main/DriverDetails`;
-    const responseDriver = await axios.get(urlDriver);
-    setDriverDetails(
-      responseDriver.data.MRData.StandingsTable.StandingsLists[0]
-        ?.DriverStandings[0]
-    );
-    setIsLoading(false);
+    try {
+      const responseDriver = await axios.get(urlDriver);
+      setDriverDetails(
+        responseDriver.data.MRData.StandingsTable.StandingsLists[0]
+          ?.DriverStandings[0]
+      );
+      setIsLoading(false);
+    } catch (err) {
+      //   console.log(err);
+      setIsLoading(false);
+      setError(err);
+    }
   };
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
 
   if (isLoading) {
     return (
