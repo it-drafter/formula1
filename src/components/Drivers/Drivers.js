@@ -11,6 +11,7 @@ import {
   // Breadcrumbs,
   // Link,
 } from '@mui/material';
+import Placeholder from 'react-bootstrap/Placeholder';
 import axios from 'axios';
 import GlobalContext from '../../context/global-context';
 import { useNavigate } from 'react-router-dom';
@@ -57,7 +58,7 @@ const Drivers = (props) => {
         response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
       //console.log(data);
       setDrivers(data);
-      setIsLoading(false);
+      // setIsLoading(false);
     } catch (err) {
       //   console.log(err);
       setIsLoading(false);
@@ -81,7 +82,9 @@ const Drivers = (props) => {
       // />
       <>
         <Skeleton animation='wave' height={50} width='90%' />
-        <Skeleton animation='wave' height={500} width='90%' />
+        <Skeleton animation='wave' height={500} style={{ width: '90%' }} />
+
+        <Placeholder bg='danger' style={{ width: '90%', height: '500px' }} />
       </>
     );
   }
