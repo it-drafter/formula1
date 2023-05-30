@@ -43,6 +43,7 @@ const Teams = () => {
       setTeams(data);
       setIsLoading(false);
     } catch (err) {
+      setIsLoading(false);
       setError(err);
     }
   };
