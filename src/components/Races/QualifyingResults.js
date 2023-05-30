@@ -23,9 +23,15 @@ const QualifyingResults = (props) => {
   }, []);
 
   const getQualifying = async () => {
+<<<<<<< HEAD
+    const url = `https://raw.githubusercontent.com/nkezic/f1/main/Qualifiers`;
+    // `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
+    setIsLoading(true);
+=======
     // const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
     const url = `https://raw.githubusercontent.com/nkezic/f1/main/Qualifiers`;
     // setIsLoading(true);
+>>>>>>> 9552baacfbbc505f641bfaf6c2c50d5dedeadafd
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races[0].QualifyingResults;

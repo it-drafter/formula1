@@ -33,9 +33,15 @@ const GrandPrixDetails = () => {
   }, []);
 
   const getGrandPrix = async () => {
+<<<<<<< HEAD
+    const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllRaces`;
+    // `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
+    setIsLoading(true);
+=======
     // const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
     const url = `https://raw.githubusercontent.com/nkezic/f1/main/Results`;
     // setIsLoading(true);
+>>>>>>> 9552baacfbbc505f641bfaf6c2c50d5dedeadafd
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races;

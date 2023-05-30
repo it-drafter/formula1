@@ -66,7 +66,18 @@ const DriversTableRow = (props) => {
             handleTeamDetails(props.driver.Constructors[0].constructorId)
           }
         >
+          <div className='flagName'>
+<<<<<<< HEAD
+          {globalCtx.flagFn(props.driver.Constructors[0].nationality)}
+            <span> </span>
           {props.driver.Constructors[0].name}
+=======
+            {globalCtx.flagFn(props.driver.Constructors[0].nationality)}
+            <span> </span>
+
+            {props.driver.Constructors[0].name}
+>>>>>>> a9bbdad3706da383cb9b02ec844a18026f6f0a96
+          </div>
         </TableCell>
         <TableCell>{props.driver.points}</TableCell>
       </TableRow>
