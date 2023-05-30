@@ -22,7 +22,7 @@ const Teams = () => {
 
   const [error, setError] = useState(null);
   const [teams, setTeams] = useState([]);
-  const [isLoading, setIsLoading] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   // const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,7 +30,9 @@ const Teams = () => {
   }, [globalCtx.chosenYear]);
 
   const getTeams = async () => {
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
+
+    const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllTeams`
+    //const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
     setIsLoading(true);
 
     try {
