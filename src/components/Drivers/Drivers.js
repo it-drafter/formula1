@@ -26,7 +26,7 @@ const Drivers = (props) => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [drivers, setDrivers] = useState([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // const [reRender, setReRender] = useState(false);
   // const handleReRender = () => {
@@ -50,7 +50,7 @@ const Drivers = (props) => {
     setIsLoading(true);
     try {
       const response = await axios.get(url);
-      //   console.log('response', response);
+        // console.log('response', response);
       //   if (response.request.status !== 200) {
       //     throw new Error('Something went wrong!');
       //   }
