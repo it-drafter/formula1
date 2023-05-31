@@ -50,7 +50,7 @@ const Drivers = (props) => {
     setIsLoading(true);
     try {
       const response = await axios.get(url);
-        // console.log('response', response);
+      // console.log('response', response);
       //   if (response.request.status !== 200) {
       //     throw new Error('Something went wrong!');
       //   }
@@ -96,7 +96,7 @@ const Drivers = (props) => {
         <SearchBox
           home={props.home}
           placeholder={'Search All Drivers'}
-          linkTo={`/formula1/drivers/search`}
+          linkTo={`/drivers/search`}
         />
       </div>
 
