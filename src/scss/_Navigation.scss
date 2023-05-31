@@ -13,6 +13,7 @@
   min-width: 100dvw;
   // max-height: 90px;
   text-align: center;
+
   background-color: #004225;
   // flex: 0 0 auto;
   // background-color:#822522;
@@ -21,6 +22,9 @@
   // padding: 10px;
   display: flex;
   justify-content: space-evenly;
+  margin-bottom:6px;
+  border-bottom: 5px solid #80a192;
+  
   margin-bottom: 6px;
 
   .nav-link-home {
@@ -53,7 +57,7 @@
 
   .nav-link:hover {
     color: rgb(255, 255, 255);
-    background-color: rgba(255, 238, 0, 0.678);
+    background-color: #336851;
     //background-color: rgb(255, 136, 0);
   }
   // .nav-link:active{
@@ -63,7 +67,7 @@
   // }
   .active {
     color: rgb(255, 255, 255);
-    background-color: #228225;
+    background-color:#80a192;
   }
 
   a {
@@ -94,7 +98,7 @@
 
 a {
   text-decoration: none;
-  color: rgb(245, 9, 9);
+  color: #ccd9d3;
   width: 200px;
   //height: 80px;
 }

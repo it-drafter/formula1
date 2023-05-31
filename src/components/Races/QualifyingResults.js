@@ -38,7 +38,8 @@ const QualifyingResults = (props) => {
   };
 
   if (error) {
-    return <p>QualifyingResults component Error: {error.message}</p>;
+    // return <p>QualifyingResults component Error: {error.message}</p>;
+    return false;
   }
 
   if (isLoading) {

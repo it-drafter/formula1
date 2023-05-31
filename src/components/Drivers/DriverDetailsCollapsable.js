@@ -55,23 +55,13 @@ const DriverDetailsCollapsable = (props) => {
           marginBottom: '15px',
         }}
       /> */}
-
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
-        >
-          {/* <Avatar width={200} height={200} /> */}
-          <Skeleton variant='circular' width={150} height={150} />
-          <Skeleton
-            variant='rounded'
-            animation='wave'
-            height={300}
-            style={{ width: '80%' }}
-          />
-        </Box>
+     
+      <Box sx={{ display: 'flex', alignItems: 'center'}}>
+      {/* ,  justifyContent: 'space-between' */}
+      {/* <Avatar width={200} height={200} /> */}
+      <Skeleton variant="circular" width={150} height={150} />
+      <Skeleton variant="rounded" animation='wave' height={300} style={{ width: '80%', margin: 20}} />
+      </Box>
       </>
     );
   }
