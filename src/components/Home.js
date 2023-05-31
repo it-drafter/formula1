@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 // import Breadcrumbs from '@mui/material/Breadcrumbs';
 // import Link from '@mui/material/Link';
 // import YearSelect from './YearSelect';
 import Drivers from './Drivers/Drivers';
 import BreadCrumbs from './UI/BreadCrumbs';
-import Footer from './UI/Footer';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import axios from 'axios';
+import GlobalContext from '../context/global-context';
+import DriversTableRow from './Drivers/DriversTableRow';
+
 // import { useContext } from 'react';
 // import GlobalContext from '../context/global-context';
 
@@ -14,6 +18,12 @@ const Home = () => {
   //   console.log('rerender');
   //   setReRender(!reRender);
   // };
+  const globalCtx = useContext(GlobalContext)
+  const [drivers, setDrivers] = useState([])
+
+  useEffect(() => {
+    getDrivers()
+  }, [globalCtx.chosenYear])
 
   // const [selectYear, setSelecetYear] = useState(null);
 
@@ -22,18 +32,43 @@ const Home = () => {
   //   // return year;
   // };
 
+  const getDrivers = async () => {
+
+    const urlDrivers = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
+
+    const response = await axios.get(urlDrivers);
+    console.warn("response", response);
+    const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
+    console.log(data, " data")
+    setDrivers(data)
+  }
+
+
   return (
     <>
       <BreadCrumbs />
 
-      {/* <GlobalContext.Provider value={{ yearFn: handleSelectedYear }}> */}
-      {/* <YearSelect onReRender={handleReRender} /> */}
-      <Drivers home={true} />
-      {/* </GlobalContext.Provider> */}
 
-      {/* <div>SELECTED YEAR</div> */}
-      {/* </div> */}
-      
+      {/* <Drivers home={true} /> */}
+      <Table className="table-home">
+        <TableHead className='table-head'>
+          <TableCell>Position: </TableCell>
+          <TableCell>Driver: </TableCell>
+        </TableHead>
+        <TableBody className='table-body'>
+          {drivers.map((driver) => (
+            <TableRow key={driver.Driver.driverId} driver={driver}>
+              <TableCell>{driver.position}</TableCell>
+              <TableCell>{driver.Driver.givenName + " " + driver.Driver.familyName}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+
+
+
+
+
     </>
   );
 };
