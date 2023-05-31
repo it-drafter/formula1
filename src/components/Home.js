@@ -16,6 +16,7 @@ import GlobalContext from '../context/global-context';
 import DriversTableRow from './Drivers/DriversTableRow';
 import YearSelect from './UI/YearSelect';
 import Footer from './UI/Footer';
+import { useNavigate } from 'react-router';
 
 // import { useContext } from 'react';
 // import GlobalContext from '../context/global-context';
@@ -28,10 +29,17 @@ const Home = () => {
   // };
   const globalCtx = useContext(GlobalContext);
   const [drivers, setDrivers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getDrivers();
   }, [globalCtx.chosenYear]);
+
+  // const handleDriverDetails= (driverId) => {
+  //   console.log("klik na drivera" );
+  //   const linkTo= `/drivers/details/${driverId}`;
+  //   navigate(linkTo)
+  // }
 
   // const [selectYear, setSelecetYear] = useState(null);
 
@@ -39,6 +47,7 @@ const Home = () => {
   //   console.log('Home component:', year);
   //   // return year;
   // };
+  // onClick={()=>handleDriverDetails(driver.Driver.driverId)}
 
   const getDrivers = async () => {
     // const urlDrivers = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
@@ -48,10 +57,10 @@ const Home = () => {
     console.warn('response', response);
     const data =
       response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-    console.log(data, ' data');
+    console.log( ' data', data[0].Driver.driverId);
     setDrivers(data);
   };
-
+  // console.log("drivers", driver)
   return (
     <>
       <BreadCrumbs />
