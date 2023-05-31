@@ -48,7 +48,7 @@ const GrandPrixDetailsCollapse = (props) => {
       //   }}
       // />
       <>
-      <Skeleton variant="rounded" animation='wave' height={300} style={{ width: '115%', margin: 20}}/>
+      <Skeleton variant="rounded" animation='wave' height={200} style={{ width: '90%', margin: 20}}/>
       </>
     );
   }
