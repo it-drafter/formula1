@@ -38,7 +38,7 @@ const SearchResultsDriversTableRow = (props) => {
         //   className='rucica'
         >
           <div className='flagName'>
-            {/* {globalCtx.flagFn(props.driver.Driver.nationality)} */}
+             {/* {globalCtx.flagFn(props.driver.Driver.nationality)}  */}
             <span> </span>
             <span> </span>
             {props.team.nationality}

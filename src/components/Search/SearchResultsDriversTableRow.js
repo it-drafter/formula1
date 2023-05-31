@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 //import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
-// import GlobalContext from '../context/global-context';
+import GlobalContext from '../../context/global-context';
 // import DriverDetailsCollapsable from './DriverDetailsCollapsable';
 
 const SearchResultsDriversTableRow = (props) => {
-  //   const globalCtx = useContext(GlobalContext);
+  const globalCtx = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -38,8 +38,7 @@ const SearchResultsDriversTableRow = (props) => {
         //   className='rucica'
         >
           <div className='flagName'>
-            {/* {globalCtx.flagFn(props.driver.Driver.nationality)} */}
-            <span> </span>
+            {globalCtx.flagFn(props.driver.nationality)}
             <span> </span>
             {props.driver.nationality}
           </div>
