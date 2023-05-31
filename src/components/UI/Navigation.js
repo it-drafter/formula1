@@ -46,14 +46,14 @@ export default function Navigation() {
         <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
           <Container>
             <Link to='/' className='nav-link-home'>
-              <img src={F1logo} className='homeimg' />
+              <img src='./formula1/img/logo.svg' className='homeimg' />
             </Link>
 
             <NavLink to='/drivers' className='nav-link'>
               <ul>
                 <li> Drivers</li>
                 <li>
-                  <img src={Helmet} className='helmet' />
+                  <img src='./img/helmet.svg' className='helmet' />
                 </li>
               </ul>
             </NavLink>
@@ -62,7 +62,7 @@ export default function Navigation() {
               <ul>
                 <li>Teams</li>
                 <li>
-                  <img src={Teams1} className='teams1' />
+                  <img src='./img/bolid.svg' className='teams1' />
                 </li>
               </ul>
             </NavLink>
@@ -71,7 +71,7 @@ export default function Navigation() {
               <ul>
                 <li>Races</li>
                 <li>
-                  <img src={Races3} className='races2' />
+                  <img src='./img/raceFlags.svg' className='races2' />
                 </li>
               </ul>
             </NavLink>
