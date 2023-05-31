@@ -133,9 +133,8 @@ const GrandPrixDetails = () => {
       </Table>
       <div>
         <img
-          // src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
-          //   }.jpeg`}
-          src={`/img/grand_prix/2013/albert_park.jpeg`}
+          src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
+            }.jpeg`}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null; // prevents looping
             currentTarget.src = `/img/neutral.svg`;
