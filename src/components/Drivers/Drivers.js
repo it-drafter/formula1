@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import DriversTableRow from './DriversTableRow';
-import { RiseLoader } from 'react-spinners';
+//import { RiseLoader } from 'react-spinners';
 import {
   Table,
   TableHead,
@@ -19,6 +19,7 @@ import BreadCrumbs from '../UI/BreadCrumbs';
 import YearSelect from '../UI/YearSelect';
 import SearchBox from '../UI/SearchBox';
 import Footer from '../UI/Footer';
+import { margin } from '@mui/system';
 
 const Drivers = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -58,7 +59,7 @@ const Drivers = (props) => {
         response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
       //console.log(data);
       setDrivers(data);
-       setIsLoading(false);
+      setIsLoading(false);
     } catch (err) {
       //   console.log(err);
       setIsLoading(false);
@@ -72,20 +73,20 @@ const Drivers = (props) => {
 
   if (isLoading) {
     return (
-      <RiseLoader
-        style={{
-          height: '50vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      />
-      // <>
-      //   {/* <Skeleton animation='wave' height={50} width='90%' />
-      //   <Skeleton animation='wave' height={500} style={{ width: '90%' }} />
+      // <RiseLoader
+      //   style={{
+      //     height: '50vh',
+      //     display: 'flex',
+      //     justifyContent: 'center',
+      //     alignItems: 'center',
+      //   }}
+      // />
+       <>
+         {/* <Skeleton animation='wave' height={50} width='90%' /> */}
+         <Skeleton variant="rounded" animation='wave' height={600} style={{ width: '90%', alignItems: 'center' }} />
 
-      //   <Placeholder bg='danger' style={{ width: '90%', height: '500px' }} /> */}
-      // </>
+         {/* <Placeholder bg='danger' style={{ width: '90%', height: '500px' }} /> */}
+       </>
     );
   }
 

@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { RiseLoader } from 'react-spinners';
-import { Link, Breadcrumbs } from '@mui/material';
+//import { RiseLoader } from 'react-spinners';
+import {Skeleton} from '@mui/material';
 import Footer from '../UI/Footer';
 import GlobalContext from '../../context/global-context';
 import DriverDetailsRaces from './DriverDetailsRaces';
-
 import BreadCrumbs from '../UI/BreadCrumbs';
 
 const DriverDetails = () => {
@@ -64,7 +63,7 @@ const DriverDetails = () => {
       );
       setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
       // setFlags(responseFlags.data);
-      setIsLoading(false);
+      //setIsLoading(false);
     } catch (err) {
       //   console.log(err);
       setIsLoading(false);
@@ -98,12 +97,22 @@ const DriverDetails = () => {
 
   if (isLoading) {
     return (
-      <RiseLoader
-        style={{
-          marginTop: '100px',
-        }}
-      />
+      // <>
+      // <RiseLoader
+      //   style={{
+      //     marginTop: '100px',
+      //   }}
+      // />
+      // </>
+
+
+      <>
+      {/* <Box sx={{ display: 'flex'}}> */}
+       {/* <Skeleton animation='wave' height={500} width='90%' /> */}
+       <Skeleton  variant="rounded" animation='wave' height={500} style={{ width: '90%'}} />
+       </>
     );
+
   }
 
   console.log('DRIVERS', driverDetails.Driver.driverId);
