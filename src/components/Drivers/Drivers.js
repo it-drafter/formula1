@@ -58,7 +58,7 @@ const Drivers = (props) => {
         response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
       //console.log(data);
       setDrivers(data);
-      // setIsLoading(false);
+      setIsLoading(false);
     } catch (err) {
       //   console.log(err);
       setIsLoading(false);

@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --hot --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +19,7 @@
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "file-loader": "^6.2.0",
+    "gh-pages": "^5.0.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "node-sass": "^8.0.0",
@@ -41,5 +44,6 @@
     "react-flagkit": "^2.0.4",
     "react-router-dom": "^6.11.2",
     "react-spinners": "^0.13.8"
-  }
+  },
+  "homepage": "http://{itancik}.github.io/{formula1}"
 }
