@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { RiseLoader } from 'react-spinners';
+//import { RiseLoader } from 'react-spinners';
 import {
   Table,
   TableHead,
@@ -65,7 +65,12 @@ const DriverDetailsCollapsable = (props) => {
         >
           {/* <Avatar width={200} height={200} /> */}
           <Skeleton variant='circular' width={150} height={150} />
-          <Skeleton animation='wave' height={300} style={{ width: '80%' }} />
+          <Skeleton
+            variant='rounded'
+            animation='wave'
+            height={300}
+            style={{ width: '80%' }}
+          />
         </Box>
       </>
     );
