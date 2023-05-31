@@ -46,8 +46,8 @@ const Drivers = (props) => {
   // };
 
   const getDrivers = async () => {
-    // const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
-    const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
+    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
+    // const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
     setIsLoading(true);
     try {
       const response = await axios.get(url);
@@ -81,12 +81,17 @@ const Drivers = (props) => {
       //     alignItems: 'center',
       //   }}
       // />
-       <>
-         {/* <Skeleton animation='wave' height={50} width='90%' /> */}
-         <Skeleton variant="rounded" animation='wave' height={600} style={{ width: '90%', alignItems: 'center' }} />
+      <>
+        {/* <Skeleton animation='wave' height={50} width='90%' /> */}
+        <Skeleton
+          variant='rounded'
+          animation='wave'
+          height={600}
+          style={{ width: '90%', alignItems: 'center' }}
+        />
 
-         {/* <Placeholder bg='danger' style={{ width: '90%', height: '500px' }} /> */}
-       </>
+        {/* <Placeholder bg='danger' style={{ width: '90%', height: '500px' }} /> */}
+      </>
     );
   }
 

@@ -1,19 +1,16 @@
 @font-face {
   font-family: formulaWide;
-  src: url("../fonts/Formula1-Wide_web_0.ttf");
+  src: url('../fonts/Formula1-Wide_web_0.ttf');
 }
 
 .NavContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  
 }
 
 .NavBar {
-
-  min-width: 100%;
+  min-width: 100dvw;
   // max-height: 90px;
   text-align: center;
 
@@ -25,9 +22,13 @@
   // padding: 10px;
   display: flex;
   justify-content: space-evenly;
+<<<<<<< HEAD
   margin-bottom:6px;
   border-bottom: 5px solid #80a192;
   
+=======
+  margin-bottom: 6px;
+>>>>>>> 3681c4b445f732e00af9bc4aa3a3b4c0b269255b
 
   .nav-link-home {
     display: flex;
@@ -37,10 +38,10 @@
     margin-left: 2%;
   }
   // .nav-link-home:hover{
-    // color: white;
-    //rgb(40, 113, 248);
-    // background-color: white;
-    //gray;
+  // color: white;
+  //rgb(40, 113, 248);
+  // background-color: white;
+  //gray;
   // background-color: rgb(255, 136, 0);
   // }
 
@@ -52,12 +53,12 @@
     margin: auto;
     font-family: formulaWide;
     font-size: 24px;
- 
+
     padding-top: 5px;
     padding-bottom: 5px;
   }
 
-  .nav-link:hover{
+  .nav-link:hover {
     color: rgb(255, 255, 255);
     background-color: #336851;
     //background-color: rgb(255, 136, 0);
@@ -67,9 +68,13 @@
   //   background-color: rgb(255, 0, 0);
   //   //background-color: rgb(255, 136, 0);
   // }
-  .active{
+  .active {
     color: rgb(255, 255, 255);
+<<<<<<< HEAD
     background-color:#80a192;
+=======
+    background-color: #228225;
+>>>>>>> 3681c4b445f732e00af9bc4aa3a3b4c0b269255b
   }
 
   a {
@@ -82,7 +87,6 @@
     justify-content: center;
     font-size: 30px;
   }
-  
 
   ul {
     list-style-type: none;
@@ -92,7 +96,6 @@
     flex-direction: column;
     padding: 0;
     margin: 0;
-    
   }
 
   h1 {
@@ -100,13 +103,11 @@
   }
 }
 
-
 a {
   text-decoration: none;
   color: #ccd9d3;
   width: 200px;
   //height: 80px;
-  
 }
 
 .homeimg {

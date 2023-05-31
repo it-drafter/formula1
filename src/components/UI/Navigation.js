@@ -21,6 +21,11 @@ import SearchResultsDrivers from '../Search/SearchResultsDrivers';
 import SearchResultsTeams from '../Search/SearchResultsTeams';
 import SearchResultsRaces from '../Search/SearchResultsRaces';
 
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 export default function Navigation() {
   // const [isActive, setIsActive] = useState(false);
   // const ToggleClass = () => {
@@ -36,38 +41,40 @@ export default function Navigation() {
   return (
     <div className='NavContainer'>
       <Router>
-        <nav className='NavBar'>
-          <Link to='/' className='nav-link-home'>
-            <img src={F1logo} className='homeimg' />
-          </Link>
+        <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
+          <Container>
+            <Link to='/' className='nav-link-home'>
+              <img src={F1logo} className='homeimg' />
+            </Link>
 
-          <NavLink to='/drivers' className='nav-link'>
-            <ul>
-              <li> Drivers</li>
-              <li>
-                <img src={Kaciga} className='kaciga' />
-              </li>
-            </ul>
-          </NavLink>
+            <NavLink to='/drivers' className='nav-link'>
+              <ul>
+                <li> Drivers</li>
+                <li>
+                  <img src={Kaciga} className='kaciga' />
+                </li>
+              </ul>
+            </NavLink>
 
-          <NavLink to='/teams' className='nav-link'>
-            <ul>
-              <li>Teams</li>
-              <li>
-                <img src={Teams1} className='teams1' />
-              </li>
-            </ul>
-          </NavLink>
+            <NavLink to='/teams' className='nav-link'>
+              <ul>
+                <li>Teams</li>
+                <li>
+                  <img src={Teams1} className='teams1' />
+                </li>
+              </ul>
+            </NavLink>
 
-          <NavLink to='/races' className='nav-link'>
-            <ul>
-              <li>Races</li>
-              <li>
-                <img src={Races3} className='races2' />
-              </li>
-            </ul>
-          </NavLink>
-        </nav>
+            <NavLink to='/races' className='nav-link'>
+              <ul>
+                <li>Races</li>
+                <li>
+                  <img src={Races3} className='races2' />
+                </li>
+              </ul>
+            </NavLink>
+          </Container>
+        </Navbar>
 
         <Routes>
           <Route path='/' element={<Home />} />
