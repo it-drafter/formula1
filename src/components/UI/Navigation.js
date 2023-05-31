@@ -37,11 +37,11 @@ export default function Navigation() {
     <div className='NavContainer'>
       <Router>
         <nav className='NavBar'>
-          <Link to='/' className='nav-link-home'>
+          <Link to='/formula1' className='nav-link-home'>
             <img src={F1logo} className='homeimg' />
           </Link>
 
-          <NavLink to='/drivers' className='nav-link'>
+          <NavLink to='/formula1/drivers' className='nav-link'>
             <ul>
               <li> Drivers</li>
               <li>
@@ -50,7 +50,7 @@ export default function Navigation() {
             </ul>
           </NavLink>
 
-          <NavLink to='/teams' className='nav-link'>
+          <NavLink to='/formula1/teams' className='nav-link'>
             <ul>
               <li>Teams</li>
               <li>
@@ -59,7 +59,7 @@ export default function Navigation() {
             </ul>
           </NavLink>
 
-          <NavLink to='/races' className='nav-link'>
+          <NavLink to='/formula1/races' className='nav-link'>
             <ul>
               <li>Races</li>
               <li>
@@ -70,20 +70,35 @@ export default function Navigation() {
         </nav>
 
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/formula1' element={<Home />} />
 
-          <Route path='/drivers' element={<Drivers />} />
-          <Route path='/drivers/details/:driverId' element={<DriverDetails />} />
+          <Route path='/formula1/drivers' element={<Drivers />} />
+          <Route
+            path='/formula1/drivers/details/:driverId'
+            element={<DriverDetails />}
+          />
 
-          <Route path='/teams' element={<Teams />} />
-          <Route path='/teams/details/:teamId' element={<TeamDetails />} />
+          <Route path='/formula1/teams' element={<Teams />} />
+          <Route
+            path='/formula1/teams/details/:teamId'
+            element={<TeamDetails />}
+          />
 
-          <Route path='/races' element={<Races />} />
+          <Route path='/formula1/races' element={<Races />} />
           <Route path='/races/details/:round' element={<GrandPrixDetails />} />
 
-          <Route path='/drivers/search' element={<SearchResultsDrivers />} />
-          <Route path='/teams/search' element={<SearchResultsTeams />} />
-          <Route path='/races/search' element={<SearchResultsRaces />} />
+          <Route
+            path='/formula1/drivers/search'
+            element={<SearchResultsDrivers />}
+          />
+          <Route
+            path='/formula1/teams/search'
+            element={<SearchResultsTeams />}
+          />
+          <Route
+            path='/formula1/races/search'
+            element={<SearchResultsRaces />}
+          />
         </Routes>
       </Router>
     </div>
