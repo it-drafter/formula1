@@ -8,6 +8,7 @@ import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import axios from 'axios';
 import GlobalContext from '../context/global-context';
 import DriversTableRow from './Drivers/DriversTableRow';
+import HomeImg from "../img/Home-img.jpg";
 
 // import { useContext } from 'react';
 // import GlobalContext from '../context/global-context';
@@ -48,16 +49,19 @@ const Home = () => {
     <>
       <BreadCrumbs />
 
+      <img src={HomeImg} alt="Tvrda Slika Jako"/>
 
       {/* <Drivers home={true} /> */}
       <Table className="table-home">
         <TableHead className='table-head'>
+          <TableRow className="table-head">
           <TableCell>Position: </TableCell>
           <TableCell>Driver: </TableCell>
+          </TableRow>
         </TableHead>
         <TableBody className='table-body'>
           {drivers.map((driver) => (
-            <TableRow key={driver.Driver.driverId} driver={driver}>
+            <TableRow key={driver.Driver.driverId} driver={driver} className="table-body">
               <TableCell>{driver.position}</TableCell>
               <TableCell>{driver.Driver.givenName + " " + driver.Driver.familyName}</TableCell>
             </TableRow>
