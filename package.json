@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "repository": {
+    "url": "git+https://github.com/{itancik}/{formula1}.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --hot --mode development",
-    "build": "webpack --mode production",
+    "build": "webpack --mode=development",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
@@ -44,6 +47,5 @@
     "react-flagkit": "^2.0.4",
     "react-router-dom": "^6.11.2",
     "react-spinners": "^0.13.8"
-  },
-  "homepage": "http://{itancik}.github.io/{formula1}"
+  }
 }
