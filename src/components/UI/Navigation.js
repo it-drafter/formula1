@@ -12,7 +12,7 @@ import Teams from '../Teams/Teams';
 import Home from '../Home';
 import F1logo from '../../img/f1-logo-big.png';
 import Kaciga from '../../img/helmet.svg';
-import Races3 from '../../img/race-flags.svg';
+import Races3 from '../../img/raceFlags.svg';
 import Teams1 from '../../img/bolid.svg';
 import DriverDetails from '../Drivers/DriverDetails';
 import TeamDetails from '../Teams/TeamDetails';

@@ -108,20 +108,19 @@ const DriverDetails = () => {
         />
       </>
 
-    // <Box sx={{ display: 'flex'}}> 
-    // <Skeleton animation='wave' height={500} width='90%' />
-    // <Skeleton variant="rounded" animation='wave' height={500} style={{ width: '90%' }} />
+      // <Box sx={{ display: 'flex'}}>
+      // <Skeleton animation='wave' height={500} width='90%' />
+      // <Skeleton variant="rounded" animation='wave' height={500} style={{ width: '90%' }} />
     );
-
   }
 
-console.log('DRIVERS', driverDetails.Driver.driverId);
+  console.log('DRIVERS', driverDetails.Driver.driverId);
 
-return (
-  <>
-    <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
+  return (
+    <>
+      <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
 
-      <span className="tableRow-boldCell">Season {globalCtx.chosenYear}</span>
+      <span className='tableRow-boldCell'>Season {globalCtx.chosenYear}</span>
 
       <div className='table-const-race'>
         <TableBody className='detailsBody'>
@@ -221,11 +220,10 @@ return (
             className='mouseHandle'
           />
         </div>
-
-    </div>
-    <Footer />
-  </>
-);
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default DriverDetails;

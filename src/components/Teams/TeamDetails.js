@@ -45,7 +45,7 @@ const TeamDetails = (props) => {
       const responseDetails = await axios.get(urlDetails);
       const responseResults = await axios.get(urlResults);
 
-      console.log('test:', responseResults.data.MRData.RaceTable);
+      console.log('test11111111111:', responseDetails);
 
       setTeamDetails(
         responseDetails.data.MRData.StandingsTable.StandingsLists[0]
