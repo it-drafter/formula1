@@ -46,7 +46,7 @@ export default function Navigation() {
         <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
           <Container>
             <Link to='/' className='nav-link-home'>
-              <img src='./formula1/img/logo.svg' className='homeimg' />
+              <img src='./img/logo.svg' className='homeimg' />
             </Link>
 
             <NavLink to='/drivers' className='nav-link'>
