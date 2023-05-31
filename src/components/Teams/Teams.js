@@ -18,6 +18,7 @@ import YearSelect from '../UI/YearSelect';
 import SearchBox from '../UI/SearchBox';
 import Footer from "../UI/Footer";
 
+
 const Teams = () => {
   const globalCtx = useContext(GlobalContext);
 

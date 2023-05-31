@@ -10,6 +10,8 @@ import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import GlobalContext from '../../context/global-context';
 import TeamDetailsCollapsable from './TeamDetailsCollapsable';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
 
 const TeamsTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -73,7 +75,7 @@ const TeamsTableRow = (props) => {
         </TableCell>
         <TableCell className='details-btn'>
           <a href={props.team.Constructor.url} target='_blank'>
-            Details ↗
+            Details < OpenInNewIcon />
           </a>
         </TableCell>
         <TableCell className='tableRow-cell'>{props.team.points}</TableCell>
