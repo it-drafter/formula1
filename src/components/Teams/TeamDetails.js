@@ -1,5 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import {
+  Table,
+  TableBody,
+  TableRow,
+  TableCell,
+} from '@mui/material';
+
+
 import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
 import { Link, Breadcrumbs } from '@mui/material';
@@ -7,6 +15,7 @@ import GlobalContext from '../../context/global-context';
 import TeamDetailsRaces from './TeamDetailsRaces';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import Footer from "../UI/Footer";
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const TeamDetails = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -77,8 +86,56 @@ const TeamDetails = (props) => {
       <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
       <span>Season {globalCtx.chosenYear}</span>
 
+
+
       <div className='table-const-race'>
-        <div className='team-details'>
+        <TableBody className='detailsBody'>
+          <TableRow>
+            <TableCell align="center" colSpan={2} className='tableRow-cell'>
+              <img
+                src={`/img/teams/${teamDetails.Constructor.constructorId}.png`}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = `/img/teams/unknownConstructor.png`;
+                }}
+                style={{ maxHeight: '100px', paddingRight: '30px' }}
+                alt='Constructor'
+              />
+
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className='flagName tableRow-boldCell' colSpan={2} align="center">
+
+              {globalCtx.flagFn(teamDetails.Constructor.nationality)}
+              <span> </span>
+              {teamDetails.Constructor.name}
+
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell  className='tableRow-cell'>Nationality:</TableCell>
+            <TableCell className='tableRow-cell'>{teamDetails.Constructor.nationality}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className='tableRow-cell'>Position:</TableCell>
+            <TableCell className='tableRow-cell'>{teamDetails.position}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className='tableRow-cell'>Points:</TableCell>
+            <TableCell className='tableRow-cell'>{teamDetails.points}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className='tableRow-cell'>History:</TableCell>
+            <TableCell>  <a
+                href={teamDetails.Constructor.url + '#History'}
+                target='_blank'
+              >
+              <OpenInNewIcon />
+              </a></TableCell>
+          </TableRow>
+        </TableBody>
+        {/* <div className='team-details'>
           <div>
             <img
               src={`/img/teams/${teamDetails.Constructor.constructorId}.png`}
@@ -108,17 +165,17 @@ const TeamDetails = (props) => {
                 href={teamDetails.Constructor.url + '#History'}
                 target='_blank'
               >
-                ↗
+              <OpenInNewIcon />
               </a>
             </p>
           </div>
-        </div>
-        <div>
+        </div> */}
+        <TableBody>
           <TeamDetailsRaces
             teamResults={teamResults}
             handleDrivers={handleDrivers}
           />
-        </div>
+        </TableBody>
       </div>
       <Footer />
     </>

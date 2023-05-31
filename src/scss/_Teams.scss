@@ -2,13 +2,23 @@
    font-family: formula;
    src: url("../fonts/Formula1-Regular_web_0.ttf");
 }
+@font-face {
+   font-family: formulaBold;
+   src: url("../fonts/Formula1-Bold_web_0.ttf");
+}
 
 .table-const-race {
    margin-top: 20px;
    display: flex;
    width: 90%;
-   justify-content: space-between;
+   justify-content: center;
    align-items: start;
+
+   .detailsBody {
+      margin-top: 50px;
+      background-color: #fff;
+      font-family: formula;
+   }
 
 }
 
@@ -44,13 +54,14 @@
 .details-btn {
    a {
       border-radius: 4px;
-      background-color: #FFDF9F;
+    font-family: formula;
       padding: 3px 12px;
-      color: rgb(46, 46, 46);
+     
    }
 
    a:hover {
-      background-color: #DFFFDF;
+    
+      color: #7d9876 ;
    }
 }
 
@@ -60,4 +71,8 @@
    font-size:14px !important;
  
 
+}
+.tableRow-boldCell {
+   font-family: formulaBold !important;
+   font-size: 16px;
 }

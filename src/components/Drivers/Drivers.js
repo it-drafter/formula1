@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import DriversTableRow from './DriversTableRow';
-// import { RiseLoader } from 'react-spinners';
+import { RiseLoader } from 'react-spinners';
 import {
   Table,
   TableHead,
@@ -47,7 +47,7 @@ const Drivers = (props) => {
   const getDrivers = async () => {
     // const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
     const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
-    // setIsLoading(true);
+     setIsLoading(true);
     try {
       const response = await axios.get(url);
         // console.log('response', response);
@@ -58,7 +58,7 @@ const Drivers = (props) => {
         response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
       //console.log(data);
       setDrivers(data);
-      setIsLoading(false);
+       setIsLoading(false);
     } catch (err) {
       //   console.log(err);
       setIsLoading(false);
@@ -72,20 +72,20 @@ const Drivers = (props) => {
 
   if (isLoading) {
     return (
-      // <RiseLoader
-      //   style={{
-      //     height: '50vh',
-      //     display: 'flex',
-      //     justifyContent: 'center',
-      //     alignItems: 'center',
-      //   }}
-      // />
-      <>
-        <Skeleton animation='wave' height={50} width='90%' />
-        <Skeleton animation='wave' height={500} style={{ width: '90%' }} />
+      <RiseLoader
+        style={{
+          height: '50vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      />
+      // <>
+      //   {/* <Skeleton animation='wave' height={50} width='90%' />
+      //   <Skeleton animation='wave' height={500} style={{ width: '90%' }} />
 
-        <Placeholder bg='danger' style={{ width: '90%', height: '500px' }} />
-      </>
+      //   <Placeholder bg='danger' style={{ width: '90%', height: '500px' }} /> */}
+      // </>
     );
   }
 

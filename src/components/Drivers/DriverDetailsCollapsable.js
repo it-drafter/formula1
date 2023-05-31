@@ -1,11 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { RiseLoader } from 'react-spinners';
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableHead from '@mui/material/TableHead';
+import {
+Table,
+TableHead,
+TableBody,
+TableRow,
+TableCell,
+Skeleton,
+Avatar,
+Box}
+from '@mui/material';
 import GlobalContext from '../../context/global-context';
 
 const DriverDetailsCollapsable = (props) => {
@@ -41,14 +46,22 @@ const DriverDetailsCollapsable = (props) => {
 
   if (isLoading) {
     return (
-      <RiseLoader
+      <>
+      {/* <RiseLoader
         size={4}
         style={{
           display: 'flex',
           justifyContent: 'center',
           marginBottom: '15px',
         }}
-      />
+      /> */}
+     
+      <Box sx={{ display: 'flex', alignItems: 'center',  justifyContent: 'space-between'}}>
+      {/* <Avatar width={200} height={200} /> */}
+      <Skeleton variant="circular" width={150} height={150} />
+      <Skeleton animation='wave' height={300} style={{ width: '80%' }} />
+      </Box>
+      </>
     );
   }
   console.log('moj props', props);
