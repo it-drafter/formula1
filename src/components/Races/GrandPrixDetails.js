@@ -20,7 +20,6 @@ import BreadCrumbs from '../UI/BreadCrumbs';
 import Footer from '../UI/Footer';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
-
 const GrandPrixDetails = () => {
   const globalCtx = useContext(GlobalContext);
   const [error, setError] = useState(null);
@@ -36,7 +35,7 @@ const GrandPrixDetails = () => {
   }, []);
 
   const getGrandPrix = async () => {
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
+    const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
     // const url = `https://raw.githubusercontent.com/nkezic/f1/main/Results`;
     // setIsLoading(true);
     try {
@@ -114,7 +113,7 @@ const GrandPrixDetails = () => {
             <TableCell>Grand Prix details:</TableCell>
             <TableCell>
               <a href={grandPrix[round - 1].url} target='_blank'>
-                Wikipedia <OpenInNewIcon/>
+                Wikipedia <OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>
@@ -122,7 +121,7 @@ const GrandPrixDetails = () => {
             <TableCell>Circuit details:</TableCell>
             <TableCell>
               <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
-                Wikipedia < OpenInNewIcon/>
+                Wikipedia <OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>
@@ -135,8 +134,9 @@ const GrandPrixDetails = () => {
       </Table>
       <div>
         <img
-          src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
-            }.jpeg`}
+          src={`/img/grand_prix/${globalCtx.chosenYear}/${
+            grandPrix[round - 1].Circuit.circuitId
+          }.jpeg`}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null; // prevents looping
             currentTarget.src = `/img/neutral.svg`;

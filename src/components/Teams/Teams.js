@@ -32,7 +32,7 @@ const Teams = () => {
 
   const getTeams = async () => {
     // const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllTeams`;
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
+    const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
     // setIsLoading(true);
 
     try {

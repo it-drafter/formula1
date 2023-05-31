@@ -28,7 +28,7 @@ const SearchResultsDrivers = () => {
 
   const getDrivers = async (searchStringValue) => {
     console.log('hello from search results ', searchStringValue);
-    const url = `http://ergast.com/api/f1/drivers.json?limit=1000`;
+    const url = `https://ergast.com/api/f1/drivers.json?limit=1000`;
     // setIsLoading(true);
     try {
       const response = await axios.get(url);

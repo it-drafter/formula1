@@ -51,7 +51,7 @@ const DriverDetails = () => {
     // const urlDriver = `https://raw.githubusercontent.com/nkezic/f1/main/DriverDetails`;
     const urlDriver = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/driverStandings.json`;
     // const urlRaces = `https://raw.githubusercontent.com/nkezic/f1/main/DriverRaces`;
-    const urlRaces = `http://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/results.json`;
+    const urlRaces = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/results.json`;
 
     // const urlFlags =
     //   'https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json';

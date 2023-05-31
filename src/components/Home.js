@@ -48,7 +48,7 @@ const Home = () => {
 
   const getDrivers = async () => {
     // const urlDrivers = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
-    const urlDrivers = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
+    const urlDrivers = `https://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
     try {
       const response = await axios.get(urlDrivers);
       console.warn('response', response);
