@@ -53,7 +53,7 @@ export default function Navigation() {
               <ul>
                 <li> Drivers</li>
                 <li>
-                  <img src='/img/helmet.svg' className='kaciga' />
+                  <img src='./img/helmet.svg' className='kaciga' />
                 </li>
               </ul>
             </NavLink>
@@ -62,7 +62,7 @@ export default function Navigation() {
               <ul>
                 <li>Teams</li>
                 <li>
-                  <img src='/img/bolid.svg' className='teams1' />
+                  <img src='./img/bolid.svg' className='teams1' />
                 </li>
               </ul>
             </NavLink>
@@ -71,7 +71,7 @@ export default function Navigation() {
               <ul>
                 <li>Races</li>
                 <li>
-                  <img src='/img/raceFlags.svg' className='races2' />
+                  <img src='./img/raceFlags.svg' className='races2' />
                 </li>
               </ul>
             </NavLink>

@@ -134,10 +134,10 @@ const DriverDetails = () => {
           <TableRow>
             <TableCell align='center' colSpan={2}>
               <img
-                src={`/img/drivers/${driverId}.png`}
+                src={`./img/drivers/${driverId}.png`}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null; // prevents looping
-                  currentTarget.src = `/img/drivers/unknownDriver.png`;
+                  currentTarget.src = `./img/drivers/unknownDriver.png`;
                 }}
                 style={{ maxHeight: '100px', paddingRight: '30px' }}
                 alt='Driver'

@@ -85,10 +85,10 @@ const TeamDetails = (props) => {
           <TableRow>
             <TableCell align='center' colSpan={2} className='tableRow-cell'>
               <img
-                src={`/img/teams/${teamDetails.Constructor.constructorId}.png`}
+                src={`./img/teams/${teamDetails.Constructor.constructorId}.png`}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
-                  currentTarget.src = `/img/teams/unknownConstructor.png`;
+                  currentTarget.src = `./img/teams/unknownConstructor.png`;
                 }}
                 style={{ maxHeight: '100px', paddingRight: '30px' }}
                 alt='Constructor'
