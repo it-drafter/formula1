@@ -5,6 +5,8 @@ import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 //import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
 // import GlobalContext from '../context/global-context';
 // import DriverDetailsCollapsable from './DriverDetailsCollapsable';
 
@@ -45,7 +47,7 @@ const SearchResultsRacesTableRow = (props) => {
           </div>
         </TableCell>
         <TableCell>
-          <a href={props.race.url} target='_blank'>↗</a></TableCell>
+          <a href={props.race.url} target='_blank'><OpenInNewIcon/></a></TableCell>
         <TableCell>
           {props.race.Circuit.circuitName} ({props.race.Circuit.circuitId})
         </TableCell>
