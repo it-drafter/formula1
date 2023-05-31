@@ -13,6 +13,40 @@ border: 20px;
 
     }
 }
+.container{
+    display:flex;
+    flex-wrap: wrap;
+    // flex-flow: wrap;
+    justify-content: space-around;
+    // justify-content: space-between;
+    // display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 45vw;
+    
+    // margin:auto
+    // margin-left: auto;
+    // margin-right: auto;
+    // align-self: center;
+    // justify-self: center;
+    
+    
+}
+.years:nth-child(even){
+    // background-color: red;
+    // align-content: space-evenly;
+    // justify-content: space-between;
+    background-color: black;
+    color:white;
+    border: 1px solid rgb(0, 0, 0);
+    
+}
+.years:nth-child(odd) {
+    background-color: white;
+    color:black;
+    border: 1px solid rgb(255, 255, 255);
+    font-weight: 600 ;
 
+}
 
   

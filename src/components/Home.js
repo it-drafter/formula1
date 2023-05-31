@@ -8,7 +8,8 @@ import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import axios from 'axios';
 import GlobalContext from '../context/global-context';
 import DriversTableRow from './Drivers/DriversTableRow';
-import HomeImg from "../img/Home-img.jpg";
+import YearSelect from './UI/YearSelect';
+import Footer from './UI/Footer';
 
 // import { useContext } from 'react';
 // import GlobalContext from '../context/global-context';
@@ -49,7 +50,7 @@ const Home = () => {
     <>
       <BreadCrumbs />
 
-      <img src={HomeImg} alt="Tvrda Slika Jako"/>
+      <YearSelect />
 
       {/* <Drivers home={true} /> */}
       <Table className="table-home">
@@ -70,7 +71,7 @@ const Home = () => {
       </Table>
 
 
-
+            <Footer />
 
 
     </>

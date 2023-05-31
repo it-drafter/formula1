@@ -33,10 +33,10 @@ export default function YearSelect() {
     <>
       <div>
         <span
-          className='text-danger fw-bold mouseHandle'
+          className='text-info fw-bold mouseHandle'
           onClick={() => setOpen(!open)}
         >
-          Season {globalCtx.chosenYear}
+          Season selector: {globalCtx.chosenYear}
         </span>
         <IconButton
           aria-label='expand row'
@@ -55,7 +55,7 @@ export default function YearSelect() {
               active={year === globalCtx.chosenYear}
               variant='outline-danger'
               size='sm'
-              className='col'
+              className='col years'
               key={year}
               onClick={() => handleClick(year)}
             >
