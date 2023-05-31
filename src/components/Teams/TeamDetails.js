@@ -80,7 +80,7 @@ const TeamDetails = (props) => {
       <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
       <span>Season {globalCtx.chosenYear}</span>
 
-      <div className='table-const-race'>
+      <Table className='table-const-race'>
         <TableBody className='detailsBody'>
           <TableRow>
             <TableCell align='center' colSpan={2} className='tableRow-cell'>
@@ -178,7 +178,7 @@ const TeamDetails = (props) => {
             handleDrivers={handleDrivers}
           />
         </TableBody>
-      </div>
+      </Table>
       <Footer />
     </>
   );

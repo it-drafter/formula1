@@ -18,6 +18,8 @@ import GlobalContext from '../../context/global-context';
 // import { useNavigate } from 'react-router-dom';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import Footer from '../UI/Footer';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
 
 const GrandPrixDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -112,7 +114,7 @@ const GrandPrixDetails = () => {
             <TableCell>Grand Prix details:</TableCell>
             <TableCell>
               <a href={grandPrix[round - 1].url} target='_blank'>
-                Wikipedia ↗
+                Wikipedia <OpenInNewIcon/>
               </a>
             </TableCell>
           </TableRow>
@@ -120,7 +122,7 @@ const GrandPrixDetails = () => {
             <TableCell>Circuit details:</TableCell>
             <TableCell>
               <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
-                Wikipedia ↗
+                Wikipedia < OpenInNewIcon/>
               </a>
             </TableCell>
           </TableRow>

@@ -4,6 +4,7 @@ import React, { useEffect, useState, useContext } from 'react';
 // import YearSelect from './YearSelect';
 import Drivers from './Drivers/Drivers';
 import BreadCrumbs from './UI/BreadCrumbs';
+import { RiseLoader } from 'react-spinners';
 import {
   Table,
   TableBody,
@@ -30,6 +31,8 @@ const Home = () => {
   const globalCtx = useContext(GlobalContext);
   const [drivers, setDrivers] = useState([]);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getDrivers();
@@ -52,15 +55,43 @@ const Home = () => {
   const getDrivers = async () => {
     // const urlDrivers = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
     const urlDrivers = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
-
-    const response = await axios.get(urlDrivers);
-    console.warn('response', response);
-    const data =
-      response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-    console.log( ' data', data[0].Driver.driverId);
-    setDrivers(data);
+    try {
+      const response = await axios.get(urlDrivers);
+      console.warn('response', response);
+      const data =
+        response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+      console.log(data, ' data');
+      setDrivers(data);
+      setIsLoading(false);
+    } catch (err) {
+      //   console.log(err);
+      setIsLoading(false);
+      setError(err);
+    }
   };
-  // console.log("drivers", driver)
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
+  if (isLoading) {
+    return (
+      <>
+        <RiseLoader
+          style={{
+            height: '50vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        />
+        {/* <Skeleton animation='wave' height={50} width='90%' /> 
+       <Skeleton variant="rounded" animation='wave' height={600} style={{ width: '90%', alignItems: 'center' }} />
+       <Placeholder bg='danger' style={{ width: '90%', height: '500px' }} />  */}
+      </>
+    );
+  }
+
   return (
     <>
       <BreadCrumbs />
@@ -91,10 +122,7 @@ const Home = () => {
         </TableBody>
       </Table>
 
-
-            <Footer />
-
-
+      <Footer />
     </>
   );
 };
