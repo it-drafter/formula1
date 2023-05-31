@@ -61,8 +61,15 @@ const DriverDetails = () => {
       // const responseFlags = await axios.get(urlFlags);
       // console.log('responseFlags', responseFlags.data);
 
+      // console.log(
+      //   'responseDRIVER: ',
+      //   responseDriver.data.MRData.StandingsTable.StandingsLists[0]
+      //     .DriverStandings[0]
+      // );
+
       setDriverDetails(
-        responseDriver.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
+        responseDriver.data.MRData.StandingsTable.StandingsLists[0]
+          .DriverStandings[0]
       );
       setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
       // setFlags(responseFlags.data);
@@ -114,7 +121,7 @@ const DriverDetails = () => {
     );
   }
 
-  console.log('DRIVERS', driverDetails.Driver.driverId);
+  // console.log('DRIVERS', driverDetails.Driver.driverId);
 
   return (
     <>
@@ -127,7 +134,7 @@ const DriverDetails = () => {
           <TableRow>
             <TableCell align='center' colSpan={2}>
               <img
-                src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+                src={`/img/drivers/${driverId}.png`}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null; // prevents looping
                   currentTarget.src = `/img/drivers/unknownDriver.png`;
@@ -213,14 +220,15 @@ const DriverDetails = () => {
             </p>
           </div>
         </div> */}
-        <TableBody>
-          <DriverDetailsRaces
-            driverDetailsRaces={driverDetailsRaces}
-            handleRouteToGrandPrix={handleRouteToGrandPrix}
-            className='mouseHandle'
-          />
-        </TableBody>
+        {/* <TableBody> */}
       </Table>
+      <DriverDetailsRaces
+        driverDetailsRaces={driverDetailsRaces}
+        handleRouteToGrandPrix={handleRouteToGrandPrix}
+        className='mouseHandle'
+      />
+      {/* </TableBody> */}
+
       <Footer />
     </>
   );

@@ -38,12 +38,6 @@ const Home = () => {
     getDrivers();
   }, [globalCtx.chosenYear]);
 
-  // const handleDriverDetails= (driverId) => {
-  //   console.log("klik na drivera" );
-  //   const linkTo= `/drivers/details/${driverId}`;
-  //   navigate(linkTo)
-  // }
-
   // const [selectYear, setSelecetYear] = useState(null);
 
   // const handleSelectedYear = (year) => {
@@ -74,6 +68,12 @@ const Home = () => {
     return <p>Error: {error.message}</p>;
   }
 
+  const handleDriverDetails = (driverId) => {
+    console.log('klik na drivera', driverId);
+    const linkTo = `/drivers/details/${driverId}`;
+    navigate(linkTo);
+  };
+
   if (isLoading) {
     return (
       <>
@@ -100,10 +100,10 @@ const Home = () => {
 
       {/* <Drivers home={true} /> */}
       <Table className='table-home'>
-        <TableHead className='table-head'>
-          <TableRow className='table-head'>
-            <TableCell>Position: </TableCell>
-            <TableCell>Driver: </TableCell>
+        <TableHead>
+          <TableRow className='table-header'>
+            <TableCell>Position </TableCell>
+            <TableCell>Driver </TableCell>
           </TableRow>
         </TableHead>
         <TableBody className='table-body'>
@@ -113,8 +113,11 @@ const Home = () => {
               driver={driver}
               className='table-body'
             >
-              <TableCell>{driver.position}</TableCell>
-              <TableCell>
+              <TableCell className='tableRow-cell'>{driver.position}</TableCell>
+              <TableCell
+                onClick={() => handleDriverDetails(driver.Driver.driverId)}
+                className='mouseHandle tableRow-cell'
+              >
                 {driver.Driver.givenName + ' ' + driver.Driver.familyName}
               </TableCell>
             </TableRow>
