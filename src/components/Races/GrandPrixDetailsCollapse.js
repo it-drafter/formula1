@@ -8,6 +8,8 @@ import TableBody from '@mui/material/TableBody';
 import TableHead from '@mui/material/TableHead';
 import Skeleton from '@mui/material/Skeleton';
 import GlobalContext from '../../context/global-context';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
 
 const GrandPrixDetailsCollapse = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -90,7 +92,8 @@ const GrandPrixDetailsCollapse = (props) => {
             </TableCell>
             <TableCell>
               <a href={grandPrixDetails[props.round - 1].url} target='_blank'>
-                Wikipedia ↗
+
+                Wikipedia < OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>
