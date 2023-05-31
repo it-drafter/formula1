@@ -7,8 +7,8 @@ import {
   TableCell,
 } from '@mui/material';
 import axios from 'axios';
-//import { RiseLoader } from 'react-spinners';
-import {Skeleton} from '@mui/material';
+import { RiseLoader } from 'react-spinners';
+//import { Skeleton } from '@mui/material';
 import Footer from '../UI/Footer';
 import GlobalContext from '../../context/global-context';
 import DriverDetailsRaces from './DriverDetailsRaces';
@@ -70,7 +70,7 @@ const DriverDetails = () => {
       );
       setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
       // setFlags(responseFlags.data);
-      //setIsLoading(false);
+      setIsLoading(false);
     } catch (err) {
       //   console.log(err);
       setIsLoading(false);
@@ -104,37 +104,34 @@ const DriverDetails = () => {
 
   if (isLoading) {
     return (
-      // <>
-      // <RiseLoader
-      //   style={{
-      //     marginTop: '100px',
-      //   }}
-      // />
-      // </>
-
-
       <>
-      {/* <Box sx={{ display: 'flex'}}> */}
-       {/* <Skeleton animation='wave' height={500} width='90%' /> */}
-       <Skeleton  variant="rounded" animation='wave' height={500} style={{ width: '90%'}} />
-       </>
+        <RiseLoader
+          style={{
+            marginTop: '100px',
+          }}
+        />
+      </>
+
+    // <Box sx={{ display: 'flex'}}> 
+    // <Skeleton animation='wave' height={500} width='90%' />
+    // <Skeleton variant="rounded" animation='wave' height={500} style={{ width: '90%' }} />
     );
 
   }
 
-  console.log('DRIVERS', driverDetails.Driver.driverId);
+console.log('DRIVERS', driverDetails.Driver.driverId);
 
-  return (
-    <>
-      <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
+return (
+  <>
+    <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
 
-      <span>Season {globalCtx.chosenYear}</span>
+    <span>Season {globalCtx.chosenYear}</span>
 
-      <div className='table-const-race'>
+    <div className='table-const-race'>
 
-        <TableBody className='detailsBody'>
-          <TableRow>
-            <TableCell align='center' colSpan={2}>
+      <TableBody className='detailsBody'>
+        <TableRow>
+          <TableCell align='center' colSpan={2}>
             <img
               src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
               onError={({ currentTarget }) => {
@@ -142,38 +139,38 @@ const DriverDetails = () => {
                 currentTarget.src = `/img/drivers/unknownDriver.png`;
               }}
               style={{ maxHeight: '100px', paddingRight: '30px' }}
-              alt='Driver'  />
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='flagName tableRow-boldCell' colSpan={2} align='center'>
+              alt='Driver' />
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell className='flagName tableRow-boldCell' colSpan={2} align='center'>
             {globalCtx.flagFn(driverDetails?.Driver.nationality)}
-              <span> </span>
-              {driverDetails.Driver.givenName +
-                ' ' +
-                driverDetails.Driver.familyName}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Nationality:</TableCell>
-            <TableCell className='tableRow-cell'>{driverDetails?.Driver.nationality}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Team:</TableCell>
-            <TableCell className='tableRow-cell'>{driverDetails?.Constructors[0].name}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Date of Birth:</TableCell>
-            <TableCell className='tableRow-cell'>{driverDetails?.Driver.dateOfBirth}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Biography:</TableCell>
-            <TableCell>  <a href={driverDetails?.Driver.url} target='_blank'>
-           <OpenInNewIcon/>
-              </a></TableCell>
-          </TableRow>
-        </TableBody>
-        {/* <div className='team-details'>
+            <span> </span>
+            {driverDetails.Driver.givenName +
+              ' ' +
+              driverDetails.Driver.familyName}
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell className='tableRow-cell'>Nationality:</TableCell>
+          <TableCell className='tableRow-cell'>{driverDetails?.Driver.nationality}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell className='tableRow-cell'>Team:</TableCell>
+          <TableCell className='tableRow-cell'>{driverDetails?.Constructors[0].name}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell className='tableRow-cell'>Date of Birth:</TableCell>
+          <TableCell className='tableRow-cell'>{driverDetails?.Driver.dateOfBirth}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell className='tableRow-cell'>Biography:</TableCell>
+          <TableCell>  <a href={driverDetails?.Driver.url} target='_blank'>
+            <OpenInNewIcon />
+          </a></TableCell>
+        </TableRow>
+      </TableBody>
+      {/* <div className='team-details'>
           <div>
             <img
               src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
@@ -208,18 +205,18 @@ const DriverDetails = () => {
             </p>
           </div>
         </div> */}
-        <div>
-          <DriverDetailsRaces
-            driverDetailsRaces={driverDetailsRaces}
-            handleRouteToGrandPrix={handleRouteToGrandPrix}
-            className='mouseHandle'
-          />
-        </div>
-       
+      <div>
+        <DriverDetailsRaces
+          driverDetailsRaces={driverDetailsRaces}
+          handleRouteToGrandPrix={handleRouteToGrandPrix}
+          className='mouseHandle'
+        />
       </div>
-      <Footer />
-    </>
-  );
+
+    </div>
+    <Footer />
+  </>
+);
 };
 
 export default DriverDetails;
