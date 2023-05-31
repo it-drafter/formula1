@@ -128,7 +128,7 @@ const DriverDetails = () => {
     <>
       <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
 
-      <span>Season {globalCtx.chosenYear}</span>
+      <span className="tableRow-boldCell">Season {globalCtx.chosenYear}</span>
 
       <div className='table-const-race'>
 
