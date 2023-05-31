@@ -47,10 +47,10 @@ const Drivers = (props) => {
   const getDrivers = async () => {
     // const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
     const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
-     setIsLoading(true);
+    setIsLoading(true);
     try {
       const response = await axios.get(url);
-        // console.log('response', response);
+      // console.log('response', response);
       //   if (response.request.status !== 200) {
       //     throw new Error('Something went wrong!');
       //   }
@@ -58,7 +58,7 @@ const Drivers = (props) => {
         response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
       //console.log(data);
       setDrivers(data);
-       setIsLoading(false);
+      setIsLoading(false);
     } catch (err) {
       //   console.log(err);
       setIsLoading(false);
