@@ -62,8 +62,7 @@ const DriverDetails = () => {
       // console.log('responseFlags', responseFlags.data);
 
       setDriverDetails(
-        responseDriver.data.MRData.StandingsTable.StandingsLists[0]
-          ?.DriverStandings[0]
+        responseDriver.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
       );
       setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
       // setFlags(responseFlags.data);

@@ -19,7 +19,7 @@ const DriversTableRow = (props) => {
   // console.log("props", props)
 
   const handleClickDetails = (driverId) => {
-    // console.log(driverId);
+    console.log("klik na drivera",driverId);
     const linkTo = `/drivers/details/${driverId}`;
     navigate(linkTo);
   };
