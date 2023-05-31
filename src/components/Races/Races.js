@@ -15,7 +15,7 @@ import GlobalContext from '../../context/global-context';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import YearSelect from '../UI/YearSelect';
 import SearchBox from '../UI/SearchBox';
-import Footer from "../UI/Footer";
+import Footer from '../UI/Footer';
 
 const Races = () => {
   const globalCtx = useContext(GlobalContext);
@@ -29,8 +29,8 @@ const Races = () => {
   }, [globalCtx.chosenYear]);
 
   const getRaces = async () => {
-    // const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
-    const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllRaces`;
+    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
+    // const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllRaces`;
     // setIsLoading(true);
     try {
       const response = await axios.get(url);
@@ -44,7 +44,7 @@ const Races = () => {
   };
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    return <p>Races component Error: {error.message}</p>;
   }
 
   if (isLoading) {
@@ -76,6 +76,7 @@ const Races = () => {
       <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
+            <TableCell></TableCell>
             <TableCell>Round</TableCell>
             <TableCell>Grand Prix</TableCell>
             <TableCell>Circuit</TableCell>

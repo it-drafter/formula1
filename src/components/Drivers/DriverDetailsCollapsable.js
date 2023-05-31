@@ -1,12 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { RiseLoader } from 'react-spinners';
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableHead from '@mui/material/TableHead';
+//import { RiseLoader } from 'react-spinners';
+import {
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+  Skeleton,
+  Avatar,
+  Box,
+} from '@mui/material';
 import GlobalContext from '../../context/global-context';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
 
 const DriverDetailsCollapsable = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -19,8 +26,8 @@ const DriverDetailsCollapsable = (props) => {
   }, []);
 
   const getDriverDetails = async () => {
-    // const urlDriver = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${props.driverId}/driverStandings.json`;
-    const urlDriver = `https://raw.githubusercontent.com/nkezic/f1/main/DriverDetails`;
+    const urlDriver = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${props.driverId}/driverStandings.json`;
+    // const urlDriver = `https://raw.githubusercontent.com/nkezic/f1/main/DriverDetails`;
     try {
       const responseDriver = await axios.get(urlDriver);
       setDriverDetails(
@@ -41,14 +48,23 @@ const DriverDetailsCollapsable = (props) => {
 
   if (isLoading) {
     return (
-      <RiseLoader
+      <>
+        {/* <RiseLoader
         size={4}
         style={{
           display: 'flex',
           justifyContent: 'center',
           marginBottom: '15px',
         }}
-      />
+      /> */}
+     
+      <Box sx={{ display: 'flex', alignItems: 'center'}}>
+      {/* ,  justifyContent: 'space-between' */}
+      {/* <Avatar width={200} height={200} /> */}
+      <Skeleton variant="circular" width={150} height={150} />
+      <Skeleton variant="rounded" animation='wave' height={300} style={{ width: '80%', margin: 20}} />
+      </Box>
+      </>
     );
   }
   console.log('moj props', props);
@@ -57,7 +73,6 @@ const DriverDetailsCollapsable = (props) => {
       <Table
         border='50px solid red'
         size='small'
-        aria-label='purchases'
         sx={{ margin: 0, marginBottom: 5 }}
         className='tableContainer'
       >
@@ -76,7 +91,7 @@ const DriverDetailsCollapsable = (props) => {
               </div>
             </TableCell>
             <TableCell>Nationality</TableCell>
-            <TableCell>Team</TableCell>
+            <TableCell>Wins</TableCell>
             <TableCell>Date of Birth</TableCell>
             <TableCell>Biography</TableCell>
           </TableRow>
@@ -94,12 +109,12 @@ const DriverDetailsCollapsable = (props) => {
                 alt='Driver'
               />
             </TableCell>
-            <TableCell>{driverDetails.Driver.nationality}</TableCell>
-            <TableCell>{driverDetails?.Constructors[0].name}</TableCell>
+            <TableCell>{driverDetails?.Driver.nationality}</TableCell>
+            <TableCell>{driverDetails?.wins}</TableCell>
             <TableCell>{driverDetails?.Driver.dateOfBirth}</TableCell>
             <TableCell>
               <a href={driverDetails?.Driver.url} target='_blank'>
-                Wikipedia ↗
+                Wikipedia <OpenInNewIcon/>
               </a>
             </TableCell>
           </TableRow>

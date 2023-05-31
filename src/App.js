@@ -11,8 +11,8 @@ const App = () => {
   // console.log('IVAN: ', globalCtx.setYearFn());
 
   const [flags, setFlags] = useState([]);
-  // const [year, setYear] = useState(moment().year());
-  const [year, setYear] = '2013';
+  const [year, setYear] = useState(moment().year());
+  // const [year, setYear] = useState(2013);
   const [searchString, setSearchString] = useState('');
   const [error, setError] = useState(null);
 
@@ -45,10 +45,9 @@ const App = () => {
   const flagFunction = (nationality, flagSize = 20) => {
     const country = flags.filter(
       (flag) =>
-        flag.nationality.includes(nationality) ||
-        flag.en_short_name.includes(nationality) ||
-        flag.alpha_3_code.includes(nationality) ||
-        flag.alpha_2_code.includes(nationality)
+        flag.nationality === nationality || flag.en_short_name === nationality
+      // flag.alpha_3_code.includes(nationality) ||
+      // flag.alpha_2_code.includes(nationality)
     );
     // console.log('nationality:', nationality);
     // console.log('flags:', flags);
@@ -59,6 +58,17 @@ const App = () => {
       flagCode = 'MN';
     } else if (!flagCode && nationality === 'UAE') {
       flagCode = 'AE';
+    } else if (!flagCode && nationality === 'Dutch') {
+      flagCode = 'NL';
+    } else if (!flagCode && nationality === 'Korea') {
+      flagCode = 'KR';
+    } else if (!flagCode && nationality === 'USA') {
+      flagCode = 'US';
+    } else if (
+      (!flagCode && nationality.includes('British')) ||
+      nationality === 'UK'
+    ) {
+      flagCode = 'GB';
     } else if (nationality === 'Azerbaijan') {
       return <img src='/img/flags/AZ.svg' />;
     } else if (!flagCode) {

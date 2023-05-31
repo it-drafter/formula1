@@ -5,10 +5,12 @@ import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 //import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
 // import GlobalContext from '../context/global-context';
 // import DriverDetailsCollapsable from './DriverDetailsCollapsable';
 
-const SearchResultsDriversTableRow = (props) => {
+const SearchResultsRacesTableRow = (props) => {
   //   const globalCtx = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ const SearchResultsDriversTableRow = (props) => {
   //     const linkTo = `/drivers/details/${driverId}`;
   //     navigate(linkTo);
   //   };
-
+  //   console.log('SEARCH PROPS: ', props);
   return (
     <>
       <TableRow>
@@ -31,7 +33,7 @@ const SearchResultsDriversTableRow = (props) => {
           //   onClick={() => handleClickDetails(props.driver.driverId)}
           //   className='rucica'
         >
-          {`${props.driver.givenName} ${props.driver.familyName}`}
+          {props.race.date}
         </TableCell>
         <TableCell
         //   onClick={() => handleClickDetails(props.driver.Driver.driverId)}
@@ -41,15 +43,19 @@ const SearchResultsDriversTableRow = (props) => {
             {/* {globalCtx.flagFn(props.driver.Driver.nationality)} */}
             <span> </span>
             <span> </span>
-            {props.driver.nationality}
+            {props.race.raceName}
           </div>
         </TableCell>
-        <TableCell>{props.driver.dateOfBirth}</TableCell>
         <TableCell>
-          <a href={props.driver.url} target='_blank'>↗</a></TableCell>
+          <a href={props.race.url} target='_blank'><OpenInNewIcon/></a></TableCell>
+        <TableCell>
+          {props.race.Circuit.circuitName} ({props.race.Circuit.circuitId})
+        </TableCell>
+        <TableCell>{props.race.Circuit.Location.locality}</TableCell>
+        <TableCell>{`${props.race.Results[0].Driver.givenName} ${props.race.Results[0].Driver.familyName} / ${props.race.Results[0].Constructor.name}`}</TableCell>
       </TableRow>
-      {/* 
-      <TableRow>
+
+      {/* <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={5}>
           <Collapse in={open} timeout='auto' unmountOnExit>
             <Box sx={{ margin: 0 }}>
@@ -63,4 +69,4 @@ const SearchResultsDriversTableRow = (props) => {
     </>
   );
 };
-export default SearchResultsDriversTableRow;
+export default SearchResultsRacesTableRow;

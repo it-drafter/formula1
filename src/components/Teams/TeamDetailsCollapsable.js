@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { RiseLoader } from 'react-spinners';
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableHead from '@mui/material/TableHead';
+//import { RiseLoader } from 'react-spinners';
+import {
+Table,
+TableHead,
+TableBody,
+TableRow,
+TableCell,
+Skeleton} from '@mui/material';
 import GlobalContext from '../../context/global-context';
 
 const TeamDetailsCollapsable = (props) => {
@@ -19,8 +21,8 @@ const TeamDetailsCollapsable = (props) => {
   }, []);
 
   const getTeamDetails = async () => {
-    const urlDetails = `https://raw.githubusercontent.com/nkezic/f1/main/TeamDetails`;
-    // const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${props.teamId}/constructorStandings.json`;
+    // const urlDetails = `https://raw.githubusercontent.com/nkezic/f1/main/TeamDetails`;
+    const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${props.teamId}/constructorStandings.json`;
     try {
       const responseDetails = await axios.get(urlDetails);
       setTeamDetails(
@@ -41,14 +43,17 @@ const TeamDetailsCollapsable = (props) => {
 
   if (isLoading) {
     return (
-      <RiseLoader
-        size={4}
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginBottom: '15px',
-        }}
-      />
+      // <RiseLoader
+      //   size={4}
+      //   style={{
+      //     display: 'flex',
+      //     justifyContent: 'center',
+      //     marginBottom: '15px',
+      //   }}
+      // />
+      <>
+        <Skeleton variant="rounded" animation='wave' height={300} style={{ width: '95%', margin: 20, alignContent: 'center'}}/>
+        </>
     );
   }
 
@@ -63,9 +68,9 @@ const TeamDetailsCollapsable = (props) => {
         <TableHead>
           <TableRow>
             <TableCell>Team Name</TableCell>
-            <TableCell>Country</TableCell>
-            <TableCell>Position</TableCell>
-            <TableCell>Points</TableCell>
+            <TableCell>Nationality</TableCell>
+            <TableCell>Wins</TableCell>
+            {/* <TableCell>Points</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -78,8 +83,8 @@ const TeamDetailsCollapsable = (props) => {
               </div>
             </TableCell>
             <TableCell>{teamDetails.Constructor.nationality}</TableCell>
-            <TableCell>{teamDetails.position}</TableCell>
-            <TableCell>{teamDetails.points}</TableCell>
+            <TableCell>{teamDetails.wins}</TableCell>
+            {/* <TableCell>{teamDetails.points}</TableCell> */}
           </TableRow>
         </TableBody>
       </Table>

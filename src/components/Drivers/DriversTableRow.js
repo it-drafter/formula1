@@ -19,7 +19,7 @@ const DriversTableRow = (props) => {
   // console.log("props", props)
 
   const handleClickDetails = (driverId) => {
-    // console.log(driverId);
+    console.log("klik na drivera",driverId);
     const linkTo = `/drivers/details/${driverId}`;
     navigate(linkTo);
   };
@@ -31,6 +31,8 @@ const DriversTableRow = (props) => {
 
   // console.log('Props', props.driver.Driver.nationality);
   // console.log('Props111', props);
+
+  console.log('IVAN1234: ', props.driver.Constructors[0].constructorId);
 
   return (
     <>
@@ -63,7 +65,7 @@ const DriversTableRow = (props) => {
         <TableCell
           className='mouseHandle tableRow-cell'
           onClick={() =>
-            handleTeamDetails(props.driver.Constructors.constructorId)
+            handleTeamDetails(props.driver.Constructors[0].constructorId)
           }
         >
           <div className='flagName'>

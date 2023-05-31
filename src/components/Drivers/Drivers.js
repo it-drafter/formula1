@@ -6,10 +6,12 @@ import {
   TableHead,
   TableBody,
   TableRow,
-  TableCell,
+  TableCell
+  //Skeleton,
   // Breadcrumbs,
   // Link,
 } from '@mui/material';
+import Placeholder from 'react-bootstrap/Placeholder';
 import axios from 'axios';
 import GlobalContext from '../../context/global-context';
 import { useNavigate } from 'react-router-dom';
@@ -17,6 +19,7 @@ import BreadCrumbs from '../UI/BreadCrumbs';
 import YearSelect from '../UI/YearSelect';
 import SearchBox from '../UI/SearchBox';
 import Footer from '../UI/Footer';
+import { margin } from '@mui/system';
 
 const Drivers = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -24,7 +27,7 @@ const Drivers = (props) => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [drivers, setDrivers] = useState([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // const [reRender, setReRender] = useState(false);
   // const handleReRender = () => {
@@ -43,12 +46,12 @@ const Drivers = (props) => {
   // };
 
   const getDrivers = async () => {
-    // const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
-    const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
-    // setIsLoading(true);
+    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
+    // const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
+    setIsLoading(true);
     try {
       const response = await axios.get(url);
-      //   console.log('response', response);
+      // console.log('response', response);
       //   if (response.request.status !== 200) {
       //     throw new Error('Something went wrong!');
       //   }
@@ -70,14 +73,18 @@ const Drivers = (props) => {
 
   if (isLoading) {
     return (
+      <>
       <RiseLoader
         style={{
           height: '50vh',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-        }}
-      />
+        }}/>
+         {/* <Skeleton animation='wave' height={50} width='90%' /> 
+         <Skeleton variant="rounded" animation='wave' height={600} style={{ width: '90%', alignItems: 'center' }} />
+         <Placeholder bg='danger' style={{ width: '90%', height: '500px' }} />  */}
+       </>
     );
   }
 

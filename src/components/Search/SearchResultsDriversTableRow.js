@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 //import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
-// import GlobalContext from '../context/global-context';
+import GlobalContext from '../../context/global-context';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
 // import DriverDetailsCollapsable from './DriverDetailsCollapsable';
 
-const SearchResultsRacesTableRow = (props) => {
-  //   const globalCtx = useContext(GlobalContext);
+const SearchResultsDriversTableRow = (props) => {
+  const globalCtx = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -21,7 +23,7 @@ const SearchResultsRacesTableRow = (props) => {
   //     const linkTo = `/drivers/details/${driverId}`;
   //     navigate(linkTo);
   //   };
-  //   console.log('SEARCH PROPS: ', props);
+
   return (
     <>
       <TableRow>
@@ -31,29 +33,24 @@ const SearchResultsRacesTableRow = (props) => {
           //   onClick={() => handleClickDetails(props.driver.driverId)}
           //   className='rucica'
         >
-          {props.race.date}
+          {`${props.driver.givenName} ${props.driver.familyName}`}
         </TableCell>
         <TableCell
         //   onClick={() => handleClickDetails(props.driver.Driver.driverId)}
         //   className='rucica'
         >
           <div className='flagName'>
-            {/* {globalCtx.flagFn(props.driver.Driver.nationality)} */}
+            {globalCtx.flagFn(props.driver.nationality)}
             <span> </span>
-            <span> </span>
-            {props.race.raceName}
+            {props.driver.nationality}
           </div>
         </TableCell>
+        <TableCell>{props.driver.dateOfBirth}</TableCell>
         <TableCell>
-          <a href={props.race.url} target='_blank'>↗</a></TableCell>
-        <TableCell>
-          {props.race.Circuit.circuitName} ({props.race.Circuit.circuitId})
-        </TableCell>
-        <TableCell>{props.race.Circuit.Location.locality}</TableCell>
-        <TableCell>{`${props.race.Results[0].Driver.givenName} ${props.race.Results[0].Driver.familyName} / ${props.race.Results[0].Constructor.name}`}</TableCell>
+          <a href={props.driver.url} target='_blank'>< OpenInNewIcon /></a></TableCell>
       </TableRow>
-
-      {/* <TableRow>
+      {/* 
+      <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={5}>
           <Collapse in={open} timeout='auto' unmountOnExit>
             <Box sx={{ margin: 0 }}>
@@ -67,4 +64,4 @@ const SearchResultsRacesTableRow = (props) => {
     </>
   );
 };
-export default SearchResultsRacesTableRow;
+export default SearchResultsDriversTableRow;

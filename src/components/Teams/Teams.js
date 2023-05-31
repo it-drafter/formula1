@@ -16,7 +16,7 @@ import GlobalContext from '../../context/global-context';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import YearSelect from '../UI/YearSelect';
 import SearchBox from '../UI/SearchBox';
-import Footer from "../UI/Footer";
+import Footer from '../UI/Footer';
 
 const Teams = () => {
   const globalCtx = useContext(GlobalContext);
@@ -31,8 +31,8 @@ const Teams = () => {
   }, [globalCtx.chosenYear]);
 
   const getTeams = async () => {
-    const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllTeams`;
-    //const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
+    // const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllTeams`;
+    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
     // setIsLoading(true);
 
     try {

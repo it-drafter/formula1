@@ -10,16 +10,21 @@ import Drivers from '../Drivers/Drivers';
 import Races from '../Races/Races';
 import Teams from '../Teams/Teams';
 import Home from '../Home';
-import F1logo from '../../img/f1-logo-big.png';
-import Kaciga from '../../img/Kaciga.png';
-import Races3 from '../../img/Races3.jpg';
-import Teams1 from '../../img/Teams1.png';
+import F1logo from '../../img/logo.svg';
+import Kaciga from '../../img/helmet.svg';
+import Races3 from '../../img/raceFlags.svg';
+import Teams1 from '../../img/bolid.svg';
 import DriverDetails from '../Drivers/DriverDetails';
 import TeamDetails from '../Teams/TeamDetails';
 import GrandPrixDetails from '../Races/GrandPrixDetails';
 import SearchResultsDrivers from '../Search/SearchResultsDrivers';
 import SearchResultsTeams from '../Search/SearchResultsTeams';
 import SearchResultsRaces from '../Search/SearchResultsRaces';
+
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function Navigation() {
   // const [isActive, setIsActive] = useState(false);
@@ -36,44 +41,49 @@ export default function Navigation() {
   return (
     <div className='NavContainer'>
       <Router>
-        <nav className='NavBar'>
-          <Link to='/' className='nav-link-home'>
-            <img src={F1logo} className='homeimg' />
-          </Link>
+        <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
+          <Container>
+            <Link to='/' className='nav-link-home'>
+              <img src={F1logo} className='homeimg' />
+            </Link>
 
-          <NavLink to='/drivers' className='nav-link'>
-            <ul>
-              <li> Drivers</li>
-              <li>
-                <img src={Kaciga} className='kaciga' />
-              </li>
-            </ul>
-          </NavLink>
+            <NavLink to='/drivers' className='nav-link'>
+              <ul>
+                <li> Drivers</li>
+                <li>
+                  <img src="/img/helmet.svg" className='kaciga' />
+                </li>
+              </ul>
+            </NavLink>
 
-          <NavLink to='/teams' className='nav-link'>
-            <ul>
-              <li>Teams</li>
-              <li>
-                <img src={Teams1} className='teams1' />
-              </li>
-            </ul>
-          </NavLink>
+            <NavLink to='/teams' className='nav-link'>
+              <ul>
+                <li>Teams</li>
+                <li>
+                  <img src="/img/bolid.svg" className='teams1' />
+                </li>
+              </ul>
+            </NavLink>
 
-          <NavLink to='/races' className='nav-link'>
-            <ul>
-              <li>Races</li>
-              <li>
-                <img src={Races3} className='races2' />
-              </li>
-            </ul>
-          </NavLink>
-        </nav>
+            <NavLink to='/races' className='nav-link'>
+              <ul>
+                <li>Races</li>
+                <li>
+                  <img src="/img/raceFlags.svg" className='races2' />
+                </li>
+              </ul>
+            </NavLink>
+          </Container>
+        </Navbar>
 
         <Routes>
           <Route path='/' element={<Home />} />
 
           <Route path='/drivers' element={<Drivers />} />
-          <Route path='/drivers/details/:driverId' element={<DriverDetails />} />
+          <Route
+            path='/drivers/details/:driverId'
+            element={<DriverDetails />}
+          />
 
           <Route path='/teams' element={<Teams />} />
           <Route path='/teams/details/:teamId' element={<TeamDetails />} />

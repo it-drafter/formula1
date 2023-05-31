@@ -17,7 +17,9 @@ import SprintResults from './SprintResults';
 import GlobalContext from '../../context/global-context';
 // import { useNavigate } from 'react-router-dom';
 import BreadCrumbs from '../UI/BreadCrumbs';
-import Footer from "../UI/Footer";
+import Footer from '../UI/Footer';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
 
 const GrandPrixDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -34,8 +36,8 @@ const GrandPrixDetails = () => {
   }, []);
 
   const getGrandPrix = async () => {
-    // const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
-    const url = `https://raw.githubusercontent.com/nkezic/f1/main/Results`;
+    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
+    // const url = `https://raw.githubusercontent.com/nkezic/f1/main/Results`;
     // setIsLoading(true);
     try {
       const response = await axios.get(url);
@@ -49,7 +51,7 @@ const GrandPrixDetails = () => {
   };
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    return <p>GrandPrixDetails component Error: {error.message}</p>;
   }
 
   if (isLoading) {
@@ -112,7 +114,7 @@ const GrandPrixDetails = () => {
             <TableCell>Grand Prix details:</TableCell>
             <TableCell>
               <a href={grandPrix[round - 1].url} target='_blank'>
-                Wikipedia ↗
+                Wikipedia <OpenInNewIcon/>
               </a>
             </TableCell>
           </TableRow>
@@ -120,7 +122,7 @@ const GrandPrixDetails = () => {
             <TableCell>Circuit details:</TableCell>
             <TableCell>
               <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
-                Wikipedia ↗
+                Wikipedia < OpenInNewIcon/>
               </a>
             </TableCell>
           </TableRow>
@@ -133,9 +135,8 @@ const GrandPrixDetails = () => {
       </Table>
       <div>
         <img
-          // src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
-          //   }.jpeg`}
-          src={`/img/grand_prix/2013/albert_park.jpeg`}
+          src={`/img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
+            }.jpeg`}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null; // prevents looping
             currentTarget.src = `/img/neutral.svg`;

@@ -23,7 +23,7 @@ const SprintQualifyingResults = (props) => {
   }, []);
 
   const getSprintQualifying = async () => {
-    // const url = `/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
+    const url = `/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
     // setIsLoading(true);
     try {
       const response = await axios.get(url);
@@ -37,7 +37,8 @@ const SprintQualifyingResults = (props) => {
   };
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    // return <p>SprintQualifyingResults component Error: {error.message}</p>;
+    return false;
   }
 
   if (isLoading) {

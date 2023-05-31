@@ -1,31 +1,31 @@
 @font-face {
   font-family: formulaWide;
-  src: url("../fonts/Formula1-Wide_web_0.ttf");
+  src: url('../fonts/Formula1-Wide_web_0.ttf');
 }
 
 .NavContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-
 }
 
 .NavBar {
-
-  min-width: 100%;
+  min-width: 100dvw;
   // max-height: 90px;
   text-align: center;
+
+  background-color: #004225;
   // flex: 0 0 auto;
-  background-color: #222323;
-  color: #1DCC8C;
+  // background-color:#822522;
   // background:  transparent ;
   //background-color: rgb(90, 21, 21);
   // padding: 10px;
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 6px;
+  border-bottom: 5px solid #80a192;
 
+  margin-bottom: 6px;
 
   .nav-link-home {
     display: flex;
@@ -58,7 +58,7 @@
 
   .nav-link:hover {
     color: rgb(255, 255, 255);
-    background-color: rgba(255, 238, 0, 0.678);
+    background-color: #336851;
     //background-color: rgb(255, 136, 0);
   }
 
@@ -83,7 +83,6 @@
     font-size: 30px;
   }
 
-
   ul {
     list-style-type: none;
     display: flex;
@@ -92,7 +91,6 @@
     flex-direction: column;
     padding: 0;
     margin: 0;
-
   }
 
   h1 {
@@ -100,13 +98,11 @@
   }
 }
 
-
 a {
   text-decoration: none;
-  color: rgb(245, 9, 9);
+  color: #ccd9d3;
   width: 200px;
   //height: 80px;
-
 }
 
 .homeimg {
@@ -123,10 +119,11 @@ a {
 .teams1 {
   // width: 200px;
   height: 80px;
+
 }
 
 .races2 {
   // width: 200px;
   height: 80px;
-  mix-blend-mode: multiply;
+  // mix-blend-mode: multiply;
 }
