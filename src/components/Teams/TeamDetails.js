@@ -91,7 +91,7 @@ const TeamDetails = (props) => {
       <div className='table-const-race'>
         <TableBody className='detailsBody'>
           <TableRow>
-            <TableCell colSpan={2}>
+            <TableCell align="center" colSpan={2} className='tableRow-cell'>
               <img
                 src={`/img/teams/${teamDetails.Constructor.constructorId}.png`}
                 onError={({ currentTarget }) => {
@@ -105,7 +105,7 @@ const TeamDetails = (props) => {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className='flagName' colSpan={2}>
+            <TableCell className='flagName tableRow-cell' colSpan={2} align="center">
 
               {globalCtx.flagFn(teamDetails.Constructor.nationality)}
               <span> </span>
@@ -114,19 +114,19 @@ const TeamDetails = (props) => {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Nationality:</TableCell>
-            <TableCell>{teamDetails.Constructor.nationality}</TableCell>
+            <TableCell  className='tableRow-cell'>Nationality:</TableCell>
+            <TableCell className='tableRow-cell'>{teamDetails.Constructor.nationality}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Position:</TableCell>
-            <TableCell>{teamDetails.position}</TableCell>
+            <TableCell className='tableRow-cell'>Position:</TableCell>
+            <TableCell className='tableRow-cell'>{teamDetails.position}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Points:</TableCell>
-            <TableCell>{teamDetails.points}</TableCell>
+            <TableCell className='tableRow-cell'>Points:</TableCell>
+            <TableCell className='tableRow-cell'>{teamDetails.points}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>History:</TableCell>
+            <TableCell className='tableRow-cell'>History:</TableCell>
             <TableCell>  <a
                 href={teamDetails.Constructor.url + '#History'}
                 target='_blank'
