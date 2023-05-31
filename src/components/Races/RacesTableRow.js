@@ -24,8 +24,8 @@ const RacesTableRow = (props) => {
     const LinkTo = `/races/details/${round}`;
     navigate(LinkTo);
   };
-  const handleWinnerClick = (driverId) =>{
-    console.log("klik na drivera" , props)
+  const handleWinnerClick = (driverId) => {
+    console.log("klik na drivera", props)
     const linkTo = `/drivers/details/${driverId}`
     navigate(linkTo)
   }
@@ -54,11 +54,11 @@ const RacesTableRow = (props) => {
           </div>
         </TableCell>
         <TableCell className='tableRow-cell'>
-          {props.race.Circuit.circuitName}
           <CircuitPopup imageUrl={imageUrl} />
+          {props.race.Circuit.circuitName}
         </TableCell>
         <TableCell className='tableRow-cell'>{props.race.date}</TableCell>
-        <TableCell onClick={()=>handleWinnerClick(props.race.Results[0].Driver.driverId)} className='tableRow-cell mouseHandle' >
+        <TableCell onClick={() => handleWinnerClick(props.race.Results[0].Driver.driverId)} className='tableRow-cell mouseHandle' >
           <div className='flagName'>
             {globalCtx.flagFn(props.race.Results[0].Driver.nationality)}
             <span> </span>

@@ -14,7 +14,7 @@ const CircuitPopup = ({ imageUrl }) => {
 
     return (
         <>
-            <Button onClick={handleOpen}>Satellite image</Button>
+            <Button onClick={handleOpen}><img src={"/img/navigation.svg"} width={"20"} /></Button>
             <Dialog maxWidth={"920"} open={open} onClose={handleClose}>
                 <DialogContent>
                     <img src={imageUrl} />
