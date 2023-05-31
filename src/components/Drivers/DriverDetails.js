@@ -122,11 +122,7 @@ return (
   <>
     <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
 
-<<<<<<< HEAD
       <span className="tableRow-boldCell">Season {globalCtx.chosenYear}</span>
-=======
-    <span>Season {globalCtx.chosenYear}</span>
->>>>>>> 0f7f05d6231cdd91238645f7cc29a3682e9a5a25
 
       <div className='table-const-race'>
         <TableBody className='detailsBody'>
