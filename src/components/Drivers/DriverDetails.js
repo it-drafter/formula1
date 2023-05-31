@@ -29,7 +29,7 @@ const DriverDetails = () => {
   };
 
   // console.log('DriverDetails', params.driverId);
-  // const driverId = params.driverId;
+  const driverId = params.driverId;
 
   // const getFlags = async () => {
   //   const urlFlags = 'https://flagcdn.com/en/codes.json';
