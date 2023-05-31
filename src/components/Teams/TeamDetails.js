@@ -105,7 +105,7 @@ const TeamDetails = (props) => {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className='flagName tableRow-cell' colSpan={2} align="center">
+            <TableCell className='flagName tableRow-boldCell' colSpan={2} align="center">
 
               {globalCtx.flagFn(teamDetails.Constructor.nationality)}
               <span> </span>

@@ -1,5 +1,6 @@
 @import '../scss/_cssreset.scss';
 @import '../scss/_Navigation.scss';
+@import '../scss/Home.scss';
 @import '../scss/BreadCrumb.scss';
 @import '../scss/_Teams.scss';
 @import '../scss/Drivers.scss';
@@ -77,8 +78,8 @@
 
 body {
   // background-image: url("/img/background.png");
-  background-image: url('http://localhost:8080/img/background.png');
-  background-color: white;
+  // background-image: url('http://localhost:8080/img/background.png');
+  background-color: #336851;
   //background-color: #cccccc;
 
   //     table {

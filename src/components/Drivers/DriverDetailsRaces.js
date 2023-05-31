@@ -12,14 +12,15 @@ import { useNavigate } from 'react-router-dom';
 const DriverDetailsRaces = (props) => {
   const globalCtx = useContext(GlobalContext);
  // console.log('eeee', props.driverDetailsRaces[0].Circuit.Location.country);
-//  const navigate = useNavigate()
-//  onClick={()=> handleTeamClick(props.Results.Constructor.constructorId)}
-//  const handleTeamClick= (teamId) => {
-//   console.log("klik na tim ")
-//   const linkTo = `/team/details/${teamId}`
-//   navigate(linkTo);
-//  }
-  console.log('eeee', props.driverDetailsRaces[0].Circuit.Location.country);
+ const navigate = useNavigate()
+ console.log("props", )
+ 
+ const handleTeamClick= (teamId) => {
+  console.log("klik na tim ")
+  const linkTo = `/teams/details/${teamId}`
+  navigate(linkTo);
+ }
+  // console.log('eeee', props.driverDetailsRaces[0].Circuit.Location.country);
 
   const classFunction = (position, points) => {
     if (position === '1') {
@@ -60,7 +61,9 @@ const DriverDetailsRaces = (props) => {
                   {DetailRace.raceName}
                 </div>
               </TableCell>
-              <TableCell >
+              <TableCell 
+              onClick={()=> handleTeamClick(DetailRace.Results[0].Constructor.constructorId)}
+              className="mouseHandle">
               <div className='flagName'>
               {globalCtx.flagFn(DetailRace.Results[0].Constructor.nationality)}
               <span> </span>
