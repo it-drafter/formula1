@@ -123,7 +123,7 @@ const DriverDetails = () => {
 
       <span className='tableRow-boldCell'>Season {globalCtx.chosenYear}</span>
 
-      <div className='table-const-race'>
+      <Table className='table-const-race'>
         <TableBody className='detailsBody'>
           <TableRow>
             <TableCell align='center' colSpan={2}>
@@ -214,14 +214,14 @@ const DriverDetails = () => {
             </p>
           </div>
         </div> */}
-        <div>
+        <TableBody>
           <DriverDetailsRaces
             driverDetailsRaces={driverDetailsRaces}
             handleRouteToGrandPrix={handleRouteToGrandPrix}
             className='mouseHandle'
           />
-        </div>
-      </div>
+        </TableBody>
+      </Table>
       <Footer />
     </>
   );
