@@ -7,8 +7,8 @@ import {
   TableCell,
 } from '@mui/material';
 import axios from 'axios';
-import { RiseLoader } from 'react-spinners';
-
+//import { RiseLoader } from 'react-spinners';
+import {Skeleton} from '@mui/material';
 import Footer from '../UI/Footer';
 import GlobalContext from '../../context/global-context';
 import DriverDetailsRaces from './DriverDetailsRaces';
