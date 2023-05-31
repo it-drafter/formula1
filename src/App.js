@@ -70,12 +70,12 @@ const App = () => {
     ) {
       flagCode = 'GB';
     } else if (nationality === 'Azerbaijan') {
-      return <img src='./img/flags/AZ.svg' />;
+      return <img src='../../img/flags/AZ.svg' />;
     } else if (!flagCode) {
       return (
         <img
           style={{ width: '21px', height: '15px' }}
-          src='./img/neutral.svg'
+          src='../../img/neutral.svg'
         />
       );
     } else {

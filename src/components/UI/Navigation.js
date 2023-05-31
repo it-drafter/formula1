@@ -12,7 +12,7 @@ import Races from '../Races/Races';
 import Teams from '../Teams/Teams';
 import Home from '../Home';
 import F1logo from '../../img/logo.svg';
-import Kaciga from '../../img/helmet.svg';
+import Helmet from '../../img/helmet.svg';
 import Races3 from '../../img/raceFlags.svg';
 import Teams1 from '../../img/bolid.svg';
 import DriverDetails from '../Drivers/DriverDetails';
@@ -53,7 +53,7 @@ export default function Navigation() {
               <ul>
                 <li> Drivers</li>
                 <li>
-                  <img src='./img/helmet.svg' className='kaciga' />
+                  <img src={Helmet} className='helmet' />
                 </li>
               </ul>
             </NavLink>
@@ -62,7 +62,7 @@ export default function Navigation() {
               <ul>
                 <li>Teams</li>
                 <li>
-                  <img src='./img/bolid.svg' className='teams1' />
+                  <img src={Teams1} className='teams1' />
                 </li>
               </ul>
             </NavLink>
@@ -71,7 +71,7 @@ export default function Navigation() {
               <ul>
                 <li>Races</li>
                 <li>
-                  <img src='./img/raceFlags.svg' className='races2' />
+                  <img src={Races3} className='races2' />
                 </li>
               </ul>
             </NavLink>
