@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import DriversTableRow from './DriversTableRow';
-//import { RiseLoader } from 'react-spinners';
+import { RiseLoader } from 'react-spinners';
 import {
   Table,
   TableHead,
   TableBody,
   TableRow,
-  TableCell,
-  Skeleton,
+  TableCell
+  //Skeleton,
   // Breadcrumbs,
   // Link,
 } from '@mui/material';
@@ -73,25 +73,18 @@ const Drivers = (props) => {
 
   if (isLoading) {
     return (
-      // <RiseLoader
-      //   style={{
-      //     height: '50vh',
-      //     display: 'flex',
-      //     justifyContent: 'center',
-      //     alignItems: 'center',
-      //   }}
-      // />
       <>
-        {/* <Skeleton animation='wave' height={50} width='90%' /> */}
-        <Skeleton
-          variant='rounded'
-          animation='wave'
-          height={600}
-          style={{ width: '90%', alignItems: 'center' }}
-        />
-
-        {/* <Placeholder bg='danger' style={{ width: '90%', height: '500px' }} /> */}
-      </>
+      <RiseLoader
+        style={{
+          height: '50vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}/>
+         {/* <Skeleton animation='wave' height={50} width='90%' /> 
+         <Skeleton variant="rounded" animation='wave' height={600} style={{ width: '90%', alignItems: 'center' }} />
+         <Placeholder bg='danger' style={{ width: '90%', height: '500px' }} />  */}
+       </>
     );
   }
 

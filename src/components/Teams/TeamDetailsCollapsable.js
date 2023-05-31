@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { RiseLoader } from 'react-spinners';
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableHead from '@mui/material/TableHead';
+//import { RiseLoader } from 'react-spinners';
+import {
+Table,
+TableHead,
+TableBody,
+TableRow,
+TableCell,
+Skeleton} from '@mui/material';
 import GlobalContext from '../../context/global-context';
 
 const TeamDetailsCollapsable = (props) => {
@@ -41,14 +43,17 @@ const TeamDetailsCollapsable = (props) => {
 
   if (isLoading) {
     return (
-      <RiseLoader
-        size={4}
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginBottom: '15px',
-        }}
-      />
+      // <RiseLoader
+      //   size={4}
+      //   style={{
+      //     display: 'flex',
+      //     justifyContent: 'center',
+      //     marginBottom: '15px',
+      //   }}
+      // />
+      <>
+        <Skeleton variant="rounded" animation='wave' height={300} style={{ width: '95%', margin: 20, alignContent: 'center'}}/>
+        </>
     );
   }
 

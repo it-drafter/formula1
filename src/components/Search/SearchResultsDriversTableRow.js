@@ -6,6 +6,8 @@ import Collapse from '@mui/material/Collapse';
 //import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import GlobalContext from '../../context/global-context';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
 // import DriverDetailsCollapsable from './DriverDetailsCollapsable';
 
 const SearchResultsDriversTableRow = (props) => {
@@ -45,7 +47,7 @@ const SearchResultsDriversTableRow = (props) => {
         </TableCell>
         <TableCell>{props.driver.dateOfBirth}</TableCell>
         <TableCell>
-          <a href={props.driver.url} target='_blank'>↗</a></TableCell>
+          <a href={props.driver.url} target='_blank'>< OpenInNewIcon /></a></TableCell>
       </TableRow>
       {/* 
       <TableRow>
