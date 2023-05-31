@@ -19,8 +19,8 @@ const GrandPrixDetailsCollapse = (props) => {
   }, []);
 
   const getGrandPrixDetails = async () => {
-    // const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
-    const url = `https://raw.githubusercontent.com/nkezic/f1/main/Results`;
+    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
+    // const url = `https://raw.githubusercontent.com/nkezic/f1/main/Results`;
     try {
       const response = await axios.get(url);
       setGrandPrixDetails(response.data.MRData.RaceTable.Races);
