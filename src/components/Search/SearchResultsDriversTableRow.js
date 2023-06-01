@@ -14,24 +14,25 @@ const SearchResultsDriversTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  
 
   // console.log('Props', props.driver.nationality);
   // console.log('Props111', props);
 
-  //   const handleClickDetails = (driverId) => {
-  //     console.log(driverId);
-  //     const linkTo = `/drivers/details/${driverId}`;
-  //     navigate(linkTo);
-  //   };
-
+    const handleClickDetails = (driverId) => {
+      console.log("search klik " ,);
+      const linkTo = `/drivers/details/${driverId}`;
+      navigate(linkTo);
+    };
+    // console.log("props", props)
   return (
     <>
       <TableRow>
         <TableCell
           component='th'
           scope='row'
-          //   onClick={() => handleClickDetails(props.driver.driverId)}
-          //   className='rucica'
+            onClick={() => handleClickDetails(props.driver.driverId)}
+            className='mouseHandle'
         >
           {`${props.driver.givenName} ${props.driver.familyName}`}
         </TableCell>

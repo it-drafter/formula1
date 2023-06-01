@@ -64,21 +64,21 @@ export default function Navigation() {
                 <NavLink to='/drivers' className='nav-link text-center'>
                   <h2 className='mb-4'>Drivers</h2>
                   <div>
-                    <img src='./img/helmet.svg' className='helmet' />
+                    <img src='../img/drivers.svg' className='helmet' />
                   </div>
                 </NavLink>
 
                 <NavLink to='/teams' className='nav-link text-center'>
                   <h2 className='mb-4'>Teams</h2>
                   <div>
-                    <img src='./img/bolid.svg' className='teams1' />
+                    <img src='../img/bolid.svg' className='teams1' />
                   </div>
                 </NavLink>
 
                 <NavLink to='/races' className='nav-link text-center'>
                   <h2 className='mb-4'>Races</h2>
                   <div>
-                    <img src='./img/raceFlags.svg' className='races2' />
+                    <img src='../img/raceFlags.svg' className='races2' />
                   </div>
                 </NavLink>
               </Nav>
