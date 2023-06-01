@@ -90,27 +90,28 @@ const GrandPrixDetails = () => {
           <TableBody>
             <TableRow>
               <TableCell align='center' colSpan={2}>
-                {globalCtx.flagFn(
-                  grandPrix[round - 1]?.Circuit.Location.country,
-                  200
-                )}
+                <iframe src={googleMap}></iframe>
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell align='center' colSpan={2} className='tableRow-cell'>
+              <TableCell
+                className='flagName tableRow-boldCell'
+                colSpan={2}
+                align='center'
+              >
                 {grandPrix[round - 1].raceName}
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className='tableRow-cell'>Country:</TableCell>
-              <TableCell className='tableRow-cell'>
-                {grandPrix[round - 1].Circuit.Location.country}
               </TableCell>
             </TableRow>
             <TableRow>
               <TableCell className='tableRow-cell'>Location:</TableCell>
               <TableCell className='tableRow-cell'>
-                {grandPrix[round - 1].Circuit.Location.locality}
+                {globalCtx.flagFn(
+                  grandPrix[round - 1]?.Circuit.Location.country
+                )}
+                <span>  </span>
+                {grandPrix[round - 1].Circuit.Location.country
+                  + ',  ' +
+                  grandPrix[round - 1].Circuit.Location.locality}
               </TableCell>
             </TableRow>
             <TableRow>
@@ -135,11 +136,6 @@ const GrandPrixDetails = () => {
                 <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
                   Wikipedia <OpenInNewIcon />
                 </a>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell align='center' colSpan={2}>
-                <iframe src={googleMap}></iframe>
               </TableCell>
             </TableRow>
           </TableBody>

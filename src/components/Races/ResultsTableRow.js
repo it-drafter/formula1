@@ -57,7 +57,8 @@ const ResultsTableRow = (props) => {
             ? props.result.status
             : 'DNF'}
       </TableCell>
-      <TableCell className={classFunction(props.result.position, props.result.points)} >
+
+      <TableCell className={`tableRow-cell ${classFunction(props.result.position, props.result.points)}`} >
         {props.result.points}
       </TableCell>
     </TableRow>

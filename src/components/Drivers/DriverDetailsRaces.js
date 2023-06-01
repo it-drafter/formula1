@@ -52,9 +52,9 @@ const DriverDetailsRaces = (props) => {
                 <TableCell className='tableRow-cell'>{DetailRace.round}</TableCell>
                 <TableCell
                   onClick={() => props.handleRouteToGrandPrix(DetailRace.round)}
-                  className='mouseHandle'
+                  className='mouseHandle tableRow-cell'
                 >
-                  <div className='flagName'>
+                  <div className='flagName tableRow-cell'>
                     {globalCtx.flagFn(
                       props.driverDetailsRaces[index].Circuit.Location.country
                     )}
@@ -68,9 +68,9 @@ const DriverDetailsRaces = (props) => {
                       DetailRace.Results[0].Constructor.constructorId
                     )
                   }
-                  className='mouseHandle flagName'
+                  className='mouseHandle flagName tableRow-cell'
                 >
-                  <div className='flagName'>
+                  <div className='flagName tableRow-cell'>
                     {globalCtx.flagFn(
                       DetailRace.Results[0].Constructor.nationality
                     )}
@@ -79,12 +79,10 @@ const DriverDetailsRaces = (props) => {
                   </div>
                 </TableCell >
                 {/* <TableCell>{DetailRace.Results[0].Constructor.name}</TableCell> */}
-                <TableCell>{DetailRace.Results[0].grid}</TableCell>
+                <TableCell className='tableRow-cell'>{DetailRace.Results[0].grid}</TableCell>
                 <TableCell
-                  className={classFunction(
-                    DetailRace.Results[0].position,
-                    DetailRace.Results[0].points
-                  )}
+                  className={`tableRow-cell ${classFunction(DetailRace.Results[0].position, DetailRace.Results[0].points)}`}
+
                 //{classFunction(props.result.position, props.result.points)}
                 //{'position_' + DetailRace.Results[0].position}
                 >

@@ -117,15 +117,14 @@ const Home = () => {
       >
         <img
           className='d-block col h-50 w-50 mb-3'
-          src='./img/retro_poster.png'
+          src='./img/retro_poster.jpg'
         />
 
         {/* <Drivers home={true} /> */}
         <Table className='table-home col'>
           <TableHead>
             <TableRow className='table-header'>
-              <TableCell align='center'>Position </TableCell>
-              <TableCell>Driver </TableCell>
+              <TableCell colSpan={2}>Driver standings for season {globalCtx.chosenYear}.</TableCell>
             </TableRow>
           </TableHead>
           <TableBody className='table-body'>
