@@ -18,17 +18,13 @@ table {
     background-color: #d5ece2;
 
     .table-header {
-
         th {
             font-weight: bold;
             font-size: medium;
             background-color: #19553b;
             color: #b3c6be;
             font-family: formulaBold;
-
         }
-
-        
     }
 
     // tr:nth-child(even) {
@@ -43,26 +39,34 @@ table {
         }
 
         &:hover {
-            background-color: lightgray;
+            background-color: #8BC6AD;
         }
 
     }
 
-  
+
 
     .driverDetails {
         display: flex
     }
 
     .tableContainer {
-        //margin-left: 15px;
-        margin: auto;
-        margin-bottom: 20px;
-        background-color: #19553b;
-        //color:  #b3c6be;
-        //border:7px solid #E10600;
+            //margin-left: 15px;
+            margin: auto;
+            margin-bottom: 20px;
+            background-color: #19553b;
+            //color:  #b3c6be;
+            //border:7px solid #E10600;
+       
+        // tr {
+        //     &:nth-child(even) {
+        //         background-color: #50a17e;
+        //     }
+        // }
     }
 }
+
+
 
 // .tableContainer {
 //     border: crimson!important;
