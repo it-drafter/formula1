@@ -69,68 +69,6 @@ const GrandPrixDetails = () => {
       <div className='px-5 w-100 d-flex justify-content-start mb-3'>
         <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
       </div>
-<<<<<<< HEAD
-      <div className='text-center'>
-        <span className='tableRow-boldCell text-success'>
-          Season {globalCtx.chosenYear}
-        </span>
-      </div>
-      <Table className='tableContainer'>
-        <TableBody>
-          <TableRow>
-            <TableCell align='center' colSpan={2}>
-              <iframe src={googleMap}></iframe>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell
-              className='flagName tableRow-boldCell'
-              colSpan={2}
-              align='center'
-            >
-              {globalCtx.flagFn(
-                grandPrix[round - 1]?.Circuit.Location.country
-              )}
-              <span> </span>
-              {grandPrix[round - 1].raceName}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Location:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {grandPrix[round - 1].Circuit.Location.country
-                + ',  ' +
-                grandPrix[round - 1].Circuit.Location.locality}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Date:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {grandPrix[round - 1].date}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Grand Prix details:</TableCell>
-            <TableCell className='details-btn'>
-              <a href={grandPrix[round - 1].url} target='_blank'>
-                Wikipedia <OpenInNewIcon />
-              </a>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Circuit details:</TableCell>
-            <TableCell className='details-btn'>
-              <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
-                Wikipedia <OpenInNewIcon />
-              </a>
-            </TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-      <div>
-        <img
-          src={`./img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
-=======
 
       <Stack
         direction={{ sm: 'column', md: 'row' }}
@@ -142,7 +80,6 @@ const GrandPrixDetails = () => {
           <img
             src={`./img/grand_prix/${globalCtx.chosenYear}/${
               grandPrix[round - 1].Circuit.circuitId
->>>>>>> 3aca93b60c115dd0c4a1cfd99e72baa82a317bbb
             }.jpeg`}
             onError={({ currentTarget }) => {
               currentTarget.onerror = null; // prevents looping
