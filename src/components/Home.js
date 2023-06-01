@@ -112,7 +112,7 @@ const Home = () => {
         <div className='row justify-content-between'>
           <img
             className='d-block col h-50 w-50 mb-3'
-            src='./img/grand_prix/2023/monaco.jpeg'
+            src='/img/retro_poster.png'
           />
 
           {/* <Drivers home={true} /> */}
