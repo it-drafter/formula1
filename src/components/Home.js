@@ -117,7 +117,7 @@ const Home = () => {
       >
         <img
           className='d-block col h-50 w-50 mb-3'
-          src='/img/retro_poster.png'
+          src='./img/retro_poster.png'
         />
 
         {/* <Drivers home={true} /> */}
