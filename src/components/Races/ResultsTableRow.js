@@ -31,8 +31,6 @@ const ResultsTableRow = (props) => {
     } else return 'gray';
   };
 
-
-
   return (
     <TableRow className={'fastest_lap_' + props.result.FastestLap?.rank ?? ""}>
       <TableCell className='tableRow-cell'>{props.result.position}</TableCell>
@@ -61,7 +59,6 @@ const ResultsTableRow = (props) => {
             ? props.result.status
             : 'DNF'}
       </TableCell>
-      {/* <TableCell className={'position_' + props.result.position}> */}
       <TableCell
         className={classFunction(props.result.position, props.result.points)}
       >

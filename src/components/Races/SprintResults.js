@@ -24,7 +24,6 @@ const SprintResults = (props) => {
 
   const getSprintResults = async () => {
     const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/sprint.json`;
-    // setIsLoading(true);
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races[0].SprintResults;
@@ -37,7 +36,6 @@ const SprintResults = (props) => {
   };
 
   if (error) {
-    // return <p>SprintResults component Error: {error.message}</p>;
     return false;
   }
 

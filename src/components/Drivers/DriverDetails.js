@@ -130,7 +130,7 @@ const DriverDetails = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-        }}
+          }}
         />
       </>
 
