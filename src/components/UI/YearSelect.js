@@ -57,7 +57,7 @@ export default function YearSelect() {
           {years.map((year) => (
             <Button
               active={year === globalCtx.chosenYear}
-              variant='outline-danger'
+              variant='success'
               size='sm'
               className='col years'
               key={year}
