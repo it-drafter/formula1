@@ -27,11 +27,13 @@ table {
             font-family: formulaBold;
 
         }
+
+        
     }
 
-    tr:nth-child(even) {
-        background-color: red;
-    }
+    // tr:nth-child(even) {
+    //     background-color: red;
+    // }
 
     tr {
         font-family: formula;
@@ -46,12 +48,18 @@ table {
 
     }
 
+  
+
     .driverDetails {
         display: flex
     }
 
     .tableContainer {
-        margin-left: 15px;
+        //margin-left: 15px;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #19553b;
+        //color:  #b3c6be;
         //border:7px solid #E10600;
     }
 }
