@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-//import { RiseLoader } from 'react-spinners';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Table from '@mui/material/Table';
@@ -22,13 +21,11 @@ const GrandPrixDetailsCollapse = (props) => {
 
   const getGrandPrixDetails = async () => {
     const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
-    // const url = `https://raw.githubusercontent.com/nkezic/f1/main/Results`;
     try {
       const response = await axios.get(url);
       setGrandPrixDetails(response.data.MRData.RaceTable.Races);
       setIsLoading(false);
     } catch (err) {
-      //   console.log(err);
       setIsLoading(false);
       setError(err);
     }
@@ -40,25 +37,17 @@ const GrandPrixDetailsCollapse = (props) => {
 
   if (isLoading) {
     return (
-      // <RiseLoader
-      //   size={4}
-      //   style={{
-      //     display: 'flex',
-      //     justifyContent: 'center',
-      //     marginBottom: '15px',
-      //   }}
-      // />
       <>
         <Skeleton
           variant='rounded'
           animation='wave'
           height={50}
-          style={{ width: '95%', margin: 20}}
+          style={{ width: '95%', margin: 20 }}
         />
       </>
     );
   }
-  console.log('moj props', props);
+
   return (
     <>
       <Table
@@ -82,9 +71,7 @@ const GrandPrixDetailsCollapse = (props) => {
                 {globalCtx.flagFn(
                   grandPrixDetails[props.round - 1]?.Circuit.Location.country
                 )}
-
                 <span> </span>
-
                 {grandPrixDetails[props.round - 1]?.Circuit.Location.country}
               </div>
             </TableCell>
