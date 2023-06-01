@@ -53,9 +53,11 @@ const SprintShootoutResults = (props) => {
   }
 
   return (
-    <>
-      <h1>Sprint shootout component</h1>
-      <Table>
+    <div>
+      <h2 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
+        Sprint shootout
+      </h2>
+      <Table className='tableContainer mt-3'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Pos</TableCell>
@@ -73,7 +75,7 @@ const SprintShootoutResults = (props) => {
           ))}
         </TableBody>
       </Table>
-    </>
+    </div>
   );
 };
 

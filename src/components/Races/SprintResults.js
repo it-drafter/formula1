@@ -42,20 +42,22 @@ const SprintResults = (props) => {
   if (isLoading) {
     return (
       <RiseLoaderSpinner
-        // style={{
-        //   height: '50vh',
-        //   display: 'flex',
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        // }}
+      // style={{
+      //   height: '50vh',
+      //   display: 'flex',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      // }}
       />
     );
   }
 
   return (
-    <>
-      <h1>Sprint results component</h1>
-      <Table>
+    <div>
+      <h2 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
+        Sprint Results
+      </h2>
+      <Table className='tableContainer mt-3'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Pos</TableCell>
@@ -71,7 +73,7 @@ const SprintResults = (props) => {
           ))}
         </TableBody>
       </Table>
-    </>
+    </div>
   );
 };
 

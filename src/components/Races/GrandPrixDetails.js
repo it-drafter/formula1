@@ -1,12 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import { useParams } from 'react-router-dom';
-import {
-  Table,
-  TableBody,
-  TableRow,
-  TableCell,
-} from '@mui/material';
+import { Table, TableBody, TableRow, TableCell } from '@mui/material';
 import axios from 'axios';
 import QualifyingResults from './QualifyingResults';
 import RaceResults from './RaceResults';
@@ -16,6 +11,7 @@ import GlobalContext from '../../context/global-context';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import Footer from '../UI/Footer';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import Stack from '@mui/material/Stack';
 
 const GrandPrixDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -73,76 +69,104 @@ const GrandPrixDetails = () => {
       <div className='px-5 w-100 d-flex justify-content-start mb-3'>
         <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
       </div>
-      <Table className='tableContainer'>
-        <TableBody>
-          <TableRow>
-            <TableCell align='center' colSpan={2}>
-              {globalCtx.flagFn(
-                grandPrix[round - 1]?.Circuit.Location.country,
-                200
-              )}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell align='center' colSpan={2} className='tableRow-cell'>
-              {grandPrix[round - 1].raceName}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Country:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {grandPrix[round - 1].Circuit.Location.country}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Location:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {grandPrix[round - 1].Circuit.Location.locality}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Date:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {grandPrix[round - 1].date}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Grand Prix details:</TableCell>
-            <TableCell className='details-btn'>
-              <a href={grandPrix[round - 1].url} target='_blank'>
-                Wikipedia <OpenInNewIcon />
-              </a>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Circuit details:</TableCell>
-            <TableCell className='details-btn'>
-              <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
-                Wikipedia <OpenInNewIcon />
-              </a>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell align='center' colSpan={2}>
-              <iframe src={googleMap}></iframe>
-            </TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-      <div>
-        <img
-          src={`./img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
+
+      <Stack
+        direction={{ sm: 'column', md: 'row' }}
+        spacing={2}
+        m={5}
+        alignItems='flex-start'
+      >
+        <div>
+          <img
+            src={`./img/grand_prix/${globalCtx.chosenYear}/${
+              grandPrix[round - 1].Circuit.circuitId
             }.jpeg`}
-          onError={({ currentTarget }) => {
-            currentTarget.onerror = null; // prevents looping
-            currentTarget.src = `./img/grand_prix/poster.png`;
-          }}
-        />
-      </div>
-      <SprintShootoutResults round={round} />{' '}
-      <SprintResults round={round} />{' '}
-      <QualifyingResults round={round} />
-      <RaceResults round={round} />
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; // prevents looping
+              currentTarget.src = `./img/grand_prix/poster.png`;
+            }}
+          />
+        </div>
+        <Table className='tableContainer' style={{ margin: '0' }}>
+          <TableBody>
+            <TableRow>
+              <TableCell align='center' colSpan={2}>
+                {globalCtx.flagFn(
+                  grandPrix[round - 1]?.Circuit.Location.country,
+                  200
+                )}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell align='center' colSpan={2} className='tableRow-cell'>
+                {grandPrix[round - 1].raceName}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Country:</TableCell>
+              <TableCell className='tableRow-cell'>
+                {grandPrix[round - 1].Circuit.Location.country}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Location:</TableCell>
+              <TableCell className='tableRow-cell'>
+                {grandPrix[round - 1].Circuit.Location.locality}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Date:</TableCell>
+              <TableCell className='tableRow-cell'>
+                {grandPrix[round - 1].date}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>
+                Grand Prix details:
+              </TableCell>
+              <TableCell className='details-btn'>
+                <a href={grandPrix[round - 1].url} target='_blank'>
+                  Wikipedia <OpenInNewIcon />
+                </a>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Circuit details:</TableCell>
+              <TableCell className='details-btn'>
+                <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
+                  Wikipedia <OpenInNewIcon />
+                </a>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell align='center' colSpan={2}>
+                <iframe src={googleMap}></iframe>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </Stack>
+
+      <Stack
+        direction={{ md: 'column', lg: 'row' }}
+        spacing={2}
+        m={2}
+        alignItems='flex-center'
+      >
+        <RaceResults round={round} />
+        <QualifyingResults round={round} />
+      </Stack>
+
+      <Stack
+        direction={{ md: 'column', lg: 'row' }}
+        spacing={2}
+        m={2}
+        alignItems='flex-center'
+      >
+        <SprintResults round={round} />
+        <SprintShootoutResults round={round} />
+      </Stack>
+
       <Footer />
     </>
   );

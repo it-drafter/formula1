@@ -10,7 +10,9 @@ export default function Footer() {
     <div className='flexbox-top footer-team'>
       <BackToTop />
       <span className='footer-item'>Coded by: Fatal Error Team &nbsp;</span>
-      <span className='footer-item'>{codeYear} &copy; </span>
+      <span className='footer-item'>
+        {codeYear} <span class='copyleft'>&copy;</span>{' '}
+      </span>
     </div>
   );
 }
