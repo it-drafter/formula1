@@ -27,10 +27,10 @@ const QualifyingTableRow = (props) => {
 
   return (
     <TableRow>
-      <TableCell>{props.qualifier.position}</TableCell>
+      <TableCell className='tableRow-cell'>{props.qualifier.position}</TableCell>
 
       <TableCell className='mouseHandle' onClick={()=> handleDriverClick(props.qualifier.Driver.driverId)}>
-        <div className='flagName'>
+        <div className='flagName tableRow-cell'>
           {globalCtx.flagFn(props.qualifier.Driver.nationality)}
           <span> </span>
           {props.qualifier.Driver.givenName +
@@ -39,13 +39,13 @@ const QualifyingTableRow = (props) => {
         </div>
       </TableCell>
       <TableCell onClick={()=>handleTeamClick(props.qualifier.Constructor.constructorId)} className="mouseHandle">
-        <div className='flagName'>
+        <div className='flagName tableRow-cell'>
           {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
           <span> </span>
           {props.qualifier.Constructor.name}
         </div>
       </TableCell>
-      <TableCell>{qSort() || 'NC'}</TableCell>
+      <TableCell className='tableRow-cell'>{qSort() || 'NC'}</TableCell>
     </TableRow>
   );
 };

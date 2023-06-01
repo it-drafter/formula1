@@ -35,10 +35,10 @@ const ResultsTableRow = (props) => {
 
   return (
     <TableRow className={'fastest_lap_' + props.result.FastestLap?.rank ?? ""}>
-      <TableCell>{props.result.position}</TableCell>
+      <TableCell className='tableRow-cell'>{props.result.position}</TableCell>
       <TableCell 
       onClick={()=>handleDriverClick(props.result.Driver.driverId)}
-      className="mouseHandle">
+      className="mouseHandle tableRow-cell">
         <div className='flagName'>
           {globalCtx.flagFn(props.result.Driver.nationality)}
           <span> </span>
@@ -47,14 +47,14 @@ const ResultsTableRow = (props) => {
       </TableCell>
       <TableCell 
       onClick={()=> handleTeamClick(props.result.Constructor.constructorId)} 
-      className="mouseHandle">
+      className="mouseHandle tableRow-cell">
         <div className='flagName'>
           {globalCtx.flagFn(props.result.Constructor.nationality)}
           <span> </span>
           {props.result.Constructor.name}
         </div>
       </TableCell>
-      <TableCell>
+      <TableCell className='tableRow-cell'>
         {props.result.status === 'Finished'
           ? props.result.Time.time
           : props.result.status[0] === '+'
