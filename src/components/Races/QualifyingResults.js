@@ -24,8 +24,6 @@ const QualifyingResults = (props) => {
 
   const getQualifying = async () => {
     const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
-    // const url = `https://raw.githubusercontent.com/nkezic/f1/main/Qualifiers`;
-    // setIsLoading(true);
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races[0].QualifyingResults;
@@ -38,27 +36,28 @@ const QualifyingResults = (props) => {
   };
 
   if (error) {
-    // return <p>QualifyingResults component Error: {error.message}</p>;
     return false;
   }
 
   if (isLoading) {
     return (
       <RiseLoaderSpinner
-        // style={{
-        //   height: '50vh',
-        //   display: 'flex',
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        // }}
+      // style={{
+      //   height: '50vh',
+      //   display: 'flex',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      // }}
       />
     );
   }
 
   return (
     <>
-      <h1>Race qualifying component</h1>
-      <Table className='tableContainer'>
+      <h1 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
+        Qualifying Session:
+      </h1>
+      <Table className='tableContainer mt-3'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Pos</TableCell>

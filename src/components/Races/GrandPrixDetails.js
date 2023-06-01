@@ -6,8 +6,6 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  // Link,
-  // Breadcrumbs,
 } from '@mui/material';
 import axios from 'axios';
 import QualifyingResults from './QualifyingResults';
@@ -15,7 +13,6 @@ import RaceResults from './RaceResults';
 import SprintShootoutResults from './SprintShootoutResults';
 import SprintResults from './SprintResults';
 import GlobalContext from '../../context/global-context';
-// import { useNavigate } from 'react-router-dom';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import Footer from '../UI/Footer';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
@@ -25,8 +22,6 @@ const GrandPrixDetails = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [grandPrix, setGrandPrix] = useState([]);
-  // const navigate = useNavigate();
-
   const params = useParams();
   const round = params.round;
 
@@ -36,8 +31,6 @@ const GrandPrixDetails = () => {
 
   const getGrandPrix = async () => {
     const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
-    // const url = `https://raw.githubusercontent.com/nkezic/f1/main/Results`;
-    // setIsLoading(true);
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races;
@@ -56,12 +49,12 @@ const GrandPrixDetails = () => {
   if (isLoading) {
     return (
       <RiseLoaderSpinner
-        // style={{
-        //   height: '50vh',
-        //   display: 'flex',
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        // }}
+      // style={{
+      //   height: '50vh',
+      //   display: 'flex',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      // }}
       />
     );
   }
@@ -77,7 +70,9 @@ const GrandPrixDetails = () => {
 
   return (
     <>
-      <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
+      <div className='px-5 w-100 d-flex justify-content-start mb-3'>
+        <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
+      </div>
       <Table className='tableContainer'>
         <TableBody>
           <TableRow>
@@ -107,7 +102,9 @@ const GrandPrixDetails = () => {
           </TableRow>
           <TableRow>
             <TableCell className='tableRow-cell'>Date:</TableCell>
-            <TableCell className='tableRow-cell'>{grandPrix[round - 1].date}</TableCell>
+            <TableCell className='tableRow-cell'>
+              {grandPrix[round - 1].date}
+            </TableCell>
           </TableRow>
           <TableRow>
             <TableCell className='tableRow-cell'>Grand Prix details:</TableCell>
@@ -134,8 +131,9 @@ const GrandPrixDetails = () => {
       </Table>
       <div>
         <img
-          src={`./img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
-            }.jpeg`}
+          src={`./img/grand_prix/${globalCtx.chosenYear}/${
+            grandPrix[round - 1].Circuit.circuitId
+          }.jpeg`}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null; // prevents looping
             currentTarget.src = `./img/grand_prix/poster.png`;
@@ -143,11 +141,9 @@ const GrandPrixDetails = () => {
         />
       </div>
       <SprintShootoutResults round={round} />{' '}
-      {/*  samo 2023. godine se pojavljuje za azerbejdzan  */}
       <SprintResults round={round} />{' '}
-      {/*  postoji od 2021. do sada za: 2021:  - 10,14,19, a za 2022. 4,11,21, i za 2023. za azerbejdzan  */}
-      <QualifyingResults round={round} /> {/*  ovo moramo prikazati  */}
-      <RaceResults round={round} /> {/*  ovo ima za svaku sezonu  */}
+      <QualifyingResults round={round} />
+      <RaceResults round={round} />
       <Footer />
     </>
   );
