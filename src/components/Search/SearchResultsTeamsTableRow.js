@@ -30,6 +30,7 @@ const SearchResultsDriversTableRow = (props) => {
         <TableCell
           component='th'
           scope='row'
+          className='tableRow-cell'
           //   onClick={() => handleClickDetails(props.driver.driverId)}
           //   className='rucica'
         >
@@ -39,14 +40,14 @@ const SearchResultsDriversTableRow = (props) => {
         //   onClick={() => handleClickDetails(props.driver.Driver.driverId)}
         //   className='rucica'
         >
-          <div className='flagName'>
+          <div className='flagName tableRow-cell'>
             {globalCtx.flagFn(props.team.nationality)}
             <span> </span>
             <span> </span>
             {props.team.nationality}
           </div>
         </TableCell>
-        <TableCell>
+        <TableCell className='details-btn'>
           <a href={props.team.url} target='_blank'>
             <OpenInNewIcon />
           </a>

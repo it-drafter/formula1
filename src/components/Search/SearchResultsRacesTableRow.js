@@ -40,7 +40,7 @@ const SearchResultsRacesTableRow = (props) => {
         //   onClick={() => handleClickDetails(props.driver.Driver.driverId)}
         //   className='rucica'
         >
-          <div className='flagName'>
+          <div className='flagName tableRow-cell'>
          
             {globalCtx.flagFn(props.race.Circuit.Location.country)}
             <span> </span>
@@ -48,13 +48,13 @@ const SearchResultsRacesTableRow = (props) => {
             {props.race.raceName}
           </div>
         </TableCell>
-        <TableCell>
+        <TableCell className='details-btn'>
           <a href={props.race.url} target='_blank'><OpenInNewIcon/></a></TableCell>
-        <TableCell>
+        <TableCell className='tableRow-cell'>
           {props.race.Circuit.circuitName} ({props.race.Circuit.circuitId})
         </TableCell>
-        <TableCell>{props.race.Circuit.Location.locality}</TableCell>
-        <TableCell>{`${props.race.Results[0].Driver.givenName} ${props.race.Results[0].Driver.familyName} / ${props.race.Results[0].Constructor.name}`}</TableCell>
+        <TableCell className='tableRow-cell'>{props.race.Circuit.Location.locality}</TableCell>
+        <TableCell className='tableRow-cell'>{`${props.race.Results[0].Driver.givenName} ${props.race.Results[0].Driver.familyName} / ${props.race.Results[0].Constructor.name}`}</TableCell>
       </TableRow>
 
       {/* <TableRow>
