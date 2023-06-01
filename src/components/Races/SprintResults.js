@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import {
   Table,
   TableHead,
@@ -41,13 +41,13 @@ const SprintResults = (props) => {
 
   if (isLoading) {
     return (
-      <RiseLoader
-        style={{
-          height: '50vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
+      <RiseLoaderSpinner
+        // style={{
+        //   height: '50vh',
+        //   display: 'flex',
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
+        // }}
       />
     );
   }

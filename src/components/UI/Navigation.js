@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, Routes, Route, NavLink, HashRouter } from 'react-router-dom';
 import Drivers from '../Drivers/Drivers';
 import Races from '../Races/Races';
@@ -32,6 +32,7 @@ export default function Navigation() {
 
   //   };
   // }, []);
+  
 
   return (
     <>

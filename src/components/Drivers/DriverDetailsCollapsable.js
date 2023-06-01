@@ -81,7 +81,7 @@ const DriverDetailsCollapsable = (props) => {
         className='tableContainer'
       >
         <TableHead>
-          <TableRow>
+          <TableRow className='color-wrap'>
             <TableCell>
               <div className='flagName'>
                 {globalCtx.flagFn(driverDetails?.Driver.nationality)}
@@ -101,7 +101,7 @@ const DriverDetailsCollapsable = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
+          <TableRow className='color-wrap'>
             <TableCell>
               <img
                 src={`./img/drivers/${driverDetails.Driver.driverId}.png`}
