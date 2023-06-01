@@ -51,7 +51,7 @@ const BreadCrumbs = (props) => {
   };
 
   return (
-    <div className='container text-left'>
+    <div className=''>
       {/* <h1>Breadcrumbs component</h1> */}
 
       <Breadcrumbs aria-label='breadcrumb'>
