@@ -75,12 +75,12 @@ const SearchResultsRaces = () => {
   if (isLoading) {
     return (
       <RiseLoaderSpinner
-        // style={{
-        //   height: '50vh',
-        //   display: 'flex',
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        // }}
+      // style={{
+      //   height: '50vh',
+      //   display: 'flex',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      // }}
       />
     );
   }
@@ -95,7 +95,9 @@ const SearchResultsRaces = () => {
           linkTo={`/races/search`}
         />
       </div>
-      <h2 className='h2'>Search Results for '{globalCtx.searchStringValue}'</h2>
+      <h2 className='h2 text-center text-success'>
+        Search Results for '{globalCtx.searchStringValue}'
+      </h2>
       <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>

@@ -73,7 +73,7 @@ const RacesTableRow = (props) => {
         </TableCell>
       </TableRow>
       <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={5}>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout='auto' unmountOnExit>
             <Box sx={{ margin: 0 }}>
               <GrandPrixDetailsCollapse round={props.race.round} />

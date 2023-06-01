@@ -66,7 +66,7 @@
 
   .nav-link:hover {
     color: #d5ece2;
-    background-color: #156844;
+    background-color: #336851;
     //background-color: rgb(255, 136, 0);
   }
 
@@ -77,12 +77,12 @@
   // }
   .active {
     color: #d5ece2;
-    background-color: #398E69;
+    background-color: #228225;
   }
 
   a {
     text-decoration: none;
-    color: #000704;
+    color: black;
     //rgb(255, 0, 0);
     // width: 200px;
     //height: 80px;
@@ -108,7 +108,7 @@
 
 a {
   text-decoration: none;
-  color: #D5ECE2;
+  color: #ccd9d3;
   width: 200px;
   //height: 80px;
 }
@@ -118,15 +118,12 @@ a {
   height: 80px;
   // float: left;
   margin-left: 1vw;
- 
-
 }
 
 .helmet {
   // width: 200px;
-  height: 80px; 
+  height: 80px;
 }
-
 
 .teams1 {
   // width: 200px;
@@ -138,3 +135,4 @@ a {
   height: 80px;
   // mix-blend-mode: multiply;
 }
+

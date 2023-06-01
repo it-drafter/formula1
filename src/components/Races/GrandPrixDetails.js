@@ -49,12 +49,12 @@ const GrandPrixDetails = () => {
   if (isLoading) {
     return (
       <RiseLoaderSpinner
-        // style={{
-        //   height: '50vh',
-        //   display: 'flex',
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        // }}
+      // style={{
+      //   height: '50vh',
+      //   display: 'flex',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      // }}
       />
     );
   }
@@ -70,7 +70,9 @@ const GrandPrixDetails = () => {
 
   return (
     <>
-      <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
+      <div className='px-5 w-100 d-flex justify-content-start mb-3'>
+        <BreadCrumbs levels={[['Races', '/races'], 'Race Details']} />
+      </div>
       <Table className='tableContainer'>
         <TableBody>
           <TableRow>
@@ -100,7 +102,9 @@ const GrandPrixDetails = () => {
           </TableRow>
           <TableRow>
             <TableCell className='tableRow-cell'>Date:</TableCell>
-            <TableCell className='tableRow-cell'>{grandPrix[round - 1].date}</TableCell>
+            <TableCell className='tableRow-cell'>
+              {grandPrix[round - 1].date}
+            </TableCell>
           </TableRow>
           <TableRow>
             <TableCell className='tableRow-cell'>Grand Prix details:</TableCell>
@@ -127,8 +131,9 @@ const GrandPrixDetails = () => {
       </Table>
       <div>
         <img
-          src={`./img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
-            }.jpeg`}
+          src={`./img/grand_prix/${globalCtx.chosenYear}/${
+            grandPrix[round - 1].Circuit.circuitId
+          }.jpeg`}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null; // prevents looping
             currentTarget.src = `./img/grand_prix/poster.png`;

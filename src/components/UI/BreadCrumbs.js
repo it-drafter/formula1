@@ -69,7 +69,7 @@ const BreadCrumbs = (props) => {
             return (
               <span
                 key={index}
-                className='text-dark fw-bold'
+                className='Active-breadcrumb fw-bold'
                 style={{ fontFamily: 'formulaBold' }}
                 // underline='none'
                 // color='text.red'
