@@ -18,6 +18,10 @@ import DriversTableRow from './Drivers/DriversTableRow';
 import YearSelect from './UI/YearSelect';
 import Footer from './UI/Footer';
 import { useNavigate } from 'react-router';
+<<<<<<< HEAD
+=======
+import Container from 'react-bootstrap/Container';
+>>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
 
 // import { useContext } from 'react';
 // import GlobalContext from '../context/global-context';
@@ -54,7 +58,11 @@ const Home = () => {
 
   const getDrivers = async () => {
     // const urlDrivers = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
+<<<<<<< HEAD
     const urlDrivers = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
+=======
+    const urlDrivers = `https://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
+>>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
     try {
       const response = await axios.get(urlDrivers);
       console.warn('response', response);
@@ -74,6 +82,15 @@ const Home = () => {
     return <p>Error: {error.message}</p>;
   }
 
+<<<<<<< HEAD
+=======
+  const handleDriverDetails = (driverId) => {
+    console.log('klik na drivera', driverId);
+    const linkTo = `/drivers/details/${driverId}`;
+    navigate(linkTo);
+  };
+
+>>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
   if (isLoading) {
     return (
       <>
@@ -94,6 +111,7 @@ const Home = () => {
 
   return (
     <>
+<<<<<<< HEAD
       <BreadCrumbs />
 
       <YearSelect />
@@ -122,6 +140,52 @@ const Home = () => {
         </TableBody>
       </Table>
 
+=======
+      <div className='px-5 w-100 d-flex justify-content-start mb-3'>
+        <BreadCrumbs />
+      </div>
+      <div className='text-center'>
+        <YearSelect />
+      </div>
+
+      <div className='container'>
+        <div className='row justify-content-between'>
+          <img
+            className='d-block col h-50 w-50 mb-3'
+            src='./img/grand_prix/2023/monaco.jpeg'
+          />
+
+          {/* <Drivers home={true} /> */}
+          <Table className='table-home col'>
+            <TableHead>
+              <TableRow className='table-header'>
+                <TableCell>Position </TableCell>
+                <TableCell>Driver </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody className='table-body'>
+              {drivers.map((driver) => (
+                <TableRow
+                  key={driver.Driver.driverId}
+                  driver={driver}
+                  className='table-body'
+                >
+                  <TableCell className='tableRow-cell p-0'>
+                    {driver.position}
+                  </TableCell>
+                  <TableCell
+                    onClick={() => handleDriverDetails(driver.Driver.driverId)}
+                    className='mouseHandle tableRow-cell p-0'
+                  >
+                    {driver.Driver.givenName + ' ' + driver.Driver.familyName}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+>>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
       <Footer />
     </>
   );

@@ -28,19 +28,17 @@ const BreadCrumbs = (props) => {
 
   if (!props.levels) {
     return (
-      <div className='container text-left'>
-        {/* <div role='presentation' onClick={handleClick}> */}
-        <Breadcrumbs aria-label='breadcrumb'>
-          <Link
-            underline='hover'
-            color='text.red'
-            aria-current='page'
-            className='mouseHandle'
-          >
-            Home
-          </Link>
-        </Breadcrumbs>
-      </div>
+      <Breadcrumbs aria-label='breadcrumb d-block'>
+        <span
+          // underline='hover'
+          // color='text.red'
+          aria-current='page'
+          className='text-light'
+          style={{ fontFamily: 'formulaBold' }}
+        >
+          Home
+        </span>
+      </Breadcrumbs>
     );
   }
 
@@ -62,6 +60,7 @@ const BreadCrumbs = (props) => {
           color='text.red'
           onClick={() => navigate('/')}
           className='mouseHandle'
+          style={{ fontFamily: 'formulaBold' }}
         >
           Home
         </Link>
@@ -71,6 +70,7 @@ const BreadCrumbs = (props) => {
               <span
                 key={index}
                 className='text-dark fw-bold'
+                style={{ fontFamily: 'formulaBold' }}
                 // underline='none'
                 // color='text.red'
                 // sx={{ fontStyle: 'bold' }}
@@ -86,6 +86,7 @@ const BreadCrumbs = (props) => {
                 color='text.red'
                 className='mouseHandle'
                 onClick={() => handleBCRoute(level)}
+                style={{ fontFamily: 'formulaBold' }}
               >
                 {getCrumb(level)}
               </Link>

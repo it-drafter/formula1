@@ -18,17 +18,17 @@ const RacesTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const imageUrl = `/img/circuits/${props.race.Circuit.circuitId}.jpeg`;
+  const imageUrl = `./img/circuits/${props.race.Circuit.circuitId}.jpeg`;
 
   const handleClickGrandPrix = (round) => {
     const LinkTo = `/races/details/${round}`;
     navigate(LinkTo);
   };
   const handleWinnerClick = (driverId) => {
-    console.log("klik na drivera", props)
-    const linkTo = `/drivers/details/${driverId}`
-    navigate(linkTo)
-  }
+    console.log('klik na drivera', props);
+    const linkTo = `/drivers/details/${driverId}`;
+    navigate(linkTo);
+  };
 
   return (
     <>
@@ -58,7 +58,12 @@ const RacesTableRow = (props) => {
           {props.race.Circuit.circuitName}
         </TableCell>
         <TableCell className='tableRow-cell'>{props.race.date}</TableCell>
-        <TableCell onClick={() => handleWinnerClick(props.race.Results[0].Driver.driverId)} className='tableRow-cell mouseHandle' >
+        <TableCell
+          onClick={() =>
+            handleWinnerClick(props.race.Results[0].Driver.driverId)
+          }
+          className='tableRow-cell mouseHandle'
+        >
           <div className='flagName'>
             {globalCtx.flagFn(props.race.Results[0].Driver.nationality)}
             <span> </span>

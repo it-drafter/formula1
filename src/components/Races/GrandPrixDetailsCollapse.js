@@ -9,7 +9,10 @@ import TableHead from '@mui/material/TableHead';
 import Skeleton from '@mui/material/Skeleton';
 import GlobalContext from '../../context/global-context';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
 
 const GrandPrixDetailsCollapse = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -22,7 +25,7 @@ const GrandPrixDetailsCollapse = (props) => {
   }, []);
 
   const getGrandPrixDetails = async () => {
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
+    const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
     // const url = `https://raw.githubusercontent.com/nkezic/f1/main/Results`;
     try {
       const response = await axios.get(url);
@@ -50,7 +53,16 @@ const GrandPrixDetailsCollapse = (props) => {
       //   }}
       // />
       <>
+<<<<<<< HEAD
       <Skeleton variant="rounded" animation='wave' height={200} style={{ width: '90%', margin: 20}}/>
+=======
+        <Skeleton
+          variant='rounded'
+          animation='wave'
+          height={200}
+          style={{ width: '90%', margin: 20 }}
+        />
+>>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
       </>
     );
   }
@@ -92,8 +104,12 @@ const GrandPrixDetailsCollapse = (props) => {
             </TableCell>
             <TableCell>
               <a href={grandPrixDetails[props.round - 1].url} target='_blank'>
+<<<<<<< HEAD
 
                 Wikipedia < OpenInNewIcon />
+=======
+                Wikipedia <OpenInNewIcon />
+>>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
               </a>
             </TableCell>
           </TableRow>

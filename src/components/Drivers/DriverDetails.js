@@ -51,7 +51,7 @@ const DriverDetails = () => {
     // const urlDriver = `https://raw.githubusercontent.com/nkezic/f1/main/DriverDetails`;
     const urlDriver = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/driverStandings.json`;
     // const urlRaces = `https://raw.githubusercontent.com/nkezic/f1/main/DriverRaces`;
-    const urlRaces = `http://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/results.json`;
+    const urlRaces = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/results.json`;
 
     // const urlFlags =
     //   'https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json';
@@ -61,8 +61,19 @@ const DriverDetails = () => {
       // const responseFlags = await axios.get(urlFlags);
       // console.log('responseFlags', responseFlags.data);
 
+      // console.log(
+      //   'responseDRIVER: ',
+      //   responseDriver.data.MRData.StandingsTable.StandingsLists[0]
+      //     .DriverStandings[0]
+      // );
+
       setDriverDetails(
+<<<<<<< HEAD
         responseDriver.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
+=======
+        responseDriver.data.MRData.StandingsTable.StandingsLists[0]
+          .DriverStandings[0]
+>>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
       );
       setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
       // setFlags(responseFlags.data);
@@ -114,7 +125,11 @@ const DriverDetails = () => {
     );
   }
 
+<<<<<<< HEAD
   console.log('DRIVERS', driverDetails.Driver.driverId);
+=======
+  // console.log('DRIVERS', driverDetails.Driver.driverId);
+>>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
 
   return (
     <>
@@ -127,10 +142,10 @@ const DriverDetails = () => {
           <TableRow>
             <TableCell align='center' colSpan={2}>
               <img
-                src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+                src={`./img/drivers/${driverId}.png`}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null; // prevents looping
-                  currentTarget.src = `/img/drivers/unknownDriver.png`;
+                  currentTarget.src = `./img/drivers/unknownDriver.png`;
                 }}
                 style={{ maxHeight: '100px', paddingRight: '30px' }}
                 alt='Driver'
@@ -213,6 +228,7 @@ const DriverDetails = () => {
             </p>
           </div>
         </div> */}
+<<<<<<< HEAD
         <TableBody>
           <DriverDetailsRaces
             driverDetailsRaces={driverDetailsRaces}
@@ -221,6 +237,17 @@ const DriverDetails = () => {
           />
         </TableBody>
       </Table>
+=======
+        {/* <TableBody> */}
+      </Table>
+      <DriverDetailsRaces
+        driverDetailsRaces={driverDetailsRaces}
+        handleRouteToGrandPrix={handleRouteToGrandPrix}
+        className='mouseHandle'
+      />
+      {/* </TableBody> */}
+
+>>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
       <Footer />
     </>
   );

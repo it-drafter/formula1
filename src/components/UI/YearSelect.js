@@ -33,7 +33,7 @@ export default function YearSelect() {
     <>
       <div>
         <span
-          className='text-info fw-bold mouseHandle'
+          className='text-light fw-bold mouseHandle d-inline-block mb-4'
           onClick={() => setOpen(!open)}
         >
           Season selector: {globalCtx.chosenYear}
@@ -41,13 +41,14 @@ export default function YearSelect() {
         <IconButton
           aria-label='expand row'
           size='small'
+          color='error'
           onClick={() => setOpen(!open)}
         >
           {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
         </IconButton>
       </div>
       <Collapse in={open} timeout='auto' unmountOnExit>
-        <div className='container m-3'>
+        <div className='container mx-auto mb-4'>
           {/* <h1 className='h4 text-primary fw-bold'>Season:</h1> */}
 
           {years.map((year) => (

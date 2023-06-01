@@ -13,7 +13,10 @@ import {
 } from '@mui/material';
 import GlobalContext from '../../context/global-context';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
 
 const DriverDetailsCollapsable = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -57,13 +60,18 @@ const DriverDetailsCollapsable = (props) => {
           marginBottom: '15px',
         }}
       /> */}
-     
-      <Box sx={{ display: 'flex', alignItems: 'center'}}>
-      {/* ,  justifyContent: 'space-between' */}
-      {/* <Avatar width={200} height={200} /> */}
-      <Skeleton variant="circular" width={150} height={150} />
-      <Skeleton variant="rounded" animation='wave' height={300} style={{ width: '80%', margin: 20}} />
-      </Box>
+
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          {/* ,  justifyContent: 'space-between' */}
+          {/* <Avatar width={200} height={200} /> */}
+          <Skeleton variant='circular' width={150} height={150} />
+          <Skeleton
+            variant='rounded'
+            animation='wave'
+            height={300}
+            style={{ width: '80%', margin: 20 }}
+          />
+        </Box>
       </>
     );
   }
@@ -100,10 +108,10 @@ const DriverDetailsCollapsable = (props) => {
           <TableRow>
             <TableCell>
               <img
-                src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+                src={`./img/drivers/${driverDetails.Driver.driverId}.png`}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
-                  currentTarget.src = `/img/drivers/unknownDriver.png`;
+                  currentTarget.src = `./img/drivers/unknownDriver.png`;
                 }}
                 style={{ width: '120px', paddingRight: '30px' }}
                 alt='Driver'
@@ -114,7 +122,11 @@ const DriverDetailsCollapsable = (props) => {
             <TableCell>{driverDetails?.Driver.dateOfBirth}</TableCell>
             <TableCell>
               <a href={driverDetails?.Driver.url} target='_blank'>
+<<<<<<< HEAD
                 Wikipedia <OpenInNewIcon/>
+=======
+                Wikipedia <OpenInNewIcon />
+>>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
               </a>
             </TableCell>
           </TableRow>

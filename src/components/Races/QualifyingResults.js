@@ -23,7 +23,7 @@ const QualifyingResults = (props) => {
   }, []);
 
   const getQualifying = async () => {
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
+    const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
     // const url = `https://raw.githubusercontent.com/nkezic/f1/main/Qualifiers`;
     // setIsLoading(true);
     try {

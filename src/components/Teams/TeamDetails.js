@@ -39,8 +39,8 @@ const TeamDetails = (props) => {
   const getTeamDetails = async () => {
     // const urlDetails = `https://raw.githubusercontent.com/nkezic/f1/main/TeamDetails`;
     // const urlResults = `https://raw.githubusercontent.com/nkezic/f1/main/TeamResults`;
-    const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
-    const urlResults = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/results.json`;
+    const urlDetails = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
+    const urlResults = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/results.json`;
     try {
       const responseDetails = await axios.get(urlDetails);
       const responseResults = await axios.get(urlResults);
@@ -85,10 +85,10 @@ const TeamDetails = (props) => {
           <TableRow>
             <TableCell align='center' colSpan={2} className='tableRow-cell'>
               <img
-                src={`/img/teams/${teamDetails.Constructor.constructorId}.png`}
+                src={`./img/teams/${teamDetails.Constructor.constructorId}.png`}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
-                  currentTarget.src = `/img/teams/unknownConstructor.png`;
+                  currentTarget.src = `./img/teams/unknownConstructor.png`;
                 }}
                 style={{ maxHeight: '100px', paddingRight: '30px' }}
                 alt='Constructor'
