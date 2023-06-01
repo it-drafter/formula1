@@ -52,8 +52,8 @@
     justify-content: center;
     justify-items: center;
     margin: auto;
-    text-align: center!important;
-    font-family: formulaBold!important;
+    text-align: center !important;
+    font-family: formulaBold !important;
     font-size: 24px;
 
     padding-top: 5px;
@@ -65,7 +65,7 @@
   // }
 
   .nav-link:hover {
-    color: rgb(255, 255, 255);
+    color: #d5ece2;
     background-color: #336851;
     //background-color: rgb(255, 136, 0);
   }
@@ -76,7 +76,7 @@
   //   //background-color: rgb(255, 136, 0);
   // }
   .active {
-    color: rgb(255, 255, 255);
+    color: #d5ece2;
     background-color: #228225;
   }
 
