@@ -98,6 +98,7 @@ body {
 .mouseHandle {
   cursor: pointer;
   font-weight: bold !important;
+
   &:hover {
     color: red;
   }
@@ -132,7 +133,7 @@ body {
   bottom: 0;
   width: 100%;
   background-color: #004225;
-  color: white;
+  color: #d5ece2;
   text-align: center;
   border-top: 1px solid rgb(160, 201, 158);
 }
