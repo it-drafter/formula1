@@ -193,10 +193,10 @@ const DriverDetails = () => {
           </TableRow>
           <TableRow>
             <TableCell className='tableRow-cell'>Biography:</TableCell>
-            <TableCell>
+            <TableCell className='details-btn'>
               {' '}
               <a href={driverDetails?.Driver.url} target='_blank'>
-                <OpenInNewIcon />
+                Wikipedia <OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>
