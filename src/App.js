@@ -55,7 +55,7 @@ const App = () => {
     let flagCode = country[0]?.alpha_2_code;
 
     if (!flagCode && nationality === 'Monegasque') {
-      flagCode = 'MN';
+      flagCode = 'MC';
     } else if (!flagCode && nationality === 'UAE') {
       flagCode = 'AE';
     } else if (!flagCode && nationality === 'Dutch') {

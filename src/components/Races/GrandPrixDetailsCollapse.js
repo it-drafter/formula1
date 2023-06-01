@@ -68,7 +68,7 @@ const GrandPrixDetailsCollapse = (props) => {
         className='tableContainer'
       >
         <TableHead>
-          <TableRow>
+          <TableRow className='color-wrap'>
             <TableCell className='tableRow-cell'>Country</TableCell>
             <TableCell className='tableRow-cell'>Location</TableCell>
             <TableCell className='tableRow-cell'>Winner Team</TableCell>
@@ -76,7 +76,7 @@ const GrandPrixDetailsCollapse = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
+          <TableRow className='color-wrap'>
             <TableCell>
               <div className='flagName tableRow-cell'>
                 {globalCtx.flagFn(
