@@ -10,6 +10,7 @@ import DriverDetailsRaces from './DriverDetailsRaces';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import YearSelect from '../UI/YearSelect';
+import Stack from '@mui/material/Stack';
 
 const DriverDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -154,63 +155,69 @@ const DriverDetails = () => {
           Season {globalCtx.chosenYear}
         </span>
       </div>
-      <Table className='table-const-race'>
-        <TableBody className='detailsBody'>
-          <TableRow>
-            <TableCell align='center' colSpan={2}>
-              <img
-                src={`./img/drivers/${driverId}.png`}
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null; // prevents looping
-                  currentTarget.src = `./img/drivers/unknownDriver.png`;
-                }}
-                style={{ maxHeight: '100px', paddingRight: '30px' }}
-                alt='Driver'
-              />
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell
-              className='flagName tableRow-boldCell'
-              colSpan={2}
-              align='center'
-            >
-              {globalCtx.flagFn(driverDetails?.Driver.nationality)}
-              <span> </span>
-              {driverDetails.Driver.givenName +
-                ' ' +
-                driverDetails.Driver.familyName}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Nationality:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {driverDetails?.Driver.nationality}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Team:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {driverDetails?.Constructors[0].name}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Date of Birth:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {driverDetails?.Driver.dateOfBirth}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Biography:</TableCell>
-            <TableCell className='details-btn'>
-              {' '}
-              <a href={driverDetails?.Driver.url} target='_blank'>
-                Wikipedia <OpenInNewIcon />
-              </a>
-            </TableCell>
-          </TableRow>
-        </TableBody>
-        {/* <div className='team-details'>
+      <Stack
+        direction={{ sm: 'column', md: 'row' }}
+        spacing={2}
+        m={5}
+        alignItems='flex-start'
+      >
+        <Table className='table-const-race'>
+          <TableBody className='detailsBody'>
+            <TableRow>
+              <TableCell align='center' colSpan={2}>
+                <img
+                  src={`./img/drivers/${driverId}.png`}
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null; // prevents looping
+                    currentTarget.src = `./img/drivers/unknownDriver.png`;
+                  }}
+                  style={{ maxHeight: '100px', paddingRight: '30px' }}
+                  alt='Driver'
+                />
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell
+                className='flagName tableRow-boldCell'
+                colSpan={2}
+                align='center'
+              >
+                {globalCtx.flagFn(driverDetails?.Driver.nationality)}
+                <span> </span>
+                {driverDetails.Driver.givenName +
+                  ' ' +
+                  driverDetails.Driver.familyName}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Nationality:</TableCell>
+              <TableCell className='tableRow-cell'>
+                {driverDetails?.Driver.nationality}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Team:</TableCell>
+              <TableCell className='tableRow-cell'>
+                {driverDetails?.Constructors[0].name}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Date of Birth:</TableCell>
+              <TableCell className='tableRow-cell'>
+                {driverDetails?.Driver.dateOfBirth}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Biography:</TableCell>
+              <TableCell className='details-btn'>
+                {' '}
+                <a href={driverDetails?.Driver.url} target='_blank'>
+                  Wikipedia <OpenInNewIcon />
+                </a>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+          {/* <div className='team-details'>
           <div>
             <img
               src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
@@ -245,13 +252,14 @@ const DriverDetails = () => {
             </p>
           </div>
         </div> */}
-        {/* <TableBody> */}
-      </Table>
-      <DriverDetailsRaces
-        driverDetailsRaces={driverDetailsRaces}
-        handleRouteToGrandPrix={handleRouteToGrandPrix}
-        className='mouseHandle'
-      />
+          {/* <TableBody> */}
+        </Table>
+        <DriverDetailsRaces
+          driverDetailsRaces={driverDetailsRaces}
+          handleRouteToGrandPrix={handleRouteToGrandPrix}
+          className='mouseHandle'
+        />
+      </Stack>
       {/* </TableBody> */}
 
       <Footer />
