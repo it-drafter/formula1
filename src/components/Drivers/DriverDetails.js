@@ -9,6 +9,7 @@ import GlobalContext from '../../context/global-context';
 import DriverDetailsRaces from './DriverDetailsRaces';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import BreadCrumbs from '../UI/BreadCrumbs';
+import YearSelect from '../UI/YearSelect';
 
 const DriverDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -43,9 +44,10 @@ const DriverDetails = () => {
 
   useEffect(() => {
     getDriverDetails();
-  }, []);
+  }, [globalCtx.chosenYear]);
 
   const getDriverDetails = async () => {
+    setError(null);
     // console.log('DriverDetails', params.driverId);
     // const driverId = params.driverId;
 
@@ -83,7 +85,20 @@ const DriverDetails = () => {
   };
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    // return <p>Error: {error.message}</p>;
+    return (
+      <>
+        <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
+
+        {/* <span className='tableRow-boldCell'>Season {globalCtx.chosenYear}</span> */}
+
+        <p>
+          No data for driver {driverId} in season {globalCtx.chosenYear}
+        </p>
+
+        <Footer />
+      </>
+    );
   }
 
   // const flagFunction = (nationality) => {
