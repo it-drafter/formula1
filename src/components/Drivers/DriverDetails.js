@@ -103,42 +103,11 @@ const DriverDetails = () => {
     );
   }
 
-  // const flagFunction = (nationality) => {
-  //   const country = flags.filter((flag) => flag.nationality === nationality);
-  //   // console.log('nationality:', nationality);
-  //   // console.log('flags:', flags);
-  //   // console.log('country:', country[0]?.alpha_2_code);
-  //   let flagCode = country[0]?.alpha_2_code;
-
-  //   if (!flagCode && nationality === 'British') {
-  //     flagCode = 'GB';
-  //   } else if (!flagCode && nationality === 'Dutch') {
-  //     flagCode = 'NL';
-  //   } else if (!flagCode) {
-  //     return <span></span>;
-  //   } else {
-  //     flagCode = country[0]?.alpha_2_code;
-  //   }
-
-  //   return <Flag size={20} country={flagCode} />;
-  // };
-
   if (isLoading) {
     return (
       <>
-        <RiseLoaderSpinner
-        //   style={{
-        //     height: '50vh',
-        //     display: 'flex',
-        //     justifyContent: 'center',
-        //     alignItems: 'center',
-        // }}
-        />
+        <RiseLoaderSpinner />
       </>
-
-      // <Box sx={{ display: 'flex'}}>
-      // <Skeleton animation='wave' height={500} width='90%' />
-      // <Skeleton variant="rounded" animation='wave' height={500} style={{ width: '90%' }} />
     );
   }
 
@@ -217,42 +186,6 @@ const DriverDetails = () => {
               </TableCell>
             </TableRow>
           </TableBody>
-          {/* <div className='team-details'>
-          <div>
-            <img
-              src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
-              onError={({ currentTarget }) => {
-                currentTarget.onerror = null; // prevents looping
-                currentTarget.src = `/img/drivers/unknownDriver.png`;
-              }}
-              style={{ maxHeight: '100px', paddingRight: '30px' }}
-              alt='Driver'
-            />
-          </div>
-          <div>
-            <div className='flagName'>
-              {globalCtx.flagFn(driverDetails?.Driver.nationality)}
-              <span> </span>
-              {driverDetails.Driver.givenName +
-                ' ' +
-                driverDetails.Driver.familyName}
-            </div>
-
-            <p>
-              Nationality: {driverDetails?.Driver.nationality}
-              <span></span>
-            </p>
-            <p>Team: {driverDetails?.Constructors[0].name}</p>
-            <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
-            <p>
-              Biography:
-              <a href={driverDetails?.Driver.url} target='_blank'>
-                ↗
-              </a>
-            </p>
-          </div>
-        </div> */}
-          {/* <TableBody> */}
         </Table>
         <DriverDetailsRaces
           driverDetailsRaces={driverDetailsRaces}
@@ -260,7 +193,6 @@ const DriverDetails = () => {
           className='mouseHandle'
         />
       </Stack>
-      {/* </TableBody> */}
 
       <Footer />
     </>
@@ -268,16 +200,3 @@ const DriverDetails = () => {
 };
 
 export default DriverDetails;
-
-// const DriverDetails = () => {
-//   const params = useParams();
-//   console.log('DriverDetails', params.driverId);
-//   return (
-//     <>
-//       <h1>Driver Details</h1>
-//       <h2>{params.driverId}</h2>
-//     </>
-//   );
-// };
-
-// export default DriverDetails;
