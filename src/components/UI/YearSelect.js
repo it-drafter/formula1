@@ -41,7 +41,7 @@ export default function YearSelect() {
         <IconButton
           aria-label='expand row'
           size='small'
-          color='error'
+          color='success'
           onClick={() => setOpen(!open)}
         >
           {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}

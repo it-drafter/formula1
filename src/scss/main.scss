@@ -92,7 +92,7 @@ body {
 }
 
 .fastest_lap_1 {
-  background-color: #f3aff3;
+  background-color: #f3aff3 !important;
 }
 
 .mouseHandle {
@@ -100,7 +100,8 @@ body {
   font-weight: bold !important;
 
   &:hover {
-    color: red;
+
+    color: #257b56
   }
 }
 
