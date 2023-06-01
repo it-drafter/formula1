@@ -39,7 +39,7 @@ export default function YearSelect() {
         >
           Season selector: {globalCtx.chosenYear}
         </span>
-        <Tooltip placement='right' title='See all seasons' arrow>
+        <Tooltip placement='right' title='Show all seasons' arrow>
           <IconButton
             aria-label='expand row'
             size='small'
