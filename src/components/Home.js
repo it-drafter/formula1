@@ -112,7 +112,7 @@ const Home = () => {
         <div className='row justify-content-between'>
           <img
             className='d-block col h-50 w-50 mb-3'
-            src='./img/grand_prix/2023/monaco.jpeg'
+            src='/img/retro_poster.png'
           />
 
           {/* <Drivers home={true} /> */}
@@ -138,9 +138,9 @@ const Home = () => {
                     className='mouseHandle tableRow-cell p-0'
                   >
                     <div className='flagName'>
-                    {globalCtx.flagFn(driver.Driver.nationality)}
-                    <span> </span>
-                    {driver.Driver.givenName + ' ' + driver.Driver.familyName}
+                      {globalCtx.flagFn(driver.Driver.nationality)}
+                      <span> </span>
+                      {driver.Driver.givenName + ' ' + driver.Driver.familyName}
                     </div>
                   </TableCell>
                 </TableRow>

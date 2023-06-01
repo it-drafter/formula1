@@ -138,7 +138,7 @@ const GrandPrixDetails = () => {
             }.jpeg`}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null; // prevents looping
-            currentTarget.src = `./img/neutral.svg`;
+            currentTarget.src = `./img/grand_prix/poster.png`;
           }}
         />
       </div>
