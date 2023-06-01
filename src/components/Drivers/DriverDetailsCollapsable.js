@@ -60,11 +60,11 @@ const DriverDetailsCollapsable = (props) => {
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           {/* ,  justifyContent: 'space-between' */}
           {/* <Avatar width={200} height={200} /> */}
-          <Skeleton variant='circular' width={150} height={150} />
+          <Skeleton variant='circular' width={50} height={50} />
           <Skeleton
             variant='rounded'
             animation='wave'
-            height={300}
+            height={50}
             style={{ width: '80%', margin: 20 }}
           />
         </Box>
