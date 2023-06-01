@@ -68,9 +68,12 @@ const TeamDetails = (props) => {
   if (isLoading) {
     return (
       <RiseLoader
-        style={{
-          marginTop: '100px',
-        }}
+      style={{
+        height: '50vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }}
       />
     );
   }

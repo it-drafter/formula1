@@ -126,8 +126,11 @@ const DriverDetails = () => {
       <>
         <RiseLoader
           style={{
-            marginTop: '100px',
-          }}
+            height: '50vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+        }}
         />
       </>
 

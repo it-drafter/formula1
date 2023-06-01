@@ -21,8 +21,8 @@ table {
         th {
             font-weight: bold;
             font-size: medium;
-            background-color: #19553b;
-            color: #b3c6be;
+            background-color: #004225;
+            color: #D5ECE2;
             font-family: formulaBold;
         }
     }
@@ -36,7 +36,7 @@ table {
         background-color: #d5ece2;
 
         &:nth-child(even) {
-            background-color: #50a17e;
+            background-color: #AED9C6;
         }
 
         &:hover {
@@ -52,13 +52,13 @@ table {
     }
 
     .tableContainer {
-            //margin-left: 15px;
-            margin: auto;
-            margin-bottom: 20px;
-            background-color: #19553b;
-            //color:  #b3c6be;
-            //border:7px solid #E10600;
-       
+        //margin-left: 15px;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #004225;
+        //color:  #b3c6be;
+        //border:7px solid #E10600;
+
         // tr {
         //     &:nth-child(even) {
         //         background-color: #50a17e;
