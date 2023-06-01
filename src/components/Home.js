@@ -137,7 +137,11 @@ const Home = () => {
                     onClick={() => handleDriverDetails(driver.Driver.driverId)}
                     className='mouseHandle tableRow-cell p-0'
                   >
+                    <div className='flagName'>
+                    {globalCtx.flagFn(driver.Driver.nationality)}
+                    <span> </span>
                     {driver.Driver.givenName + ' ' + driver.Driver.familyName}
+                    </div>
                   </TableCell>
                 </TableRow>
               ))}
