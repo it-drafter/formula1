@@ -56,7 +56,7 @@ const TeamDetailsCollapsable = (props) => {
         <Skeleton
           variant='rounded'
           animation='wave'
-          height={300}
+          height={50}
           style={{ width: '95%', margin: 20, alignContent: 'center' }}
         />
       </>

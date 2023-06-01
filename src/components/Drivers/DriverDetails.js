@@ -30,6 +30,7 @@ const DriverDetails = () => {
 
   // console.log('DriverDetails', params.driverId);
   const driverId = params.driverId;
+  // console.log("params", params);
 
   // const getFlags = async () => {
   //   const urlFlags = 'https://flagcdn.com/en/codes.json';
