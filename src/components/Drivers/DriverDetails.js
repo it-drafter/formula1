@@ -94,9 +94,9 @@ const DriverDetails = () => {
         </div>
         {/* <span className='tableRow-boldCell'>Season {globalCtx.chosenYear}</span> */}
 
-        <p>
+        <h2 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
           No data for driver {driverId} in season {globalCtx.chosenYear}
-        </p>
+        </h2>
 
         <Footer />
       </>

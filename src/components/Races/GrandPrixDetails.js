@@ -87,7 +87,7 @@ const GrandPrixDetails = () => {
             }}
           />
         </div>
-        <Table className='tableContainer' style={{ margin: '0' }}>
+        <Table className='tableContainer' style={{ marginTop: '0' }}>
           <TableBody>
             <TableRow>
               <TableCell align='center' colSpan={2}>
@@ -151,6 +151,7 @@ const GrandPrixDetails = () => {
         direction={{ md: 'column', lg: 'row' }}
         spacing={2}
         m={2}
+        style={{ justifyContent: 'center' }}
         alignItems='flex-center'
       >
         <RaceResults round={round} />
@@ -162,6 +163,7 @@ const GrandPrixDetails = () => {
         spacing={2}
         m={2}
         alignItems='flex-center'
+        style={{ justifyContent: 'center' }}
       >
         <SprintResults round={round} />
         <SprintShootoutResults round={round} />
