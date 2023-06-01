@@ -8,12 +8,12 @@
 
 @font-face {
   font-family: formulaBold;
-  src: url("../fonts/Formula1-Bold_web_0.ttf");
+  src: url('../fonts/Formula1-Bold_web_0.ttf');
 }
 
 @font-face {
   font-family: formula;
-  src: url("../fonts/Formula1-Regular_web_0.ttf");
+  src: url('../fonts/Formula1-Regular_web_0.ttf');
 }
 
 @font-face {
@@ -26,11 +26,11 @@ body {
   background-color: #004225;
 
   // background-image: url("./img/home-backdrop.jpg");
-  background-image: url('http://localhost:8080/img/home-backdrop.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right top;
-  background-attachment: fixed;
+  // background-image: url('http://localhost:8080/img/home-backdrop.jpg');
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: right top;
+  // background-attachment: fixed;
 }
 
 // .position_1 {
@@ -104,14 +104,14 @@ body {
 }
 
 // body {
-  // background-image: url("/img/background.png");
-  // background-image: url('http://localhost:8080/img/background.png');
-  
-  //background-color: #cccccc;
+// background-image: url("/img/background.png");
+// background-image: url('http://localhost:8080/img/background.png');
 
-  //     table {
-  //         border-radius: 200px;
-  //  }
+//background-color: #cccccc;
+
+//     table {
+//         border-radius: 200px;
+//  }
 // }
 
 .flagName {
@@ -126,12 +126,13 @@ body {
   }
 }
 
-.footer-team{
+.footer-team {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  // background-color: red;
+  background-color: #004225;
   color: white;
   text-align: center;
+  border-top: 1px solid rgb(160, 201, 158);
 }
