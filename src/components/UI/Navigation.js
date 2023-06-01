@@ -42,8 +42,9 @@ export default function Navigation() {
 
   return (
     <>
+      {/* <Router> */}
       <HashRouter basename='/'>
-        {/ <div styles={{ backgroundImage: `url(${backdrop})` }}> /}
+        {/* <div styles={{ backgroundImage: `url(${backdrop})` }}> */}
         <div>
           <Navbar
             collapseOnSelect
@@ -63,7 +64,7 @@ export default function Navigation() {
                 <NavLink to='/drivers' className='nav-link text-center'>
                   <h2 className='mb-4'>Drivers</h2>
                   <div>
-                    <img src='./img/driver.svg' className='helmet' />
+                    <img src='./img/helmet.svg' className='helmet' />
                   </div>
                 </NavLink>
 
@@ -104,6 +105,7 @@ export default function Navigation() {
           <Route path='/races/search' element={<SearchResultsRaces />} />
         </Routes>
       </HashRouter>
+      {/* </Router> */}
     </>
   );
 }
