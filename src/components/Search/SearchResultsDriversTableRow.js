@@ -1,4 +1,4 @@
-import React, { useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Box from '@mui/material/Box';
@@ -14,25 +14,24 @@ const SearchResultsDriversTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  
 
   // console.log('Props', props.driver.nationality);
   // console.log('Props111', props);
 
-    const handleClickDetails = (driverId) => {
-      console.log("search klik " ,);
-      const linkTo = `/drivers/details/${driverId}`;
-      navigate(linkTo);
-    };
-    // console.log("props", props)
+  const handleClickDetails = (driverId) => {
+    console.log('search klik ', driverId);
+    const linkTo = `/drivers/details/${driverId}`;
+    navigate(linkTo);
+  };
+  // console.log("props", props)
   return (
     <>
       <TableRow>
         <TableCell
           component='th'
           scope='row'
-            onClick={() => handleClickDetails(props.driver.driverId)}
-            className='mouseHandle'
+          onClick={() => handleClickDetails(props.driver.driverId)}
+          className='mouseHandle'
         >
           {`${props.driver.givenName} ${props.driver.familyName}`}
         </TableCell>
@@ -48,7 +47,10 @@ const SearchResultsDriversTableRow = (props) => {
         </TableCell>
         <TableCell>{props.driver.dateOfBirth}</TableCell>
         <TableCell>
-          <a href={props.driver.url} target='_blank'>< OpenInNewIcon /></a></TableCell>
+          <a href={props.driver.url} target='_blank'>
+            <OpenInNewIcon />
+          </a>
+        </TableCell>
       </TableRow>
       {/* 
       <TableRow>

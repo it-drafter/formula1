@@ -2,6 +2,7 @@
    font-family: formula;
    src: url("../fonts/Formula1-Regular_web_0.ttf");
 }
+
 @font-face {
    font-family: formulaBold;
    src: url("../fonts/Formula1-Bold_web_0.ttf");
@@ -26,7 +27,8 @@
    margin-top: 15px;
    display: flex;
    height: 250px;
-   background-color: #d5ece2;
+   background-color: blue;
+   // background-color: #d5ece2;
    border: 7px solid #822522;
    align-items: center;
    font-family: formula;
@@ -54,24 +56,22 @@
 .details-btn {
    a {
       border-radius: 4px;
-    font-family: formula;
+      font-family: formula;
       padding: 3px 12px;
-     
+
    }
 
    a:hover {
-    
-      color: #398e69 ;
+
+      color: #398e69;
    }
 }
 
 .tableRow-cell {
    font-family: formula !important;
-  
-   font-size:12px !important;
- 
-
+   font-size: 12px !important;
 }
+
 .tableRow-boldCell {
    font-family: formulaBold !important;
    font-size: 14px !important;
