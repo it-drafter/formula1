@@ -4,9 +4,11 @@
 }
 
 .NavContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // width: 90dvw;
+  // margin: auto!important;
 }
 
 .NavBar {
@@ -45,16 +47,22 @@
 
   .nav-link {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     justify-items: center;
     margin: auto;
-    font-family: formulaWide;
+    text-align: center!important;
+    font-family: formulaBold!important;
     font-size: 24px;
 
     padding-top: 5px;
     padding-bottom: 5px;
   }
+
+  // .formula-bold{
+  //   font-family: formulaBold!important;
+  // }
 
   .nav-link:hover {
     color: rgb(255, 255, 255);

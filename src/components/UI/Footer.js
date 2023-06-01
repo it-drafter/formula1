@@ -7,7 +7,7 @@ export default function Footer() {
   // const [ShowButton, SetShowButton] = usestate(false);
 
   return (
-    <div className='flexbox-top'>
+    <div className='flexbox-top footer-team'>
       <BackToTop />
       <span className='footer-item'>Coded by: Fatal Error Team &nbsp;</span>
       <span className='footer-item'>{codeYear} &copy; </span>

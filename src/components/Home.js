@@ -18,6 +18,7 @@ import DriversTableRow from './Drivers/DriversTableRow';
 import YearSelect from './UI/YearSelect';
 import Footer from './UI/Footer';
 import { useNavigate } from 'react-router';
+import Container from 'react-bootstrap/Container';
 
 // import { useContext } from 'react';
 // import GlobalContext from '../context/global-context';
@@ -94,37 +95,50 @@ const Home = () => {
 
   return (
     <>
-      <BreadCrumbs />
+      <div className='px-5 w-100 d-flex justify-content-start mb-3'>
+        <BreadCrumbs />
+      </div>
+      <div className='text-center'>
+        <YearSelect />
+      </div>
 
-      <YearSelect />
+      <div className='container'>
+        <div className='row justify-content-between'>
+          <img
+            className='d-block col h-50 w-50 mb-3'
+            src='./img/grand_prix/2023/monaco.jpeg'
+          />
 
-      {/* <Drivers home={true} /> */}
-      <Table className='table-home'>
-        <TableHead>
-          <TableRow className='table-header'>
-            <TableCell>Position </TableCell>
-            <TableCell>Driver </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody className='table-body'>
-          {drivers.map((driver) => (
-            <TableRow
-              key={driver.Driver.driverId}
-              driver={driver}
-              className='table-body'
-            >
-              <TableCell className='tableRow-cell'>{driver.position}</TableCell>
-              <TableCell
-                onClick={() => handleDriverDetails(driver.Driver.driverId)}
-                className='mouseHandle tableRow-cell'
-              >
-                {driver.Driver.givenName + ' ' + driver.Driver.familyName}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-
+          {/* <Drivers home={true} /> */}
+          <Table className='table-home col'>
+            <TableHead>
+              <TableRow className='table-header'>
+                <TableCell>Position </TableCell>
+                <TableCell>Driver </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody className='table-body'>
+              {drivers.map((driver) => (
+                <TableRow
+                  key={driver.Driver.driverId}
+                  driver={driver}
+                  className='table-body'
+                >
+                  <TableCell className='tableRow-cell p-0'>
+                    {driver.position}
+                  </TableCell>
+                  <TableCell
+                    onClick={() => handleDriverDetails(driver.Driver.driverId)}
+                    className='mouseHandle tableRow-cell p-0'
+                  >
+                    {driver.Driver.givenName + ' ' + driver.Driver.familyName}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
       <Footer />
     </>
   );

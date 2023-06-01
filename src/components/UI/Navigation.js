@@ -15,6 +15,7 @@ import F1logo from '../../img/logo.svg';
 import Helmet from '../../img/helmet.svg';
 import Races3 from '../../img/raceFlags.svg';
 import Teams1 from '../../img/bolid.svg';
+// import backdrop from '../../img/home-backdrop.jpg';
 import DriverDetails from '../Drivers/DriverDetails';
 import TeamDetails from '../Teams/TeamDetails';
 import GrandPrixDetails from '../Races/GrandPrixDetails';
@@ -40,44 +41,50 @@ export default function Navigation() {
   // }, []);
 
   return (
-    <div className='NavContainer'>
+    <>
       {/* <Router> */}
       <HashRouter basename='/'>
-        <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
-          <Container>
-            <Link to='/' className='nav-link-home'>
-              <img src='./img/logo.svg' className='homeimg' />
-            </Link>
+        {/* <div styles={{ backgroundImage: `url(${backdrop})` }}> */}
+        <div>
+          <Navbar
+            collapseOnSelect
+            expand='lg'
+            bg='dark'
+            variant='dark'
+            className='NavContainer'
+          >
+            <Navbar.Brand>
+              <Link to='/' className='nav-link-home'>
+                <img src='./img/logo.svg' className='homeimg' />
+              </Link>
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+            <Navbar.Collapse id='responsive-navbar-nav'>
+              <Nav style={{ fontFamily: 'formulaBold', margin: 'auto' }}>
+                <NavLink to='/drivers' className='nav-link text-center'>
+                  <h2 className='mb-4'>Drivers</h2>
+                  <div>
+                    <img src='./img/helmet.svg' className='helmet' />
+                  </div>
+                </NavLink>
 
-            <NavLink to='/drivers' className='nav-link'>
-              <ul>
-                <li> Drivers</li>
-                <li>
-                  <img src='./img/helmet.svg' className='helmet' />
-                </li>
-              </ul>
-            </NavLink>
+                <NavLink to='/teams' className='nav-link text-center'>
+                  <h2 className='mb-4'>Teams</h2>
+                  <div>
+                    <img src='./img/bolid.svg' className='teams1' />
+                  </div>
+                </NavLink>
 
-            <NavLink to='/teams' className='nav-link'>
-              <ul>
-                <li>Teams</li>
-                <li>
-                  <img src='./img/bolid.svg' className='teams1' />
-                </li>
-              </ul>
-            </NavLink>
-
-            <NavLink to='/races' className='nav-link'>
-              <ul>
-                <li>Races</li>
-                <li>
-                  <img src='./img/raceFlags.svg' className='races2' />
-                </li>
-              </ul>
-            </NavLink>
-          </Container>
-        </Navbar>
-
+                <NavLink to='/races' className='nav-link text-center'>
+                  <h2 className='mb-4'>Races</h2>
+                  <div>
+                    <img src='./img/raceFlags.svg' className='races2' />
+                  </div>
+                </NavLink>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+        </div>
         <Routes>
           <Route path='/' element={<Home />} />
 
@@ -99,6 +106,6 @@ export default function Navigation() {
         </Routes>
       </HashRouter>
       {/* </Router> */}
-    </div>
+    </>
   );
 }
