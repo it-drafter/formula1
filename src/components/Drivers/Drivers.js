@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import DriversTableRow from './DriversTableRow';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import {
   Table,
   TableHead,
@@ -74,13 +74,13 @@ const Drivers = (props) => {
   if (isLoading) {
     return (
       <>
-        <RiseLoader
-          style={{
-            height: '50vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
+        <RiseLoaderSpinner
+          // style={{
+          //   height: '50vh',
+          //   display: 'flex',
+          //   justifyContent: 'center',
+          //   alignItems: 'center',
+          // }}
         />
         {/* <Skeleton animation='wave' height={50} width='90%' /> 
          <Skeleton variant="rounded" animation='wave' height={600} style={{ width: '90%', alignItems: 'center' }} />
