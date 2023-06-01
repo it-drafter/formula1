@@ -72,7 +72,7 @@ const TeamDetailsCollapsable = (props) => {
         className='tableContainer'
       >
         <TableHead>
-          <TableRow>
+          <TableRow className='color-wrap'>
             <TableCell className='tableRow-cell'>Team Name</TableCell>
             <TableCell className='tableRow-cell'>Nationality</TableCell>
             <TableCell className='tableRow-cell'>Wins</TableCell>
@@ -80,7 +80,7 @@ const TeamDetailsCollapsable = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
+          <TableRow className='color-wrap'>
             <TableCell>
               <div className='flagName tableRow-cell'>
                 {globalCtx.flagFn(teamDetails.Constructor.nationality)}
