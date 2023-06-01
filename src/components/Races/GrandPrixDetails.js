@@ -89,37 +89,37 @@ const GrandPrixDetails = () => {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell align='center' colSpan={2}>
+            <TableCell align='center' colSpan={2} className='tableRow-cell'>
               {grandPrix[round - 1].raceName}
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Country:</TableCell>
-            <TableCell>
+            <TableCell className='tableRow-cell'>Country:</TableCell>
+            <TableCell className='tableRow-cell'>
               {grandPrix[round - 1].Circuit.Location.country}
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Location:</TableCell>
-            <TableCell>
+            <TableCell className='tableRow-cell'>Location:</TableCell>
+            <TableCell className='tableRow-cell'>
               {grandPrix[round - 1].Circuit.Location.locality}
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Date:</TableCell>
-            <TableCell>{grandPrix[round - 1].date}</TableCell>
+            <TableCell className='tableRow-cell'>Date:</TableCell>
+            <TableCell className='tableRow-cell'>{grandPrix[round - 1].date}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Grand Prix details:</TableCell>
-            <TableCell>
+            <TableCell className='tableRow-cell'>Grand Prix details:</TableCell>
+            <TableCell className='details-btn'>
               <a href={grandPrix[round - 1].url} target='_blank'>
                 Wikipedia <OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Circuit details:</TableCell>
-            <TableCell>
+            <TableCell className='tableRow-cell'>Circuit details:</TableCell>
+            <TableCell className='details-btn'>
               <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
                 Wikipedia <OpenInNewIcon />
               </a>
