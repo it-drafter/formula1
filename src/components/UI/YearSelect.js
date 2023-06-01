@@ -6,6 +6,7 @@ import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import  Tooltip  from '@mui/material/Tooltip';
 
 export default function YearSelect() {
   const globalCtx = useContext(GlobalContext);
@@ -38,6 +39,10 @@ export default function YearSelect() {
         >
           Season selector: {globalCtx.chosenYear}
         </span>
+        <Tooltip 
+                    placement='right'
+                    title="See all seasons"
+                    arrow>
         <IconButton
           aria-label='expand row'
           size='small'
@@ -46,6 +51,7 @@ export default function YearSelect() {
         >
           {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
         </IconButton>
+        </Tooltip>
       </div>
       <Collapse in={open} timeout='auto' unmountOnExit>
         <div className='container mx-auto mb-4'>
