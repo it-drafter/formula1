@@ -6,14 +6,12 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
-//import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import GlobalContext from '../../context/global-context';
 import CircuitPopup from '../UI/CircuitPopup';
 import GrandPrixDetailsCollapse from './GrandPrixDetailsCollapse';
 
 const RacesTableRow = (props) => {
-  // console.log('PROPS: ', props.race.Circuit.Location.country)
 
   const globalCtx = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
@@ -24,6 +22,7 @@ const RacesTableRow = (props) => {
     const LinkTo = `/races/details/${round}`;
     navigate(LinkTo);
   };
+
   const handleWinnerClick = (driverId) => {
     console.log('klik na drivera', props);
     const linkTo = `/drivers/details/${driverId}`;
@@ -77,13 +76,6 @@ const RacesTableRow = (props) => {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout='auto' unmountOnExit>
             <Box sx={{ margin: 0 }}>
-              {/* <Typography variant='h6' gutterBottom component='div'>
-                {globalCtx.flagFn(props.driver.Driver.nationality)}
-                <span> </span>
-                {props.driver.Driver.givenName +
-                  ' ' +
-                  props.driver.Driver.familyName}
-              </Typography> */}
               <GrandPrixDetailsCollapse round={props.race.round} />
             </Box>
           </Collapse>
