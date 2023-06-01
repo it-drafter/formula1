@@ -12,11 +12,7 @@ import Races from '../Races/Races';
 import Teams from '../Teams/Teams';
 import Home from '../Home';
 import F1logo from '../../img/logo.svg';
-<<<<<<< HEAD
-import Kaciga from '../../img/drivers.svg';
-=======
 import Helmet from '../../img/helmet.svg';
->>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
 import Races3 from '../../img/raceFlags.svg';
 import Teams1 from '../../img/bolid.svg';
 // import backdrop from '../../img/home-backdrop.jpg';
@@ -46,9 +42,8 @@ export default function Navigation() {
 
   return (
     <>
-      {/* <Router> */}
       <HashRouter basename='/'>
-        {/* <div styles={{ backgroundImage: `url(${backdrop})` }}> */}
+        {/ <div styles={{ backgroundImage: `url(${backdrop})` }}> /}
         <div>
           <Navbar
             collapseOnSelect
@@ -68,47 +63,16 @@ export default function Navigation() {
                 <NavLink to='/drivers' className='nav-link text-center'>
                   <h2 className='mb-4'>Drivers</h2>
                   <div>
-                    <img src='./img/helmet.svg' className='helmet' />
+                    <img src='./img/driver.svg' className='helmet' />
                   </div>
                 </NavLink>
 
-<<<<<<< HEAD
-            <NavLink to='/drivers' className='nav-link'>
-              <ul>
-                <li> Drivers</li>
-                <li>
-                  <img src="/img/drivers.svg" className='kaciga' />
-                </li>
-              </ul>
-            </NavLink>
-
-            <NavLink to='/teams' className='nav-link'>
-              <ul>
-                <li>Teams</li>
-                <li>
-                  <img src="/img/bolid.svg" className='teams1' />
-                </li>
-              </ul>
-            </NavLink>
-
-            <NavLink to='/races' className='nav-link'>
-              <ul>
-                <li>Races</li>
-                <li>
-                  <img src="/img/raceFlags.svg" className='races2' />
-                </li>
-              </ul>
-            </NavLink>
-          </Container>
-        </Navbar>
-=======
                 <NavLink to='/teams' className='nav-link text-center'>
                   <h2 className='mb-4'>Teams</h2>
                   <div>
                     <img src='./img/bolid.svg' className='teams1' />
                   </div>
                 </NavLink>
->>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
 
                 <NavLink to='/races' className='nav-link text-center'>
                   <h2 className='mb-4'>Races</h2>
@@ -140,7 +104,6 @@ export default function Navigation() {
           <Route path='/races/search' element={<SearchResultsRaces />} />
         </Routes>
       </HashRouter>
-      {/* </Router> */}
     </>
   );
 }

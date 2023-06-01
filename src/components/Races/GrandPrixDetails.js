@@ -19,10 +19,6 @@ import GlobalContext from '../../context/global-context';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import Footer from '../UI/Footer';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-<<<<<<< HEAD
-
-=======
->>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
 
 const GrandPrixDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -125,11 +121,7 @@ const GrandPrixDetails = () => {
             <TableCell>Circuit details:</TableCell>
             <TableCell>
               <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
-<<<<<<< HEAD
-                Wikipedia < OpenInNewIcon />
-=======
                 Wikipedia <OpenInNewIcon />
->>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
               </a>
             </TableCell>
           </TableRow>
@@ -142,9 +134,8 @@ const GrandPrixDetails = () => {
       </Table>
       <div>
         <img
-          src={`./img/grand_prix/${globalCtx.chosenYear}/${
-            grandPrix[round - 1].Circuit.circuitId
-          }.jpeg`}
+          src={`./img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
+            }.jpeg`}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null; // prevents looping
             currentTarget.src = `./img/neutral.svg`;

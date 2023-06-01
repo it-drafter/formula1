@@ -68,12 +68,8 @@ const DriverDetails = () => {
       // );
 
       setDriverDetails(
-<<<<<<< HEAD
-        responseDriver.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
-=======
         responseDriver.data.MRData.StandingsTable.StandingsLists[0]
           .DriverStandings[0]
->>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
       );
       setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
       // setFlags(responseFlags.data);
@@ -125,11 +121,7 @@ const DriverDetails = () => {
     );
   }
 
-<<<<<<< HEAD
-  console.log('DRIVERS', driverDetails.Driver.driverId);
-=======
   // console.log('DRIVERS', driverDetails.Driver.driverId);
->>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
 
   return (
     <>
@@ -228,16 +220,6 @@ const DriverDetails = () => {
             </p>
           </div>
         </div> */}
-<<<<<<< HEAD
-        <TableBody>
-          <DriverDetailsRaces
-            driverDetailsRaces={driverDetailsRaces}
-            handleRouteToGrandPrix={handleRouteToGrandPrix}
-            className='mouseHandle'
-          />
-        </TableBody>
-      </Table>
-=======
         {/* <TableBody> */}
       </Table>
       <DriverDetailsRaces
@@ -247,7 +229,6 @@ const DriverDetails = () => {
       />
       {/* </TableBody> */}
 
->>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
       <Footer />
     </>
   );

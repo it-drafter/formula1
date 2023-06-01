@@ -13,10 +13,6 @@ import {
 } from '@mui/material';
 import GlobalContext from '../../context/global-context';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-<<<<<<< HEAD
-
-=======
->>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
 
 const DriverDetailsCollapsable = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -122,11 +118,7 @@ const DriverDetailsCollapsable = (props) => {
             <TableCell>{driverDetails?.Driver.dateOfBirth}</TableCell>
             <TableCell>
               <a href={driverDetails?.Driver.url} target='_blank'>
-<<<<<<< HEAD
-                Wikipedia <OpenInNewIcon/>
-=======
                 Wikipedia <OpenInNewIcon />
->>>>>>> ef238618dac61dc85413d706ab4d2213f09f4b01
               </a>
             </TableCell>
           </TableRow>
