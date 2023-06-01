@@ -88,8 +88,9 @@ const DriverDetails = () => {
     // return <p>Error: {error.message}</p>;
     return (
       <>
-        <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
-
+        <div className='px-5 w-100 d-flex justify-content-start mb-3'>
+          <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
+        </div>
         {/* <span className='tableRow-boldCell'>Season {globalCtx.chosenYear}</span> */}
 
         <p>
@@ -144,10 +145,15 @@ const DriverDetails = () => {
 
   return (
     <>
-      <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
+      <div className='px-5 w-100 d-flex justify-content-start mb-3'>
+        <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
+      </div>
 
-      <span className='tableRow-boldCell'>Season {globalCtx.chosenYear}</span>
-
+      <div className='text-center'>
+        <span className='tableRow-boldCell text-success'>
+          Season {globalCtx.chosenYear}
+        </span>
+      </div>
       <Table className='table-const-race'>
         <TableBody className='detailsBody'>
           <TableRow>

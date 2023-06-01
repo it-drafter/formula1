@@ -44,20 +44,22 @@ const RaceResults = (props) => {
   if (isLoading) {
     return (
       <RiseLoaderSpinner
-        // style={{
-        //   height: '50vh',
-        //   display: 'flex',
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        // }}
+      // style={{
+      //   height: '50vh',
+      //   display: 'flex',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      // }}
       />
     );
   }
 
   return (
     <>
-      <h1>Race results component</h1>
-      <Table className='tableContainer'>
+      <h1 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
+        Race Results
+      </h1>
+      <Table className='tableContainer mt-3'>
         <TableHead>
           <TableRow className='table-header'>
             <TableCell>Pos</TableCell>

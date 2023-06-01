@@ -68,20 +68,26 @@ const TeamDetails = (props) => {
   if (isLoading) {
     return (
       <RiseLoaderSpinner
-    //   style={{
-    //     height: '50vh',
-    //     display: 'flex',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    // }}
+      //   style={{
+      //     height: '50vh',
+      //     display: 'flex',
+      //     justifyContent: 'center',
+      //     alignItems: 'center',
+      // }}
       />
     );
   }
 
   return (
     <>
-      <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
-      <span>Season {globalCtx.chosenYear}</span>
+      <div className='px-5 w-100 d-flex justify-content-start mb-3'>
+        <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
+      </div>
+      <div className='text-center'>
+        <span className='tableRow-boldCell text-success'>
+          Season {globalCtx.chosenYear}
+        </span>
+      </div>
 
       <Table className='table-const-race'>
         <TableBody className='detailsBody'>
@@ -135,7 +141,7 @@ const TeamDetails = (props) => {
                 href={teamDetails.Constructor.url + '#History'}
                 target='_blank'
               >
-               Wikipedia <OpenInNewIcon />
+                Wikipedia <OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>
