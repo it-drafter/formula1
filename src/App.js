@@ -55,7 +55,7 @@ const App = () => {
     let flagCode = country[0]?.alpha_2_code;
 
     if (!flagCode && nationality === 'Monegasque') {
-      flagCode = 'MN';
+      flagCode = 'MC';
     } else if (!flagCode && nationality === 'UAE') {
       flagCode = 'AE';
     } else if (!flagCode && nationality === 'Dutch') {
@@ -70,10 +70,13 @@ const App = () => {
     ) {
       flagCode = 'GB';
     } else if (nationality === 'Azerbaijan') {
-      return <img src='/img/flags/AZ.svg' />;
+      return <img src='../../img/flags/AZ.svg' />;
     } else if (!flagCode) {
       return (
-        <img style={{ width: '21px', height: '15px' }} src='/img/neutral.svg' />
+        <img
+          style={{ width: '21px', height: '15px' }}
+          src='../../img/neutral.svg'
+        />
       );
     } else {
       flagCode = country[0]?.alpha_2_code;

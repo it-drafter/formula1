@@ -48,7 +48,7 @@ const TeamsTableRow = (props) => {
     // </TableRow>
 
     <>
-      <TableRow>
+      <TableRow >
         <TableCell>
           <IconButton
             aria-label='expand row'

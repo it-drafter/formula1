@@ -1,66 +1,79 @@
-@font-face {
-    font-family: formulaBold;
-    src: url("../fonts/Formula1-Bold_web_0.ttf");
-}
+// @font-face {
+//     font-family: formulaBold;
+//     src: url("../fonts/Formula1-Bold_web_0.ttf");
+// }
 
-@font-face {
-    font-family: formula;
-    src: url("../fonts/Formula1-Regular_web_0.ttf");
-}
+// @font-face {
+//     font-family: formula;
+//     src: url("../fonts/Formula1-Regular_web_0.ttf");
+// }
 
 
 table {
     max-width: 90vw;
     margin: 50px auto;
-    border: 50px solid white;
+    border: 50px solid #d5ece2;
     //border-radius: 20px;
     //rgb(113, 182, 228);
-    background-color: white;
+    background-color: #d5ece2;
 
     .table-header {
-
         th {
             font-weight: bold;
             font-size: medium;
-            background-color: #19553b;
-            color: #b3c6be;
+            background-color: #004225;
+            color: #D5ECE2;
             font-family: formulaBold;
-
         }
     }
 
     // tr:nth-child(even) {
-    //     background-color: #ddd;
+    //     background-color: red;
     // }
 
     tr {
         font-family: formula;
+        background-color: #d5ece2;
 
         &:nth-child(even) {
-            background-color: #7D9B76;
+            background-color: #AED9C6;
         }
 
         &:hover {
-            background-color: lightgray;
+            background-color: #8BC6AD;
         }
 
     }
+
+
 
     .driverDetails {
         display: flex
     }
 
     .tableContainer {
-        margin-left: 15px;
+        //margin-left: 15px;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #004225;
+        //color:  #b3c6be;
         //border:7px solid #E10600;
+
+        // tr {
+        //     &:nth-child(even) {
+        //         background-color: #50a17e;
+        //     }
+        // }
     }
 }
 
-    // .tableContainer {
-    //     border: crimson!important;
-    // }
 
-    // th {
-    //     background-color: white;
-    //     color: black;
-    // }
+
+// .tableContainer {
+//     border: crimson!important;
+// }
+
+// th {
+//     background-color: white;
+//     color: black;
+// }

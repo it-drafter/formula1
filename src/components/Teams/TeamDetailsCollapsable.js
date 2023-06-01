@@ -2,12 +2,13 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 //import { RiseLoader } from 'react-spinners';
 import {
-Table,
-TableHead,
-TableBody,
-TableRow,
-TableCell,
-Skeleton} from '@mui/material';
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+  Skeleton,
+} from '@mui/material';
 import GlobalContext from '../../context/global-context';
 
 const TeamDetailsCollapsable = (props) => {
@@ -22,7 +23,7 @@ const TeamDetailsCollapsable = (props) => {
 
   const getTeamDetails = async () => {
     // const urlDetails = `https://raw.githubusercontent.com/nkezic/f1/main/TeamDetails`;
-    const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${props.teamId}/constructorStandings.json`;
+    const urlDetails = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${props.teamId}/constructorStandings.json`;
     try {
       const responseDetails = await axios.get(urlDetails);
       setTeamDetails(
@@ -52,8 +53,13 @@ const TeamDetailsCollapsable = (props) => {
       //   }}
       // />
       <>
-        <Skeleton variant="rounded" animation='wave' height={300} style={{ width: '95%', margin: 20, alignContent: 'center'}}/>
-        </>
+        <Skeleton
+          variant='rounded'
+          animation='wave'
+          height={50}
+          style={{ width: '95%', margin: 20, alignContent: 'center' }}
+        />
+      </>
     );
   }
 
@@ -66,24 +72,24 @@ const TeamDetailsCollapsable = (props) => {
         className='tableContainer'
       >
         <TableHead>
-          <TableRow>
-            <TableCell>Team Name</TableCell>
-            <TableCell>Nationality</TableCell>
-            <TableCell>Wins</TableCell>
+          <TableRow className='color-wrap'>
+            <TableCell className='tableRow-cell'>Team Name</TableCell>
+            <TableCell className='tableRow-cell'>Nationality</TableCell>
+            <TableCell className='tableRow-cell'>Wins</TableCell>
             {/* <TableCell>Points</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
+          <TableRow className='color-wrap'>
             <TableCell>
-              <div className='flagName'>
+              <div className='flagName tableRow-cell'>
                 {globalCtx.flagFn(teamDetails.Constructor.nationality)}
                 <span> </span>
                 {teamDetails.Constructor.name}
               </div>
             </TableCell>
-            <TableCell>{teamDetails.Constructor.nationality}</TableCell>
-            <TableCell>{teamDetails.wins}</TableCell>
+            <TableCell className='tableRow-cell'>{teamDetails.Constructor.nationality}</TableCell>
+            <TableCell className='tableRow-cell'>{teamDetails.wins}</TableCell>
             {/* <TableCell>{teamDetails.points}</TableCell> */}
           </TableRow>
         </TableBody>

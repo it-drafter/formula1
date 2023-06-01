@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import axios from 'axios';
 import {
   Table,
@@ -32,7 +32,7 @@ const Teams = () => {
 
   const getTeams = async () => {
     // const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllTeams`;
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
+    const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
     // setIsLoading(true);
 
     try {
@@ -70,20 +70,20 @@ const Teams = () => {
 
   if (isLoading) {
     return (
-      <RiseLoader
-        style={{
-          height: '50vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
+      <RiseLoaderSpinner
+        // style={{
+        //   height: '50vh',
+        //   display: 'flex',
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
+        // }}
       />
     );
   }
 
   return (
     <>
-      <div className='px-5 w-100 d-flex justify-content-between'>
+      <div className='px-5 w-100 d-flex justify-content-between mb-3'>
         <BreadCrumbs levels={[['Teams']]} />
         <SearchBox
           // home={props.home}
@@ -92,7 +92,9 @@ const Teams = () => {
         />
       </div>
 
-      <YearSelect />
+      <div className='text-center'>
+        <YearSelect />
+      </div>
 
       <Table className='tableContainer'>
         <TableHead className='table-header'>

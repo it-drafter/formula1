@@ -14,7 +14,6 @@ import {
 import GlobalContext from '../../context/global-context';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
-
 const DriverDetailsCollapsable = (props) => {
   const globalCtx = useContext(GlobalContext);
   const [driverDetails, setDriverDetails] = useState([]);
@@ -57,13 +56,18 @@ const DriverDetailsCollapsable = (props) => {
           marginBottom: '15px',
         }}
       /> */}
-     
-      <Box sx={{ display: 'flex', alignItems: 'center'}}>
-      {/* ,  justifyContent: 'space-between' */}
-      {/* <Avatar width={200} height={200} /> */}
-      <Skeleton variant="circular" width={150} height={150} />
-      <Skeleton variant="rounded" animation='wave' height={300} style={{ width: '80%', margin: 20}} />
-      </Box>
+
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          {/* ,  justifyContent: 'space-between' */}
+          {/* <Avatar width={200} height={200} /> */}
+          <Skeleton variant='circular' width={50} height={50} />
+          <Skeleton
+            variant='rounded'
+            animation='wave'
+            height={50}
+            style={{ width: '80%', margin: 20 }}
+          />
+        </Box>
       </>
     );
   }
@@ -77,9 +81,9 @@ const DriverDetailsCollapsable = (props) => {
         className='tableContainer'
       >
         <TableHead>
-          <TableRow>
+          <TableRow className='color-wrap'>
             <TableCell>
-              <div className='flagName'>
+              <div className='flagName tableRow-cell'>
                 {globalCtx.flagFn(driverDetails?.Driver.nationality)}
 
                 <span> </span>
@@ -90,31 +94,31 @@ const DriverDetailsCollapsable = (props) => {
                   driverDetails.Driver.familyName}
               </div>
             </TableCell>
-            <TableCell>Nationality</TableCell>
-            <TableCell>Wins</TableCell>
-            <TableCell>Date of Birth</TableCell>
-            <TableCell>Biography</TableCell>
+            <TableCell className='tableRow-cell'>Nationality</TableCell>
+            <TableCell className='tableRow-cell'>Wins</TableCell>
+            <TableCell className='tableRow-cell'>Date of Birth</TableCell>
+            <TableCell className='tableRow-cell'>Biography</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
+          <TableRow className='color-wrap'>
             <TableCell>
               <img
-                src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+                src={`./img/drivers/${driverDetails.Driver.driverId}.png`}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
-                  currentTarget.src = `/img/drivers/unknownDriver.png`;
+                  currentTarget.src = `./img/drivers/unknownDriver.png`;
                 }}
                 style={{ width: '120px', paddingRight: '30px' }}
                 alt='Driver'
               />
             </TableCell>
-            <TableCell>{driverDetails?.Driver.nationality}</TableCell>
-            <TableCell>{driverDetails?.wins}</TableCell>
-            <TableCell>{driverDetails?.Driver.dateOfBirth}</TableCell>
-            <TableCell>
+            <TableCell className='tableRow-cell'>{driverDetails?.Driver.nationality}</TableCell>
+            <TableCell className='tableRow-cell'>{driverDetails?.wins}</TableCell>
+            <TableCell className='tableRow-cell'>{driverDetails?.Driver.dateOfBirth}</TableCell>
+            <TableCell className='details-btn'>
               <a href={driverDetails?.Driver.url} target='_blank'>
-                Wikipedia <OpenInNewIcon/>
+                Wikipedia <OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>

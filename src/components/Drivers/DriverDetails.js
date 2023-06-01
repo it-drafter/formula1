@@ -2,13 +2,14 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Table, TableBody, TableRow, TableCell } from '@mui/material';
 import axios from 'axios';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 //import { Skeleton } from '@mui/material';
 import Footer from '../UI/Footer';
 import GlobalContext from '../../context/global-context';
 import DriverDetailsRaces from './DriverDetailsRaces';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import BreadCrumbs from '../UI/BreadCrumbs';
+import YearSelect from '../UI/YearSelect';
 
 const DriverDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -30,6 +31,7 @@ const DriverDetails = () => {
 
   // console.log('DriverDetails', params.driverId);
   const driverId = params.driverId;
+  // console.log("params", params);
 
   // const getFlags = async () => {
   //   const urlFlags = 'https://flagcdn.com/en/codes.json';
@@ -42,16 +44,17 @@ const DriverDetails = () => {
 
   useEffect(() => {
     getDriverDetails();
-  }, []);
+  }, [globalCtx.chosenYear]);
 
   const getDriverDetails = async () => {
+    setError(null);
     // console.log('DriverDetails', params.driverId);
     // const driverId = params.driverId;
 
     // const urlDriver = `https://raw.githubusercontent.com/nkezic/f1/main/DriverDetails`;
     const urlDriver = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/driverStandings.json`;
     // const urlRaces = `https://raw.githubusercontent.com/nkezic/f1/main/DriverRaces`;
-    const urlRaces = `http://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/results.json`;
+    const urlRaces = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/results.json`;
 
     // const urlFlags =
     //   'https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json';
@@ -61,8 +64,15 @@ const DriverDetails = () => {
       // const responseFlags = await axios.get(urlFlags);
       // console.log('responseFlags', responseFlags.data);
 
+      // console.log(
+      //   'responseDRIVER: ',
+      //   responseDriver.data.MRData.StandingsTable.StandingsLists[0]
+      //     .DriverStandings[0]
+      // );
+
       setDriverDetails(
-        responseDriver.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
+        responseDriver.data.MRData.StandingsTable.StandingsLists[0]
+          .DriverStandings[0]
       );
       setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
       // setFlags(responseFlags.data);
@@ -75,7 +85,21 @@ const DriverDetails = () => {
   };
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    // return <p>Error: {error.message}</p>;
+    return (
+      <>
+        <div className='px-5 w-100 d-flex justify-content-start mb-3'>
+          <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
+        </div>
+        {/* <span className='tableRow-boldCell'>Season {globalCtx.chosenYear}</span> */}
+
+        <p>
+          No data for driver {driverId} in season {globalCtx.chosenYear}
+        </p>
+
+        <Footer />
+      </>
+    );
   }
 
   // const flagFunction = (nationality) => {
@@ -101,10 +125,13 @@ const DriverDetails = () => {
   if (isLoading) {
     return (
       <>
-        <RiseLoader
-          style={{
-            marginTop: '100px',
-          }}
+        <RiseLoaderSpinner
+        //   style={{
+        //     height: '50vh',
+        //     display: 'flex',
+        //     justifyContent: 'center',
+        //     alignItems: 'center',
+        // }}
         />
       </>
 
@@ -114,23 +141,28 @@ const DriverDetails = () => {
     );
   }
 
-  console.log('DRIVERS', driverDetails.Driver.driverId);
+  // console.log('DRIVERS', driverDetails.Driver.driverId);
 
   return (
     <>
-      <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
+      <div className='px-5 w-100 d-flex justify-content-start mb-3'>
+        <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
+      </div>
 
-      <span className='tableRow-boldCell'>Season {globalCtx.chosenYear}</span>
-
+      <div className='text-center'>
+        <span className='tableRow-boldCell text-success'>
+          Season {globalCtx.chosenYear}
+        </span>
+      </div>
       <Table className='table-const-race'>
         <TableBody className='detailsBody'>
           <TableRow>
             <TableCell align='center' colSpan={2}>
               <img
-                src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
+                src={`./img/drivers/${driverId}.png`}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null; // prevents looping
-                  currentTarget.src = `/img/drivers/unknownDriver.png`;
+                  currentTarget.src = `./img/drivers/unknownDriver.png`;
                 }}
                 style={{ maxHeight: '100px', paddingRight: '30px' }}
                 alt='Driver'
@@ -170,10 +202,10 @@ const DriverDetails = () => {
           </TableRow>
           <TableRow>
             <TableCell className='tableRow-cell'>Biography:</TableCell>
-            <TableCell>
+            <TableCell className='details-btn'>
               {' '}
               <a href={driverDetails?.Driver.url} target='_blank'>
-                <OpenInNewIcon />
+                Wikipedia <OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>
@@ -213,14 +245,15 @@ const DriverDetails = () => {
             </p>
           </div>
         </div> */}
-        <TableBody>
-          <DriverDetailsRaces
-            driverDetailsRaces={driverDetailsRaces}
-            handleRouteToGrandPrix={handleRouteToGrandPrix}
-            className='mouseHandle'
-          />
-        </TableBody>
+        {/* <TableBody> */}
       </Table>
+      <DriverDetailsRaces
+        driverDetailsRaces={driverDetailsRaces}
+        handleRouteToGrandPrix={handleRouteToGrandPrix}
+        className='mouseHandle'
+      />
+      {/* </TableBody> */}
+
       <Footer />
     </>
   );

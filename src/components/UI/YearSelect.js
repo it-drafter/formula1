@@ -6,6 +6,7 @@ import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import Tooltip from '@mui/material/Tooltip';
 
 export default function YearSelect() {
   const globalCtx = useContext(GlobalContext);
@@ -33,27 +34,30 @@ export default function YearSelect() {
     <>
       <div>
         <span
-          className='text-info fw-bold mouseHandle'
+          className='text-light fw-bold mouseHandle d-inline-block mb-4'
           onClick={() => setOpen(!open)}
         >
           Season selector: {globalCtx.chosenYear}
         </span>
-        <IconButton
-          aria-label='expand row'
-          size='small'
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-        </IconButton>
+        <Tooltip placement='right' title='See all seasons' arrow>
+          <IconButton
+            aria-label='expand row'
+            size='small'
+            color='success'
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </IconButton>
+        </Tooltip>
       </div>
       <Collapse in={open} timeout='auto' unmountOnExit>
-        <div className='container m-3'>
+        <div className='container mx-auto mb-4'>
           {/* <h1 className='h4 text-primary fw-bold'>Season:</h1> */}
 
           {years.map((year) => (
             <Button
               active={year === globalCtx.chosenYear}
-              variant='outline-danger'
+              variant='success'
               size='sm'
               className='col years'
               key={year}

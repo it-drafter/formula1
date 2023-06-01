@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import {
   Table,
   TableHead,
@@ -23,8 +23,7 @@ const SprintResults = (props) => {
   }, []);
 
   const getSprintResults = async () => {
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/sprint.json`;
-    // setIsLoading(true);
+    const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/${props.round}/sprint.json`;
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races[0].SprintResults;
@@ -37,19 +36,18 @@ const SprintResults = (props) => {
   };
 
   if (error) {
-    // return <p>SprintResults component Error: {error.message}</p>;
     return false;
   }
 
   if (isLoading) {
     return (
-      <RiseLoader
-        style={{
-          height: '50vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
+      <RiseLoaderSpinner
+        // style={{
+        //   height: '50vh',
+        //   display: 'flex',
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
+        // }}
       />
     );
   }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import SearchResultsDriversTableRow from './SearchResultsDriversTableRow';
 import {
   Table,
@@ -28,7 +28,7 @@ const SearchResultsDrivers = () => {
 
   const getDrivers = async (searchStringValue) => {
     console.log('hello from search results ', searchStringValue);
-    const url = `http://ergast.com/api/f1/drivers.json?limit=1000`;
+    const url = `https://ergast.com/api/f1/drivers.json?limit=1000`;
     // setIsLoading(true);
     try {
       const response = await axios.get(url);
@@ -63,13 +63,13 @@ const SearchResultsDrivers = () => {
 
   if (isLoading) {
     return (
-      <RiseLoader
-        style={{
-          height: '50vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
+      <RiseLoaderSpinner
+      // style={{
+      //   height: '50vh',
+      //   display: 'flex',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      // }}
       />
     );
   }
@@ -84,7 +84,9 @@ const SearchResultsDrivers = () => {
           linkTo={`/drivers/search`}
         />
       </div>
-      <h2 className='h2'>Search Results for '{globalCtx.searchStringValue}'</h2>
+      <h2 className='h2 text-center text-success'>
+        Search Results for '{globalCtx.searchStringValue}'
+      </h2>
       <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>

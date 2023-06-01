@@ -6,6 +6,33 @@
 @import '../scss/Drivers.scss';
 @import '../scss/backToTop.scss';
 
+@font-face {
+  font-family: formulaBold;
+  src: url('../fonts/Formula1-Bold_web_0.ttf');
+}
+
+@font-face {
+  font-family: formula;
+  src: url('../fonts/Formula1-Regular_web_0.ttf');
+}
+
+@font-face {
+  font-family: formulaWide;
+  src: url('../fonts/Formula1-Wide_web_0.ttf');
+}
+
+body {
+  font-family: formula, 'Open Sans', sans-serif;
+  background-color: #004225;
+
+  // background-image: url("./img/home-backdrop.jpg");
+  // background-image: url('http://localhost:8080/img/home-backdrop.jpg');
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: right top;
+  // background-attachment: fixed;
+}
+
 // .position_1 {
 //     background-color: #FFFFBF;
 // }
@@ -65,27 +92,29 @@
 }
 
 .fastest_lap_1 {
-  background-color: #f3aff3;
+  background-color: #f3aff3 !important;
 }
 
 .mouseHandle {
   cursor: pointer;
   font-weight: bold !important;
+
   &:hover {
-    color: red;
+
+    color: #257b56
   }
 }
 
-body {
-  // background-image: url("/img/background.png");
-  // background-image: url('http://localhost:8080/img/background.png');
-  background-color: #004225;
-  //background-color: #cccccc;
+// body {
+// background-image: url("/img/background.png");
+// background-image: url('http://localhost:8080/img/background.png');
 
-  //     table {
-  //         border-radius: 200px;
-  //  }
-}
+//background-color: #cccccc;
+
+//     table {
+//         border-radius: 200px;
+//  }
+// }
 
 .flagName {
   display: flex;
@@ -97,4 +126,15 @@ body {
   span {
     padding: 0 4px;
   }
+}
+
+.footer-team {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #004225;
+  color: #d5ece2;
+  text-align: center;
+  border-top: 1px solid #AED9C6;
 }

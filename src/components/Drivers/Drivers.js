@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import DriversTableRow from './DriversTableRow';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import {
   Table,
   TableHead,
   TableBody,
   TableRow,
-  TableCell
+  TableCell,
   //Skeleton,
   // Breadcrumbs,
   // Link,
@@ -46,7 +46,7 @@ const Drivers = (props) => {
   // };
 
   const getDrivers = async () => {
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
+    const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
     // const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
     setIsLoading(true);
     try {
@@ -74,24 +74,26 @@ const Drivers = (props) => {
   if (isLoading) {
     return (
       <>
-      <RiseLoader
-        style={{
-          height: '50vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}/>
-         {/* <Skeleton animation='wave' height={50} width='90%' /> 
+        <RiseLoaderSpinner
+          // style={{
+          //   height: '50vh',
+          //   display: 'flex',
+          //   justifyContent: 'center',
+          //   alignItems: 'center',
+          // }}
+        />
+        {/* <Skeleton animation='wave' height={50} width='90%' /> 
          <Skeleton variant="rounded" animation='wave' height={600} style={{ width: '90%', alignItems: 'center' }} />
          <Placeholder bg='danger' style={{ width: '90%', height: '500px' }} />  */}
-       </>
+      </>
     );
   }
 
   return (
     <>
-      <div className='px-5 w-100 d-flex justify-content-between'>
+      <div className='px-5 w-100 d-flex justify-content-between mb-3'>
         <BreadCrumbs levels={[['Drivers']]} home={props.home} />
+
         <SearchBox
           home={props.home}
           placeholder={'Search All Drivers'}
@@ -99,7 +101,13 @@ const Drivers = (props) => {
         />
       </div>
 
-      <YearSelect />
+      <div className='text-center'>
+        <YearSelect />
+      </div>
+
+      {/* <div className='px-5 w-100 d-flex justify-content-between'>
+
+      </div> */}
 
       <Table className='tableContainer'>
         <TableHead>

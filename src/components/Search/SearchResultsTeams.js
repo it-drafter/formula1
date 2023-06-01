@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import SearchResultsTeamsTableRow from './SearchResultsTeamsTableRow';
 import {
   Table,
@@ -58,13 +58,13 @@ const SearchResultsTeams = () => {
 
   if (isLoading) {
     return (
-      <RiseLoader
-        style={{
-          height: '50vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
+      <RiseLoaderSpinner
+      // style={{
+      //   height: '50vh',
+      //   display: 'flex',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      // }}
       />
     );
   }
@@ -79,7 +79,9 @@ const SearchResultsTeams = () => {
           linkTo={`/teams/search`}
         />
       </div>
-      <h2 className='h2'>Search Results for '{globalCtx.searchStringValue}'</h2>
+      <h2 className='h2 text-center text-success'>
+        Search Results for '{globalCtx.searchStringValue}'
+      </h2>
       <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>

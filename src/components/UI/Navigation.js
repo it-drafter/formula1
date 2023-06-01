@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Link,
-  Routes,
-  Route,
-  NavLink,
-} from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, Routes, Route, NavLink, HashRouter } from 'react-router-dom';
 import Drivers from '../Drivers/Drivers';
 import Races from '../Races/Races';
 import Teams from '../Teams/Teams';
 import Home from '../Home';
-import F1logo from '../../img/logo.svg';
-import Kaciga from '../../img/drivers.svg';
 import Races3 from '../../img/raceFlags.svg';
 import Teams1 from '../../img/bolid.svg';
+import drivers from '../../img/drivers.svg';
+// import backdrop from '../../img/home-backdrop.jpg';
 import DriverDetails from '../Drivers/DriverDetails';
 import TeamDetails from '../Teams/TeamDetails';
 import GrandPrixDetails from '../Races/GrandPrixDetails';
 import SearchResultsDrivers from '../Search/SearchResultsDrivers';
 import SearchResultsTeams from '../Search/SearchResultsTeams';
 import SearchResultsRaces from '../Search/SearchResultsRaces';
+import Tooltip from '@mui/material/Tooltip';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -38,44 +33,77 @@ export default function Navigation() {
   //   };
   // }, []);
 
+
   return (
-    <div className='NavContainer'>
-      <Router>
-        <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
-          <Container>
-            <Link to='/' className='nav-link-home'>
-              <img src={F1logo} className='homeimg' />
-            </Link>
+    <>
+      {/* <Router> */}
+      <HashRouter basename='/'>
+        {/* <div styles={{ backgroundImage: `url(${backdrop})` }}> */}
+        <div>
+          <Navbar
+            collapseOnSelect
+            expand='lg'
+            bg='dark'
+            variant='dark'
+            className='NavContainer'
+          >
+            <Navbar.Brand>
+              <Link to='/' className='nav-link-home'>
+                {/* <Tooltip
+                  placement='right'
+                  title='Home'
+                  className='tooltip-home'
+                  arrow
+                > */}
+                <img src='./img/logo.png' className='homeimg' />
+                {/* </Tooltip> */}
+              </Link>
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+            <Navbar.Collapse id='responsive-navbar-nav'>
+              <Nav style={{ fontFamily: 'formulaBold', margin: 'auto' }}>
+                <NavLink to='/drivers' className='nav-link text-center'>
+                  <h2 className='mb-4'>Drivers</h2>
+                  <div>
+                    {/* <Tooltip title='All Drivers' placement='top' arrow> */}
+                    <img
+                      src='./img/drivers.png'
+                      className='helmet'
+                      alt='drivers'
+                    />
+                    {/* </Tooltip> */}
+                  </div>
+                </NavLink>
 
-            <NavLink to='/drivers' className='nav-link'>
-              <ul>
-                <li> Drivers</li>
-                <li>
-                  <img src="/img/drivers.svg" className='kaciga' />
-                </li>
-              </ul>
-            </NavLink>
+                <NavLink to='/teams' className='nav-link text-center'>
+                  <h2 className='mb-4'>Teams</h2>
+                  <div>
+                    {/* <Tooltip title='All Teams' placement='top' arrow> */}
+                    <img
+                      src='./img/bolid.png'
+                      className='teams1'
+                      alt='teams'
+                    />
+                    {/* </Tooltip> */}
+                  </div>
+                </NavLink>
 
-            <NavLink to='/teams' className='nav-link'>
-              <ul>
-                <li>Teams</li>
-                <li>
-                  <img src="/img/bolid.svg" className='teams1' />
-                </li>
-              </ul>
-            </NavLink>
-
-            <NavLink to='/races' className='nav-link'>
-              <ul>
-                <li>Races</li>
-                <li>
-                  <img src="/img/raceFlags.svg" className='races2' />
-                </li>
-              </ul>
-            </NavLink>
-          </Container>
-        </Navbar>
-
+                <NavLink to='/races' className='nav-link text-center'>
+                  <h2 className='mb-4'>Races</h2>
+                  <div>
+                    {/* <Tooltip title='All Races' placement='top' arrow> */}
+                    <img
+                      src='./img/raceFlags.png'
+                      className='races2'
+                      alt='races'
+                    />
+                    {/* </Tooltip> */}
+                  </div>
+                </NavLink>
+              </Nav >
+            </Navbar.Collapse >
+          </Navbar >
+        </div >
         <Routes>
           <Route path='/' element={<Home />} />
 
@@ -95,7 +123,8 @@ export default function Navigation() {
           <Route path='/teams/search' element={<SearchResultsTeams />} />
           <Route path='/races/search' element={<SearchResultsRaces />} />
         </Routes>
-      </Router>
-    </div>
+      </HashRouter >
+      {/* </Router> */}
+    </>
   );
 }

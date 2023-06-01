@@ -24,8 +24,6 @@ const SprintShootoutTableRow = (props) => {
   }
   console.log("props", props)
 
-
-
   return (
     <TableRow>
       <TableCell>{props.qualifier.position}</TableCell>

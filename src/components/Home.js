@@ -4,7 +4,7 @@ import React, { useEffect, useState, useContext } from 'react';
 // import YearSelect from './YearSelect';
 import Drivers from './Drivers/Drivers';
 import BreadCrumbs from './UI/BreadCrumbs';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from './UI/RiseLoaderSpinner';
 import {
   Table,
   TableBody,
@@ -18,6 +18,7 @@ import DriversTableRow from './Drivers/DriversTableRow';
 import YearSelect from './UI/YearSelect';
 import Footer from './UI/Footer';
 import { useNavigate } from 'react-router';
+import Container from 'react-bootstrap/Container';
 
 // import { useContext } from 'react';
 // import GlobalContext from '../context/global-context';
@@ -54,7 +55,7 @@ const Home = () => {
 
   const getDrivers = async () => {
     // const urlDrivers = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
-    const urlDrivers = `http://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
+    const urlDrivers = `https://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
     try {
       const response = await axios.get(urlDrivers);
       console.warn('response', response);
@@ -74,16 +75,22 @@ const Home = () => {
     return <p>Error: {error.message}</p>;
   }
 
+  const handleDriverDetails = (driverId) => {
+    console.log('klik na drivera', driverId);
+    const linkTo = `/drivers/details/${driverId}`;
+    navigate(linkTo);
+  };
+
   if (isLoading) {
     return (
       <>
-        <RiseLoader
-          style={{
-            height: '50vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
+        <RiseLoaderSpinner
+          // style={{
+          //   height: '50vh',
+          //   display: 'flex',
+          //   justifyContent: 'center',
+          //   alignItems: 'center',
+          // }}
         />
         {/* <Skeleton animation='wave' height={50} width='90%' /> 
        <Skeleton variant="rounded" animation='wave' height={600} style={{ width: '90%', alignItems: 'center' }} />
@@ -94,34 +101,54 @@ const Home = () => {
 
   return (
     <>
-      <BreadCrumbs />
+      <div className='px-5 w-100 d-flex justify-content-start mb-3'>
+        <BreadCrumbs />
+      </div>
+      <div className='text-center'>
+        <YearSelect />
+      </div>
 
-      <YearSelect />
+      <div className='container'>
+        <div className='row justify-content-between'>
+          <img
+            className='d-block col h-50 w-50 mb-3'
+            src='/img/retro_poster.png'
+          />
 
-      {/* <Drivers home={true} /> */}
-      <Table className='table-home'>
-        <TableHead className='table-head'>
-          <TableRow className='table-head'>
-            <TableCell>Position: </TableCell>
-            <TableCell>Driver: </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody className='table-body'>
-          {drivers.map((driver) => (
-            <TableRow
-              key={driver.Driver.driverId}
-              driver={driver}
-              className='table-body'
-            >
-              <TableCell>{driver.position}</TableCell>
-              <TableCell>
-                {driver.Driver.givenName + ' ' + driver.Driver.familyName}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-
+          {/* <Drivers home={true} /> */}
+          <Table className='table-home col'>
+            <TableHead>
+              <TableRow className='table-header'>
+                <TableCell>Position </TableCell>
+                <TableCell>Driver </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody className='table-body'>
+              {drivers.map((driver) => (
+                <TableRow
+                  key={driver.Driver.driverId}
+                  driver={driver}
+                  className='table-body'
+                >
+                  <TableCell className='tableRow-cell p-0'>
+                    {driver.position}
+                  </TableCell>
+                  <TableCell
+                    onClick={() => handleDriverDetails(driver.Driver.driverId)}
+                    className='mouseHandle tableRow-cell p-0'
+                  >
+                    <div className='flagName'>
+                      {globalCtx.flagFn(driver.Driver.nationality)}
+                      <span> </span>
+                      {driver.Driver.givenName + ' ' + driver.Driver.familyName}
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
       <Footer />
     </>
   );

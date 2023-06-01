@@ -1,14 +1,18 @@
-.breadCrumb{
-    link :active{
-    color:green;
-    background-color: gold;}
+.breadCrumb {
+    link :active {
+        color: green;
+        background-color: gold;
+    }
 }
 
 .breadCrumbA:hover {
-    font-size:large;
-    background-color:black;
-    color:red;
-    border: 10px solid black;
+    font-size: large;
+    background-color: #000704;
+    color: #257b56;
+    border: 10px solid #000704;
     border-radius: 12px;
     font-weight: bold;
+}
+.Active-breadcrumb{
+    color: #6cb494
 }

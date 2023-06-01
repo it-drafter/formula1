@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import {
   Table,
   TableHead,
   TableBody,
   TableRow,
   TableCell,
-  // Link,
-  // Breadcrumbs,
 } from '@mui/material';
 import axios from 'axios';
 import RacesTableRow from './RacesTableRow';
@@ -29,9 +27,7 @@ const Races = () => {
   }, [globalCtx.chosenYear]);
 
   const getRaces = async () => {
-    const url = `http://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
-    // const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllRaces`;
-    // setIsLoading(true);
+    const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/results/1.json`;
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races;
@@ -49,29 +45,30 @@ const Races = () => {
 
   if (isLoading) {
     return (
-      <RiseLoader
-        style={{
-          height: '50vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
+      <RiseLoaderSpinner
+        // style={{
+        //   height: '50vh',
+        //   display: 'flex',
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
+        // }}
       />
     );
   }
 
   return (
     <>
-      <div className='px-5 w-100 d-flex justify-content-between'>
+      <div className='px-5 w-100 d-flex justify-content-between mb-3'>
         <BreadCrumbs levels={[['Races']]} />
         <SearchBox
-          // home={props.home}
           placeholder={'Search All Races'}
           linkTo={`/races/search`}
         />
       </div>
 
-      <YearSelect />
+      <div className='text-center'>
+        <YearSelect />
+      </div>
 
       <Table className='tableContainer'>
         <TableHead>

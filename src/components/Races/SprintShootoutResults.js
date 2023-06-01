@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import {
   Table,
   TableHead,
@@ -24,7 +24,6 @@ const SprintShootoutResults = (props) => {
 
   const getSprintShootout = async () => {
     const url = `/api/f1/${globalCtx.chosenYear}/${props.round}/shootout.json`;
-    // setIsLoading(true);
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races[0].ShootoutResults;
@@ -37,19 +36,18 @@ const SprintShootoutResults = (props) => {
   };
 
   if (error) {
-    // return <p>SprintShootoutResults component Error: {error.message}</p>;
     return false;
   }
 
   if (isLoading) {
     return (
-      <RiseLoader
-        style={{
-          height: '50vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
+      <RiseLoaderSpinner
+      // style={{
+      //   height: '50vh',
+      //   display: 'flex',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      // }}
       />
     );
   }

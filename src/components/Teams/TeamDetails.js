@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Table, TableBody, TableRow, TableCell } from '@mui/material';
 
 import axios from 'axios';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import { Link, Breadcrumbs } from '@mui/material';
 import GlobalContext from '../../context/global-context';
 import TeamDetailsRaces from './TeamDetailsRaces';
@@ -39,8 +39,8 @@ const TeamDetails = (props) => {
   const getTeamDetails = async () => {
     // const urlDetails = `https://raw.githubusercontent.com/nkezic/f1/main/TeamDetails`;
     // const urlResults = `https://raw.githubusercontent.com/nkezic/f1/main/TeamResults`;
-    const urlDetails = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
-    const urlResults = `http://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/results.json`;
+    const urlDetails = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
+    const urlResults = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/results.json`;
     try {
       const responseDetails = await axios.get(urlDetails);
       const responseResults = await axios.get(urlResults);
@@ -67,28 +67,37 @@ const TeamDetails = (props) => {
 
   if (isLoading) {
     return (
-      <RiseLoader
-        style={{
-          marginTop: '100px',
-        }}
+      <RiseLoaderSpinner
+      //   style={{
+      //     height: '50vh',
+      //     display: 'flex',
+      //     justifyContent: 'center',
+      //     alignItems: 'center',
+      // }}
       />
     );
   }
 
   return (
     <>
-      <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
-      <span>Season {globalCtx.chosenYear}</span>
+      <div className='px-5 w-100 d-flex justify-content-start mb-3'>
+        <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
+      </div>
+      <div className='text-center'>
+        <span className='tableRow-boldCell text-success'>
+          Season {globalCtx.chosenYear}
+        </span>
+      </div>
 
       <Table className='table-const-race'>
         <TableBody className='detailsBody'>
           <TableRow>
             <TableCell align='center' colSpan={2} className='tableRow-cell'>
               <img
-                src={`/img/teams/${teamDetails.Constructor.constructorId}.png`}
+                src={`./img/teams/${teamDetails.Constructor.constructorId}.png`}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
-                  currentTarget.src = `/img/teams/unknownConstructor.png`;
+                  currentTarget.src = `./img/teams/unknownConstructor.png`;
                 }}
                 style={{ maxHeight: '100px', paddingRight: '30px' }}
                 alt='Constructor'
@@ -126,13 +135,13 @@ const TeamDetails = (props) => {
           </TableRow>
           <TableRow>
             <TableCell className='tableRow-cell'>History:</TableCell>
-            <TableCell>
+            <TableCell className='details-btn'>
               {' '}
               <a
                 href={teamDetails.Constructor.url + '#History'}
                 target='_blank'
               >
-                <OpenInNewIcon />
+                Wikipedia <OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>
