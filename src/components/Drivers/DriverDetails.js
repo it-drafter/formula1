@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Table, TableBody, TableRow, TableCell } from '@mui/material';
 import axios from 'axios';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 //import { Skeleton } from '@mui/material';
 import Footer from '../UI/Footer';
 import GlobalContext from '../../context/global-context';
@@ -124,10 +124,13 @@ const DriverDetails = () => {
   if (isLoading) {
     return (
       <>
-        <RiseLoader
-          style={{
-            marginTop: '100px',
-          }}
+        <RiseLoaderSpinner
+        //   style={{
+        //     height: '50vh',
+        //     display: 'flex',
+        //     justifyContent: 'center',
+        //     alignItems: 'center',
+        // }}
         />
       </>
 
@@ -193,10 +196,10 @@ const DriverDetails = () => {
           </TableRow>
           <TableRow>
             <TableCell className='tableRow-cell'>Biography:</TableCell>
-            <TableCell>
+            <TableCell className='details-btn'>
               {' '}
               <a href={driverDetails?.Driver.url} target='_blank'>
-                <OpenInNewIcon />
+                Wikipedia <OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>

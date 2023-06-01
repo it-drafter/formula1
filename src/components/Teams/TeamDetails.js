@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Table, TableBody, TableRow, TableCell } from '@mui/material';
 
 import axios from 'axios';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import { Link, Breadcrumbs } from '@mui/material';
 import GlobalContext from '../../context/global-context';
 import TeamDetailsRaces from './TeamDetailsRaces';
@@ -67,10 +67,13 @@ const TeamDetails = (props) => {
 
   if (isLoading) {
     return (
-      <RiseLoader
-        style={{
-          marginTop: '100px',
-        }}
+      <RiseLoaderSpinner
+    //   style={{
+    //     height: '50vh',
+    //     display: 'flex',
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    // }}
       />
     );
   }
@@ -126,13 +129,13 @@ const TeamDetails = (props) => {
           </TableRow>
           <TableRow>
             <TableCell className='tableRow-cell'>History:</TableCell>
-            <TableCell>
+            <TableCell className='details-btn'>
               {' '}
               <a
                 href={teamDetails.Constructor.url + '#History'}
                 target='_blank'
               >
-                <OpenInNewIcon />
+               Wikipedia <OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { RiseLoader } from 'react-spinners';
+import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import { useParams } from 'react-router-dom';
 import {
   Table,
@@ -55,13 +55,13 @@ const GrandPrixDetails = () => {
 
   if (isLoading) {
     return (
-      <RiseLoader
-        style={{
-          height: '50vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
+      <RiseLoaderSpinner
+        // style={{
+        //   height: '50vh',
+        //   display: 'flex',
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
+        // }}
       />
     );
   }
@@ -138,7 +138,7 @@ const GrandPrixDetails = () => {
             }.jpeg`}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null; // prevents looping
-            currentTarget.src = `./img/neutral.svg`;
+            currentTarget.src = `./img/grand_prix/poster.png`;
           }}
         />
       </div>

@@ -72,24 +72,24 @@ const TeamDetailsCollapsable = (props) => {
         className='tableContainer'
       >
         <TableHead>
-          <TableRow>
-            <TableCell>Team Name</TableCell>
-            <TableCell>Nationality</TableCell>
-            <TableCell>Wins</TableCell>
+          <TableRow className='color-wrap'>
+            <TableCell className='tableRow-cell'>Team Name</TableCell>
+            <TableCell className='tableRow-cell'>Nationality</TableCell>
+            <TableCell className='tableRow-cell'>Wins</TableCell>
             {/* <TableCell>Points</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
+          <TableRow className='color-wrap'>
             <TableCell>
-              <div className='flagName'>
+              <div className='flagName tableRow-cell'>
                 {globalCtx.flagFn(teamDetails.Constructor.nationality)}
                 <span> </span>
                 {teamDetails.Constructor.name}
               </div>
             </TableCell>
-            <TableCell>{teamDetails.Constructor.nationality}</TableCell>
-            <TableCell>{teamDetails.wins}</TableCell>
+            <TableCell className='tableRow-cell'>{teamDetails.Constructor.nationality}</TableCell>
+            <TableCell className='tableRow-cell'>{teamDetails.wins}</TableCell>
             {/* <TableCell>{teamDetails.points}</TableCell> */}
           </TableRow>
         </TableBody>

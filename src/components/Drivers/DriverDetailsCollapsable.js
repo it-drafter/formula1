@@ -81,7 +81,7 @@ const DriverDetailsCollapsable = (props) => {
         className='tableContainer'
       >
         <TableHead>
-          <TableRow>
+          <TableRow className='color-wrap'>
             <TableCell>
               <div className='flagName'>
                 {globalCtx.flagFn(driverDetails?.Driver.nationality)}
@@ -94,14 +94,14 @@ const DriverDetailsCollapsable = (props) => {
                   driverDetails.Driver.familyName}
               </div>
             </TableCell>
-            <TableCell>Nationality</TableCell>
-            <TableCell>Wins</TableCell>
-            <TableCell>Date of Birth</TableCell>
-            <TableCell>Biography</TableCell>
+            <TableCell className='tableRow-cell'>Nationality</TableCell>
+            <TableCell className='tableRow-cell'>Wins</TableCell>
+            <TableCell className='tableRow-cell'>Date of Birth</TableCell>
+            <TableCell className='tableRow-cell'>Biography</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
+          <TableRow className='color-wrap'>
             <TableCell>
               <img
                 src={`./img/drivers/${driverDetails.Driver.driverId}.png`}
@@ -113,10 +113,10 @@ const DriverDetailsCollapsable = (props) => {
                 alt='Driver'
               />
             </TableCell>
-            <TableCell>{driverDetails?.Driver.nationality}</TableCell>
-            <TableCell>{driverDetails?.wins}</TableCell>
-            <TableCell>{driverDetails?.Driver.dateOfBirth}</TableCell>
-            <TableCell>
+            <TableCell className='tableRow-cell'>{driverDetails?.Driver.nationality}</TableCell>
+            <TableCell className='tableRow-cell'>{driverDetails?.wins}</TableCell>
+            <TableCell className='tableRow-cell'>{driverDetails?.Driver.dateOfBirth}</TableCell>
+            <TableCell className='details-btn'>
               <a href={driverDetails?.Driver.url} target='_blank'>
                 Wikipedia <OpenInNewIcon />
               </a>
