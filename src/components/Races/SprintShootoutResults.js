@@ -8,27 +8,27 @@ import {
   TableCell,
 } from '@mui/material';
 import axios from 'axios';
-import SprintQualifyingTableRow from './SprintQualifyingTableRow';
+import SprintShootoutTableRow from './SprintShootoutTableRow';
 import GlobalContext from '../../context/global-context';
 
-const SprintQualifyingResults = (props) => {
+const SprintShootoutResults = (props) => {
   const globalCtx = useContext(GlobalContext);
 
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [sprintQualifying, setSprintQualifying] = useState([]);
+  const [sprintShootout, setSprintShootout] = useState([]);
 
   useEffect(() => {
-    getSprintQualifying();
+    getSprintShootout();
   }, []);
 
-  const getSprintQualifying = async () => {
-    const url = `/api/f1/${globalCtx.chosenYear}/${props.round}/qualifying.json`;
+  const getSprintShootout = async () => {
+    const url = `/api/f1/${globalCtx.chosenYear}/${props.round}/shootout.json`;
     // setIsLoading(true);
     try {
       const response = await axios.get(url);
-      const data = response.data.MRData.RaceTable.Races[0].QualifyingResults;
-      setSprintQualifying(data);
+      const data = response.data.MRData.RaceTable.Races[0].ShootoutResults;
+      setSprintShootout(data);
       setIsLoading(false);
     } catch (err) {
       setIsLoading(false);
@@ -37,7 +37,7 @@ const SprintQualifyingResults = (props) => {
   };
 
   if (error) {
-    // return <p>SprintQualifyingResults component Error: {error.message}</p>;
+    // return <p>SprintShootoutResults component Error: {error.message}</p>;
     return false;
   }
 
@@ -56,7 +56,7 @@ const SprintQualifyingResults = (props) => {
 
   return (
     <>
-      <h1>Sprint qualifying component</h1>
+      <h1>Sprint shootout component</h1>
       <Table>
         <TableHead>
           <TableRow className='table-header'>
@@ -67,8 +67,8 @@ const SprintQualifyingResults = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {sprintQualifying.map((qualifier) => (
-            <SprintQualifyingTableRow
+          {sprintShootout.map((qualifier) => (
+            <SprintShootoutTableRow
               key={qualifier.position}
               qualifier={qualifier}
             />
@@ -79,4 +79,4 @@ const SprintQualifyingResults = (props) => {
   );
 };
 
-export default SprintQualifyingResults;
+export default SprintShootoutResults;

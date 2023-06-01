@@ -12,7 +12,7 @@ import {
 import axios from 'axios';
 import QualifyingResults from './QualifyingResults';
 import RaceResults from './RaceResults';
-import SprintQualifyingResults from './SprintQualifyingResults';
+import SprintShootoutResults from './SprintShootoutResults';
 import SprintResults from './SprintResults';
 import GlobalContext from '../../context/global-context';
 // import { useNavigate } from 'react-router-dom';
@@ -114,7 +114,7 @@ const GrandPrixDetails = () => {
             <TableCell>Grand Prix details:</TableCell>
             <TableCell>
               <a href={grandPrix[round - 1].url} target='_blank'>
-                Wikipedia <OpenInNewIcon/>
+                Wikipedia <OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>
@@ -122,7 +122,7 @@ const GrandPrixDetails = () => {
             <TableCell>Circuit details:</TableCell>
             <TableCell>
               <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
-                Wikipedia < OpenInNewIcon/>
+                Wikipedia < OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>
@@ -143,7 +143,7 @@ const GrandPrixDetails = () => {
           }}
         />
       </div>
-      <SprintQualifyingResults round={round} />{' '}
+      <SprintShootoutResults round={round} />{' '}
       {/*  samo 2023. godine se pojavljuje za azerbejdzan  */}
       <SprintResults round={round} />{' '}
       {/*  postoji od 2021. do sada za: 2021:  - 10,14,19, a za 2022. 4,11,21, i za 2023. za azerbejdzan  */}

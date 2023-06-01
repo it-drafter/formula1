@@ -4,7 +4,7 @@ import TableCell from '@mui/material/TableCell';
 import GlobalContext from '../../context/global-context';
 import { useNavigate } from 'react-router-dom';
 
-const SprintQualifyingTableRow = (props) => {
+const SprintShootoutTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   function qSort() {
     const arr = [props.qualifier.Q1, props.qualifier.Q2, props.qualifier.Q3];
@@ -12,14 +12,14 @@ const SprintQualifyingTableRow = (props) => {
     return arr[0];
   }
   const navigate = useNavigate()
-  const handleRouteDrivers= (driverId) => {
+  const handleRouteDrivers = (driverId) => {
     console.log("driver click");
-    const linkTo=`/drivers/details/${driverId}`
+    const linkTo = `/drivers/details/${driverId}`
     navigate(linkTo);
   }
   const handleRouteTeams = (teamId) => {
     console.log("klik na team")
-    const linkTo= `/teams/details/${teamId}`;
+    const linkTo = `/teams/details/${teamId}`;
     navigate(linkTo);
   }
   console.log("props", props)
@@ -29,7 +29,7 @@ const SprintQualifyingTableRow = (props) => {
   return (
     <TableRow>
       <TableCell>{props.qualifier.position}</TableCell>
-      <TableCell onClick={()=> handleRouteDrivers(props.qualifier.Driver.driverId)} className="mouseHandle">
+      <TableCell onClick={() => handleRouteDrivers(props.qualifier.Driver.driverId)} className="mouseHandle">
         <div className='flagName'>
           {globalCtx.flagFn(props.qualifier.Driver.nationality)}
           <span> </span>
@@ -38,7 +38,7 @@ const SprintQualifyingTableRow = (props) => {
             props.qualifier.Driver.familyName}
         </div>
       </TableCell>
-      <TableCell onClick={()=> handleRouteTeams(props.qualifier.Constructor.constructorId)} className="mouseHandle">
+      <TableCell onClick={() => handleRouteTeams(props.qualifier.Constructor.constructorId)} className="mouseHandle">
         <div className='flagName'>
           {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
           <span> </span>
@@ -51,4 +51,4 @@ const SprintQualifyingTableRow = (props) => {
   );
 };
 
-export default SprintQualifyingTableRow;
+export default SprintShootoutTableRow;
