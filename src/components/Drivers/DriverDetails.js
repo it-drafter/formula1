@@ -10,6 +10,7 @@ import DriverDetailsRaces from './DriverDetailsRaces';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import YearSelect from '../UI/YearSelect';
+import Stack from '@mui/material/Stack';
 
 const DriverDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -93,51 +94,20 @@ const DriverDetails = () => {
         </div>
         {/* <span className='tableRow-boldCell'>Season {globalCtx.chosenYear}</span> */}
 
-        <p>
+        <h2 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
           No data for driver {driverId} in season {globalCtx.chosenYear}
-        </p>
+        </h2>
 
         <Footer />
       </>
     );
   }
 
-  // const flagFunction = (nationality) => {
-  //   const country = flags.filter((flag) => flag.nationality === nationality);
-  //   // console.log('nationality:', nationality);
-  //   // console.log('flags:', flags);
-  //   // console.log('country:', country[0]?.alpha_2_code);
-  //   let flagCode = country[0]?.alpha_2_code;
-
-  //   if (!flagCode && nationality === 'British') {
-  //     flagCode = 'GB';
-  //   } else if (!flagCode && nationality === 'Dutch') {
-  //     flagCode = 'NL';
-  //   } else if (!flagCode) {
-  //     return <span></span>;
-  //   } else {
-  //     flagCode = country[0]?.alpha_2_code;
-  //   }
-
-  //   return <Flag size={20} country={flagCode} />;
-  // };
-
   if (isLoading) {
     return (
       <>
-        <RiseLoaderSpinner
-        //   style={{
-        //     height: '50vh',
-        //     display: 'flex',
-        //     justifyContent: 'center',
-        //     alignItems: 'center',
-        // }}
-        />
+        <RiseLoaderSpinner />
       </>
-
-      // <Box sx={{ display: 'flex'}}>
-      // <Skeleton animation='wave' height={500} width='90%' />
-      // <Skeleton variant="rounded" animation='wave' height={500} style={{ width: '90%' }} />
     );
   }
 
@@ -154,105 +124,75 @@ const DriverDetails = () => {
           Season {globalCtx.chosenYear}
         </span>
       </div>
-      <Table className='table-const-race'>
-        <TableBody className='detailsBody'>
-          <TableRow>
-            <TableCell align='center' colSpan={2}>
-              <img
-                src={`./img/drivers/${driverId}.png`}
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null; // prevents looping
-                  currentTarget.src = `./img/drivers/unknownDriver.png`;
-                }}
-                style={{ maxHeight: '100px', paddingRight: '30px' }}
-                alt='Driver'
-              />
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell
-              className='flagName tableRow-boldCell'
-              colSpan={2}
-              align='center'
-            >
-              {globalCtx.flagFn(driverDetails?.Driver.nationality)}
-              <span> </span>
-              {driverDetails.Driver.givenName +
-                ' ' +
-                driverDetails.Driver.familyName}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Nationality:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {driverDetails?.Driver.nationality}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Team:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {driverDetails?.Constructors[0].name}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Date of Birth:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {driverDetails?.Driver.dateOfBirth}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Biography:</TableCell>
-            <TableCell className='details-btn'>
-              {' '}
-              <a href={driverDetails?.Driver.url} target='_blank'>
-                Wikipedia <OpenInNewIcon />
-              </a>
-            </TableCell>
-          </TableRow>
-        </TableBody>
-        {/* <div className='team-details'>
-          <div>
-            <img
-              src={`/img/drivers/${driverDetails.Driver.driverId}.png`}
-              onError={({ currentTarget }) => {
-                currentTarget.onerror = null; // prevents looping
-                currentTarget.src = `/img/drivers/unknownDriver.png`;
-              }}
-              style={{ maxHeight: '100px', paddingRight: '30px' }}
-              alt='Driver'
-            />
-          </div>
-          <div>
-            <div className='flagName'>
-              {globalCtx.flagFn(driverDetails?.Driver.nationality)}
-              <span> </span>
-              {driverDetails.Driver.givenName +
-                ' ' +
-                driverDetails.Driver.familyName}
-            </div>
-
-            <p>
-              Nationality: {driverDetails?.Driver.nationality}
-              <span></span>
-            </p>
-            <p>Team: {driverDetails?.Constructors[0].name}</p>
-            <p>Date of Birth: {driverDetails?.Driver.dateOfBirth}</p>
-            <p>
-              Biography:
-              <a href={driverDetails?.Driver.url} target='_blank'>
-                ↗
-              </a>
-            </p>
-          </div>
-        </div> */}
-        {/* <TableBody> */}
-      </Table>
-      <DriverDetailsRaces
-        driverDetailsRaces={driverDetailsRaces}
-        handleRouteToGrandPrix={handleRouteToGrandPrix}
-        className='mouseHandle'
-      />
-      {/* </TableBody> */}
+      <Stack
+        direction={{ sm: 'column', md: 'row' }}
+        spacing={2}
+        m={5}
+        alignItems='flex-start'
+      >
+        <Table className='table-const-race'>
+          <TableBody className='detailsBody'>
+            <TableRow>
+              <TableCell align='center' colSpan={2}>
+                <img
+                  src={`./img/drivers/${driverId}.png`}
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null; // prevents looping
+                    currentTarget.src = `./img/drivers/unknownDriver.png`;
+                  }}
+                  style={{ maxHeight: '100px', paddingRight: '30px' }}
+                  alt='Driver'
+                />
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell
+                className='flagName tableRow-boldCell'
+                colSpan={2}
+                align='center'
+              >
+                {globalCtx.flagFn(driverDetails?.Driver.nationality)}
+                <span> </span>
+                {driverDetails.Driver.givenName +
+                  ' ' +
+                  driverDetails.Driver.familyName}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Nationality:</TableCell>
+              <TableCell className='tableRow-cell'>
+                {driverDetails?.Driver.nationality}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Team:</TableCell>
+              <TableCell className='tableRow-cell'>
+                {driverDetails?.Constructors[0].name}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Date of Birth:</TableCell>
+              <TableCell className='tableRow-cell'>
+                {driverDetails?.Driver.dateOfBirth}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Biography:</TableCell>
+              <TableCell className='details-btn'>
+                {' '}
+                <a href={driverDetails?.Driver.url} target='_blank'>
+                  Wikipedia <OpenInNewIcon />
+                </a>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+        <DriverDetailsRaces
+          driverDetailsRaces={driverDetailsRaces}
+          handleRouteToGrandPrix={handleRouteToGrandPrix}
+          className='mouseHandle'
+        />
+      </Stack>
 
       <Footer />
     </>
@@ -260,16 +200,3 @@ const DriverDetails = () => {
 };
 
 export default DriverDetails;
-
-// const DriverDetails = () => {
-//   const params = useParams();
-//   console.log('DriverDetails', params.driverId);
-//   return (
-//     <>
-//       <h1>Driver Details</h1>
-//       <h2>{params.driverId}</h2>
-//     </>
-//   );
-// };
-
-// export default DriverDetails;

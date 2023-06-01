@@ -4,7 +4,7 @@ import { Table, TableBody, TableRow, TableCell } from '@mui/material';
 
 import axios from 'axios';
 import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
-import { Link, Breadcrumbs } from '@mui/material';
+import Stack from '@mui/material/Stack';
 import GlobalContext from '../../context/global-context';
 import TeamDetailsRaces from './TeamDetailsRaces';
 import BreadCrumbs from '../UI/BreadCrumbs';
@@ -66,16 +66,7 @@ const TeamDetails = (props) => {
   }
 
   if (isLoading) {
-    return (
-      <RiseLoaderSpinner
-      //   style={{
-      //     height: '50vh',
-      //     display: 'flex',
-      //     justifyContent: 'center',
-      //     alignItems: 'center',
-      // }}
-      />
-    );
+    return <RiseLoaderSpinner />;
   }
 
   return (
@@ -89,105 +80,78 @@ const TeamDetails = (props) => {
         </span>
       </div>
 
-      <Table className='table-const-race'>
-        <TableBody className='detailsBody'>
-          <TableRow>
-            <TableCell align='center' colSpan={2} className='tableRow-cell'>
-              <img
-                src={`./img/teams/${teamDetails.Constructor.constructorId}.png`}
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null;
-                  currentTarget.src = `./img/teams/unknownConstructor.png`;
-                }}
-                style={{ maxHeight: '100px', paddingRight: '30px' }}
-                alt='Constructor'
-              />
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell
-              className='flagName tableRow-boldCell'
-              colSpan={2}
-              align='center'
-            >
-              {globalCtx.flagFn(teamDetails.Constructor.nationality)}
-              <span> </span>
-              {teamDetails.Constructor.name}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Nationality:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {teamDetails.Constructor.nationality}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Position:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {teamDetails.position}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>Points:</TableCell>
-            <TableCell className='tableRow-cell'>
-              {teamDetails.points}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className='tableRow-cell'>History:</TableCell>
-            <TableCell className='details-btn'>
-              {' '}
-              <a
-                href={teamDetails.Constructor.url + '#History'}
-                target='_blank'
+      <Stack
+        direction={{ sm: 'column', md: 'row' }}
+        spacing={2}
+        m={5}
+        alignItems='flex-start'
+      >
+        <Table className='table-const-race'>
+          <TableBody className='detailsBody'>
+            <TableRow>
+              <TableCell align='center' colSpan={2} className='tableRow-cell'>
+                <img
+                  src={`./img/teams/${teamDetails.Constructor.constructorId}.png`}
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = `./img/teams/unknownConstructor.png`;
+                  }}
+                  style={{ maxHeight: '100px', paddingRight: '30px' }}
+                  alt='Constructor'
+                />
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell
+                className='flagName tableRow-boldCell'
+                colSpan={2}
+                align='center'
               >
-                Wikipedia <OpenInNewIcon />
-              </a>
-            </TableCell>
-          </TableRow>
-        </TableBody>
-        {/* <div className='team-details'>
-          <div>
-            <img
-              src={`/img/teams/${teamDetails.Constructor.constructorId}.png`}
-              onError={({ currentTarget }) => {
-                currentTarget.onerror = null;
-                currentTarget.src = `/img/teams/unknownConstructor.png`;
-              }}
-              style={{ maxHeight: '100px', paddingRight: '30px' }}
-              alt='Constructor'
-            />
-          </div>
-
-          <div>
-            <h2 className='name-details'>
-              <div className='flagName'>
                 {globalCtx.flagFn(teamDetails.Constructor.nationality)}
                 <span> </span>
                 {teamDetails.Constructor.name}
-              </div>
-            </h2>
-            <p>Nationality: {teamDetails.Constructor.nationality}</p>
-            <p>Positon: {teamDetails.position}</p>
-            <p>Points: {teamDetails.points}</p>
-            <p>
-              History:
-              <a
-                href={teamDetails.Constructor.url + '#History'}
-                target='_blank'
-              >
-              <OpenInNewIcon />
-              </a>
-            </p>
-          </div>
-        </div> */}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Nationality:</TableCell>
+              <TableCell className='tableRow-cell'>
+                {teamDetails.Constructor.nationality}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Position:</TableCell>
+              <TableCell className='tableRow-cell'>
+                {teamDetails.position}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>Points:</TableCell>
+              <TableCell className='tableRow-cell'>
+                {teamDetails.points}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className='tableRow-cell'>History:</TableCell>
+              <TableCell className='details-btn'>
+                {' '}
+                <a
+                  href={teamDetails.Constructor.url + '#History'}
+                  target='_blank'
+                >
+                  Wikipedia <OpenInNewIcon />
+                </a>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+
         <TableBody>
           <TeamDetailsRaces
             teamResults={teamResults}
             handleDrivers={handleDrivers}
           />
         </TableBody>
-      </Table>
+      </Stack>
       <Footer />
     </>
   );

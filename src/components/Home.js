@@ -19,6 +19,7 @@ import YearSelect from './UI/YearSelect';
 import Footer from './UI/Footer';
 import { useNavigate } from 'react-router';
 import Container from 'react-bootstrap/Container';
+import Stack from '@mui/material/Stack';
 
 // import { useContext } from 'react';
 // import GlobalContext from '../context/global-context';
@@ -85,12 +86,12 @@ const Home = () => {
     return (
       <>
         <RiseLoaderSpinner
-          // style={{
-          //   height: '50vh',
-          //   display: 'flex',
-          //   justifyContent: 'center',
-          //   alignItems: 'center',
-          // }}
+        // style={{
+        //   height: '50vh',
+        //   display: 'flex',
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
+        // }}
         />
         {/* <Skeleton animation='wave' height={50} width='90%' /> 
        <Skeleton variant="rounded" animation='wave' height={600} style={{ width: '90%', alignItems: 'center' }} />
@@ -108,47 +109,51 @@ const Home = () => {
         <YearSelect />
       </div>
 
-      <div className='container'>
-        <div className='row justify-content-between'>
-          <img
-            className='d-block col h-50 w-50 mb-3'
-            src='/img/retro_poster.png'
-          />
+      <Stack
+        direction={{ sm: 'column', md: 'row' }}
+        spacing={2}
+        m={5}
+        alignItems='flex-start'
+      >
+        <img
+          className='d-block col h-50 w-50 mb-3'
+          src='/img/retro_poster.png'
+        />
 
-          {/* <Drivers home={true} /> */}
-          <Table className='table-home col'>
-            <TableHead>
-              <TableRow className='table-header'>
-                <TableCell>Position </TableCell>
-                <TableCell>Driver </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody className='table-body'>
-              {drivers.map((driver) => (
-                <TableRow
-                  key={driver.Driver.driverId}
-                  driver={driver}
-                  className='table-body'
+        {/* <Drivers home={true} /> */}
+        <Table className='table-home col'>
+          <TableHead>
+            <TableRow className='table-header'>
+              <TableCell align='center'>Position </TableCell>
+              <TableCell>Driver </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody className='table-body'>
+            {drivers.map((driver) => (
+              <TableRow
+                key={driver.Driver.driverId}
+                driver={driver}
+                className='table-body'
+              >
+                <TableCell align='center' className='tableRow-cell p-0'>
+                  {driver.position}
+                </TableCell>
+                <TableCell
+                  onClick={() => handleDriverDetails(driver.Driver.driverId)}
+                  className='mouseHandle tableRow-cell p-0'
                 >
-                  <TableCell className='tableRow-cell p-0'>
-                    {driver.position}
-                  </TableCell>
-                  <TableCell
-                    onClick={() => handleDriverDetails(driver.Driver.driverId)}
-                    className='mouseHandle tableRow-cell p-0'
-                  >
-                    <div className='flagName'>
-                      {globalCtx.flagFn(driver.Driver.nationality)}
-                      <span> </span>
-                      {driver.Driver.givenName + ' ' + driver.Driver.familyName}
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-      </div>
+                  <div className='flagName'>
+                    {globalCtx.flagFn(driver.Driver.nationality)}
+                    <span> </span>
+                    {driver.Driver.givenName + ' ' + driver.Driver.familyName}
+                  </div>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Stack>
+
       <Footer />
     </>
   );

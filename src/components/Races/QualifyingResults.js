@@ -53,10 +53,10 @@ const QualifyingResults = (props) => {
   }
 
   return (
-    <>
-      <h1 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
+    <div>
+      <h2 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
         Qualifying Results
-      </h1>
+      </h2>
       <Table className='tableContainer mt-3'>
         <TableHead>
           <TableRow className='table-header'>
@@ -75,7 +75,7 @@ const QualifyingResults = (props) => {
           ))}
         </TableBody>
       </Table>
-    </>
+    </div>
   );
 };
 

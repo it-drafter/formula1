@@ -30,7 +30,6 @@ export default function Navigation() {
   //   };
   // }, []);
 
-
   return (
     <>
       {/* <Router> */}
@@ -76,11 +75,7 @@ export default function Navigation() {
                   <h2 className='mb-4'>Teams</h2>
                   <div>
                     {/* <Tooltip title='All Teams' placement='top' arrow> */}
-                    <img
-                      src='./img/bolid.png'
-                      className='teams1'
-                      alt='teams'
-                    />
+                    <img src='./img/bolid.png' className='teams1' alt='teams' />
                     {/* </Tooltip> */}
                   </div>
                 </NavLink>
@@ -97,10 +92,10 @@ export default function Navigation() {
                     {/* </Tooltip> */}
                   </div>
                 </NavLink>
-              </Nav >
-            </Navbar.Collapse >
-          </Navbar >
-        </div >
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+        </div>
         <Routes>
           <Route path='/' element={<Home />} />
 
@@ -120,7 +115,7 @@ export default function Navigation() {
           <Route path='/teams/search' element={<SearchResultsTeams />} />
           <Route path='/races/search' element={<SearchResultsRaces />} />
         </Routes>
-      </HashRouter >
+      </HashRouter>
       {/* </Router> */}
     </>
   );

@@ -52,10 +52,10 @@ const RaceResults = (props) => {
   }
 
   return (
-    <>
-      <h1 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
+    <div>
+      <h2 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
         Race Results
-      </h1>
+      </h2>
       <Table className='tableContainer mt-3'>
         <TableHead>
           <TableRow className='table-header'>
@@ -72,7 +72,7 @@ const RaceResults = (props) => {
           ))}
         </TableBody>
       </Table>
-    </>
+    </div>
   );
 };
 
