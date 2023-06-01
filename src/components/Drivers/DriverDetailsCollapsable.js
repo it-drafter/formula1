@@ -113,10 +113,10 @@ const DriverDetailsCollapsable = (props) => {
                 alt='Driver'
               />
             </TableCell>
-            <TableCell>{driverDetails?.Driver.nationality}</TableCell>
-            <TableCell>{driverDetails?.wins}</TableCell>
-            <TableCell>{driverDetails?.Driver.dateOfBirth}</TableCell>
-            <TableCell>
+            <TableCell className='tableRow-cell'>{driverDetails?.Driver.nationality}</TableCell>
+            <TableCell className='tableRow-cell'>{driverDetails?.wins}</TableCell>
+            <TableCell className='tableRow-cell'>{driverDetails?.Driver.dateOfBirth}</TableCell>
+            <TableCell className='details-btn'>
               <a href={driverDetails?.Driver.url} target='_blank'>
                 Wikipedia <OpenInNewIcon />
               </a>

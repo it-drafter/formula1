@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Link,
-  Routes,
-  Route,
-  NavLink,
-  HashRouter,
-} from 'react-router-dom';
+import { Link, Routes, Route, NavLink, HashRouter } from 'react-router-dom';
 import Drivers from '../Drivers/Drivers';
 import Races from '../Races/Races';
 import Teams from '../Teams/Teams';
 import Home from '../Home';
 import Races3 from '../../img/raceFlags.svg';
 import Teams1 from '../../img/bolid.svg';
-import drivers from "../../img/drivers.svg"
+import drivers from '../../img/drivers.svg';
 // import backdrop from '../../img/home-backdrop.jpg';
 import DriverDetails from '../Drivers/DriverDetails';
 import TeamDetails from '../Teams/TeamDetails';
@@ -54,55 +48,55 @@ export default function Navigation() {
           >
             <Navbar.Brand>
               <Link to='/' className='nav-link-home'>
-              <Tooltip 
-                    placement='right'
-                    title="Home"
-                    className='tooltip-home'
-                    arrow>
-                <img src='./img/logo.svg' className='homeimg' />
+                <Tooltip
+                  placement='right'
+                  title='Home'
+                  className='tooltip-home'
+                  arrow
+                >
+                  <img src='./img/logo.png' className='homeimg' />
                 </Tooltip>
               </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
             <Navbar.Collapse id='responsive-navbar-nav'>
               <Nav style={{ fontFamily: 'formulaBold', margin: 'auto' }}>
-              
                 <NavLink to='/drivers' className='nav-link text-center'>
                   <h2 className='mb-4'></h2>
                   <div>
-                  <Tooltip 
-                    title="All Drivers"
-                    placement='top'
-                    arrow>
-                    <img src={drivers} className='helmet' alt='drivers'/>
+                    <Tooltip title='All Drivers' placement='top' arrow>
+                      <img
+                        src='./img/drivers.png'
+                        className='helmet'
+                        alt='drivers'
+                      />
                     </Tooltip>
                   </div>
                 </NavLink>
-               
 
                 <NavLink to='/teams' className='nav-link text-center'>
                   <h2 className='mb-4'></h2>
                   <div>
-                  <Tooltip 
-                    title="All Teams"
-                    placement='top'
-                    arrow>
-                    <img src={Teams1} className="teams1" alt="teams"/>
-                </Tooltip>
-
+                    <Tooltip title='All Teams' placement='top' arrow>
+                      <img
+                        src='./img/bolid.png'
+                        className='teams1'
+                        alt='teams'
+                      />
+                    </Tooltip>
                   </div>
                 </NavLink>
 
                 <NavLink to='/races' className='nav-link text-center'>
                   <h2 className='mb-4'></h2>
                   <div>
-                  <Tooltip 
-                    title="All Races"
-                    placement='top'
-                    arrow>
-                    <img src={Races3} className='races2' alt="races"/>
-                </Tooltip>
-
+                    <Tooltip title='All Races' placement='top' arrow>
+                      <img
+                        src='./img/raceFlags.png'
+                        className='races2'
+                        alt='races'
+                      />
+                    </Tooltip>
                   </div>
                 </NavLink>
               </Nav>

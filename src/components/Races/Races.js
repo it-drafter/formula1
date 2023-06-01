@@ -62,7 +62,7 @@ const Races = () => {
 
   return (
     <>
-      <div className='px-5 w-100 d-flex justify-content-between'>
+      <div className='px-5 w-100 d-flex justify-content-between mb-3'>
         <BreadCrumbs levels={[['Races']]} />
         <SearchBox
           // home={props.home}
@@ -71,7 +71,9 @@ const Races = () => {
         />
       </div>
 
-      <YearSelect />
+      <div className='text-center'>
+        <YearSelect />
+      </div>
 
       <Table className='tableContainer'>
         <TableHead>

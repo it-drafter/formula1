@@ -126,13 +126,13 @@ const TeamDetails = (props) => {
           </TableRow>
           <TableRow>
             <TableCell className='tableRow-cell'>History:</TableCell>
-            <TableCell>
+            <TableCell className='details-btn'>
               {' '}
               <a
                 href={teamDetails.Constructor.url + '#History'}
                 target='_blank'
               >
-                <OpenInNewIcon />
+               Wikipedia <OpenInNewIcon />
               </a>
             </TableCell>
           </TableRow>
