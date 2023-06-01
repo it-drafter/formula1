@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Box from '@mui/material/Box';
@@ -6,12 +6,13 @@ import Collapse from '@mui/material/Collapse';
 //import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import GlobalContext from '../../context/global-context';
 
 // import GlobalContext from '../context/global-context';
 // import DriverDetailsCollapsable from './DriverDetailsCollapsable';
 
 const SearchResultsRacesTableRow = (props) => {
-  //   const globalCtx = useContext(GlobalContext);
+  const globalCtx = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -40,7 +41,8 @@ const SearchResultsRacesTableRow = (props) => {
         //   className='rucica'
         >
           <div className='flagName'>
-            {/* {globalCtx.flagFn(props.driver.Driver.nationality)} */}
+         
+            {globalCtx.flagFn(props.race.Circuit.Location.country)}
             <span> </span>
             <span> </span>
             {props.race.raceName}

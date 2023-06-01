@@ -34,13 +34,14 @@ const TeamDetailsRaces = (props) => {
           <TableRow className='table-header'>
             <TableCell>Round</TableCell>
             <TableCell>Race Name</TableCell>
+             <TableCell>Points</TableCell>
             <TableCell>
               {props.teamResults[0].Results[0].Driver.familyName}
             </TableCell>
             <TableCell>
               {props.teamResults[0].Results[1]?.Driver.familyName ?? 'Driver 2'}
             </TableCell>
-            <TableCell>Points</TableCell>
+           
           </TableRow>
         </TableHead>
         <TableBody >
@@ -60,6 +61,11 @@ const TeamDetailsRaces = (props) => {
                   {teamResult.raceName}</div>
                 </TableCell>
 
+                    <TableCell className='tableRow-cell'>
+                  {Number(teamResult.Results[0].points) +
+                    Number(teamResult.Results[1]?.points ?? '0')}
+                </TableCell>
+
                 <TableCell className={classFunction(teamResult.Results[0].position ?? '0',
                   teamResult.Results[0].points)}>
                   {teamResult.Results[0].position}
@@ -70,10 +76,7 @@ const TeamDetailsRaces = (props) => {
                   {teamResult.Results[1]?.position ?? '0'}
                 </TableCell>
 
-                <TableCell className='tableRow-cell'>
-                  {Number(teamResult.Results[0].points) +
-                    Number(teamResult.Results[1]?.points ?? '0')}
-                </TableCell>
+            
               </TableRow>
             );
           })}
