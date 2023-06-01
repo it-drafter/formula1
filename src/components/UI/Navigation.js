@@ -34,7 +34,7 @@ export default function Navigation() {
     <>
       {/* <Router> */}
       <HashRouter basename='/'>
-        {/* <div styles={{ backgroundImage: `url(${backdrop})` }}> */}
+        {/* <div style={{ backgroundImage: `url(${backdrop})` }}> */}
         <div>
           <Navbar
             collapseOnSelect
