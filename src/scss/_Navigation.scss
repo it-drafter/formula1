@@ -22,9 +22,9 @@
   // padding: 10px;
   display: flex;
   justify-content: space-evenly;
-  margin-bottom:6px;
+  margin-bottom: 6px;
   border-bottom: 5px solid #80a192;
-  
+
   margin-bottom: 6px;
 
   .nav-link-home {
@@ -34,6 +34,7 @@
     margin-right: 20%;
     margin-left: 2%;
   }
+
   // .nav-link-home:hover{
   // color: white;
   //rgb(40, 113, 248);
@@ -60,6 +61,7 @@
     background-color: #336851;
     //background-color: rgb(255, 136, 0);
   }
+
   // .nav-link:active{
   //   color: black;
   //   background-color: rgb(255, 0, 0);
@@ -67,7 +69,7 @@
   // }
   .active {
     color: rgb(255, 255, 255);
-    background-color:#80a192;
+    background-color: #228225;
   }
 
   a {
@@ -117,10 +119,11 @@ a {
 .teams1 {
   // width: 200px;
   height: 80px;
+
 }
 
 .races2 {
   // width: 200px;
   height: 80px;
-  mix-blend-mode: multiply;
+  // mix-blend-mode: multiply;
 }

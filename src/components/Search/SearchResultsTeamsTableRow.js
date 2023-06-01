@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Box from '@mui/material/Box';
@@ -11,9 +11,9 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 // import DriverDetailsCollapsable from './DriverDetailsCollapsable';
 
 const SearchResultsDriversTableRow = (props) => {
-const globalCtx = useContext(GlobalContext);
-const [open, setOpen] = useState(false);
-const navigate = useNavigate();
+  const globalCtx = useContext(GlobalContext);
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   // console.log('Props', props.driver.nationality);
   // console.log('Props111', props);
@@ -40,14 +40,17 @@ const navigate = useNavigate();
         //   className='rucica'
         >
           <div className='flagName'>
-             {globalCtx.flagFn(props.driver.Driver.nationality)}
+            {globalCtx.flagFn(props.team.nationality)}
             <span> </span>
             <span> </span>
             {props.team.nationality}
           </div>
         </TableCell>
         <TableCell>
-          <a href={props.team.url} target='_blank' >< OpenInNewIcon /></a></TableCell>
+          <a href={props.team.url} target='_blank'>
+            <OpenInNewIcon />
+          </a>
+        </TableCell>
       </TableRow>
 
       {/* <TableRow>

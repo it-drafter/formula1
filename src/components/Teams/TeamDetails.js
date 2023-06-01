@@ -45,7 +45,7 @@ const TeamDetails = (props) => {
       const responseDetails = await axios.get(urlDetails);
       const responseResults = await axios.get(urlResults);
 
-      console.log('test:', responseResults.data.MRData.RaceTable);
+      console.log('test11111111111:', responseDetails);
 
       setTeamDetails(
         responseDetails.data.MRData.StandingsTable.StandingsLists[0]
@@ -80,7 +80,7 @@ const TeamDetails = (props) => {
       <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
       <span>Season {globalCtx.chosenYear}</span>
 
-      <div className='table-const-race'>
+      <Table className='table-const-race'>
         <TableBody className='detailsBody'>
           <TableRow>
             <TableCell align='center' colSpan={2} className='tableRow-cell'>
@@ -178,7 +178,7 @@ const TeamDetails = (props) => {
             handleDrivers={handleDrivers}
           />
         </TableBody>
-      </div>
+      </Table>
       <Footer />
     </>
   );

@@ -12,7 +12,7 @@
 table {
     max-width: 90vw;
     margin: 50px auto;
-     border: 50px solid white;
+    border: 50px solid white;
     //border-radius: 20px;
     //rgb(113, 182, 228);
     background-color: white;
@@ -21,7 +21,7 @@ table {
 
         th {
             font-weight: bold;
-            font-size: large;
+            font-size: medium;
             background-color: #19553b;
             color: #b3c6be;
             font-family: formulaBold;
@@ -29,33 +29,38 @@ table {
         }
     }
 
+    // tr:nth-child(even) {
+    //     background-color: #ddd;
+    // }
+
     tr {
         font-family: formula;
+
+        &:nth-child(even) {
+            background-color: #7D9B76;
+        }
 
         &:hover {
             background-color: lightgray;
         }
+
+    }
+
+    .driverDetails {
+        display: flex
+    }
+
+    .tableContainer {
+        margin-left: 15px;
+        //border:7px solid #E10600;
     }
 }
 
-.driverDetails {
-    display: flex
-}
+    // .tableContainer {
+    //     border: crimson!important;
+    // }
 
-.tableContainer {
-   margin-left: 15px;
-    //border:7px solid #E10600;
-  
-
-
-
-}
-
-// .tableContainer {
-//     border: crimson!important;
-// }
-
-// th {
-//     background-color: white;
-//     color: black;
-// }
+    // th {
+    //     background-color: white;
+    //     color: black;
+    // }

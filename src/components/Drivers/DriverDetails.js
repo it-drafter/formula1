@@ -29,7 +29,7 @@ const DriverDetails = () => {
   };
 
   // console.log('DriverDetails', params.driverId);
-  // const driverId = params.driverId;
+  const driverId = params.driverId;
 
   // const getFlags = async () => {
   //   const urlFlags = 'https://flagcdn.com/en/codes.json';
@@ -62,8 +62,7 @@ const DriverDetails = () => {
       // console.log('responseFlags', responseFlags.data);
 
       setDriverDetails(
-        responseDriver.data.MRData.StandingsTable.StandingsLists[0]
-          ?.DriverStandings[0]
+        responseDriver.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
       );
       setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
       // setFlags(responseFlags.data);
@@ -109,22 +108,21 @@ const DriverDetails = () => {
         />
       </>
 
-    // <Box sx={{ display: 'flex'}}> 
-    // <Skeleton animation='wave' height={500} width='90%' />
-    // <Skeleton variant="rounded" animation='wave' height={500} style={{ width: '90%' }} />
+      // <Box sx={{ display: 'flex'}}>
+      // <Skeleton animation='wave' height={500} width='90%' />
+      // <Skeleton variant="rounded" animation='wave' height={500} style={{ width: '90%' }} />
     );
-
   }
 
-console.log('DRIVERS', driverDetails.Driver.driverId);
+  console.log('DRIVERS', driverDetails.Driver.driverId);
 
-return (
-  <>
-    <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
+  return (
+    <>
+      <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
 
-      <span className="tableRow-boldCell">Season {globalCtx.chosenYear}</span>
+      <span className='tableRow-boldCell'>Season {globalCtx.chosenYear}</span>
 
-      <div className='table-const-race'>
+      <Table className='table-const-race'>
         <TableBody className='detailsBody'>
           <TableRow>
             <TableCell align='center' colSpan={2}>
@@ -215,18 +213,17 @@ return (
             </p>
           </div>
         </div> */}
-        <div>
+        <TableBody>
           <DriverDetailsRaces
             driverDetailsRaces={driverDetailsRaces}
             handleRouteToGrandPrix={handleRouteToGrandPrix}
             className='mouseHandle'
           />
-        </div>
-
-    </div>
-    <Footer />
-  </>
-);
+        </TableBody>
+      </Table>
+      <Footer />
+    </>
+  );
 };
 
 export default DriverDetails;

@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 //import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
-import GlobalContext from '../../context/global-context';
+import GlobalContext from '../context/global-context';
 import DriverDetailsCollapsable from './DriverDetailsCollapsable';
 
 const DriversTableRow = (props) => {
@@ -19,20 +19,18 @@ const DriversTableRow = (props) => {
   // console.log("props", props)
 
   const handleClickDetails = (driverId) => {
-    console.log("klik na drivera",driverId);
-    const linkTo = `/drivers/details/${driverId}`;
+    // console.log(driverId);
+    const linkTo = `/driversdetails/${driverId}`;
     navigate(linkTo);
   };
   const handleTeamDetails = (teamId) => {
     // console.log('on click event');
-    const linkTo = `/teams/details/${teamId}`;
+    const linkTo = `/teamsdetails/${teamId}`;
     navigate(linkTo);
   };
 
   // console.log('Props', props.driver.Driver.nationality);
   // console.log('Props111', props);
-
-  console.log('IVAN1234: ', props.driver.Constructors[0].constructorId);
 
   return (
     <>
@@ -46,12 +44,12 @@ const DriversTableRow = (props) => {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component='th' scope='row' className='tableRow-cell'>
+        <TableCell component='th' scope='row'>
           {props.driver.position}
         </TableCell>
         <TableCell
           onClick={() => handleClickDetails(props.driver.Driver.driverId)}
-          className='mouseHandle tableRow-cell'
+          className='mouseHandle'
         >
           <div className='flagName'>
             {globalCtx.flagFn(props.driver.Driver.nationality)}
@@ -63,19 +61,14 @@ const DriversTableRow = (props) => {
           </div>
         </TableCell>
         <TableCell
-          className='mouseHandle tableRow-cell'
+          className='mouseHandle'
           onClick={() =>
             handleTeamDetails(props.driver.Constructors[0].constructorId)
           }
         >
-          <div className='flagName'>
-            {globalCtx.flagFn(props.driver.Constructors[0].nationality)}
-            <span> </span>
-
-            {props.driver.Constructors[0].name}
-          </div>
+          {props.driver.Constructors[0].name}
         </TableCell>
-        <TableCell className='tableRow-cell'>{props.driver.points}</TableCell>
+        <TableCell>{props.driver.points}</TableCell>
       </TableRow>
 
       <TableRow>
