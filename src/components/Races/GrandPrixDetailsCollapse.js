@@ -69,16 +69,16 @@ const GrandPrixDetailsCollapse = (props) => {
       >
         <TableHead>
           <TableRow>
-            <TableCell>Country</TableCell>
-            <TableCell>Location</TableCell>
-            <TableCell>Winner Team</TableCell>
-            <TableCell>Grand Prix details</TableCell>
+            <TableCell className='tableRow-cell'>Country</TableCell>
+            <TableCell className='tableRow-cell'>Location</TableCell>
+            <TableCell className='tableRow-cell'>Winner Team</TableCell>
+            <TableCell className='tableRow-cell'>Grand Prix details</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           <TableRow>
             <TableCell>
-              <div className='flagName'>
+              <div className='flagName tableRow-cell'>
                 {globalCtx.flagFn(
                   grandPrixDetails[props.round - 1]?.Circuit.Location.country
                 )}
@@ -88,13 +88,13 @@ const GrandPrixDetailsCollapse = (props) => {
                 {grandPrixDetails[props.round - 1]?.Circuit.Location.country}
               </div>
             </TableCell>
-            <TableCell>
+            <TableCell className='tableRow-cell'>
               {grandPrixDetails[props.round - 1].Circuit.Location.locality}
             </TableCell>
-            <TableCell>
+            <TableCell className='tableRow-cell'>
               {grandPrixDetails[props.round - 1].Results[0].Constructor.name}
             </TableCell>
-            <TableCell>
+            <TableCell className='details-btn'>
               <a href={grandPrixDetails[props.round - 1].url} target='_blank'>
                 Wikipedia <OpenInNewIcon />
               </a>

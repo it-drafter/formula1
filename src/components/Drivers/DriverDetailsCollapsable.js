@@ -94,10 +94,10 @@ const DriverDetailsCollapsable = (props) => {
                   driverDetails.Driver.familyName}
               </div>
             </TableCell>
-            <TableCell>Nationality</TableCell>
-            <TableCell>Wins</TableCell>
-            <TableCell>Date of Birth</TableCell>
-            <TableCell>Biography</TableCell>
+            <TableCell className='tableRow-cell'>Nationality</TableCell>
+            <TableCell className='tableRow-cell'>Wins</TableCell>
+            <TableCell className='tableRow-cell'>Date of Birth</TableCell>
+            <TableCell className='tableRow-cell'>Biography</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
