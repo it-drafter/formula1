@@ -9,12 +9,10 @@ const ResultsTableRow = (props) => {
   const navigate = useNavigate();
 
   const handleDriverClick = (driverId) => {
-    console.log("klik na drivera od dole")
     const linkTo = `/drivers/details/${driverId}`;
     navigate(linkTo);
   }
   const handleTeamClick = (teamId) => {
-    console.log("klik od dole na tim")
     const linkTo = `/teams/details/${teamId}`;
     navigate(linkTo);
   }
@@ -59,9 +57,7 @@ const ResultsTableRow = (props) => {
             ? props.result.status
             : 'DNF'}
       </TableCell>
-      <TableCell
-        className={classFunction(props.result.position, props.result.points)}
-      >
+      <TableCell className={classFunction(props.result.position, props.result.points)} >
         {props.result.points}
       </TableCell>
     </TableRow>

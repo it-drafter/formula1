@@ -55,7 +55,7 @@ const QualifyingResults = (props) => {
   return (
     <div>
       <h2 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
-        Qualifying Session:
+        Qualifying Results
       </h2>
       <Table className='tableContainer mt-3'>
         <TableHead>

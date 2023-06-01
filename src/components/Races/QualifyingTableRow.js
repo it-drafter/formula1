@@ -15,13 +15,11 @@ const QualifyingTableRow = (props) => {
   }
 
   const handleDriverClick = (driverId) => {
-    console.log("klik na drivera")
     const linkTo = `/drivers/details/${driverId}`
     navigate(linkTo)
   }
 
   const handleTeamClick = (round) => {
-    console.log("klik na tim")
     const linkTo = `/teams/details/${round}`;
     navigate(linkTo)
   }
@@ -33,9 +31,7 @@ const QualifyingTableRow = (props) => {
         <div className='flagName tableRow-cell'>
           {globalCtx.flagFn(props.qualifier.Driver.nationality)}
           <span> </span>
-          {props.qualifier.Driver.givenName +
-            ' ' +
-            props.qualifier.Driver.familyName}
+          {props.qualifier.Driver.givenName + ' ' + props.qualifier.Driver.familyName}
         </div>
       </TableCell>
       <TableCell onClick={() => handleTeamClick(props.qualifier.Constructor.constructorId)} className="mouseHandle">

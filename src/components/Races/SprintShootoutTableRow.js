@@ -6,37 +6,36 @@ import { useNavigate } from 'react-router-dom';
 
 const SprintShootoutTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
+
   function qSort() {
     const arr = [props.qualifier.Q1, props.qualifier.Q2, props.qualifier.Q3];
     arr.sort();
     return arr[0];
   }
+
   const navigate = useNavigate()
+
   const handleRouteDrivers = (driverId) => {
-    console.log("driver click");
     const linkTo = `/drivers/details/${driverId}`
     navigate(linkTo);
   }
+
   const handleRouteTeams = (teamId) => {
-    console.log("klik na team")
     const linkTo = `/teams/details/${teamId}`;
     navigate(linkTo);
   }
-  console.log("props", props)
 
   return (
     <TableRow>
       <TableCell>{props.qualifier.position}</TableCell>
-      <TableCell onClick={() => handleRouteDrivers(props.qualifier.Driver.driverId)} className="mouseHandle">
+      <TableCell onClick={() => handleRouteDrivers(props.qualifier.Driver.driverId)} className="mouseHandle tableRow-cell">
         <div className='flagName'>
           {globalCtx.flagFn(props.qualifier.Driver.nationality)}
           <span> </span>
-          {props.qualifier.Driver.givenName +
-            ' ' +
-            props.qualifier.Driver.familyName}
+          {props.qualifier.Driver.givenName + ' ' + props.qualifier.Driver.familyName}
         </div>
       </TableCell>
-      <TableCell onClick={() => handleRouteTeams(props.qualifier.Constructor.constructorId)} className="mouseHandle">
+      <TableCell onClick={() => handleRouteTeams(props.qualifier.Constructor.constructorId)} className="mouseHandle tableRow-cell">
         <div className='flagName'>
           {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
           <span> </span>
@@ -44,7 +43,7 @@ const SprintShootoutTableRow = (props) => {
         </div>
       </TableCell>
 
-      <TableCell>{qSort() || 'NC'}</TableCell>
+      <TableCell className='tableRow-cell'>{qSort() || 'NC'}</TableCell>
     </TableRow>
   );
 };
