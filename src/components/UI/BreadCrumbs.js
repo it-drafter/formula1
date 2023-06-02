@@ -33,7 +33,7 @@ const BreadCrumbs = (props) => {
           // underline='hover'
           // color='text.red'
           aria-current='page'
-          className='text-light'
+          className='text-light font-responsive'
           style={{ fontFamily: 'formulaBold' }}
         >
           Home
@@ -59,7 +59,7 @@ const BreadCrumbs = (props) => {
           underline='hover'
           color='text.red'
           onClick={() => navigate('/')}
-          className='mouseHandle'
+          className='mouseHandle font-responsive'
           style={{ fontFamily: 'formulaBold' }}
         >
           Home
@@ -69,7 +69,7 @@ const BreadCrumbs = (props) => {
             return (
               <span
                 key={index}
-                className='Active-breadcrumb fw-bold'
+                className='Active-breadcrumb fw-bold font-responsive'
                 style={{ fontFamily: 'formulaBold' }}
                 // underline='none'
                 // color='text.red'
@@ -84,7 +84,7 @@ const BreadCrumbs = (props) => {
                 key={index}
                 underline='hover'
                 color='text.red'
-                className='mouseHandle'
+                className='mouseHandle font-responsive'
                 onClick={() => handleBCRoute(level)}
                 style={{ fontFamily: 'formulaBold' }}
               >
