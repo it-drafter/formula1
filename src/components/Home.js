@@ -115,6 +115,7 @@ const Home = () => {
         spacing={2}
         m={5}
         alignItems='flex-start'
+        className='flex-responsive'
       >
         <img
           className='d-block col h-50 w-50 mb-3'
@@ -125,7 +126,11 @@ const Home = () => {
         <Table className='table-home col'>
           <TableHead>
             <TableRow className='table-header'>
-              <TableCell colSpan={2} style={{backgroundColor:'#8BC6AD', color:'#000704'}}>
+              <TableCell
+                colSpan={2}
+                style={{ backgroundColor: '#8BC6AD', color: '#000704' }}
+                className='font-responsive'
+              >
                 Driver standings for season {globalCtx.chosenYear}.
               </TableCell>
             </TableRow>

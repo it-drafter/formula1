@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Table, TableBody, TableRow, TableCell } from '@mui/material';
 import axios from 'axios';
 import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
-//import { Skeleton } from '@mui/material';
 import Footer from '../UI/Footer';
 import GlobalContext from '../../context/global-context';
 import DriverDetailsRaces from './DriverDetailsRaces';
@@ -29,75 +28,39 @@ const DriverDetails = () => {
     const linkTo = `/races/details/${race}`;
     navigate(linkTo);
   };
-
-  // console.log('DriverDetails', params.driverId);
   const driverId = params.driverId;
-  // console.log("params", params);
-
-  // const getFlags = async () => {
-  //   const urlFlags = 'https://flagcdn.com/en/codes.json';
-  //   const responseFlags = await axios.get(urlFlags);
-  //   console.log("response", responseFlags);
-
-  //   setFlags (responseFlags.data.data);
-  //   // console.log("ZASTAVICE", flags);
-  // }
-
   useEffect(() => {
     getDriverDetails();
   }, [globalCtx.chosenYear]);
 
   const getDriverDetails = async () => {
     setError(null);
-    // console.log('DriverDetails', params.driverId);
-    // const driverId = params.driverId;
-
-    // const urlDriver = `https://raw.githubusercontent.com/nkezic/f1/main/DriverDetails`;
     const urlDriver = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/driverStandings.json`;
-    // const urlRaces = `https://raw.githubusercontent.com/nkezic/f1/main/DriverRaces`;
     const urlRaces = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/results.json`;
-
-    // const urlFlags =
-    //   'https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json';
     try {
       const responseDriver = await axios.get(urlDriver);
       const responseRaces = await axios.get(urlRaces);
-      // const responseFlags = await axios.get(urlFlags);
-      // console.log('responseFlags', responseFlags.data);
-
-      // console.log(
-      //   'responseDRIVER: ',
-      //   responseDriver.data.MRData.StandingsTable.StandingsLists[0]
-      //     .DriverStandings[0]
-      // );
-
       setDriverDetails(
         responseDriver.data.MRData.StandingsTable.StandingsLists[0]
           .DriverStandings[0]
       );
       setDriverDetailsRaces(responseRaces.data.MRData.RaceTable.Races);
-      // setFlags(responseFlags.data);
       setIsLoading(false);
     } catch (err) {
-      //   console.log(err);
       setIsLoading(false);
       setError(err);
     }
   };
 
   if (error) {
-    // return <p>Error: {error.message}</p>;
     return (
       <>
         <div className='px-5 w-100 d-flex justify-content-start mb-3'>
           <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
         </div>
-        {/* <span className='tableRow-boldCell'>Season {globalCtx.chosenYear}</span> */}
-
         <h2 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
           No data for driver {driverId} in season {globalCtx.chosenYear}
         </h2>
-
         <Footer />
       </>
     );
@@ -110,9 +73,6 @@ const DriverDetails = () => {
       </>
     );
   }
-
-  // console.log('DRIVERS', driverDetails.Driver.driverId);
-
   return (
     <>
       <div className='px-5 w-100 d-flex justify-content-start mb-3'>
@@ -137,7 +97,7 @@ const DriverDetails = () => {
                 <img
                   src={`./img/drivers/${driverId}.png`}
                   onError={({ currentTarget }) => {
-                    currentTarget.onerror = null; // prevents looping
+                    currentTarget.onerror = null;
                     currentTarget.src = `./img/drivers/unknownDriver.png`;
                   }}
                   style={{ maxHeight: '100px', paddingRight: '30px' }}
@@ -159,7 +119,7 @@ const DriverDetails = () => {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell  align='center' className='tableRow-cell'>Nationality:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>Nationality:</TableCell>
               <TableCell align='center' className='tableRow-cell'>
                 {driverDetails?.Driver.nationality}
               </TableCell>

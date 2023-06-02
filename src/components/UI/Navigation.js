@@ -38,7 +38,7 @@ export default function Navigation() {
         <div>
           <Navbar
             collapseOnSelect
-            expand='lg'
+            expand='md'
             bg='dark'
             variant='dark'
             className='NavContainer'
@@ -51,7 +51,10 @@ export default function Navigation() {
                   className='tooltip-home'
                   arrow
                 > */}
-                <img src='./img/logo.png' className='homeimg' />
+                <img
+                  src='./img/logo.png'
+                  className='homeimg height-responsive width-responsive'
+                />
                 {/* </Tooltip> */}
               </Link>
             </Navbar.Brand>
@@ -59,12 +62,12 @@ export default function Navigation() {
             <Navbar.Collapse id='responsive-navbar-nav'>
               <Nav style={{ fontFamily: 'formulaBold', margin: 'auto' }}>
                 <NavLink to='/drivers' className='nav-link text-center'>
-                  <h2 className='mb-4'>Drivers</h2>
+                  <h2 className='mb-4 font-responsive'>Drivers</h2>
                   <div>
                     {/* <Tooltip title='All Drivers' placement='top' arrow> */}
                     <img
                       src='./img/drivers.png'
-                      className='helmet'
+                      className='helmet height-responsive'
                       alt='drivers'
                     />
                     {/* </Tooltip> */}
@@ -72,21 +75,25 @@ export default function Navigation() {
                 </NavLink>
 
                 <NavLink to='/teams' className='nav-link text-center'>
-                  <h2 className='mb-4'>Teams</h2>
+                  <h2 className='mb-4 font-responsive'>Teams</h2>
                   <div>
                     {/* <Tooltip title='All Teams' placement='top' arrow> */}
-                    <img src='./img/bolid.png' className='teams1' alt='teams' />
+                    <img
+                      src='./img/bolid.png'
+                      className='teams1 height-responsive'
+                      alt='teams'
+                    />
                     {/* </Tooltip> */}
                   </div>
                 </NavLink>
 
                 <NavLink to='/races' className='nav-link text-center'>
-                  <h2 className='mb-4'>Races</h2>
+                  <h2 className='mb-4 font-responsive'>Races</h2>
                   <div>
                     {/* <Tooltip title='All Races' placement='top' arrow> */}
                     <img
                       src='./img/raceFlags.png'
-                      className='races2'
+                      className='races2 height-responsive'
                       alt='races'
                     />
                     {/* </Tooltip> */}
