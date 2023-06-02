@@ -130,7 +130,7 @@ const GrandPrixDetails = () => {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell align='center' lassName='tableRow-cell'>
+              <TableCell align='center' className='tableRow-cell'>
                 Circuit details:
               </TableCell>
               <TableCell align='center' className='details-btn'>
