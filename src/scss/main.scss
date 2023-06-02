@@ -148,7 +148,7 @@ body {
   font-size: 0.8rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .font-responsive {
     font-size: 11px !important;
     margin-bottom: 5px !important;
@@ -172,9 +172,7 @@ body {
   .margin-responsive {
     margin-bottom: 3px !important;
   }
-}
 
-@media screen and (max-width: 900px) {
   .flex-responsive {
     align-items: center !important;
   }
