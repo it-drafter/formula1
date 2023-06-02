@@ -46,7 +46,6 @@ const TeamDetailsRaces = (props) => {
                 <TableCell className='tableRow-cell'>
                   {teamResult.round}
                 </TableCell>
-
                 <TableCell
                   onClick={() => props.handleDrivers(teamResult.round)}
                   className='mouseHandle tableRow-cell'
@@ -59,18 +58,15 @@ const TeamDetailsRaces = (props) => {
                     {teamResult.raceName}
                   </div>
                 </TableCell>
-
                 <TableCell className='tableRow-cell'>
                   {Number(teamResult.Results[0].points) +
                     Number(teamResult.Results[1]?.points ?? '0')}
                 </TableCell>
-
                 <TableCell
                   className={`tableRow-cell ${classFunction(teamResult.Results[0].position ?? '0', teamResult.Results[0].points)}`}
                 >
                   {teamResult.Results[0].position}
                 </TableCell>
-
                 <TableCell
                   className={`tableRow-cell ${classFunction(teamResult.Results[1]?.position ?? '0', teamResult.Results[1]?.points ?? '0')}`}
                 >

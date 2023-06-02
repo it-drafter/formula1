@@ -6,7 +6,6 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
-//import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import GlobalContext from '../../context/global-context';
 import DriverDetailsCollapsable from './DriverDetailsCollapsable';
@@ -15,25 +14,15 @@ const DriversTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-
-  // console.log("props", props)
-
   const handleClickDetails = (driverId) => {
-    console.log("klik na drivera",driverId);
+    console.log("klik na drivera", driverId);
     const linkTo = `/drivers/details/${driverId}`;
     navigate(linkTo);
   };
   const handleTeamDetails = (teamId) => {
-    // console.log('on click event');
     const linkTo = `/teams/details/${teamId}`;
     navigate(linkTo);
   };
-
-  // console.log('Props', props.driver.Driver.nationality);
-  // console.log('Props111', props);
-
-  console.log('IVAN1234: ', props.driver.Constructors[0].constructorId);
-
   return (
     <>
       <TableRow>
@@ -82,13 +71,6 @@ const DriversTableRow = (props) => {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={5}>
           <Collapse in={open} timeout='auto' unmountOnExit>
             <Box sx={{ margin: 0 }}>
-              {/* <Typography variant='h6' gutterBottom component='div'>
-                {globalCtx.flagFn(props.driver.Driver.nationality)}
-                <span> </span>
-                {props.driver.Driver.givenName +
-                  ' ' +
-                  props.driver.Driver.familyName}
-              </Typography> */}
               <DriverDetailsCollapsable
                 driverId={props.driver.Driver.driverId}
               />
@@ -97,31 +79,6 @@ const DriversTableRow = (props) => {
         </TableCell>
       </TableRow>
     </>
-
-    // <TableRow>
-    //   <TableCell
-    //     onClick={() => handleClickDetails(props.driver.Driver.driverId)}
-    //     className="rucica"
-    //   >
-    //     <IconButton
-    //       aria-label="expand row"
-    //       size="small"
-    //       onClick={() => setOpen(!open)}
-    //       className="rucica"
-    //     >
-    //       {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-    //     </IconButton>
-    //   </TableCell>
-    //   <TableCell>{props.driver.position}</TableCell>
-    //   <TableCell>
-    //     {globalCtx.flagFn(props.driver.Driver.nationality)}
-    //     {props.driver.Driver.givenName + " " + props.driver.Driver.familyName}
-    //   </TableCell>
-    //   <TableCell
-    //   className="rucica"
-    //    onClick={() => handleTeamDetails(props.driver.Driver.driverId)}>{props.driver.Constructors[0].name}</TableCell>
-    //   <TableCell>{props.driver.points}</TableCell>
-    // </TableRow>
   );
 };
 export default DriversTableRow;

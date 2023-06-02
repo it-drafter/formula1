@@ -7,12 +7,9 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  // Link,
-  // Breadcrumbs,
 } from '@mui/material';
 import TeamsTableRow from './TeamsTableRow';
 import GlobalContext from '../../context/global-context';
-// import { useNavigate } from 'react-router-dom';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import YearSelect from '../UI/YearSelect';
 import SearchBox from '../UI/SearchBox';
@@ -24,23 +21,19 @@ const Teams = () => {
   const [error, setError] = useState(null);
   const [teams, setTeams] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const navigate = useNavigate();
 
   useEffect(() => {
     getTeams();
   }, [globalCtx.chosenYear]);
 
   const getTeams = async () => {
-    // const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllTeams`;
     const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
-    // setIsLoading(true);
-
+    
     try {
       const response = await axios.get(url);
       const data =
         response.data.MRData.StandingsTable.StandingsLists[0]
           .ConstructorStandings;
-      console.log(data);
       setTeams(data);
       setIsLoading(false);
     } catch (err) {
@@ -57,7 +50,6 @@ const Teams = () => {
         <div className='px-5 w-100 d-flex justify-content-between'>
           <BreadCrumbs levels={[['Teams']]} />
           <SearchBox
-            // home={props.home}
             placeholder={'Search Teams'}
             linkTo={`/teams/search`}
           />
@@ -70,14 +62,7 @@ const Teams = () => {
 
   if (isLoading) {
     return (
-      <RiseLoaderSpinner
-        // style={{
-        //   height: '50vh',
-        //   display: 'flex',
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        // }}
-      />
+      <RiseLoaderSpinner />
     );
   }
 
@@ -86,7 +71,6 @@ const Teams = () => {
       <div className='px-5 w-100 d-flex justify-content-between mb-3'>
         <BreadCrumbs levels={[['Teams']]} />
         <SearchBox
-          // home={props.home}
           placeholder={'Search All Teams'}
           linkTo={`/teams/search`}
         />

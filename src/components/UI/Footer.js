@@ -4,14 +4,16 @@ import BackToTop from './BackToTop';
 
 export default function Footer() {
   const codeYear = moment().format('YYYY');
-  // const [ShowButton, SetShowButton] = usestate(false);
+ 
 
   return (
     <div className='flexbox-top footer-team'>
       <BackToTop />
-      <span className='footer-item'>Coded by: Fatal Error Team &nbsp;</span>
+      <span className='footer-item font-responsive'>
+        Coded by: Fatal Error Team &nbsp;
+      </span>
       <span className='footer-item'>
-        {codeYear} <span class='copyleft'>&copy;</span>{' '}
+        {codeYear} <span className='copyleft'>&copy;</span>{' '}
       </span>
     </div>
   );

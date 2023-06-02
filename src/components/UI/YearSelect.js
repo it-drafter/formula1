@@ -15,7 +15,7 @@ export default function YearSelect() {
 
   const startYear = 1950;
   const allYear = moment().year();
-  // const { handleselectedYear } = useContext(GlobalContext);
+
 
   const years = [];
   for (let year = startYear; year <= allYear; year++) {
@@ -24,17 +24,17 @@ export default function YearSelect() {
 
   const handleClick = (year) => {
     globalCtx.setYearFn(year);
-    console.log('YearSelect component:', year);
-    // props.onReRender();
+    
+    
   };
 
-  // console.log('Year from context:', globalCtx.chosenYear);
+ 
 
   return (
     <>
       <div>
         <span
-          className='text-light fw-bold mouseHandle d-inline-block mb-4'
+          className='text-light fw-bold mouseHandle d-inline-block mb-4 font-responsive'
           onClick={() => setOpen(!open)}
         >
           Season selector: {globalCtx.chosenYear}
@@ -43,7 +43,7 @@ export default function YearSelect() {
           <IconButton
             aria-label='expand row'
             size='small'
-            color='error'
+            color='success'
             onClick={() => setOpen(!open)}
           >
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
@@ -52,14 +52,14 @@ export default function YearSelect() {
       </div>
       <Collapse in={open} timeout='auto' unmountOnExit>
         <div className='container mx-auto mb-4'>
-          {/* <h1 className='h4 text-primary fw-bold'>Season:</h1> */}
+   
 
           {years.map((year) => (
             <Button
               active={year === globalCtx.chosenYear}
               variant='success'
               size='sm'
-              className='col years'
+              className='col years font-responsive'
               key={year}
               onClick={() => handleClick(year)}
             >

@@ -2,38 +2,31 @@ import React from 'react';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { useNavigate } from 'react-router-dom';
-import { Typography } from '@mui/material';
+
 
 const BreadCrumbs = (props) => {
   if (props.home === true) {
     return false;
   }
   const navigate = useNavigate();
-  //   const location = useLocation();
 
-  //   const arrPath = location.pathname.split('/').filter((el) => el !== '');
-
-  //   console.log(arrPath);
-
-  // console.log('BC Props: ', props.levels);
 
   const handleBCRoute = (destination) => {
-    console.log('klik');
+    
 
     if (Array.isArray(destination)) {
       navigate(destination[1]);
     }
   };
-  //   console.log('Ivan navigacija', navigate);
+
 
   if (!props.levels) {
     return (
       <Breadcrumbs aria-label='breadcrumb d-block'>
         <span
-          // underline='hover'
-          // color='text.red'
+         
           aria-current='page'
-          className='text-light'
+          className='homeBC font-responsive'
           style={{ fontFamily: 'formulaBold' }}
         >
           Home
@@ -52,14 +45,14 @@ const BreadCrumbs = (props) => {
 
   return (
     <div className=''>
-      {/* <h1>Breadcrumbs component</h1> */}
+      
 
       <Breadcrumbs aria-label='breadcrumb'>
         <Link
           underline='hover'
           color='text.red'
           onClick={() => navigate('/')}
-          className='mouseHandle'
+          className='mouseHandle font-responsive'
           style={{ fontFamily: 'formulaBold' }}
         >
           Home
@@ -69,11 +62,9 @@ const BreadCrumbs = (props) => {
             return (
               <span
                 key={index}
-                className='Active-breadcrumb fw-bold'
+                className='Active-breadcrumb fw-bold font-responsive'
                 style={{ fontFamily: 'formulaBold' }}
-                // underline='none'
-                // color='text.red'
-                // sx={{ fontStyle: 'bold' }}
+               
               >
                 {getCrumb(level)}
               </span>
@@ -84,7 +75,7 @@ const BreadCrumbs = (props) => {
                 key={index}
                 underline='hover'
                 color='text.red'
-                className='mouseHandle'
+                className='mouseHandle font-responsive'
                 onClick={() => handleBCRoute(level)}
                 style={{ fontFamily: 'formulaBold' }}
               >
@@ -94,17 +85,7 @@ const BreadCrumbs = (props) => {
           }
         })}
 
-        {/* <Link
-          underline='hover'
-          color='black'
-          onClick={handleBCRoute}
-          className='mouseHandle'
-        >
-          Home
-        </Link>
-        <Link underline='hover' color='text.red' className='mouseHandle'>
-          Drivers
-        </Link> */}
+        
       </Breadcrumbs>
     </div>
   );
