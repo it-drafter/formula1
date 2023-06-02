@@ -44,14 +44,7 @@ const GrandPrixDetails = () => {
 
   if (isLoading) {
     return (
-      <RiseLoaderSpinner
-      // style={{
-      //   height: '50vh',
-      //   display: 'flex',
-      //   justifyContent: 'center',
-      //   alignItems: 'center',
-      // }}
-      />
+      <RiseLoaderSpinner/>
     );
   }
 
@@ -81,7 +74,7 @@ const GrandPrixDetails = () => {
             src={`./img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
               }.jpeg`}
             onError={({ currentTarget }) => {
-              currentTarget.onerror = null; // prevents looping
+              currentTarget.onerror = null;
               currentTarget.src = `./img/grand_prix/poster.png`;
             }}
           />
