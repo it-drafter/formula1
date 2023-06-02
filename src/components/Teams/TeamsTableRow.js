@@ -6,7 +6,6 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
-import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import GlobalContext from '../../context/global-context';
 import TeamDetailsCollapsable from './TeamDetailsCollapsable';
@@ -23,30 +22,7 @@ const TeamsTableRow = (props) => {
     navigate(LinkTo);
   };
 
-  // const handleClickDetails = () => {
-  //   console.log("detalji", props.team.Constructor.url )
-  //  const site = props.team.Constructor.url
-  //  navigate(site);
-
   return (
-    // <TableRow>
-    //   <TableCell>{props.team.position}</TableCell>
-    //   <TableCell
-
-    //     onClick={() =>
-    //       handleClickConstructor(props.team.Constructor.constructorId)
-    //     }
-    //     className="rucica"
-    //   >
-    //     {globalCtx.flagFn(props.team.Constructor.nationality)}
-    //     <span>  </span>
-    //     {props.team.Constructor.name}
-    //   </TableCell>
-    //   <TableCell > <a href={props.team.Constructor.url} target="_blank" >Details ↗</a>
-    //   </TableCell>
-    //   <TableCell>{props.team.points}</TableCell>
-    // </TableRow>
-
     <>
       <TableRow >
         <TableCell>
@@ -85,12 +61,7 @@ const TeamsTableRow = (props) => {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout='auto' unmountOnExit>
             <Box sx={{ margin: 0 }}>
-              {/* <Typography variant='h6' gutterBottom component='div'>
-                {globalCtx.flagFn(props.team.Constructor.nationality)}
-                <span> </span>
-                {props.team.Constructor.name}
-              </Typography> */}
-
+             
               <TeamDetailsCollapsable
                 teamId={props.team.Constructor.constructorId}
               />
