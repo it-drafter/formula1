@@ -1,53 +1,51 @@
 @font-face {
-   font-family: formula;
-   src: url("../fonts/Formula1-Regular_web_0.ttf");
+  font-family: formula;
+  src: url('../fonts/Formula1-Regular_web_0.ttf');
 }
 
 @font-face {
-   font-family: formulaBold;
-   src: url("../fonts/Formula1-Bold_web_0.ttf");
+  font-family: formulaBold;
+  src: url('../fonts/Formula1-Bold_web_0.ttf');
 }
 
 .table-const-race {
-   margin-top: 0;
-   display: flex;
-   width: 90%;
-   justify-content: center;
-   align-items: start;
+  margin-top: 0;
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  align-items: start;
 
-   .detailsBody {
-      margin-top: 50px;
-      background-color: #d5ece2;
-      font-family: formula;
-   }
-
+  .detailsBody {
+    margin-top: 50px;
+    background-color: #d5ece2;
+    font-family: formula;
+  }
 }
 
 .details-btn {
-   a {
-      color: #00140b;
-      font-family: formula;
-      font-size: 12px;
-      padding: 3px 0px;
-   }
+  a {
+    color: #00140b;
+    font-family: formula;
+    font-size: 12px;
+    padding: 3px 0px;
+  }
 
-   a:hover {
-      color: #398e69;
-   }
+  a:hover {
+    color: #398e69;
+  }
 }
 
 .tableRow-cell {
-   font-family: formula !important;
-   font-size: 12px !important;
-   color: #00140b;
+  font-family: formula !important;
+  font-size: 12px !important;
+  color: #00140b;
 }
 
 .tableRow-boldCell {
-   font-family: formulaBold !important;
-   font-size: 14px !important;
+  font-family: formulaBold !important;
+  font-size: 14px !important;
 }
 
 .color-wrap {
-   background-color: #257b56;
-  
+  background-color: #257b56;
 }

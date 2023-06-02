@@ -3,28 +3,22 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { useNavigate } from 'react-router-dom';
 
-
 const BreadCrumbs = (props) => {
   if (props.home === true) {
     return false;
   }
   const navigate = useNavigate();
 
-
   const handleBCRoute = (destination) => {
-    
-
     if (Array.isArray(destination)) {
       navigate(destination[1]);
     }
   };
 
-
   if (!props.levels) {
     return (
       <Breadcrumbs aria-label='breadcrumb d-block'>
         <span
-         
           aria-current='page'
           className='homeBC font-responsive'
           style={{ fontFamily: 'formulaBold' }}
@@ -45,8 +39,6 @@ const BreadCrumbs = (props) => {
 
   return (
     <div className=''>
-      
-
       <Breadcrumbs aria-label='breadcrumb'>
         <Link
           underline='hover'
@@ -64,7 +56,6 @@ const BreadCrumbs = (props) => {
                 key={index}
                 className='Active-breadcrumb fw-bold font-responsive'
                 style={{ fontFamily: 'formulaBold' }}
-               
               >
                 {getCrumb(level)}
               </span>
@@ -84,8 +75,6 @@ const BreadCrumbs = (props) => {
             );
           }
         })}
-
-        
       </Breadcrumbs>
     </div>
   );

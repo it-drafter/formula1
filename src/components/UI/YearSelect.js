@@ -16,7 +16,6 @@ export default function YearSelect() {
   const startYear = 1950;
   const allYear = moment().year();
 
-
   const years = [];
   for (let year = startYear; year <= allYear; year++) {
     years.push(year);
@@ -24,11 +23,7 @@ export default function YearSelect() {
 
   const handleClick = (year) => {
     globalCtx.setYearFn(year);
-    
-    
   };
-
- 
 
   return (
     <>
@@ -52,8 +47,6 @@ export default function YearSelect() {
       </div>
       <Collapse in={open} timeout='auto' unmountOnExit>
         <div className='container mx-auto mb-4'>
-   
-
           {years.map((year) => (
             <Button
               active={year === globalCtx.chosenYear}

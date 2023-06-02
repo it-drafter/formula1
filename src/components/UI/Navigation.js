@@ -10,7 +10,6 @@ import GrandPrixDetails from '../Races/GrandPrixDetails';
 import SearchResultsDrivers from '../Search/SearchResultsDrivers';
 import SearchResultsTeams from '../Search/SearchResultsTeams';
 import SearchResultsRaces from '../Search/SearchResultsRaces';
-
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 

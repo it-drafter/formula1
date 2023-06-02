@@ -19,7 +19,6 @@ const SearchBox = (props) => {
   const searchString = useRef();
 
   const handleClickSearch = () => {
-  
     if (searchString.current.value.trim().length === 0) {
       return false;
     }
@@ -52,10 +51,8 @@ const SearchBox = (props) => {
         sx={{ ml: 1, flex: 1 }}
         autoFocus
         placeholder={props.placeholder}
-       
         inputProps={{ 'aria-label': 'search' }}
         inputRef={searchString}
-       
         onKeyDown={handleKeyDown}
       />
       <IconButton

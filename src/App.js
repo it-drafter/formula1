@@ -6,52 +6,32 @@ import GlobalContext from './context/global-context';
 import moment from 'moment/moment';
 
 const App = () => {
-  // const globalCtx = useContext(GlobalContext);
-
-  // console.log('IVAN: ', globalCtx.setYearFn());
-
   const [flags, setFlags] = useState([]);
   const [year, setYear] = useState(moment().year());
-  // const [year, setYear] = useState(2013);
   const [searchString, setSearchString] = useState('');
   const [error, setError] = useState(null);
 
   useEffect(() => {
     getFlags();
-    // setYear(globalCtx.setYearFn() ?? new Date().getFullYear());
   }, []);
 
   const getFlags = async () => {
-    // console.log('DriverDetails', params.driverId);
-    // const driverId = params.driverId;
     try {
       const urlFlags =
         'https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json';
       const responseFlags = await axios.get(urlFlags);
-      // console.log('responseFlags', responseFlags.data);
 
       setFlags(responseFlags.data);
     } catch (err) {
-      //   console.log(err);
       setError(err);
     }
   };
-
-  if (error) {
-    // return <p>Error: {error.message}</p>;
-    console.log('Flags error: ', error.message);
-  }
 
   const flagFunction = (nationality, flagSize = 20) => {
     const country = flags.filter(
       (flag) =>
         flag.nationality === nationality || flag.en_short_name === nationality
-      // flag.alpha_3_code.includes(nationality) ||
-      // flag.alpha_2_code.includes(nationality)
     );
-    // console.log('nationality:', nationality);
-    // console.log('flags:', flags);
-    // console.log('country:', country[0]?.alpha_2_code);
     let flagCode = country[0]?.alpha_2_code;
 
     if (!flagCode && nationality === 'Monegasque') {

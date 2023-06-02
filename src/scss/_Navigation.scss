@@ -4,24 +4,13 @@
 }
 
 .NavContainer {
-  // display: flex;
-  // flex-direction: column;
   align-items: center;
-  // width: 90dvw;
-  // margin: auto!important;
 }
 
 .NavBar {
   min-width: 100vw;
-  // max-height: 90px;
   text-align: center;
-
   background-color: #004225;
-  // flex: 0 0 auto;
-  // background-color:#822522;
-  // background:  transparent ;
-  //background-color: rgb(90, 21, 21);
-  // padding: 10px;
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 6px;
@@ -32,18 +21,9 @@
   .nav-link-home {
     display: flex;
     align-items: center;
-    // width: 35%;
     margin-right: 20%;
     margin-left: 2%;
   }
-
-  // .nav-link-home:hover{
-  // color: white;
-  //rgb(40, 113, 248);
-  // background-color: white;
-  //gray;
-  // background-color: rgb(255, 136, 0);
-  // }
 
   .nav-link {
     display: flex;
@@ -55,26 +35,15 @@
     text-align: center !important;
     font-family: formulaBold !important;
     font-size: 24px;
-
     padding-top: 5px;
     padding-bottom: 5px;
   }
 
-  // .formula-bold{
-  //   font-family: formulaBold!important;
-  // }
-
   .nav-link:hover {
     color: #d5ece2;
     background-color: #336851;
-    //background-color: rgb(255, 136, 0);
   }
 
-  // .nav-link:active{
-  //   color: black;
-  //   background-color: rgb(255, 0, 0);
-  //   //background-color: rgb(255, 136, 0);
-  // }
   .active {
     color: #d5ece2;
     background-color: #228225;
@@ -83,9 +52,6 @@
   a {
     text-decoration: none;
     color: black;
-    //rgb(255, 0, 0);
-    // width: 200px;
-    //height: 80px;
     display: flex;
     justify-content: center;
     font-size: 30px;
@@ -110,29 +76,22 @@ a {
   text-decoration: none;
   color: #ccd9d3;
   width: 200px;
-  //height: 80px;
 }
 
 .homeimg {
   width: 200px;
   height: 80px;
-  // float: left;
   margin-left: 1vw;
 }
 
 .helmet {
-  // width: 200px;
   height: 80px;
 }
 
 .teams1 {
-  // width: 200px;
   height: 80px;
 }
 
 .races2 {
-  // width: 200px;
   height: 80px;
-  // mix-blend-mode: multiply;
 }
-

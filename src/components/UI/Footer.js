@@ -4,7 +4,6 @@ import BackToTop from './BackToTop';
 
 export default function Footer() {
   const codeYear = moment().format('YYYY');
- 
 
   return (
     <div className='flexbox-top footer-team'>
