@@ -64,6 +64,8 @@ const App = () => {
       flagCode = 'KR';
     } else if (!flagCode && nationality === 'USA') {
       flagCode = 'US';
+    } else if (!flagCode && nationality === 'New Zealander') {
+      flagCode = 'NZ';
     } else if (
       (!flagCode && nationality.includes('British')) ||
       nationality === 'UK'
