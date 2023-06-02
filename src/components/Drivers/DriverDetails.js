@@ -159,26 +159,26 @@ const DriverDetails = () => {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className='tableRow-cell'>Nationality:</TableCell>
-              <TableCell className='tableRow-cell'>
+              <TableCell  align='center' className='tableRow-cell'>Nationality:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
                 {driverDetails?.Driver.nationality}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className='tableRow-cell'>Team:</TableCell>
-              <TableCell className='tableRow-cell'>
+              <TableCell align='center' className='tableRow-cell'>Team:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
                 {driverDetails?.Constructors[0].name}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className='tableRow-cell'>Date of Birth:</TableCell>
-              <TableCell className='tableRow-cell'>
+              <TableCell align='center' className='tableRow-cell'>Date of Birth:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
                 {driverDetails?.Driver.dateOfBirth}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className='tableRow-cell'>Biography:</TableCell>
-              <TableCell className='details-btn'>
+              <TableCell align='center' className='tableRow-cell'>Biography:</TableCell>
+              <TableCell align='center' className='details-btn'>
                 {' '}
                 <a href={driverDetails?.Driver.url} target='_blank'>
                   Wikipedia <OpenInNewIcon />

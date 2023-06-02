@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-//import { RiseLoader } from 'react-spinners';
 import {
   Table,
   TableHead,
@@ -22,7 +21,6 @@ const TeamDetailsCollapsable = (props) => {
   }, []);
 
   const getTeamDetails = async () => {
-    // const urlDetails = `https://raw.githubusercontent.com/nkezic/f1/main/TeamDetails`;
     const urlDetails = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${props.teamId}/constructorStandings.json`;
     try {
       const responseDetails = await axios.get(urlDetails);
@@ -32,7 +30,6 @@ const TeamDetailsCollapsable = (props) => {
       );
       setIsLoading(false);
     } catch (err) {
-      //   console.log(err);
       setIsLoading(false);
       setError(err);
     }
@@ -44,14 +41,6 @@ const TeamDetailsCollapsable = (props) => {
 
   if (isLoading) {
     return (
-      // <RiseLoader
-      //   size={4}
-      //   style={{
-      //     display: 'flex',
-      //     justifyContent: 'center',
-      //     marginBottom: '15px',
-      //   }}
-      // />
       <>
         <Skeleton
           variant='rounded'
@@ -68,7 +57,7 @@ const TeamDetailsCollapsable = (props) => {
       <Table
         size='small'
         aria-label='purchases'
-        sx={{ margin: 0, marginBottom: 5 }}
+        sx={{ margin: 0, marginBottom: 5, padding: 0 }}
         className='tableContainer'
       >
         <TableHead>
@@ -76,7 +65,7 @@ const TeamDetailsCollapsable = (props) => {
             <TableCell className='tableRow-cell'>Team Name</TableCell>
             <TableCell className='tableRow-cell'>Nationality</TableCell>
             <TableCell className='tableRow-cell'>Wins</TableCell>
-            {/* <TableCell>Points</TableCell> */}
+
           </TableRow>
         </TableHead>
         <TableBody>
@@ -90,7 +79,6 @@ const TeamDetailsCollapsable = (props) => {
             </TableCell>
             <TableCell className='tableRow-cell'>{teamDetails.Constructor.nationality}</TableCell>
             <TableCell className='tableRow-cell'>{teamDetails.wins}</TableCell>
-            {/* <TableCell>{teamDetails.points}</TableCell> */}
           </TableRow>
         </TableBody>
       </Table>
