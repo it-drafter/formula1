@@ -11,7 +11,7 @@ export default function Footer() {
       <BackToTop />
       <span className='footer-item'>Coded by: Fatal Error Team &nbsp;</span>
       <span className='footer-item'>
-        {codeYear} <span class='copyleft'>&copy;</span>{' '}
+        {codeYear} <span className='copyleft'>&copy;</span>{' '}
       </span>
     </div>
   );
