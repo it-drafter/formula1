@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import arrow from '../../img/totop.png';
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
@@ -22,7 +21,11 @@ export default function BackToTop() {
       {visible && (
         <span>
           <div onClick={handleScrollOnTop} className='back-to-top'>
-            <img src={arrow} className='arrowup' alt='↑ Return To Top ↑' />
+            <img
+              src='./img/totop.png'
+              className='arrowup'
+              alt='↑ Return To Top ↑'
+            />
           </div>
         </span>
       )}
