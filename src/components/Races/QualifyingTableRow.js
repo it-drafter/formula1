@@ -15,27 +15,39 @@ const QualifyingTableRow = (props) => {
   }
 
   const handleDriverClick = (driverId) => {
-    const linkTo = `/drivers/details/${driverId}`
-    navigate(linkTo)
-  }
+    const linkTo = `/drivers/details/${driverId}`;
+    navigate(linkTo);
+  };
 
   const handleTeamClick = (round) => {
     const linkTo = `/teams/details/${round}`;
-    navigate(linkTo)
-  }
+    navigate(linkTo);
+  };
 
   return (
     <TableRow>
-      <TableCell className='tableRow-cell'>{props.qualifier.position}</TableCell>
-      <TableCell className='mouseHandle' onClick={() => handleDriverClick(props.qualifier.Driver.driverId)}>
-        <div className='flagName tableRow-cell'>
+      <TableCell className='tableRow-cell'>
+        {props.qualifier.position}
+      </TableCell>
+      <TableCell
+        className='mouseHandle'
+        onClick={() => handleDriverClick(props.qualifier.Driver.driverId)}
+      >
+        <div className='flagName tableRow-cell mouseHandle'>
           {globalCtx.flagFn(props.qualifier.Driver.nationality)}
           <span> </span>
-          {props.qualifier.Driver.givenName + ' ' + props.qualifier.Driver.familyName}
+          {props.qualifier.Driver.givenName +
+            ' ' +
+            props.qualifier.Driver.familyName}
         </div>
       </TableCell>
-      <TableCell onClick={() => handleTeamClick(props.qualifier.Constructor.constructorId)} className="mouseHandle">
-        <div className='flagName tableRow-cell'>
+      <TableCell
+        onClick={() =>
+          handleTeamClick(props.qualifier.Constructor.constructorId)
+        }
+        className='mouseHandle'
+      >
+        <div className='flagName tableRow-cell mouseHandle'>
           {globalCtx.flagFn(props.qualifier.Constructor.nationality)}
           <span> </span>
           {props.qualifier.Constructor.name}
