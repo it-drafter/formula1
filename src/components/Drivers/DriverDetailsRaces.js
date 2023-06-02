@@ -11,7 +11,6 @@ import { useNavigate } from 'react-router-dom';
 
 const DriverDetailsRaces = (props) => {
   const globalCtx = useContext(GlobalContext);
-  // console.log('eeee', props.driverDetailsRaces[0].Circuit.Location.country);
   const navigate = useNavigate();
   console.log('props');
 
@@ -20,8 +19,6 @@ const DriverDetailsRaces = (props) => {
     const linkTo = `/teams/details/${teamId}`;
     navigate(linkTo);
   };
-  // console.log('eeee', props.driverDetailsRaces[0].Circuit.Location.country);
-
   const classFunction = (position, points) => {
     if (position === '1') {
       return 'gold';
@@ -78,13 +75,9 @@ const DriverDetailsRaces = (props) => {
                     {DetailRace.Results[0].Constructor.name}
                   </div>
                 </TableCell >
-                {/* <TableCell>{DetailRace.Results[0].Constructor.name}</TableCell> */}
                 <TableCell className='tableRow-cell'>{DetailRace.Results[0].grid}</TableCell>
                 <TableCell
                   className={`tableRow-cell ${classFunction(DetailRace.Results[0].position, DetailRace.Results[0].points)}`}
-
-                //{classFunction(props.result.position, props.result.points)}
-                //{'position_' + DetailRace.Results[0].position}
                 >
                   {DetailRace.Results[0].position}
                 </TableCell>

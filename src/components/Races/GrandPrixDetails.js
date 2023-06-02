@@ -44,14 +44,7 @@ const GrandPrixDetails = () => {
 
   if (isLoading) {
     return (
-      <RiseLoaderSpinner
-      // style={{
-      //   height: '50vh',
-      //   display: 'flex',
-      //   justifyContent: 'center',
-      //   alignItems: 'center',
-      // }}
-      />
+      <RiseLoaderSpinner/>
     );
   }
 
@@ -83,7 +76,7 @@ const GrandPrixDetails = () => {
             }.jpeg`}
             className='img-responsive margin-responsive'
             onError={({ currentTarget }) => {
-              currentTarget.onerror = null; // prevents looping
+              currentTarget.onerror = null;
               currentTarget.src = `./img/grand_prix/poster.png`;
             }}
           />

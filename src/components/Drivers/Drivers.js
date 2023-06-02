@@ -6,10 +6,7 @@ import {
   TableHead,
   TableBody,
   TableRow,
-  TableCell,
-  //Skeleton,
-  // Breadcrumbs,
-  // Link,
+  TableCell
 } from '@mui/material';
 import Placeholder from 'react-bootstrap/Placeholder';
 import axios from 'axios';
@@ -27,41 +24,19 @@ const Drivers = (props) => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [drivers, setDrivers] = useState([]);
-  // const navigate = useNavigate();
-
-  // const [reRender, setReRender] = useState(false);
-  // const handleReRender = () => {
-  //   console.log('rerender');
-  //   setReRender(!reRender);
-  // };
-
   useEffect(() => {
     getDrivers();
   }, [globalCtx.chosenYear]);
-
-  // const handleBCRoute = () => {
-  //   console.log('klik');
-  //   const linkTo = `/`;
-  //   navigate(linkTo);
-  // };
-
   const getDrivers = async () => {
     const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
-    // const url = `https://raw.githubusercontent.com/nkezic/f1/main/AllDrivers`;
     setIsLoading(true);
     try {
       const response = await axios.get(url);
-      // console.log('response', response);
-      //   if (response.request.status !== 200) {
-      //     throw new Error('Something went wrong!');
-      //   }
       const data =
         response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-      //console.log(data);
       setDrivers(data);
       setIsLoading(false);
     } catch (err) {
-      //   console.log(err);
       setIsLoading(false);
       setError(err);
     }
@@ -74,17 +49,7 @@ const Drivers = (props) => {
   if (isLoading) {
     return (
       <>
-        <RiseLoaderSpinner
-          // style={{
-          //   height: '50vh',
-          //   display: 'flex',
-          //   justifyContent: 'center',
-          //   alignItems: 'center',
-          // }}
-        />
-        {/* <Skeleton animation='wave' height={50} width='90%' /> 
-         <Skeleton variant="rounded" animation='wave' height={600} style={{ width: '90%', alignItems: 'center' }} />
-         <Placeholder bg='danger' style={{ width: '90%', height: '500px' }} />  */}
+        <RiseLoaderSpinner />
       </>
     );
   }
@@ -104,11 +69,6 @@ const Drivers = (props) => {
       <div className='text-center'>
         <YearSelect />
       </div>
-
-      {/* <div className='px-5 w-100 d-flex justify-content-between'>
-
-      </div> */}
-
       <Table className='tableContainer'>
         <TableHead>
           <TableRow className='table-header'>
