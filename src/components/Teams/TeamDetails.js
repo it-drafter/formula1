@@ -93,7 +93,7 @@ const TeamDetails = (props) => {
                     currentTarget.onerror = null;
                     currentTarget.src = `./img/teams/unknownConstructor.png`;
                   }}
-                  style={{ maxHeight: '100px', paddingRight: '30px' }}
+                  style={{ maxHeight: '100px'}}
                   alt='Constructor'
                 />
               </TableCell>

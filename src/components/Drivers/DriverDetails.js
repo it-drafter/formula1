@@ -100,7 +100,7 @@ const DriverDetails = () => {
                     currentTarget.onerror = null;
                     currentTarget.src = `./img/drivers/unknownDriver.png`;
                   }}
-                  style={{ maxHeight: '100px', paddingRight: '30px' }}
+                  style={{ maxHeight: '100px'}}
                   alt='Driver'
                 />
               </TableCell>
