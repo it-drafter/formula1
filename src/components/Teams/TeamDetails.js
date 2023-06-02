@@ -113,26 +113,26 @@ const TeamDetails = (props) => {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className='tableRow-cell'>Nationality:</TableCell>
-              <TableCell className='tableRow-cell'>
+              <TableCell align='center' className='tableRow-cell'>Nationality:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
                 {teamDetails.Constructor.nationality}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className='tableRow-cell'>Position:</TableCell>
-              <TableCell className='tableRow-cell'>
+              <TableCell align='center' className='tableRow-cell'>Position:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
                 {teamDetails.position}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className='tableRow-cell'>Points:</TableCell>
-              <TableCell className='tableRow-cell'>
+              <TableCell align='center' className='tableRow-cell'>Points:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
                 {teamDetails.points}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className='tableRow-cell'>History:</TableCell>
-              <TableCell className='details-btn'>
+              <TableCell align='center' className='tableRow-cell'>History:</TableCell>
+              <TableCell align='center' className='details-btn'>
                 {' '}
                 <a
                   href={teamDetails.Constructor.url + '#History'}

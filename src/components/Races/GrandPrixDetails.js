@@ -103,8 +103,8 @@ const GrandPrixDetails = () => {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className='tableRow-cell'>Location:</TableCell>
-              <TableCell className='tableRow-cell'>
+              <TableCell align='center' className='tableRow-cell'>Location:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
                 {globalCtx.flagFn(
                   grandPrix[round - 1]?.Circuit.Location.country
                 )}
@@ -115,24 +115,24 @@ const GrandPrixDetails = () => {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className='tableRow-cell'>Date:</TableCell>
-              <TableCell className='tableRow-cell'>
+              <TableCell align='center' className='tableRow-cell'>Date:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
                 {grandPrix[round - 1].date}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className='tableRow-cell'>
+              <TableCell align='center' className='tableRow-cell'>
                 Grand Prix details:
               </TableCell>
-              <TableCell className='details-btn'>
+              <TableCell align='center' className='details-btn'>
                 <a href={grandPrix[round - 1].url} target='_blank'>
                   Wikipedia <OpenInNewIcon />
                 </a>
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className='tableRow-cell'>Circuit details:</TableCell>
-              <TableCell className='details-btn'>
+              <TableCell align='center' lassName='tableRow-cell'>Circuit details:</TableCell>
+              <TableCell align='center' className='details-btn'>
                 <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
                   Wikipedia <OpenInNewIcon />
                 </a>
