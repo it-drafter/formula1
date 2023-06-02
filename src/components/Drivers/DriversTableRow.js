@@ -15,7 +15,6 @@ const DriversTableRow = (props) => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const handleClickDetails = (driverId) => {
-    console.log("klik na drivera", driverId);
     const linkTo = `/drivers/details/${driverId}`;
     navigate(linkTo);
   };

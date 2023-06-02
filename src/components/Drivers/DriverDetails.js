@@ -13,18 +13,13 @@ import Stack from '@mui/material/Stack';
 
 const DriverDetails = () => {
   const globalCtx = useContext(GlobalContext);
-  console.log('Chosen year: ', globalCtx.chosenYear);
-
   const [driverDetails, setDriverDetails] = useState([]);
   const [driverDetailsRaces, setDriverDetailsRaces] = useState([]);
-  // const [flags, setFlags] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   const navigate = useNavigate();
-
   const handleRouteToGrandPrix = (race) => {
-    console.log('komentar');
     const linkTo = `/races/details/${race}`;
     navigate(linkTo);
   };

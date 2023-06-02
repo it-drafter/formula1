@@ -12,10 +12,7 @@ import { useNavigate } from 'react-router-dom';
 const DriverDetailsRaces = (props) => {
   const globalCtx = useContext(GlobalContext);
   const navigate = useNavigate();
-  console.log('props');
-
   const handleTeamClick = (teamId) => {
-    console.log('klik na tim ');
     const linkTo = `/teams/details/${teamId}`;
     navigate(linkTo);
   };

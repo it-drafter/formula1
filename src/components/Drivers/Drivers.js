@@ -20,7 +20,6 @@ import { margin } from '@mui/system';
 
 const Drivers = (props) => {
   const globalCtx = useContext(GlobalContext);
-
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [drivers, setDrivers] = useState([]);
