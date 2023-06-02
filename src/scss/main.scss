@@ -100,8 +100,7 @@ body {
   font-weight: bold !important;
 
   &:hover {
-
-    color: #257b56
+    color: #257b56;
   }
 }
 
@@ -133,13 +132,24 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #004225;
-  color: #d5ece2;
+  background-color: #095534;
+  color: #50a17e;
   text-align: center;
-  border-top: 1px solid #AED9C6;
+  border-top: 1px solid #aed9c6;
+  height: 15px;
+  padding-bottom: 28px;
 }
 
 .copyleft {
-  display:inline-block;
+  display: inline-block;
   transform: rotate(180deg);
+}
+.footer-item {
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 576px) {
+  .font-responsive {
+    font-size: 11px !important;
+  }
 }
