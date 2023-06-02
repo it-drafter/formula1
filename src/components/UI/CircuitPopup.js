@@ -19,7 +19,7 @@ const CircuitPopup = ({ imageUrl }) => {
       </Button>
       <Dialog maxWidth={'920'} open={open} onClose={handleClose}>
         <DialogContent>
-          <img src={imageUrl} />
+          <img src={imageUrl} className='img-responsive' />
         </DialogContent>
       </Dialog>
     </>

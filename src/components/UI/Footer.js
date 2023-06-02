@@ -9,7 +9,9 @@ export default function Footer() {
   return (
     <div className='flexbox-top footer-team'>
       <BackToTop />
-      <span className='footer-item'>Coded by: Fatal Error Team &nbsp;</span>
+      <span className='footer-item font-responsive'>
+        Coded by: Fatal Error Team &nbsp;
+      </span>
       <span className='footer-item'>
         {codeYear} <span className='copyleft'>&copy;</span>{' '}
       </span>

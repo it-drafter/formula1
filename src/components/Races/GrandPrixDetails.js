@@ -78,8 +78,10 @@ const GrandPrixDetails = () => {
       >
         <div>
           <img
-            src={`./img/grand_prix/${globalCtx.chosenYear}/${grandPrix[round - 1].Circuit.circuitId
-              }.jpeg`}
+            src={`./img/grand_prix/${globalCtx.chosenYear}/${
+              grandPrix[round - 1].Circuit.circuitId
+            }.jpeg`}
+            className='img-responsive margin-responsive'
             onError={({ currentTarget }) => {
               currentTarget.onerror = null; // prevents looping
               currentTarget.src = `./img/grand_prix/poster.png`;
@@ -103,19 +105,23 @@ const GrandPrixDetails = () => {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell align='center' className='tableRow-cell'>Location:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
+                Location:
+              </TableCell>
               <TableCell align='center' className='tableRow-cell'>
                 {globalCtx.flagFn(
                   grandPrix[round - 1]?.Circuit.Location.country
                 )}
-                <span>  </span>
-                {grandPrix[round - 1].Circuit.Location.country
-                  + ',  ' +
+                <span> </span>
+                {grandPrix[round - 1].Circuit.Location.country +
+                  ',  ' +
                   grandPrix[round - 1].Circuit.Location.locality}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell align='center' className='tableRow-cell'>Date:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
+                Date:
+              </TableCell>
               <TableCell align='center' className='tableRow-cell'>
                 {grandPrix[round - 1].date}
               </TableCell>
@@ -131,7 +137,9 @@ const GrandPrixDetails = () => {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell align='center' lassName='tableRow-cell'>Circuit details:</TableCell>
+              <TableCell align='center' lassName='tableRow-cell'>
+                Circuit details:
+              </TableCell>
               <TableCell align='center' className='details-btn'>
                 <a href={grandPrix[round - 1].Circuit.url} target='_blank'>
                   Wikipedia <OpenInNewIcon />

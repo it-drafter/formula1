@@ -59,7 +59,7 @@ export default function YearSelect() {
               active={year === globalCtx.chosenYear}
               variant='success'
               size='sm'
-              className='col years'
+              className='col years font-responsive'
               key={year}
               onClick={() => handleClick(year)}
             >
