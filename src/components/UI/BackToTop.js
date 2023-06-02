@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import arrowUp from "../../../public/img/arrowUp.png"
+
 import arrow from "../../../public/img/27431-aed9c6.png"
 import strelicagore from "../../../public/img/strelicagore.png"
 

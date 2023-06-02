@@ -17,7 +17,7 @@ const SearchResultsRaces = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [races, setRaces] = useState([]);
-  // const navigate = useNavigate();
+  
 
   const globalCtx = useContext(GlobalContext);
   const searchStringValue = globalCtx.searchStringValue;
@@ -27,18 +27,17 @@ const SearchResultsRaces = () => {
   }, [searchStringValue]);
 
   const getRaces = async (searchStringValue) => {
-    console.log('hello from search results ', searchStringValue);
+  
     const url1 = `https://ergast.com/api/f1/results/1.json?limit=1000`;
     const url2 = `https://ergast.com/api/f1/results/1.json?limit=1000&offset=1000`;
-    // setIsLoading(true);
+   
     try {
       const response1 = await axios.get(url1);
       const response2 = await axios.get(url2);
       const data1 = response1.data.MRData.RaceTable.Races;
       const data2 = response2.data.MRData.RaceTable.Races;
       const allData = [...data1, ...data2];
-      //  console.log(data1);
-      //  console.log(data);
+     
       const filteredData = allData.filter((race) => {
         return (
           race.season.toLowerCase().includes(searchStringValue.toLowerCase()) ||
@@ -62,7 +61,7 @@ const SearchResultsRaces = () => {
       setRaces(filteredData);
       setIsLoading(false);
     } catch (err) {
-      //   console.log(err);
+      
       setIsLoading(false);
       setError(err);
     }
@@ -75,12 +74,7 @@ const SearchResultsRaces = () => {
   if (isLoading) {
     return (
       <RiseLoaderSpinner
-      // style={{
-      //   height: '50vh',
-      //   display: 'flex',
-      //   justifyContent: 'center',
-      //   alignItems: 'center',
-      // }}
+    
       />
     );
   }
@@ -90,7 +84,7 @@ const SearchResultsRaces = () => {
       <div className='px-5 w-100 d-flex justify-content-between'>
         <BreadCrumbs levels={[['Races', '/races'], 'Search Races']} />
         <SearchBox
-          // home={props.home}
+          
           placeholder={'Search Races'}
           linkTo={`/races/search`}
         />
