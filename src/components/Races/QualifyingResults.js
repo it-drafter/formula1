@@ -40,9 +40,7 @@ const QualifyingResults = (props) => {
   }
 
   if (isLoading) {
-    return (
-      <RiseLoaderSpinner/>
-    );
+    return <RiseLoaderSpinner />;
   }
 
   return (

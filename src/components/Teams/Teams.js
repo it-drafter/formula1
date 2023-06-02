@@ -28,7 +28,7 @@ const Teams = () => {
 
   const getTeams = async () => {
     const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructorStandings.json`;
-    
+
     try {
       const response = await axios.get(url);
       const data =
@@ -49,10 +49,7 @@ const Teams = () => {
       <>
         <div className='px-5 w-100 d-flex justify-content-between'>
           <BreadCrumbs levels={[['Teams']]} />
-          <SearchBox
-            placeholder={'Search Teams'}
-            linkTo={`/teams/search`}
-          />
+          <SearchBox placeholder={'Search Teams'} linkTo={`/teams/search`} />
         </div>
         <YearSelect />
         <p>Error: {error.message}</p>;
@@ -61,19 +58,14 @@ const Teams = () => {
   }
 
   if (isLoading) {
-    return (
-      <RiseLoaderSpinner />
-    );
+    return <RiseLoaderSpinner />;
   }
 
   return (
     <>
       <div className='px-5 w-100 d-flex justify-content-between mb-3'>
         <BreadCrumbs levels={[['Teams']]} />
-        <SearchBox
-          placeholder={'Search All Teams'}
-          linkTo={`/teams/search`}
-        />
+        <SearchBox placeholder={'Search All Teams'} linkTo={`/teams/search`} />
       </div>
 
       <div className='text-center'>

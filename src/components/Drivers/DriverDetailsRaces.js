@@ -43,7 +43,9 @@ const DriverDetailsRaces = (props) => {
           {props.driverDetailsRaces.map((DetailRace, index) => {
             return (
               <TableRow key={DetailRace.round}>
-                <TableCell className='tableRow-cell'>{DetailRace.round}</TableCell>
+                <TableCell className='tableRow-cell'>
+                  {DetailRace.round}
+                </TableCell>
                 <TableCell
                   onClick={() => props.handleRouteToGrandPrix(DetailRace.round)}
                   className='mouseHandle tableRow-cell'
@@ -71,10 +73,15 @@ const DriverDetailsRaces = (props) => {
                     <span> </span>
                     {DetailRace.Results[0].Constructor.name}
                   </div>
-                </TableCell >
-                <TableCell className='tableRow-cell'>{DetailRace.Results[0].grid}</TableCell>
+                </TableCell>
+                <TableCell className='tableRow-cell'>
+                  {DetailRace.Results[0].grid}
+                </TableCell>
                 <TableCell
-                  className={`tableRow-cell ${classFunction(DetailRace.Results[0].position, DetailRace.Results[0].points)}`}
+                  className={`tableRow-cell ${classFunction(
+                    DetailRace.Results[0].position,
+                    DetailRace.Results[0].points
+                  )}`}
                 >
                   {DetailRace.Results[0].position}
                 </TableCell>

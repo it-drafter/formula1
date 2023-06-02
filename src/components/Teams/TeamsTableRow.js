@@ -11,7 +11,6 @@ import GlobalContext from '../../context/global-context';
 import TeamDetailsCollapsable from './TeamDetailsCollapsable';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
-
 const TeamsTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
@@ -24,7 +23,7 @@ const TeamsTableRow = (props) => {
 
   return (
     <>
-      <TableRow >
+      <TableRow>
         <TableCell>
           <IconButton
             aria-label='expand row'
@@ -34,7 +33,7 @@ const TeamsTableRow = (props) => {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component='th' scope='row' className='tableRow-cell' >
+        <TableCell component='th' scope='row' className='tableRow-cell'>
           {props.team.position}
         </TableCell>
         <TableCell
@@ -51,7 +50,7 @@ const TeamsTableRow = (props) => {
         </TableCell>
         <TableCell className='details-btn'>
           <a href={props.team.Constructor.url} target='_blank'>
-            Details < OpenInNewIcon />
+            Details <OpenInNewIcon />
           </a>
         </TableCell>
         <TableCell className='tableRow-cell'>{props.team.points}</TableCell>
@@ -61,7 +60,6 @@ const TeamsTableRow = (props) => {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout='auto' unmountOnExit>
             <Box sx={{ margin: 0 }}>
-             
               <TeamDetailsCollapsable
                 teamId={props.team.Constructor.constructorId}
               />

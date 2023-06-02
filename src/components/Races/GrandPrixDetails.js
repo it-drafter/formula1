@@ -43,9 +43,7 @@ const GrandPrixDetails = () => {
   }
 
   if (isLoading) {
-    return (
-      <RiseLoaderSpinner/>
-    );
+    return <RiseLoaderSpinner />;
   }
 
   const lat = grandPrix[round - 1].Circuit.Location.lat;

@@ -9,11 +9,11 @@ const SprintResultsTableRow = (props) => {
   const handleDriverClick = (driverId) => {
     const linkTo = `/drivers/details/${driverId}`;
     navigate(linkTo);
-  }
+  };
   const handleTeamClick = (teamId) => {
     const linkTo = `/teams/details/${teamId}`;
     navigate(linkTo);
-  }
+  };
 
   const classFunction = (position, points) => {
     if (position === '1') {
@@ -32,7 +32,8 @@ const SprintResultsTableRow = (props) => {
       <TableCell className='tableRow-cell'>{props.result.position}</TableCell>
       <TableCell
         onClick={() => handleDriverClick(props.result.Driver.driverId)}
-        className="mouseHandle tableRow-cell">
+        className='mouseHandle tableRow-cell'
+      >
         <div className='flagName'>
           {globalCtx.flagFn(props.result.Driver.nationality)}
           <span> </span>
@@ -41,7 +42,8 @@ const SprintResultsTableRow = (props) => {
       </TableCell>
       <TableCell
         onClick={() => handleTeamClick(props.result.Constructor.constructorId)}
-        className="mouseHandle tableRow-cell">
+        className='mouseHandle tableRow-cell'
+      >
         <div className='flagName'>
           {globalCtx.flagFn(props.result.Constructor.nationality)}
           <span> </span>
@@ -52,10 +54,15 @@ const SprintResultsTableRow = (props) => {
         {props.result.status === 'Finished'
           ? props.result.Time.time
           : props.result.status[0] === '+'
-            ? props.result.status
-            : 'DNF'}
+          ? props.result.status
+          : 'DNF'}
       </TableCell>
-      <TableCell className={`tableRow-cell ${classFunction(props.result.position, props.result.points)}`}>
+      <TableCell
+        className={`tableRow-cell ${classFunction(
+          props.result.position,
+          props.result.points
+        )}`}
+      >
         {props.result.points}
       </TableCell>
     </TableRow>

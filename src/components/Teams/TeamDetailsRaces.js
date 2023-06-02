@@ -63,12 +63,18 @@ const TeamDetailsRaces = (props) => {
                     Number(teamResult.Results[1]?.points ?? '0')}
                 </TableCell>
                 <TableCell
-                  className={`tableRow-cell ${classFunction(teamResult.Results[0].position ?? '0', teamResult.Results[0].points)}`}
+                  className={`tableRow-cell ${classFunction(
+                    teamResult.Results[0].position ?? '0',
+                    teamResult.Results[0].points
+                  )}`}
                 >
                   {teamResult.Results[0].position}
                 </TableCell>
                 <TableCell
-                  className={`tableRow-cell ${classFunction(teamResult.Results[1]?.position ?? '0', teamResult.Results[1]?.points ?? '0')}`}
+                  className={`tableRow-cell ${classFunction(
+                    teamResult.Results[1]?.position ?? '0',
+                    teamResult.Results[1]?.points ?? '0'
+                  )}`}
                 >
                   {teamResult.Results[1]?.position ?? '0'}
                 </TableCell>

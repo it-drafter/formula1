@@ -44,19 +44,14 @@ const Races = () => {
   }
 
   if (isLoading) {
-    return (
-      <RiseLoaderSpinner/>
-    );
+    return <RiseLoaderSpinner />;
   }
 
   return (
     <>
       <div className='px-5 w-100 d-flex justify-content-between mb-3'>
         <BreadCrumbs levels={[['Races']]} />
-        <SearchBox
-          placeholder={'Search All Races'}
-          linkTo={`/races/search`}
-        />
+        <SearchBox placeholder={'Search All Races'} linkTo={`/races/search`} />
       </div>
 
       <div className='text-center'>

@@ -7,7 +7,6 @@ import {
   TableRow,
   TableCell,
   Skeleton,
-  Avatar,
   Box,
 } from '@mui/material';
 import GlobalContext from '../../context/global-context';
@@ -97,9 +96,15 @@ const DriverDetailsCollapsable = (props) => {
                 alt='Driver'
               />
             </TableCell>
-            <TableCell className='tableRow-cell'>{driverDetails?.Driver.nationality}</TableCell>
-            <TableCell className='tableRow-cell'>{driverDetails?.wins}</TableCell>
-            <TableCell className='tableRow-cell'>{driverDetails?.Driver.dateOfBirth}</TableCell>
+            <TableCell className='tableRow-cell'>
+              {driverDetails?.Driver.nationality}
+            </TableCell>
+            <TableCell className='tableRow-cell'>
+              {driverDetails?.wins}
+            </TableCell>
+            <TableCell className='tableRow-cell'>
+              {driverDetails?.Driver.dateOfBirth}
+            </TableCell>
             <TableCell className='details-btn'>
               <a href={driverDetails?.Driver.url} target='_blank'>
                 Wikipedia <OpenInNewIcon />

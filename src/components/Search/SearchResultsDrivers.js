@@ -17,7 +17,6 @@ const SearchResultsDrivers = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [drivers, setDrivers] = useState([]);
- 
 
   const globalCtx = useContext(GlobalContext);
   const searchStringValue = globalCtx.searchStringValue;
@@ -27,13 +26,12 @@ const SearchResultsDrivers = () => {
   }, [searchStringValue]);
 
   const getDrivers = async (searchStringValue) => {
-    
     const url = `https://ergast.com/api/f1/drivers.json?limit=1000`;
-   
+
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.DriverTable.Drivers;
-     
+
       const filteredData = data.filter((driver) => {
         return (
           driver.familyName
@@ -50,7 +48,6 @@ const SearchResultsDrivers = () => {
       setDrivers(filteredData);
       setIsLoading(false);
     } catch (err) {
-    
       setIsLoading(false);
       setError(err);
     }
@@ -61,22 +58,14 @@ const SearchResultsDrivers = () => {
   }
 
   if (isLoading) {
-    return (
-      <RiseLoaderSpinner
-     
-      />
-    );
+    return <RiseLoaderSpinner />;
   }
 
   return (
     <>
       <div className='px-5 w-100 d-flex justify-content-between'>
         <BreadCrumbs levels={[['Drivers', '/drivers'], 'Search Drivers']} />
-        <SearchBox
-         
-          placeholder={'Search Drivers'}
-          linkTo={`/drivers/search`}
-        />
+        <SearchBox placeholder={'Search Drivers'} linkTo={`/drivers/search`} />
       </div>
       <h2 className='h2 text-center text-success'>
         Search Results for '{globalCtx.searchStringValue}'

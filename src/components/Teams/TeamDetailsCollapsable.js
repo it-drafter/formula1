@@ -65,7 +65,6 @@ const TeamDetailsCollapsable = (props) => {
             <TableCell className='tableRow-cell'>Team Name</TableCell>
             <TableCell className='tableRow-cell'>Nationality</TableCell>
             <TableCell className='tableRow-cell'>Wins</TableCell>
-
           </TableRow>
         </TableHead>
         <TableBody>
@@ -77,7 +76,9 @@ const TeamDetailsCollapsable = (props) => {
                 {teamDetails.Constructor.name}
               </div>
             </TableCell>
-            <TableCell className='tableRow-cell'>{teamDetails.Constructor.nationality}</TableCell>
+            <TableCell className='tableRow-cell'>
+              {teamDetails.Constructor.nationality}
+            </TableCell>
             <TableCell className='tableRow-cell'>{teamDetails.wins}</TableCell>
           </TableRow>
         </TableBody>

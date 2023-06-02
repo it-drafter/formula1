@@ -39,9 +39,7 @@ const RaceResults = (props) => {
   }
 
   if (isLoading) {
-    return (
-      <RiseLoaderSpinner/>
-    );
+    return <RiseLoaderSpinner />;
   }
 
   return (

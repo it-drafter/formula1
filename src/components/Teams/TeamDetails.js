@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Table, TableBody, TableRow, TableCell } from '@mui/material';
-
 import axios from 'axios';
 import RiseLoaderSpinner from '../UI/RiseLoaderSpinner';
 import Stack from '@mui/material/Stack';
@@ -27,7 +26,6 @@ const TeamDetails = (props) => {
   const navigate = useNavigate();
 
   const handleDrivers = (raceDetails) => {
-   
     const linkTo = `/races/details/${raceDetails}`;
     navigate(linkTo);
   };
@@ -42,8 +40,6 @@ const TeamDetails = (props) => {
     try {
       const responseDetails = await axios.get(urlDetails);
       const responseResults = await axios.get(urlResults);
-
-    
 
       setTeamDetails(
         responseDetails.data.MRData.StandingsTable.StandingsLists[0]
@@ -93,7 +89,7 @@ const TeamDetails = (props) => {
                     currentTarget.onerror = null;
                     currentTarget.src = `./img/teams/unknownConstructor.png`;
                   }}
-                  style={{ maxHeight: '100px'}}
+                  style={{ maxHeight: '100px' }}
                   alt='Constructor'
                 />
               </TableCell>
@@ -110,25 +106,33 @@ const TeamDetails = (props) => {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell align='center' className='tableRow-cell'>Nationality:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
+                Nationality:
+              </TableCell>
               <TableCell align='center' className='tableRow-cell'>
                 {teamDetails.Constructor.nationality}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell align='center' className='tableRow-cell'>Position:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
+                Position:
+              </TableCell>
               <TableCell align='center' className='tableRow-cell'>
                 {teamDetails.position}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell align='center' className='tableRow-cell'>Points:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
+                Points:
+              </TableCell>
               <TableCell align='center' className='tableRow-cell'>
                 {teamDetails.points}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell align='center' className='tableRow-cell'>History:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
+                History:
+              </TableCell>
               <TableCell align='center' className='details-btn'>
                 {' '}
                 <a

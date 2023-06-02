@@ -6,17 +6,14 @@ import {
   TableHead,
   TableBody,
   TableRow,
-  TableCell
+  TableCell,
 } from '@mui/material';
-import Placeholder from 'react-bootstrap/Placeholder';
 import axios from 'axios';
 import GlobalContext from '../../context/global-context';
-import { useNavigate } from 'react-router-dom';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import YearSelect from '../UI/YearSelect';
 import SearchBox from '../UI/SearchBox';
 import Footer from '../UI/Footer';
-import { margin } from '@mui/system';
 
 const Drivers = (props) => {
   const globalCtx = useContext(GlobalContext);

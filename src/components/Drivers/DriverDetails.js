@@ -8,7 +8,6 @@ import GlobalContext from '../../context/global-context';
 import DriverDetailsRaces from './DriverDetailsRaces';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import BreadCrumbs from '../UI/BreadCrumbs';
-import YearSelect from '../UI/YearSelect';
 import Stack from '@mui/material/Stack';
 
 const DriverDetails = () => {
@@ -95,7 +94,7 @@ const DriverDetails = () => {
                     currentTarget.onerror = null;
                     currentTarget.src = `./img/drivers/unknownDriver.png`;
                   }}
-                  style={{ maxHeight: '100px'}}
+                  style={{ maxHeight: '100px' }}
                   alt='Driver'
                 />
               </TableCell>
@@ -114,25 +113,33 @@ const DriverDetails = () => {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell align='center' className='tableRow-cell'>Nationality:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
+                Nationality:
+              </TableCell>
               <TableCell align='center' className='tableRow-cell'>
                 {driverDetails?.Driver.nationality}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell align='center' className='tableRow-cell'>Team:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
+                Team:
+              </TableCell>
               <TableCell align='center' className='tableRow-cell'>
                 {driverDetails?.Constructors[0].name}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell align='center' className='tableRow-cell'>Date of Birth:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
+                Date of Birth:
+              </TableCell>
               <TableCell align='center' className='tableRow-cell'>
                 {driverDetails?.Driver.dateOfBirth}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell align='center' className='tableRow-cell'>Biography:</TableCell>
+              <TableCell align='center' className='tableRow-cell'>
+                Biography:
+              </TableCell>
               <TableCell align='center' className='details-btn'>
                 {' '}
                 <a href={driverDetails?.Driver.url} target='_blank'>

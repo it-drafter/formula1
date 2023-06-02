@@ -18,7 +18,6 @@ const SearchResultsTeams = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [teams, setTeams] = useState([]);
 
-
   const globalCtx = useContext(GlobalContext);
   const searchStringValue = globalCtx.searchStringValue;
 
@@ -27,13 +26,12 @@ const SearchResultsTeams = () => {
   }, [searchStringValue]);
 
   const getTeams = async (searchStringValue) => {
-   
     const url = `https://ergast.com/api/f1/constructors.json?limit=1000`;
-  
+
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.ConstructorTable.Constructors;
-  
+
       const filteredData = data.filter((team) => {
         return (
           team.name.toLowerCase().includes(searchStringValue.toLowerCase()) ||
@@ -45,7 +43,6 @@ const SearchResultsTeams = () => {
       setTeams(filteredData);
       setIsLoading(false);
     } catch (err) {
-   
       setIsLoading(false);
       setError(err);
     }
@@ -56,22 +53,14 @@ const SearchResultsTeams = () => {
   }
 
   if (isLoading) {
-    return (
-      <RiseLoaderSpinner
-    
-      />
-    );
+    return <RiseLoaderSpinner />;
   }
 
   return (
     <>
       <div className='px-5 w-100 d-flex justify-content-between'>
         <BreadCrumbs levels={[['Teams', '/teams'], 'Search Teams']} />
-        <SearchBox
-         
-          placeholder={'Search Teams'}
-          linkTo={`/teams/search`}
-        />
+        <SearchBox placeholder={'Search Teams'} linkTo={`/teams/search`} />
       </div>
       <h2 className='h2 text-center text-success'>
         Search Results for '{globalCtx.searchStringValue}'
