@@ -34,7 +34,7 @@ export default function YearSelect() {
     <>
       <div>
         <span
-          className='text-light fw-bold mouseHandle d-inline-block mb-4'
+          className='text-light fw-bold mouseHandle d-inline-block mb-4 font-responsive'
           onClick={() => setOpen(!open)}
         >
           Season selector: {globalCtx.chosenYear}

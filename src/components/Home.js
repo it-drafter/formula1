@@ -6,6 +6,7 @@ import Drivers from './Drivers/Drivers';
 import BreadCrumbs from './UI/BreadCrumbs';
 import RiseLoaderSpinner from './UI/RiseLoaderSpinner';
 import {
+  colors,
   Table,
   TableBody,
   TableCell,
@@ -124,7 +125,7 @@ const Home = () => {
         <Table className='table-home col'>
           <TableHead>
             <TableRow className='table-header'>
-              <TableCell colSpan={2}>
+              <TableCell colSpan={2} style={{backgroundColor:'#8BC6AD', color:'#000704'}}>
                 Driver standings for season {globalCtx.chosenYear}.
               </TableCell>
             </TableRow>
