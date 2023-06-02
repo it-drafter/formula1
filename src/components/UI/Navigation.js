@@ -4,7 +4,6 @@ import Drivers from '../Drivers/Drivers';
 import Races from '../Races/Races';
 import Teams from '../Teams/Teams';
 import Home from '../Home';
-// import backdrop from '../../img/home-backdrop.jpg';
 import DriverDetails from '../Drivers/DriverDetails';
 import TeamDetails from '../Teams/TeamDetails';
 import GrandPrixDetails from '../Races/GrandPrixDetails';

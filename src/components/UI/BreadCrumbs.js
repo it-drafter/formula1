@@ -2,7 +2,7 @@ import React from 'react';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { useNavigate } from 'react-router-dom';
-import { Typography } from '@mui/material';
+
 
 const BreadCrumbs = (props) => {
   if (props.home === true) {
@@ -26,7 +26,7 @@ const BreadCrumbs = (props) => {
         <span
          
           aria-current='page'
-          className='text-light font-responsive'
+          className='homeBC font-responsive'
           style={{ fontFamily: 'formulaBold' }}
         >
           Home
