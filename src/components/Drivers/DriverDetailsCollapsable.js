@@ -60,6 +60,7 @@ const DriverDetailsCollapsable = (props) => {
       <Table
         border='50px solid red'
         size='small'
+        padding='0px'
         sx={{ margin: 0, marginBottom: 5 }}
         className='tableContainer'
       >
