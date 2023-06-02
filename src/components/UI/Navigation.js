@@ -12,19 +12,13 @@ import SearchResultsDrivers from '../Search/SearchResultsDrivers';
 import SearchResultsTeams from '../Search/SearchResultsTeams';
 import SearchResultsRaces from '../Search/SearchResultsRaces';
 
-
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-
 export default function Navigation() {
- 
-
   return (
     <>
-     
       <HashRouter basename='/'>
-        
         <div>
           <Navbar
             collapseOnSelect
@@ -35,46 +29,45 @@ export default function Navigation() {
           >
             <Navbar.Brand>
               <Link to='/' className='nav-link-home'>
-               
-                <img src='./img/logo.png' className='homeimg' />
-             
+                <img
+                  src='./img/logo.png'
+                  className='homeimg height-responsive width-responsive'
+                />
               </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
             <Navbar.Collapse id='responsive-navbar-nav'>
               <Nav style={{ fontFamily: 'formulaBold', margin: 'auto' }}>
                 <NavLink to='/drivers' className='nav-link text-center'>
-                  <h2 className='mb-4'>Drivers</h2>
+                  <h2 className='mb-4 font-responsive'>Drivers</h2>
                   <div>
-            
                     <img
                       src='./img/drivers.png'
-                      className='helmet'
+                      className='helmet height-responsive'
                       alt='drivers'
                     />
-     
                   </div>
                 </NavLink>
 
                 <NavLink to='/teams' className='nav-link text-center'>
-                  <h2 className='mb-4'>Teams</h2>
+                  <h2 className='mb-4 font-responsive'>Teams</h2>
                   <div>
-                   
-                    <img src='./img/bolid.png' className='teams1' alt='teams' />
-
+                    <img
+                      src='./img/bolid.png'
+                      className='teams1 height-responsive'
+                      alt='teams'
+                    />
                   </div>
                 </NavLink>
 
                 <NavLink to='/races' className='nav-link text-center'>
-                  <h2 className='mb-4'>Races</h2>
+                  <h2 className='mb-4 font-responsive'>Races</h2>
                   <div>
-                 
                     <img
                       src='./img/raceFlags.png'
-                      className='races2'
+                      className='races2 height-responsive'
                       alt='races'
                     />
-            
                   </div>
                 </NavLink>
               </Nav>
@@ -101,7 +94,6 @@ export default function Navigation() {
           <Route path='/races/search' element={<SearchResultsRaces />} />
         </Routes>
       </HashRouter>
-      
     </>
   );
 }
