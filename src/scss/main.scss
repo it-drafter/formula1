@@ -177,3 +177,21 @@ body {
     align-items: center !important;
   }
 }
+
+@media screen and (max-width: 991px) {
+  .font-responsive {
+    font-size: 11px !important;
+    margin-bottom: 5px !important;
+    padding-bottom: 5px !important;
+  }
+
+  .height-responsive {
+    height: 50px !important;
+    margin-bottom: 1px !important;
+    padding-bottom: 1px !important;
+  }
+
+  .width-responsive {
+    width: 100px !important;
+  }
+}
