@@ -173,3 +173,9 @@ body {
     margin-bottom: 3px !important;
   }
 }
+
+@media screen and (max-width: 900px) {
+  .flex-responsive {
+    align-items: center !important;
+  }
+}

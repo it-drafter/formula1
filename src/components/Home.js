@@ -115,6 +115,7 @@ const Home = () => {
         spacing={2}
         m={5}
         alignItems='flex-start'
+        className='flex-responsive'
       >
         <img
           className='d-block col h-50 w-50 mb-3'
