@@ -124,7 +124,9 @@ const Home = () => {
         <Table className='table-home col'>
           <TableHead>
             <TableRow className='table-header'>
-              <TableCell colSpan={2}>Driver standings for season {globalCtx.chosenYear}.</TableCell>
+              <TableCell colSpan={2}>
+                Driver standings for season {globalCtx.chosenYear}.
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody className='table-body'>
