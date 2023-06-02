@@ -19,15 +19,11 @@ const SearchBox = (props) => {
   const searchString = useRef();
 
   const handleClickSearch = () => {
-    // console.log(searchString.current.value);
+  
     if (searchString.current.value.trim().length === 0) {
       return false;
     }
 
-    // console.log('Search props ', props);
-    // props.onSearch(searchString.current.value);
-
-    // const linkTo = `/drivers/search`;
     globalCtx.setSearchStringFn(searchString.current.value.trim());
     navigate(props.linkTo);
   };
@@ -56,10 +52,10 @@ const SearchBox = (props) => {
         sx={{ ml: 1, flex: 1 }}
         autoFocus
         placeholder={props.placeholder}
-        // defaultValue={'Adam'}
+       
         inputProps={{ 'aria-label': 'search' }}
         inputRef={searchString}
-        // onKeyDown={(e) => e.key === 'Enter' && e.preventDefault()}
+       
         onKeyDown={handleKeyDown}
       />
       <IconButton

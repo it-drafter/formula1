@@ -15,7 +15,7 @@ export default function YearSelect() {
 
   const startYear = 1950;
   const allYear = moment().year();
-  // const { handleselectedYear } = useContext(GlobalContext);
+
 
   const years = [];
   for (let year = startYear; year <= allYear; year++) {
@@ -24,11 +24,11 @@ export default function YearSelect() {
 
   const handleClick = (year) => {
     globalCtx.setYearFn(year);
-    console.log('YearSelect component:', year);
-    // props.onReRender();
+    
+    
   };
 
-  // console.log('Year from context:', globalCtx.chosenYear);
+ 
 
   return (
     <>
@@ -52,7 +52,7 @@ export default function YearSelect() {
       </div>
       <Collapse in={open} timeout='auto' unmountOnExit>
         <div className='container mx-auto mb-4'>
-          {/* <h1 className='h4 text-primary fw-bold'>Season:</h1> */}
+   
 
           {years.map((year) => (
             <Button

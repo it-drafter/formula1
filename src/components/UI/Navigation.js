@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Link, Routes, Route, NavLink, HashRouter } from 'react-router-dom';
 import Drivers from '../Drivers/Drivers';
 import Races from '../Races/Races';
@@ -11,92 +11,70 @@ import GrandPrixDetails from '../Races/GrandPrixDetails';
 import SearchResultsDrivers from '../Search/SearchResultsDrivers';
 import SearchResultsTeams from '../Search/SearchResultsTeams';
 import SearchResultsRaces from '../Search/SearchResultsRaces';
-import Tooltip from '@mui/material/Tooltip';
 
-import Container from 'react-bootstrap/Container';
+
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+
 
 export default function Navigation() {
-  // const [isActive, setIsActive] = useState(false);
-  // const ToggleClass = () => {
-  //     setIsActive(!isActive)
-  // }
-  // useEffect(() => {
-  //   return () => {
-  //     setIsActive(isActive)
-
-  //   };
-  // }, []);
+ 
 
   return (
     <>
-      {/* <Router> */}
+     
       <HashRouter basename='/'>
-        {/* <div style={{ backgroundImage: `url(${backdrop})` }}> */}
+        
         <div>
           <Navbar
             collapseOnSelect
-            expand='md'
+            expand='lg'
             bg='dark'
             variant='dark'
             className='NavContainer'
           >
             <Navbar.Brand>
               <Link to='/' className='nav-link-home'>
-                {/* <Tooltip
-                  placement='right'
-                  title='Home'
-                  className='tooltip-home'
-                  arrow
-                > */}
-                <img
-                  src='./img/logo.png'
-                  className='homeimg height-responsive width-responsive'
-                />
-                {/* </Tooltip> */}
+               
+                <img src='./img/logo.png' className='homeimg' />
+             
               </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
             <Navbar.Collapse id='responsive-navbar-nav'>
               <Nav style={{ fontFamily: 'formulaBold', margin: 'auto' }}>
                 <NavLink to='/drivers' className='nav-link text-center'>
-                  <h2 className='mb-4 font-responsive'>Drivers</h2>
+                  <h2 className='mb-4'>Drivers</h2>
                   <div>
-                    {/* <Tooltip title='All Drivers' placement='top' arrow> */}
+            
                     <img
                       src='./img/drivers.png'
-                      className='helmet height-responsive'
+                      className='helmet'
                       alt='drivers'
                     />
-                    {/* </Tooltip> */}
+     
                   </div>
                 </NavLink>
 
                 <NavLink to='/teams' className='nav-link text-center'>
-                  <h2 className='mb-4 font-responsive'>Teams</h2>
+                  <h2 className='mb-4'>Teams</h2>
                   <div>
-                    {/* <Tooltip title='All Teams' placement='top' arrow> */}
-                    <img
-                      src='./img/bolid.png'
-                      className='teams1 height-responsive'
-                      alt='teams'
-                    />
-                    {/* </Tooltip> */}
+                   
+                    <img src='./img/bolid.png' className='teams1' alt='teams' />
+
                   </div>
                 </NavLink>
 
                 <NavLink to='/races' className='nav-link text-center'>
-                  <h2 className='mb-4 font-responsive'>Races</h2>
+                  <h2 className='mb-4'>Races</h2>
                   <div>
-                    {/* <Tooltip title='All Races' placement='top' arrow> */}
+                 
                     <img
                       src='./img/raceFlags.png'
-                      className='races2 height-responsive'
+                      className='races2'
                       alt='races'
                     />
-                    {/* </Tooltip> */}
+            
                   </div>
                 </NavLink>
               </Nav>
@@ -123,7 +101,7 @@ export default function Navigation() {
           <Route path='/races/search' element={<SearchResultsRaces />} />
         </Routes>
       </HashRouter>
-      {/* </Router> */}
+      
     </>
   );
 }
