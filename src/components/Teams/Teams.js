@@ -34,7 +34,6 @@ const Teams = () => {
       const data =
         response.data.MRData.StandingsTable.StandingsLists[0]
           .ConstructorStandings;
-      console.log(data);
       setTeams(data);
       setIsLoading(false);
     } catch (err) {

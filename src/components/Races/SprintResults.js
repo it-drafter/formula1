@@ -41,14 +41,7 @@ const SprintResults = (props) => {
 
   if (isLoading) {
     return (
-      <RiseLoaderSpinner
-      // style={{
-      //   height: '50vh',
-      //   display: 'flex',
-      //   justifyContent: 'center',
-      //   alignItems: 'center',
-      // }}
-      />
+      <RiseLoaderSpinner/>
     );
   }
 

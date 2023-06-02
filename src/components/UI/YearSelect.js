@@ -34,7 +34,7 @@ export default function YearSelect() {
     <>
       <div>
         <span
-          className='text-light fw-bold mouseHandle d-inline-block mb-4'
+          className='text-light fw-bold mouseHandle d-inline-block mb-4 font-responsive'
           onClick={() => setOpen(!open)}
         >
           Season selector: {globalCtx.chosenYear}
@@ -43,7 +43,7 @@ export default function YearSelect() {
           <IconButton
             aria-label='expand row'
             size='small'
-            color='error'
+            color='success'
             onClick={() => setOpen(!open)}
           >
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
@@ -59,7 +59,7 @@ export default function YearSelect() {
               active={year === globalCtx.chosenYear}
               variant='success'
               size='sm'
-              className='col years'
+              className='col years font-responsive'
               key={year}
               onClick={() => handleClick(year)}
             >

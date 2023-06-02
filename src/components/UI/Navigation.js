@@ -1,29 +1,28 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Link, Routes, Route, NavLink, HashRouter } from 'react-router-dom';
 import Drivers from '../Drivers/Drivers';
 import Races from '../Races/Races';
 import Teams from '../Teams/Teams';
 import Home from '../Home';
-
+// import backdrop from '../../img/home-backdrop.jpg';
 import DriverDetails from '../Drivers/DriverDetails';
 import TeamDetails from '../Teams/TeamDetails';
 import GrandPrixDetails from '../Races/GrandPrixDetails';
 import SearchResultsDrivers from '../Search/SearchResultsDrivers';
 import SearchResultsTeams from '../Search/SearchResultsTeams';
 import SearchResultsRaces from '../Search/SearchResultsRaces';
-import Tooltip from '@mui/material/Tooltip';
 
-import Container from 'react-bootstrap/Container';
+
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+
 
 export default function Navigation() {
-  
+ 
 
   return (
     <>
-      {/* <Router> */}
+     
       <HashRouter basename='/'>
         
         <div>
@@ -38,7 +37,7 @@ export default function Navigation() {
               <Link to='/' className='nav-link-home'>
                
                 <img src='./img/logo.png' className='homeimg' />
-               
+             
               </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
@@ -47,35 +46,35 @@ export default function Navigation() {
                 <NavLink to='/drivers' className='nav-link text-center'>
                   <h2 className='mb-4'>Drivers</h2>
                   <div>
-                    
+            
                     <img
                       src='./img/drivers.png'
                       className='helmet'
                       alt='drivers'
                     />
-                  
+     
                   </div>
                 </NavLink>
 
                 <NavLink to='/teams' className='nav-link text-center'>
                   <h2 className='mb-4'>Teams</h2>
                   <div>
-                    
-                    <img src='./img/bolid.png' className='teams1' alt='teams' />
                    
+                    <img src='./img/bolid.png' className='teams1' alt='teams' />
+
                   </div>
                 </NavLink>
 
                 <NavLink to='/races' className='nav-link text-center'>
                   <h2 className='mb-4'>Races</h2>
                   <div>
-                  
+                 
                     <img
                       src='./img/raceFlags.png'
                       className='races2'
                       alt='races'
                     />
-                    
+            
                   </div>
                 </NavLink>
               </Nav>
@@ -102,7 +101,7 @@ export default function Navigation() {
           <Route path='/races/search' element={<SearchResultsRaces />} />
         </Routes>
       </HashRouter>
-     
+      
     </>
   );
 }

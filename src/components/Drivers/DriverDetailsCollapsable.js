@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-//import { RiseLoader } from 'react-spinners';
 import {
   Table,
   TableHead,
@@ -26,7 +25,6 @@ const DriverDetailsCollapsable = (props) => {
 
   const getDriverDetails = async () => {
     const urlDriver = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${props.driverId}/driverStandings.json`;
-    // const urlDriver = `https://raw.githubusercontent.com/nkezic/f1/main/DriverDetails`;
     try {
       const responseDriver = await axios.get(urlDriver);
       setDriverDetails(
@@ -35,7 +33,6 @@ const DriverDetailsCollapsable = (props) => {
       );
       setIsLoading(false);
     } catch (err) {
-      //   console.log(err);
       setIsLoading(false);
       setError(err);
     }
@@ -47,31 +44,17 @@ const DriverDetailsCollapsable = (props) => {
 
   if (isLoading) {
     return (
-      <>
-        {/* <RiseLoader
-        size={4}
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginBottom: '15px',
-        }}
-      /> */}
-
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          {/* ,  justifyContent: 'space-between' */}
-          {/* <Avatar width={200} height={200} /> */}
-          <Skeleton variant='circular' width={50} height={50} />
-          <Skeleton
-            variant='rounded'
-            animation='wave'
-            height={50}
-            style={{ width: '80%', margin: 20 }}
-          />
-        </Box>
-      </>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Skeleton variant='circular' width={50} height={50} />
+        <Skeleton
+          variant='rounded'
+          animation='wave'
+          height={50}
+          style={{ width: '80%', margin: 20 }}
+        />
+      </Box>
     );
   }
-  console.log('moj props', props);
   return (
     <>
       <Table
@@ -109,7 +92,7 @@ const DriverDetailsCollapsable = (props) => {
                   currentTarget.onerror = null;
                   currentTarget.src = `./img/drivers/unknownDriver.png`;
                 }}
-                style={{ width: '120px', paddingRight: '30px'}}
+                style={{ width: '120px', paddingRight: '30px' }}
                 alt='Driver'
               />
             </TableCell>
