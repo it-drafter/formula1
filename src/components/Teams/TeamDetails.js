@@ -16,7 +16,7 @@ const TeamDetails = (props) => {
 
   const [teamDetails, setTeamDetails] = useState({});
   const [teamResults, setTeamResults] = useState([]);
-  // const [teamResultIndex, setTeamResultIndex] = useState(0);
+
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -27,7 +27,7 @@ const TeamDetails = (props) => {
   const navigate = useNavigate();
 
   const handleDrivers = (raceDetails) => {
-    console.log('klik na race');
+   
     const linkTo = `/races/details/${raceDetails}`;
     navigate(linkTo);
   };
@@ -37,15 +37,13 @@ const TeamDetails = (props) => {
   }, []);
 
   const getTeamDetails = async () => {
-    // const urlDetails = `https://raw.githubusercontent.com/nkezic/f1/main/TeamDetails`;
-    // const urlResults = `https://raw.githubusercontent.com/nkezic/f1/main/TeamResults`;
     const urlDetails = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
     const urlResults = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/results.json`;
     try {
       const responseDetails = await axios.get(urlDetails);
       const responseResults = await axios.get(urlResults);
 
-      console.log('test11111111111:', responseDetails);
+    
 
       setTeamDetails(
         responseDetails.data.MRData.StandingsTable.StandingsLists[0]
@@ -55,7 +53,6 @@ const TeamDetails = (props) => {
 
       setIsLoading(false);
     } catch (err) {
-      //   console.log(err);
       setIsLoading(false);
       setError(err);
     }
