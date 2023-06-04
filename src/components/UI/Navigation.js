@@ -21,7 +21,11 @@ export default function Navigation() {
           <Navbar
             collapseOnSelect
             expand='lg'
-            bg='dark'
+            style={{
+              backgroundColor: '#095534',
+              borderBottom: '1px solid #AED9C6'
+            }}
+
             variant='dark'
             className='NavContainer'
           >

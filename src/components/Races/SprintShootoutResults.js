@@ -23,7 +23,7 @@ const SprintShootoutResults = (props) => {
   }, []);
 
   const getSprintShootout = async () => {
-    const url = `/api/f1/${globalCtx.chosenYear}/${props.round}/shootout.json`;
+    const url = `./api/f1/${globalCtx.chosenYear}/${props.round}/shootout.json`;
     try {
       const response = await axios.get(url);
       const data = response.data.MRData.RaceTable.Races[0].ShootoutResults;
