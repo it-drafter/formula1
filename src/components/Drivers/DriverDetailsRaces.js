@@ -50,7 +50,7 @@ const DriverDetailsRaces = (props) => {
                   onClick={() => props.handleRouteToGrandPrix(DetailRace.round)}
                   className='mouseHandle tableRow-cell'
                 >
-                  <div className='flagName'>
+                  <div className='flagName tableRow-cell mouseHandle'>
                     {globalCtx.flagFn(
                       props.driverDetailsRaces[index].Circuit.Location.country
                     )}
@@ -66,7 +66,7 @@ const DriverDetailsRaces = (props) => {
                   }
                   className='mouseHandle flagName tableRow-cell'
                 >
-                  <div className='flagName'>
+                  <div className='flagName tableRow-cell mouseHandle'>
                     {globalCtx.flagFn(
                       DetailRace.Results[0].Constructor.nationality
                     )}
