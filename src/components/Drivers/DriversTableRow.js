@@ -14,6 +14,7 @@ const DriversTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+
   const handleClickDetails = (driverId) => {
     const linkTo = `/drivers/details/${driverId}`;
     navigate(linkTo);

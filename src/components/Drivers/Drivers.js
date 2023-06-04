@@ -20,9 +20,11 @@ const Drivers = (props) => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [drivers, setDrivers] = useState([]);
+
   useEffect(() => {
     getDrivers();
   }, [globalCtx.chosenYear]);
+
   const getDrivers = async () => {
     const url = `https://ergast.com/api/f1/${globalCtx.chosenYear}/driverStandings.json`;
     setIsLoading(true);
