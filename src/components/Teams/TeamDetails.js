@@ -55,7 +55,17 @@ const TeamDetails = (props) => {
   };
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    return (
+      <>
+        <div className='px-5 w-100 d-flex justify-content-start mb-3'>
+          <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
+        </div>
+        <h2 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
+          No data for team {teamId} in season {globalCtx.chosenYear}
+        </h2>
+        <Footer />
+      </>
+    );
   }
 
   if (isLoading) {
