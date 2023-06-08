@@ -9,6 +9,7 @@ import DriverDetailsRaces from './DriverDetailsRaces';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import Stack from '@mui/material/Stack';
+import YearSelect from '../UI/YearSelect';
 
 const DriverDetails = () => {
   const globalCtx = useContext(GlobalContext);
@@ -28,6 +29,7 @@ const DriverDetails = () => {
   }, [globalCtx.chosenYear]);
 
   const getDriverDetails = async () => {
+    setIsLoading(true);
     setError(null);
     const urlDriver = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/driverStandings.json`;
     const urlRaces = `https://ergast.com/api/f1/${globalCtx.chosenYear}/drivers/${driverId}/results.json`;
@@ -52,9 +54,15 @@ const DriverDetails = () => {
         <div className='px-5 w-100 d-flex justify-content-start mb-3'>
           <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
         </div>
-        <h2 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
+        <h2 className='tableRow-boldCell text-success mt-5 mb-3 mx-auto text-center'>
           No data for driver {driverId} in season {globalCtx.chosenYear}
         </h2>
+        <h2 className='tableRow-boldCell text-success mb-3 mx-auto text-center'>
+          Choose another season.
+        </h2>
+        <div className='text-center'>
+          <YearSelect />
+        </div>
         <Footer />
       </>
     );
@@ -74,10 +82,9 @@ const DriverDetails = () => {
       </div>
 
       <div className='text-center'>
-        <span className='tableRow-boldCell text-success'>
-          Season {globalCtx.chosenYear}
-        </span>
+        <YearSelect />
       </div>
+
       <Stack
         direction={{ sm: 'column', md: 'row' }}
         spacing={2}

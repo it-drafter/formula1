@@ -9,6 +9,7 @@ import TeamDetailsRaces from './TeamDetailsRaces';
 import BreadCrumbs from '../UI/BreadCrumbs';
 import Footer from '../UI/Footer';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import YearSelect from '../UI/YearSelect';
 
 const TeamDetails = (props) => {
   const globalCtx = useContext(GlobalContext);
@@ -32,9 +33,11 @@ const TeamDetails = (props) => {
 
   useEffect(() => {
     getTeamDetails();
-  }, []);
+  }, [globalCtx.chosenYear]);
 
   const getTeamDetails = async () => {
+    setIsLoading(true);
+    setError(null);
     const urlDetails = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/constructorStandings.json`;
     const urlResults = `https://ergast.com/api/f1/${globalCtx.chosenYear}/constructors/${teamId}/results.json`;
     try {
@@ -60,9 +63,15 @@ const TeamDetails = (props) => {
         <div className='px-5 w-100 d-flex justify-content-start mb-3'>
           <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
         </div>
-        <h2 className='tableRow-boldCell text-success mt-5 mb-0 mx-auto text-center'>
+        <h2 className='tableRow-boldCell text-success mt-5 mb-3 mx-auto text-center'>
           No data for team {teamId} in season {globalCtx.chosenYear}
         </h2>
+        <h2 className='tableRow-boldCell text-success mb-3 mx-auto text-center'>
+          Choose another season.
+        </h2>
+        <div className='text-center'>
+          <YearSelect />
+        </div>
         <Footer />
       </>
     );
@@ -77,10 +86,9 @@ const TeamDetails = (props) => {
       <div className='px-5 w-100 d-flex justify-content-start mb-3'>
         <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
       </div>
+
       <div className='text-center'>
-        <span className='tableRow-boldCell text-success'>
-          Season {globalCtx.chosenYear}
-        </span>
+        <YearSelect />
       </div>
 
       <Stack

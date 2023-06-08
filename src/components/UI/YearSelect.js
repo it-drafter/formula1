@@ -32,7 +32,7 @@ export default function YearSelect() {
           className='text-light fw-bold mouseHandle d-inline-block mb-4 font-responsive'
           onClick={() => setOpen(!open)}
         >
-          Season selector: {globalCtx.chosenYear}
+          Season: {globalCtx.chosenYear}
         </span>
         <Tooltip placement='right' title='Show all seasons' arrow>
           <IconButton
