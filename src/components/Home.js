@@ -62,13 +62,14 @@ const Home = () => {
       <div className='px-5 w-100 d-flex justify-content-start mb-3'>
         <BreadCrumbs />
       </div>
+
+      <h1 className='h1 text-center text-success'>
+        Formula 1 Championship Info
+      </h1>
+
       <div className='text-center'>
         <YearSelect />
       </div>
-
-      <h1 className='h1 text-center text-success mt-4'>
-        Formula 1 Championship Info
-      </h1>
 
       <Stack
         direction={{ sm: 'column', md: 'row' }}
