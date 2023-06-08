@@ -64,7 +64,7 @@ const TeamDetails = (props) => {
           <BreadCrumbs levels={[['Teams', '/teams'], 'Team Details']} />
         </div>
         <h2 className='tableRow-boldCell text-success mt-5 mb-3 mx-auto text-center'>
-          No data for team {teamId} in season {globalCtx.chosenYear}
+          No data for team {teamId} in season {globalCtx.chosenYear}.
         </h2>
         <h2 className='tableRow-boldCell text-success mb-3 mx-auto text-center'>
           Choose another season.

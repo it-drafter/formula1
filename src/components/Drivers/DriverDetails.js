@@ -55,7 +55,7 @@ const DriverDetails = () => {
           <BreadCrumbs levels={[['Drivers', '/drivers'], 'Driver Details']} />
         </div>
         <h2 className='tableRow-boldCell text-success mt-5 mb-3 mx-auto text-center'>
-          No data for driver {driverId} in season {globalCtx.chosenYear}
+          No data for driver {driverId} in season {globalCtx.chosenYear}.
         </h2>
         <h2 className='tableRow-boldCell text-success mb-3 mx-auto text-center'>
           Choose another season.
