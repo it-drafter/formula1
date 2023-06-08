@@ -63,7 +63,7 @@ const Home = () => {
         <BreadCrumbs />
       </div>
 
-      <h1 className='h1 text-center text-success'>
+      <h1 className='h1 text-center text-success mb-4'>
         Formula 1 Championship Info
       </h1>
 
