@@ -8,7 +8,7 @@ import moment from 'moment/moment';
 const App = () => {
   const [flags, setFlags] = useState([]);
   const [year, setYear] = useState(moment().year());
-  const [searchString, setSearchString] = useState('');
+  const [searchString, setSearchString] = useState('Enter search criterium!');
   const [error, setError] = useState(null);
 
   useEffect(() => {

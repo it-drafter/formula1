@@ -67,7 +67,7 @@ const SearchResultsDrivers = () => {
         <BreadCrumbs levels={[['Drivers', '/drivers'], 'Search Drivers']} />
         <SearchBox placeholder={'Search Drivers'} linkTo={`/drivers/search`} />
       </div>
-      <h2 className='h2 text-center text-success'>
+      <h2 className='h2 text-center text-success mt-4'>
         Search Results for '{globalCtx.searchStringValue}'
       </h2>
       <Table className='tableContainer'>

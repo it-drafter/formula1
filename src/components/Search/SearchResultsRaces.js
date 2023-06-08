@@ -78,7 +78,7 @@ const SearchResultsRaces = () => {
         <BreadCrumbs levels={[['Races', '/races'], 'Search Races']} />
         <SearchBox placeholder={'Search Races'} linkTo={`/races/search`} />
       </div>
-      <h2 className='h2 text-center text-success'>
+      <h2 className='h2 text-center text-success mt-4'>
         Search Results for '{globalCtx.searchStringValue}'
       </h2>
       <Table className='tableContainer'>
