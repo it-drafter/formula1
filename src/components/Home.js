@@ -66,6 +66,10 @@ const Home = () => {
         <YearSelect />
       </div>
 
+      <h1 className='h1 text-center text-success mt-4'>
+        Formula 1 Championship Info
+      </h1>
+
       <Stack
         direction={{ sm: 'column', md: 'row' }}
         spacing={2}
