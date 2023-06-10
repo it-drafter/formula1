@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import GlobalContext from '../../context/global-context';
@@ -9,7 +9,6 @@ const SearchResultsDriversTableRow = (props) => {
   const globalCtx = useContext(GlobalContext);
   const navigate = useNavigate();
 
-
   const handleDriverDetails = (driverId) => {
     const linkTo = `/drivers/details/${driverId}`;
     navigate(linkTo);
@@ -18,7 +17,10 @@ const SearchResultsDriversTableRow = (props) => {
   return (
     <>
       <TableRow>
-        <TableCell component='th' scope='row' className='mouseHandle tableRow-cell'
+        <TableCell
+          component='th'
+          scope='row'
+          className='mouseHandle tableRow-cell'
           onClick={() => handleDriverDetails(props.driver.driverId)}
         >
           {`${props.driver.givenName} ${props.driver.familyName}`}
