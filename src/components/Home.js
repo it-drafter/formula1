@@ -35,8 +35,21 @@ const Home = () => {
       setDrivers(data);
       setIsLoading(false);
     } catch (err) {
-      setIsLoading(false);
-      setError(err);
+      try {
+        const response = await axios.get(
+          `https://ergast.com/api/f1/${
+            globalCtx.chosenYear - 1
+          }/driverStandings.json`
+        );
+        const data =
+          response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+        setDrivers(data);
+        setIsLoading(false);
+        globalCtx.setYearFn(globalCtx.chosenYear - 1);
+      } catch (err) {
+        setIsLoading(false);
+        setError(err);
+      }
     }
   };
 
